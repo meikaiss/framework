@@ -1,4 +1,4 @@
-package com.android.framework.Utils;
+package com.android.framework.utils;
 
 import java.util.Map;
 

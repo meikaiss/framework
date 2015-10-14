@@ -1,4 +1,4 @@
-package com.android.framework.Utils;
+package com.android.framework.utils;
 
 /**
  * Created by meikai on 15/10/13.

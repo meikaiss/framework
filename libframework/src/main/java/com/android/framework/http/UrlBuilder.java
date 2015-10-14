@@ -1,6 +1,6 @@
 package com.android.framework.http;
 
-import com.android.framework.Utils.ObjectUtil;
+import com.android.framework.utils.ObjectUtil;
 
 import java.util.HashMap;
 import java.util.Iterator;
