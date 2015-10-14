@@ -1,10 +1,11 @@
-package com.android.framework.app;
+package com.android.framework.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 
-public class FlowActivity extends Activity {
+
+public class FlowLayoutActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
