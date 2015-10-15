@@ -15,7 +15,7 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 
     private ListView listView;
-    private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class};
+    private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

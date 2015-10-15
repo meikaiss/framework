@@ -15,6 +15,7 @@ public class ScrollLayoutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolllayout);
 
+        this.setTitle(this.getClass().getSimpleName());
     }
 
 

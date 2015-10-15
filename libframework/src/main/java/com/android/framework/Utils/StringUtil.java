@@ -16,4 +16,9 @@ public final class StringUtil {
     public static boolean isNotEmpty(String source){
         return !isEmpty(source);
     }
+
+    public static boolean isEmptyOrLiterallyNull(String s){
+        return isEmpty(s) || "null".equals(s);
+    }
+
 }

@@ -18,6 +18,8 @@
 
         <activity android:name=".FlowLayoutActivity"/>
         <activity android:name=".ScrollLayoutActivity"/>
+        <activity android:name=".ExplosionActivity"/>
+
     </application>
 
 </manifest>
