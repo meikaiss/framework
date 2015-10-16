@@ -6,4 +6,9 @@
         <attr name="BorderColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="RoundImageViewByXfermode">
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type" format="integer"/>
+    </declare-styleable>
+
 </resources>

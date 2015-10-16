@@ -15,7 +15,8 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 
     private ListView listView;
-    private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class};
+    private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
+            AppCompatTestActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends Activity {
     private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Class<?> className = (Class<?>)parent.getAdapter().getItem(position);
+            Class<?> className = (Class<?>) parent.getAdapter().getItem(position);
             MainActivity.this.startActivity(new Intent(MainActivity.this, className));
         }
     };
