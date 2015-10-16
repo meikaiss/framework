@@ -20,6 +20,7 @@ import com.android.framework.R;
 
 /**
  * Created by meikai on 15/10/13.
+ * 基于 BitmapShader
  */
 public class CircleImageView extends ImageView {
 
