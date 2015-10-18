@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/ac_toolbar_copy"
+        android:icon="@drawable/avater"
+        android:orderInCategory="60"
+        android:title="复制"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/ac_toolbar_cut"
+        android:icon="@drawable/avater"
+        android:orderInCategory="70"
+        android:title="剪切"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/ac_toolbar_del"
+        android:icon="@drawable/avater"
+        android:orderInCategory="80"
+        android:title="删除"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/ac_toolbar_edit"
+        android:icon="@drawable/avater"
+        android:orderInCategory="90"
+        android:title="编辑"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/ac_toolbar_email"
+        android:icon="@drawable/avater"
+        android:orderInCategory="100"
+        android:title="邮箱"
+        app:showAsAction="ifRoom" />
+</menu>

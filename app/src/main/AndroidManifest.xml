@@ -19,9 +19,11 @@
         <activity android:name=".FlowLayoutActivity" />
         <activity android:name=".ScrollLayoutActivity" />
         <activity android:name=".ExplosionActivity" />
+        <activity android:name=".NumberSeekBarActivity" />
         <activity
             android:name=".AppCompatTestActivity"
-            android:theme="@style/Theme_TestAppCompat" />
+            android:theme="@style/Theme_TestAppCompat"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
     </application>
 

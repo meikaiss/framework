@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
-            AppCompatTestActivity.class};
+            NumberSeekBarActivity.class, AppCompatTestActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
