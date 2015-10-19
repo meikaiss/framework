@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.widget.SeekBar;
 
 import com.android.framework.R;
+import com.android.framework.utils.DensityUtil;
 
 /**
  * Created by meikai on 15/10/18.
@@ -44,7 +45,7 @@ public class NumberSeekBar extends SeekBar {
 
     private Bitmap bm;
 
-    private int textsize = 13;
+    private int textsize = 16;
 
     private int textpaddingleft;
 
@@ -93,7 +94,7 @@ public class NumberSeekBar extends SeekBar {
     private void initDraw() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setTypeface(Typeface.DEFAULT);
-        mPaint.setTextSize(textsize);
+        mPaint.setTextSize(DensityUtil.dp2px(this.getContext(), textsize));
         mPaint.setColor(0xff23fc4f);
     }
 

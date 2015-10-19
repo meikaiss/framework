@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="14dp">
 
     <com.android.framework.view.NumberSeekBar
@@ -12,6 +13,18 @@
         android:max="100"
         android:progressDrawable="@drawable/bg_number_seekbar"
         android:thumb="@drawable/selector_btn_seekbar" />
+
+    <com.android.framework.view.NumberSeekBar
+        style="@style/NumberProgressBar_Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:max="100"
+        android:thumb="@drawable/selector_btn_seekbar" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
