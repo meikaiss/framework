@@ -24,6 +24,10 @@
             android:name=".AppCompatTestActivity"
             android:theme="@style/Theme_TestAppCompat"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".StatusBarColorActivity"
+            android:theme="@style/ColorStatusBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
     </application>
 

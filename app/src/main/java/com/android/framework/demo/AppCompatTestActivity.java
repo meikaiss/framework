@@ -32,7 +32,7 @@ public class AppCompatTestActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.ac_toolbar_copy:
-                Toast.makeText(this, "点击了按钮1", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("AlertDialog的标题");
@@ -53,16 +53,10 @@ public class AppCompatTestActivity extends AppCompatActivity {
                 builder.show();
                 break;
             case R.id.ac_toolbar_cut:
-
-                break;
             case R.id.ac_toolbar_del:
-
-                break;
             case R.id.ac_toolbar_edit:
-
-                break;
             case R.id.ac_toolbar_email:
-
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_LONG).show();
                 break;
             default:
                 break;
