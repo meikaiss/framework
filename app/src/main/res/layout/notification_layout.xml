@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNotiTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btNotiLast"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/btNotiPlay"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/btNotiNext"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -20,7 +20,8 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
-            NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class};
+            NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
+            NotificationActivity.class, BonuceLoadingActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

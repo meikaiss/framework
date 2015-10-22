@@ -28,6 +28,9 @@
             android:name=".StatusBarColorActivity"
             android:theme="@style/ColorStatusBar"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name=".NotificationActivity"
+            android:theme="@style/Theme_TestAppCompat"/>
+        <activity android:name=".BonuceLoadingActivity"/>
 
     </application>
 
