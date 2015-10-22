@@ -21,7 +21,7 @@ public class StatusBarColorActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // 5.0 以上版本 第二参数 会 覆盖colorPrimaryDark的值
-        StatusBarCompat.compat(this, Color.parseColor("#BF29F7"));
+        StatusBarCompat.compat(this, Color.RED);
 
     }
 

@@ -22,7 +22,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="HelloWorld123"
+            android:text="Android 4.4 以上修改状态栏背景色"
             android:textSize="30sp" />
     </LinearLayout>
 
