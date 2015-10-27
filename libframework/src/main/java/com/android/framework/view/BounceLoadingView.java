@@ -37,8 +37,6 @@ public class BounceLoadingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        canvas.drawLine(getWidth()/2, 0 , getWidth()/2+1 , getHeight(), mPaint);
-
         //获取视图的中心点
         startX = getWidth() / 2;
         endY = getHeight() / 2;
@@ -74,7 +72,6 @@ public class BounceLoadingView extends View {
         valueAnimator.setDuration(600);
         valueAnimator.start();
     }
-
 
     /**
      * 绘制圆形
@@ -120,4 +117,5 @@ public class BounceLoadingView extends View {
     public void setColor(int color) {
         this.color = color;
     }
+
 }

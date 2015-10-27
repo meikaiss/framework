@@ -2,8 +2,6 @@ package com.android.framework.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 
 import com.android.framework.view.BounceLoadingView;
@@ -23,16 +21,7 @@ public class BonuceLoadingActivity extends Activity {
 
         bounceLoadingView = (BounceLoadingView) findViewById(R.id.bounce_loading_view);
 
-        handler.sendEmptyMessage(0);
     }
-
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            bounceLoadingView.playAnimator();
-        }
-    };
 
     public void startBounce(View view){
         bounceLoadingView.playAnimator();

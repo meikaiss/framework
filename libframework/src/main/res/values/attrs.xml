@@ -8,8 +8,25 @@
 
     <declare-styleable name="RoundImageViewByXfermode">
         <attr name="borderRadius" format="dimension" />
-        <attr name="type" format="integer"/>
+        <attr name="type" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="CircleLoadingView">
+        <attr name="circleColor1" format="color" />
+        <attr name="circleColor2" format="color" />
+        <attr name="circleColor3" format="color" />
+        <attr name="circleColor4" format="color" />
+        <attr name="surroundRadius" format="dimension" />
+        <attr name="smallRadius" format="dimension" />
+        <attr name="ovalFactorX" format="dimension" />
+        <attr name="ovalFactorY" format="dimension" />
+        <attr name="surround_duration" format="integer" />
+        <attr name="surround_type" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="oval" value="1" />
+        </attr>
+    </declare-styleable>
+
 
     <!-- NumberSeekBar -->
     <declare-styleable name="NumberProgressBar">

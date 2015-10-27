@@ -31,6 +31,7 @@
         <activity android:name=".NotificationActivity"
             android:theme="@style/Theme_TestAppCompat"/>
         <activity android:name=".BonuceLoadingActivity"/>
+        <activity android:name=".CircleLoadingActivity"/>
 
     </application>
 

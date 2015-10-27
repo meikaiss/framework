@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
     private ListView listView;
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
-            NotificationActivity.class, BonuceLoadingActivity.class};
+            NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //            Class<?> className = (Class<?>) parent.getAdapter().getItem(position);
+
             Class<?> className = classes[position];
             MainActivity.this.startActivity(new Intent(MainActivity.this, className));
         }
