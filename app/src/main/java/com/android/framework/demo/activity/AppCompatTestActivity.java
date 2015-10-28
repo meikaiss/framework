@@ -1,4 +1,4 @@
-package com.android.framework.demo;
+package com.android.framework.demo.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.android.framework.demo.R;
 
 /**
  * Created by meikai on 15/10/16.

@@ -9,6 +9,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.framework.demo.activity.AppCompatTestActivity;
+import com.android.framework.demo.activity.BonuceLoadingActivity;
+import com.android.framework.demo.activity.CircleLoadingActivity;
+import com.android.framework.demo.activity.ExplosionActivity;
+import com.android.framework.demo.activity.FlowLayoutActivity;
+import com.android.framework.demo.activity.NumberSeekBarActivity;
+import com.android.framework.demo.activity.ScrollLayoutActivity;
+import com.android.framework.demo.activity.StatusBarColorActivity;
+import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
+import com.android.framework.demo.activity.nolib.IntentServiceActivity;
+import com.android.framework.demo.activity.nolib.NotificationActivity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +33,8 @@ public class MainActivity extends Activity {
     private ListView listView;
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
-            NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class};
+            NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
+            HandlerThreadActivity.class, IntentServiceActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +46,7 @@ public class MainActivity extends Activity {
         addContentView(listView, lp);
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_demo, R.id.tv_activity_name, getArray(classes));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(listener);
 

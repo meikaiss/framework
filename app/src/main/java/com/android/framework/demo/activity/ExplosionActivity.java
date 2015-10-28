@@ -1,10 +1,11 @@
-package com.android.framework.demo;
+package com.android.framework.demo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.framework.demo.R;
 import com.android.framework.view.explosion.ExplosionView;
 
 /**

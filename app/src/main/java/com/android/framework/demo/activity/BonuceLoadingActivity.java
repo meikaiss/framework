@@ -1,9 +1,10 @@
-package com.android.framework.demo;
+package com.android.framework.demo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.framework.demo.R;
 import com.android.framework.view.BounceLoadingView;
 
 

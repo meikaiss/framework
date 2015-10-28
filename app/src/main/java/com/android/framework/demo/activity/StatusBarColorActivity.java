@@ -1,4 +1,4 @@
-package com.android.framework.demo;
+package com.android.framework.demo.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.android.framework.compat.StatusBarCompat;
+import com.android.framework.demo.R;
 
 /**
  * Created by meikai on 15/10/21.
