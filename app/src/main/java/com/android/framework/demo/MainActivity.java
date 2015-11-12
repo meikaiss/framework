@@ -19,6 +19,7 @@ import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
+import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
             NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
-            HandlerThreadActivity.class, IntentServiceActivity.class};
+            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

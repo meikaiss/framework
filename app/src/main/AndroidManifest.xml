@@ -43,9 +43,10 @@
             android:theme="@style/Theme_TestAppCompat" />
         <activity android:name=".activity.BonuceLoadingActivity" />
         <activity android:name=".activity.CircleLoadingActivity" />
-        <activity android:name=".activity.nolib.HandlerThreadActivity"/>
 
+        <activity android:name=".activity.nolib.HandlerThreadActivity"/>
         <activity android:name=".activity.nolib.IntentServiceActivity"/>
+        <activity android:name=".activity.nolib.LayoutWeightActivity"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>
