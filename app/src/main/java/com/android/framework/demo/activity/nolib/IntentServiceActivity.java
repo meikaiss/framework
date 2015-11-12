@@ -35,7 +35,7 @@ public class IntentServiceActivity extends Activity {
             public void onClick(View v) {
 
 
-                Toast.makeText(DemoApplicaton.getInstance(), "按钮点击", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DemoApplicaton.getInstance(), "启动IntentService", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(IntentServiceActivity.this, PlayMusicIntentService.class);
                 i.putExtra("userName", "meikai");
                 DemoApplicaton.getInstance().startService(i);

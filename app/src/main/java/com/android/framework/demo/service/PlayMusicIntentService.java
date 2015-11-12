@@ -2,6 +2,8 @@ package com.android.framework.demo.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -33,16 +35,32 @@ public class PlayMusicIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.e("onHandleIntent", "onHandleIntent, 参数=" + intent.getStringExtra("userName"));
 
-        Toast.makeText(DemoApplicaton.getInstance(), "正在启动IntentService", Toast.LENGTH_SHORT).show();
+        Message message = toastHandler.obtainMessage();
+        message.obj = "IntentService中的线程接收到消息\n参数=" + intent.getStringExtra("userName");
+        toastHandler.sendMessage(message);
 
         try {
             Thread.sleep(1000*5);
-            Log.e("onHandleIntent", "线程休息完毕");
+
+            Message message2 = toastHandler.obtainMessage();
+            message2.obj = "线程模拟处理耗时5秒完毕";
+            toastHandler.sendMessage(message2);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
     }
+
+
+    private Handler toastHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            Toast.makeText(DemoApplicaton.getInstance(), msg.obj.toString(), Toast.LENGTH_SHORT).show();
+        }
+    };
+
 }
