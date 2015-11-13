@@ -47,6 +47,7 @@
         <activity android:name=".activity.nolib.HandlerThreadActivity"/>
         <activity android:name=".activity.nolib.IntentServiceActivity"/>
         <activity android:name=".activity.nolib.LayoutWeightActivity"/>
+        <activity android:name=".activity.nolib.RippleActivity"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>

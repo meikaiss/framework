@@ -21,6 +21,7 @@ import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
+import com.android.framework.demo.activity.nolib.RippleActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +36,8 @@ public class MainActivity extends Activity {
     private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
             NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
-            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class};
+            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class,
+            RippleActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
