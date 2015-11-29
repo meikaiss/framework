@@ -3,6 +3,7 @@ package com.android.framework.view.BottomBar;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -69,7 +70,8 @@ public class BottomButton extends View {
     }
 
     private void init() {
-        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         param.weight = 1;
         this.setLayoutParams(param);
         this.setPadding(10, 10, 10, 10);
@@ -97,7 +99,7 @@ public class BottomButton extends View {
         mBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
         mBmpPaint = new Paint();
-        mBmpPaint.setColor(mSelectColor);
+        mBmpPaint.setColor(Color.RED);
         mBmpPaint.setAntiAlias(true);
         mBmpPaint.setDither(true);
         mBmpPaint.setAlpha(alpha);

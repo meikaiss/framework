@@ -26,9 +26,9 @@ public class BottomBarView extends LinearLayout{
     //未选中字的颜色
     private Integer mUnSelectColor;
     //选项文字
-    private List<String> mTextList = new ArrayList<String>();
+    private List<String> mTextList = new ArrayList<>();
     //选项图片
-    private List<Bitmap> mSelectImageList = new ArrayList<Bitmap>();
+    private List<Bitmap> mSelectImageList = new ArrayList<>();
     //摁扭集合
     private List<BottomButton> mBtnList = new ArrayList<>();
     //防止频繁点击
@@ -141,7 +141,7 @@ public class BottomBarView extends LinearLayout{
     }
 
     public interface OnBtnClickListener {
-        public void onClick(BottomButton arg0);
+        void onClick(BottomButton arg0);
     }
 
     public void setOnBtnClickListener(OnBtnClickListener l) {
@@ -177,8 +177,6 @@ public class BottomBarView extends LinearLayout{
         final BottomButton b = mBtnList.get(index);
         changeLightBtn(b, isCallBtnClick);
     }
-
-
 
     public void changeLightBtnWithoutAlpha(final BottomButton b){
         for (int j = 0; j < mBtnList.size(); j++) {

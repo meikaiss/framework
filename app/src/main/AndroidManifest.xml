@@ -48,6 +48,8 @@
         <activity android:name=".activity.nolib.IntentServiceActivity"/>
         <activity android:name=".activity.nolib.LayoutWeightActivity"/>
         <activity android:name=".activity.nolib.RippleActivity"/>
+        <activity android:name=".activity.BottomBarActivity"
+            android:theme="@style/BaseAppTheme"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>

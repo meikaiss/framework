@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.android.framework.demo.activity.AppCompatTestActivity;
 import com.android.framework.demo.activity.BonuceLoadingActivity;
+import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
 import com.android.framework.demo.activity.ExplosionActivity;
 import com.android.framework.demo.activity.FlowLayoutActivity;
@@ -33,7 +34,8 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     private ListView listView;
-    private Class<?>[] classes = {FlowLayoutActivity.class, ScrollLayoutActivity.class, ExplosionActivity.class,
+    private Class<?>[] classes = {BottomBarActivity.class,FlowLayoutActivity.class, ScrollLayoutActivity.class,
+            ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
             NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
             HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class,
