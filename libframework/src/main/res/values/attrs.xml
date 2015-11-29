@@ -45,5 +45,10 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="BottomBarView">
+        <attr name="select_count" format="integer"></attr>
+        <attr name="select_color" format="color"></attr>
+        <attr name="unselect_color" format="color"></attr>
+    </declare-styleable>
 
 </resources>
