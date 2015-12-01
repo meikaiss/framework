@@ -48,9 +48,9 @@ public class BottomBarActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         bottomBarView.setBackgroundColor(Color.parseColor("#fafafa"));
-        bottomBarView.addBtn(0, R.drawable.bottom_menu_recruit, "招生");
-        bottomBarView.addBtn(1, R.drawable.bottom_menu_teach, "教学");
-        bottomBarView.addBtn(2, R.drawable.bottom_menu_mine, "我的");
+        bottomBarView.addBtn(0, R.drawable.bottom_menu_recruit, 0, "招生");
+        bottomBarView.addBtn(1, R.drawable.bottom_menu_teach, R.drawable.bottom_menu_teach_2, "教学");
+        bottomBarView.addBtn(2, R.drawable.bottom_menu_mine, 0, "我的");
         bottomBarView.notifyBtnChanged();
 
         initListeners();

@@ -29,6 +29,7 @@ public class BottomBarView extends LinearLayout{
     private List<String> mTextList = new ArrayList<>();
     //选项图片
     private List<Bitmap> mSelectImageList = new ArrayList<>();
+    private List<Bitmap> mSelectImageList2 = new ArrayList<>();
     //摁扭集合
     private List<BottomButton> mBtnList = new ArrayList<>();
     //防止频繁点击
@@ -64,9 +65,15 @@ public class BottomBarView extends LinearLayout{
         ta.recycle();
     }
 
-    public BottomBarView addBtn(int index, int drawable1, String text) {
+    public BottomBarView addBtn(int index, int drawable1, int drawable2, String text) {
         Resources res = context.getResources();
         Bitmap bmp = BitmapFactory.decodeResource(res, drawable1);
+        if(drawable2>0){
+            Bitmap bmp2 = BitmapFactory.decodeResource(res, drawable2);
+            this.mSelectImageList2.add(index, bmp2);
+        }else {
+            this.mSelectImageList2.add(index, null);
+        }
         this.mSelectImageList.add(index, bmp);
         this.mTextList.add(index, text);
         return this;
@@ -91,7 +98,8 @@ public class BottomBarView extends LinearLayout{
     private void btnChange() {
         this.removeAllViews();
         for (int i = 0; i < getBtnCount(); i++) {
-            BottomButton btn = new BottomButton(this.context,mSelectImageList.get(i),mTextList.get(i));
+            BottomButton btn = new BottomButton(this.context,mSelectImageList.get(i),
+                    mSelectImageList2.get(i), mTextList.get(i));
             btn.setIndex(i);
             btn.setImgThreshold(30);
             btn.setTextMarginImg(8);

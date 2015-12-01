@@ -42,6 +42,7 @@ public class BottomButton extends View {
     private float mAlpha = 0f;
     //图标
     private Bitmap mIconBitmap;
+    private Bitmap mIconBitmap2;
     //图标的范围
     private Rect mIconRect;
     //图标下的文本
@@ -69,6 +70,11 @@ public class BottomButton extends View {
         init();
     }
 
+    public BottomButton(Context c, Bitmap bitmap, Bitmap bitmap2, String text) {
+        this(c, bitmap, text);
+        mIconBitmap2 = bitmap2;
+    }
+
     private void init() {
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -86,13 +92,47 @@ public class BottomButton extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+        if(mIconBitmap2 == null)
+            onDrawWithOne(canvas);
+        else
+            onDrawWithTwo(canvas);
+    }
+
+    private void onDrawWithTwo(Canvas canvas){
+        int alpha = (int) Math.ceil((255 * mAlpha));
+        canvas.drawBitmap(mIconBitmap, null, mIconRect, null);
+
+        mBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        mCanvas = new Canvas(mBitmap);
+        mBmpPaint = new Paint();
+        mBmpPaint.setColor(Color.RED);
+        mBmpPaint.setAntiAlias(true);
+        mBmpPaint.setDither(true);
+        mBmpPaint.setAlpha(alpha);
+        mCanvas.drawRect(mIconRect, mBmpPaint);
+        mBmpPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        mBmpPaint.setAlpha(255);
+        mCanvas.drawBitmap(mIconBitmap, null, mIconRect, mBmpPaint);
+
+
+        mBmpPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
+        mCanvas.drawBitmap(mIconBitmap2, null, mIconRect, mBmpPaint);
+
+
+
+        drawSourceText(canvas, alpha);
+        drawTargetText(canvas, alpha);
+        canvas.drawBitmap(mBitmap, 0, 0, null);
+    }
+
+    private void onDrawWithOne(Canvas canvas){
         int alpha = (int) Math.ceil((255 * mAlpha));
         canvas.drawBitmap(mIconBitmap, null, mIconRect, null);
         setupTargetBitmap(alpha);
         drawSourceText(canvas, alpha);
         drawTargetText(canvas, alpha);
         canvas.drawBitmap(mBitmap, 0, 0, null);
-
     }
 
     private void setupTargetBitmap(int alpha) {
