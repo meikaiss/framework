@@ -15,7 +15,7 @@
         <item name="android:windowBackground">@color/colorWindowBack</item>
     </style>
 
-    <style name="Theme_TabLa_youtAppCompat" parent="Theme.AppCompat.Light">
+    <style name="Theme_TabLayoutAppCompat" parent="Theme.AppCompat.Light">
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -23,6 +23,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">true</item>
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">

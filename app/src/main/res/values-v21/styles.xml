@@ -4,4 +4,17 @@
     <style name="ColorStatusBar" parent="@style/BaseColorStatusBar"></style>
 
 
+    <style name="Theme_TabLayoutAppCompat" parent="Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@android:color/tab_indicator_text</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowContentTransitions">false</item>
+
+    </style>
+
 </resources>

@@ -51,7 +51,7 @@
         <activity android:name=".activity.BottomBarActivity"
             android:theme="@style/BaseAppTheme"/>
         <activity android:name=".activity.nolib.TabLayoutActivity"
-            android:theme="@style/Theme_TabLa_youtAppCompat"/>
+            android:theme="@style/Theme_TabLayoutAppCompat"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>
