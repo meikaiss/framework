@@ -50,6 +50,8 @@
         <activity android:name=".activity.nolib.RippleActivity"/>
         <activity android:name=".activity.BottomBarActivity"
             android:theme="@style/BaseAppTheme"/>
+        <activity android:name=".activity.nolib.TabLayoutActivity"
+            android:theme="@style/Theme_TabLa_youtAppCompat"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>

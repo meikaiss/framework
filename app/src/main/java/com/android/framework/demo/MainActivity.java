@@ -23,6 +23,7 @@ import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
+import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +35,9 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     private ListView listView;
-    private Class<?>[] classes = {BottomBarActivity.class,FlowLayoutActivity.class, ScrollLayoutActivity.class,
+    private Class<?>[] classes = {
+            TabLayoutActivity.class,
+            BottomBarActivity.class,FlowLayoutActivity.class, ScrollLayoutActivity.class,
             ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
             NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
