@@ -18,7 +18,7 @@ import android.view.animation.Interpolator;
 /**
  * Created by meikai on 15/12/6.
  */
-public class SlideViewPager2 extends ViewGroup {
+public class SlideViewPager extends ViewGroup {
 
 
     private static final int MIN_FLING_VELOCITY = 400; // px
@@ -38,21 +38,21 @@ public class SlideViewPager2 extends ViewGroup {
     private VelocityTracker mVelocityTracker;
 
 
-    public SlideViewPager2(Context context) {
+    public SlideViewPager(Context context) {
         this(context, null);
     }
 
-    public SlideViewPager2(Context context, AttributeSet attrs) {
+    public SlideViewPager(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SlideViewPager2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlideViewPager(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public SlideViewPager2(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SlideViewPager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
