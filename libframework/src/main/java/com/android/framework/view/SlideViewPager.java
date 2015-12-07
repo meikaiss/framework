@@ -28,7 +28,8 @@ public class SlideViewPager extends ViewGroup {
     private float mDownX;
 
 
-    private int mTouchSlop = 0;
+    private int mSwitchSize = 0;
+    private int mCurrentPosition = 0;
 
     private int mMinimumVelocity;
     private int mMaximumVelocity;
@@ -36,6 +37,8 @@ public class SlideViewPager extends ViewGroup {
     private ScrollState mScrollState;
     private ScrollerCompat mScrollerCompat;
     private VelocityTracker mVelocityTracker;
+
+    public static int X_VELOCITY_THRESHOLD = 600;
 
 
     public SlideViewPager(Context context) {
@@ -59,7 +62,6 @@ public class SlideViewPager extends ViewGroup {
 
     private void init(Context context) {
         mScrollerCompat = ScrollerCompat.create(context, sInterpolator);
-        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
 
         mSlideDimension = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics());
@@ -92,6 +94,7 @@ public class SlideViewPager extends ViewGroup {
             getChildAt(i).measure(childWidthMeasureSpec, childHeightMeasureSpec);
         }
 
+        mSwitchSize = childWidth;
     }
 
     @Override
@@ -112,8 +115,7 @@ public class SlideViewPager extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        if(mVelocityTracker == null)
-        {
+        if (mVelocityTracker == null) {
             mVelocityTracker = VelocityTracker.obtain();
         }
 
@@ -121,15 +123,37 @@ public class SlideViewPager extends ViewGroup {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mDownX = event.getRawX();
+                Log.e("", "ACTION_DOWN, mDownX=" + mDownX);
+                if (mScrollerCompat != null && !mScrollerCompat.isFinished())
+                    mScrollerCompat.abortAnimation();
                 break;
             case MotionEvent.ACTION_MOVE:
 
                 float moveDistence = -(event.getRawX() - mDownX);
                 mDownX = event.getRawX();
+
+                Log.e("", "ACTION_MOVE, moveDistence=" + moveDistence);
+
+                Log.e("", " current distance == " + moveDistence);
                 scrollBy((int) moveDistence, 0);
 
                 break;
             case MotionEvent.ACTION_UP:
+                VelocityTracker velocityTracker = mVelocityTracker;
+                velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
+
+                float xVelocity = velocityTracker.getXVelocity();
+                Log.e("", "xVelocity=" + xVelocity);
+
+                Log.e("", "ACTION_UP, mCurrentPosition=" + mCurrentPosition);
+
+                if (xVelocity > X_VELOCITY_THRESHOLD && mCurrentPosition > 0) {
+                    smoothScrollToItemView(mCurrentPosition - 1);
+                } else if (xVelocity < -X_VELOCITY_THRESHOLD && mCurrentPosition < getChildCount() - 1) {
+                    smoothScrollToItemView(mCurrentPosition + 1);
+                } else {
+                    smoothScrollToDes();
+                }
 
                 break;
 
@@ -140,22 +164,25 @@ public class SlideViewPager extends ViewGroup {
 
     @Override
     public void computeScroll() {
-        if (!mScrollerCompat.isFinished() && mScrollerCompat.computeScrollOffset()){
+
+        Log.e("", "computeScroll, mScrollerCompat.getCurrX()=" + mScrollerCompat.getCurrX());
+
+        if (!mScrollerCompat.isFinished() && mScrollerCompat.computeScrollOffset()) {
 
 
             scrollTo(mScrollerCompat.getCurrX(), 0);
 
         }
 
-        completeScroll(true);
+//        completeScroll(true);
 
     }
 
-    private void completeScroll(boolean postEvents){
+    private void completeScroll(boolean postEvents) {
 
         boolean needPopulate = mScrollState == ScrollState.SCROLL_STATE_SETTLING;
 
-        if (needPopulate){
+        if (needPopulate) {
             if (postEvents) {
                 ViewCompat.postOnAnimation(this, mEndScrollRunnable);
             } else {
@@ -166,13 +193,33 @@ public class SlideViewPager extends ViewGroup {
 
     }
 
+    private void smoothScrollToDes() {
+        int scrollX = getScrollX();
+        int position = (scrollX + mSwitchSize / 2) / mSwitchSize;
+
+        if(position >= getChildCount())
+            position = getChildCount() -1;
+        Log.e("", "smoothScrollToDes, position=" + position);
+        smoothScrollToItemView(position);
+    }
+
+    private void smoothScrollToItemView(int position) {
+        mCurrentPosition = position;
+
+        int dx = position * (getMeasuredWidth() - mSlideDimension * 2) - getScrollX();
+        Log.e("", "smoothScrollToItemView, dx=" + dx);
+        mScrollerCompat.startScroll(getScrollX(), 0, dx, 0, 200);
+
+        invalidate();
+    }
+
     private final Runnable mEndScrollRunnable = new Runnable() {
         public void run() {
             mScrollState = ScrollState.SCROLL_STATE_IDLE;
         }
     };
 
-    enum ScrollState{
+    enum ScrollState {
         SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
     }
 
