@@ -21,6 +21,7 @@ import android.view.animation.Interpolator;
 public class SlideViewPager extends ViewGroup {
 
 
+    private static final int PAGE_CHANGE_DURATION = 600;
     private static final int MIN_FLING_VELOCITY = 400; // px
 
     private int mSlideDimension;
@@ -197,8 +198,8 @@ public class SlideViewPager extends ViewGroup {
         int scrollX = getScrollX();
         int position = (scrollX + mSwitchSize / 2) / mSwitchSize;
 
-        if(position >= getChildCount())
-            position = getChildCount() -1;
+        if (position >= getChildCount())
+            position = getChildCount() - 1;
         Log.e("", "smoothScrollToDes, position=" + position);
         smoothScrollToItemView(position);
     }
@@ -208,7 +209,7 @@ public class SlideViewPager extends ViewGroup {
 
         int dx = position * (getMeasuredWidth() - mSlideDimension * 2) - getScrollX();
         Log.e("", "smoothScrollToItemView, dx=" + dx);
-        mScrollerCompat.startScroll(getScrollX(), 0, dx, 0, 200);
+        mScrollerCompat.startScroll(getScrollX(), 0, dx, 0, PAGE_CHANGE_DURATION);
 
         invalidate();
     }

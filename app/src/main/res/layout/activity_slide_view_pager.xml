@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.android.framework.view.SlideViewPager
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:background="#bbb">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#e0e0a0"
+            android:gravity="center"
+            android:text="第一页" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e0a0a0"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第二页" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a0e0a0"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第三页" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a0a0a0"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第四页" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a040a0"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第五页" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#40e0a0"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第六页" />
+
+
+    </com.android.framework.view.SlideViewPager>
+
+</LinearLayout>
