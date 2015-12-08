@@ -54,6 +54,8 @@
             android:theme="@style/Theme_TabLayoutAppCompat"/>
         <activity android:name=".activity.SlideViewPagerActivity"
             android:theme="@style/BaseAppTheme"/>
+        <activity android:name=".activity.InputLinearLayoutActivity"
+            android:theme="@style/BaseAppTheme"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>
