@@ -44,21 +44,27 @@
         <activity android:name=".activity.BonuceLoadingActivity" />
         <activity android:name=".activity.CircleLoadingActivity" />
 
-        <activity android:name=".activity.nolib.HandlerThreadActivity"/>
-        <activity android:name=".activity.nolib.IntentServiceActivity"/>
-        <activity android:name=".activity.nolib.LayoutWeightActivity"/>
-        <activity android:name=".activity.nolib.RippleActivity"/>
-        <activity android:name=".activity.BottomBarActivity"
-            android:theme="@style/BaseAppTheme"/>
-        <activity android:name=".activity.nolib.TabLayoutActivity"
-            android:theme="@style/Theme_TabLayoutAppCompat"/>
-        <activity android:name=".activity.SlideViewPagerActivity"
-            android:theme="@style/BaseAppTheme"/>
-        <activity android:name=".activity.InputLinearLayoutActivity"
-            android:theme="@style/BaseAppTheme"/>
+        <activity android:name=".activity.nolib.HandlerThreadActivity" />
+        <activity android:name=".activity.nolib.IntentServiceActivity" />
+        <activity android:name=".activity.nolib.LayoutWeightActivity" />
+        <activity android:name=".activity.nolib.RippleActivity" />
+        <activity
+            android:name=".activity.BottomBarActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.nolib.TabLayoutActivity"
+            android:theme="@style/Theme_TabLayoutAppCompat" />
+        <activity
+            android:name=".activity.SlideViewPagerActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.InputLinearLayoutActivity"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
 
 
-        <service android:name=".service.PlayMusicIntentService"/>
+        <service android:name=".service.PlayMusicIntentService" />
 
     </application>
 

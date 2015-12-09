@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.android.framework.view.InputLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_input_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
     android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/avater_img"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:hint="请输入"/>
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/avater" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入"
+            android:text="" />
+
+    </LinearLayout>
+
 
 </com.android.framework.view.InputLinearLayout>
