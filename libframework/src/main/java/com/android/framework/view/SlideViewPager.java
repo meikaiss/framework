@@ -192,10 +192,11 @@ public class SlideViewPager extends ViewGroup {
 
             scrollTo(mScrollerCompat.getCurrX(), 0);
 
-        }else{
-            setScrollState(ScrollState.SCROLL_STATE_IDLE);
         }
 
+        if(mScrollState == ScrollState.SCROLL_STATE_SETTLING){
+            setScrollState(ScrollState.SCROLL_STATE_IDLE);
+        }
     }
 
     private void smoothScrollToDes() {
@@ -223,7 +224,7 @@ public class SlideViewPager extends ViewGroup {
     }
 
 
-    enum ScrollState {
+    public enum ScrollState {
         /**
          * 空闲状态
          */

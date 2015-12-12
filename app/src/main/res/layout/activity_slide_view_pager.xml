@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <com.android.framework.view.SlideViewPager
+        android:id="@+id/slide_view_pager"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="50dp"
