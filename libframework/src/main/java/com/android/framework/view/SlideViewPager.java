@@ -20,27 +20,51 @@ import android.view.animation.Interpolator;
  */
 public class SlideViewPager extends ViewGroup {
 
-
+    /**
+     * 手指Action_Up后当前item自动滑动到正确位置的毫秒数
+     */
     private static final int PAGE_CHANGE_DURATION = 600;
-    private static final int MIN_FLING_VELOCITY = 400; // px
+    /**
+     * 手指Action_Up后滑动速度超过此值，则认为是有效翻页
+     */
+    public static int X_VELOCITY_THRESHOLD = 600;
 
+    /**
+     * 左右相邻item 显示在当前屏的宽度
+     */
     private int mSlideDimension;
+    private int mGutterSize;
 
-    private float mDownX;
+    private float mDownEventX;
 
 
     private int mSwitchSize = 0;
     private int mCurrentPosition = 0;
 
-    private int mMinimumVelocity;
     private int mMaximumVelocity;
 
     private ScrollState mScrollState;
     private ScrollerCompat mScrollerCompat;
     private VelocityTracker mVelocityTracker;
 
-    public static int X_VELOCITY_THRESHOLD = 600;
+    private OnPagerChangeListener onPagerChangeListener;
 
+    private void setScrollState(ScrollState state) {
+        mScrollState = state;
+        if (onPagerChangeListener != null){
+            onPagerChangeListener.onPageScrollStateChanged(state);
+        }
+    }
+
+    public void setOnPagerChangeListener(OnPagerChangeListener onPagerChangeListener) {
+        this.onPagerChangeListener = onPagerChangeListener;
+    }
+
+    private final Runnable mEndScrollRunnable = new Runnable() {
+        public void run() {
+            mScrollState = ScrollState.SCROLL_STATE_IDLE;
+        }
+    };
 
     public SlideViewPager(Context context) {
         this(context, null);
@@ -66,9 +90,10 @@ public class SlideViewPager extends ViewGroup {
 
 
         mSlideDimension = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics());
+        mGutterSize = 20;
+
         float density = context.getResources().getDisplayMetrics().density;
 
-        mMinimumVelocity = (int) (MIN_FLING_VELOCITY * density);
         mMaximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
     }
 
@@ -123,20 +148,18 @@ public class SlideViewPager extends ViewGroup {
         mVelocityTracker.addMovement(event);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mDownX = event.getRawX();
-                Log.e("", "ACTION_DOWN, mDownX=" + mDownX);
+                mDownEventX = event.getRawX();
                 if (mScrollerCompat != null && !mScrollerCompat.isFinished())
                     mScrollerCompat.abortAnimation();
                 break;
             case MotionEvent.ACTION_MOVE:
 
-                float moveDistence = -(event.getRawX() - mDownX);
-                mDownX = event.getRawX();
+                float moveDistence = -(event.getRawX() - mDownEventX);
+                mDownEventX = event.getRawX();
 
-                Log.e("", "ACTION_MOVE, moveDistence=" + moveDistence);
-
-                Log.e("", " current distance == " + moveDistence);
                 scrollBy((int) moveDistence, 0);
+
+                setScrollState(ScrollState.SCROLL_STATE_DRAGGING);
 
                 break;
             case MotionEvent.ACTION_UP:
@@ -144,9 +167,6 @@ public class SlideViewPager extends ViewGroup {
                 velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
 
                 float xVelocity = velocityTracker.getXVelocity();
-                Log.e("", "xVelocity=" + xVelocity);
-
-                Log.e("", "ACTION_UP, mCurrentPosition=" + mCurrentPosition);
 
                 if (xVelocity > X_VELOCITY_THRESHOLD && mCurrentPosition > 0) {
                     smoothScrollToItemView(mCurrentPosition - 1);
@@ -155,6 +175,8 @@ public class SlideViewPager extends ViewGroup {
                 } else {
                     smoothScrollToDes();
                 }
+
+                setScrollState(ScrollState.SCROLL_STATE_SETTLING);
 
                 break;
 
@@ -166,30 +188,12 @@ public class SlideViewPager extends ViewGroup {
     @Override
     public void computeScroll() {
 
-        Log.e("", "computeScroll, mScrollerCompat.getCurrX()=" + mScrollerCompat.getCurrX());
-
         if (!mScrollerCompat.isFinished() && mScrollerCompat.computeScrollOffset()) {
-
 
             scrollTo(mScrollerCompat.getCurrX(), 0);
 
-        }
-
-//        completeScroll(true);
-
-    }
-
-    private void completeScroll(boolean postEvents) {
-
-        boolean needPopulate = mScrollState == ScrollState.SCROLL_STATE_SETTLING;
-
-        if (needPopulate) {
-            if (postEvents) {
-                ViewCompat.postOnAnimation(this, mEndScrollRunnable);
-            } else {
-                mEndScrollRunnable.run();
-            }
-
+        }else{
+            setScrollState(ScrollState.SCROLL_STATE_IDLE);
         }
 
     }
@@ -212,16 +216,32 @@ public class SlideViewPager extends ViewGroup {
         mScrollerCompat.startScroll(getScrollX(), 0, dx, 0, PAGE_CHANGE_DURATION);
 
         invalidate();
+
+        if(onPagerChangeListener != null){
+            onPagerChangeListener.onPageSelected(position);
+        }
     }
 
-    private final Runnable mEndScrollRunnable = new Runnable() {
-        public void run() {
-            mScrollState = ScrollState.SCROLL_STATE_IDLE;
-        }
-    };
 
     enum ScrollState {
-        SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+        /**
+         * 空闲状态
+         */
+        SCROLL_STATE_IDLE,
+        /**
+         * 正在被用户拖拽
+         */
+        SCROLL_STATE_DRAGGING,
+        /**
+         * 正在自动滑动正确位置的过程中
+         */
+        SCROLL_STATE_SETTLING
+    }
+
+    public interface OnPagerChangeListener {
+        void onPageSelected(int position);
+
+        void onPageScrollStateChanged(ScrollState scrollState);
     }
 
 
