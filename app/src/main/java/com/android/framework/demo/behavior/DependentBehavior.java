@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.android.framework.demo.R;
@@ -27,5 +28,20 @@ public class DependentBehavior extends CoordinatorLayout.Behavior<View> {
         int offset = dependency.getTop() - child.getTop();
         ViewCompat.offsetTopAndBottom(child, offset);
         return true;
+    }
+
+    @Override
+    public boolean onMeasureChild(CoordinatorLayout parent, View child,
+                                  int parentWidthMeasureSpec, int widthUsed,
+                                  int parentHeightMeasureSpec, int heightUsed) {
+
+        Log.e("onMeasureChild", "widthUsed="+widthUsed+",heightUsed="+heightUsed);
+        return super.onMeasureChild(parent, child, parentWidthMeasureSpec, widthUsed, parentHeightMeasureSpec, heightUsed);
+    }
+
+    @Override
+    public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
+        Log.e("onLayoutChild", "layoutDirection="+layoutDirection);
+        return super.onLayoutChild(parent, child, layoutDirection);
     }
 }

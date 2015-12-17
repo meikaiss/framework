@@ -65,6 +65,9 @@
         <activity
             android:name=".activity.nolib.CoordinatorLayoutActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.nolib.CoordinatorLayoutActivity2"
+            android:theme="@style/BaseAppTheme" />
 
 
         <service android:name=".service.PlayMusicIntentService" />

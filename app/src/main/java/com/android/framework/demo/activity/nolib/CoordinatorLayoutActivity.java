@@ -23,7 +23,7 @@ public class CoordinatorLayoutActivity extends AppCompatActivity {
         depentent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewCompat.offsetTopAndBottom(v, 5);
+                ViewCompat.offsetTopAndBottom(v, 25);
             }
         });
 
@@ -31,7 +31,7 @@ public class CoordinatorLayoutActivity extends AppCompatActivity {
         depentent2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewCompat.offsetTopAndBottom(v, 5);
+                ViewCompat.offsetTopAndBottom(v, 25);
             }
         });
     }
