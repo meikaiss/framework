@@ -62,6 +62,9 @@
             android:theme="@style/BaseAppTheme"
             android:windowSoftInputMode="adjustResize">
         </activity>
+        <activity
+            android:name=".activity.nolib.CoordinatorLayoutActivity"
+            android:theme="@style/BaseAppTheme" />
 
 
         <service android:name=".service.PlayMusicIntentService" />
