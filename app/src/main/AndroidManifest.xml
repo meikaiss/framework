@@ -71,6 +71,9 @@
         <activity
             android:name=".activity.nolib.CardViewActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.SwipRefreshLayoutActivity"
+            android:theme="@style/BaseAppTheme" />
 
 
         <service android:name=".service.PlayMusicIntentService" />

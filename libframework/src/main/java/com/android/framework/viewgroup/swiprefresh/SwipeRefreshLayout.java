@@ -291,24 +291,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
 
-        //设置布局完成监听器
-        this.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                if (!isInEditMode()) {
-                    for (int i = 0; i < getChildCount(); i++) {
-                        View child = getChildAt(i);
-                        if (child instanceof ViewGroup) {
-                            ListView listView = getListViewInGroup((ViewGroup) child);
-                            if (listView != null) {
-                                listView.setOnScrollListener(new SwpipeListViewOnScrollListener(SwipeRefreshLayout.this));
-                            }
-                        }
-                    }
-                }
-            }
-        });
+        View firstChild = getChildAt(0);
+        Log.e("","firstChild = " + firstChild.toString());
     }
 
     protected int getChildDrawingOrder(int childCount, int i) {
@@ -483,21 +467,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     public void addView(View child, int index, LayoutParams params) {
         super.addView(child, index, params);
 
-    }
-
-    /**
-     * 得到一个Listview从视图组中
-     *
-     * @param viewGroup
-     * @return
-     */
-    private ListView getListViewInGroup(ViewGroup viewGroup) {
-        if (viewGroup instanceof ListView) {
-            return (ListView) viewGroup;
-        }
-        List list = Views.find(viewGroup, ListView.class);
-        Log.i(this.getClass().getSimpleName(), list.size() + "");
-        return !list.isEmpty() ? (ListView) list.get(0) : null;
     }
 
     /**
@@ -1167,46 +1136,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
      * triggers a refresh should implement this interface.
      */
     public interface OnRefreshListener {
-        public void onRefresh();
+        void onRefresh();
     }
 
-    /**
-     * 由于Listview与下拉刷新的Scroll事件冲突, 使用这个ScrollListener可以避免Listview滑动异常
-     */
-    public static class SwpipeListViewOnScrollListener implements AbsListView.OnScrollListener {
-
-        private SwipeRefreshLayout mSwipeView;
-        private AbsListView.OnScrollListener mOnScrollListener;
-
-        public SwpipeListViewOnScrollListener(SwipeRefreshLayout swipeView) {
-            mSwipeView = swipeView;
-        }
-
-        public SwpipeListViewOnScrollListener(SwipeRefreshLayout swipeView, AbsListView.OnScrollListener onScrollListener) {
-            mSwipeView = swipeView;
-            mOnScrollListener = onScrollListener;
-        }
-
-        @Override
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-
-        }
-
-        @Override
-        public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-            if (absListView.getVisibility() == View.VISIBLE) {
-                View firstView = absListView.getChildAt(firstVisibleItem);
-                // 当firstVisibleItem是第0位。如果firstView==null说明列表为空，需要刷新;或者top==0说明已经到达列表顶部, 也需要刷新
-                if (firstVisibleItem == 0 && (firstView == null || firstView.getTop() == 0)) {
-                    mSwipeView.setEnabled(true);
-                } else {
-                    mSwipeView.setEnabled(false);
-                }
-            }
-
-            if (null != mOnScrollListener) {
-                mOnScrollListener.onScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
-            }
-        }
-    }
 }

@@ -19,6 +19,7 @@ import com.android.framework.demo.activity.NumberSeekBarActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
+import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity2;
@@ -41,6 +42,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
             CoordinatorLayoutActivity2.class,
             CoordinatorLayoutActivity.class,
