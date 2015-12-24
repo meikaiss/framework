@@ -1,4 +1,4 @@
-package com.android.framework.view;
+package com.android.framework.viewgroup;
 
 import android.content.Context;
 import android.util.AttributeSet;

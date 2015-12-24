@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.android.framework.demo.R;
-import com.android.framework.view.InputLinearLayout;
+import com.android.framework.viewgroup.InputLinearLayout;
 
 /**
  * Created by meikai on 15/12/8.

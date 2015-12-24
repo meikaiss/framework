@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.android.framework.demo.R;
-import com.android.framework.view.SlideViewPager;
+import com.android.framework.viewgroup.SlideViewPager;
 
 /**
  * Created by meikai on 15/12/7.

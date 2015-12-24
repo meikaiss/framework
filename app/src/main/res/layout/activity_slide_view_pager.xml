@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.android.framework.view.SlideViewPager
+    <com.android.framework.viewgroup.SlideViewPager
         android:id="@+id/slide_view_pager"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -98,6 +98,6 @@
             android:text="第六页" />
 
 
-    </com.android.framework.view.SlideViewPager>
+    </com.android.framework.viewgroup.SlideViewPager>
 
 </LinearLayout>
