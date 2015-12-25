@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="v4的SwipeRefreshLayout" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#999999" />
 
     <com.android.framework.viewgroup.swiprefresh.SwipeRefreshLayout
         android:id="@+id/swip_refresh_layout"
@@ -13,7 +30,8 @@
             android:id="@+id/list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@android:color/holo_red_light"/>
+            android:divider="@android:color/holo_red_light"
+            android:dividerHeight="1px" />
 
     </com.android.framework.viewgroup.swiprefresh.SwipeRefreshLayout>
 

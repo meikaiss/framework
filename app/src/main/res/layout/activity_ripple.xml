@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +12,23 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/ripple_bg"
         android:text="波纹，带ripple backgroud" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ripple_bg_selector"
+        android:text="有selector的波纹" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@drawable/ripple_bg_selector"
+        android:divider="@android:color/holo_red_light"
+        android:dividerHeight="1px" />
 
 
 </LinearLayout>

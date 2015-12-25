@@ -57,7 +57,7 @@ public class SwipRefreshLayoutActivity extends AppCompatActivity {
                         Toast.makeText(SwipRefreshLayoutActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
 
                     }
-                }, 1200l);
+                }, 0l);
 
             }
         });

@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            RippleActivity.class,
             SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
             CoordinatorLayoutActivity2.class,
@@ -52,8 +53,7 @@ public class MainActivity extends Activity {
             ExplosionActivity.class,
             NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
             NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
-            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class,
-            RippleActivity.class};
+            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
