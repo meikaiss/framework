@@ -6,18 +6,21 @@
         android:orderInCategory="60"
         android:title="复制"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/ac_toolbar_cut"
         android:icon="@drawable/avater"
         android:orderInCategory="70"
         android:title="剪切"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/ac_toolbar_del"
         android:icon="@drawable/avater"
         android:orderInCategory="80"
         android:title="删除"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/ac_toolbar_edit"
         android:icon="@drawable/avater"

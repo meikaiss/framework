@@ -1,14 +1,17 @@
 package com.android.framework.demo.activity.nolib;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.framework.demo.R;
 
@@ -18,16 +21,22 @@ import java.util.List;
 /**
  * Created by meikai on 15/12/16.
  */
-public class CoordinatorLayoutActivity2 extends AppCompatActivity {
+public class AppBarLayoutActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
     private List<String> mDatas;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coordinator2);
+        setContentView(R.layout.activity_app_bar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.bottom_menu_mine);
 
         recyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -37,16 +46,38 @@ public class CoordinatorLayoutActivity2 extends AppCompatActivity {
             mDatas.add(i + "");
         }
 
+
         recyclerView.setAdapter(new HomeAdapter());
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        menu.findItem(R.id.action_user).setActionView(R.layout.tool_bar_menu_action_view);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_user:
+                Toast.makeText(this, "ToolBar用户被点击", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_home:
+                Toast.makeText(this, "ToolBar主页被点击", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-                    CoordinatorLayoutActivity2.this).inflate(R.layout.item_coordinator_recylerview, parent,
+                    AppBarLayoutActivity.this).inflate(R.layout.item_coordinator_recylerview, parent,
                     false));
             return holder;
         }

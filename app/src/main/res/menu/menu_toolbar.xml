@@ -1,0 +1,32 @@
+<!--menu_main.xml-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/action_user"
+        android:icon="@drawable/bottom_menu_mine"
+        android:title="用户"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ripple_menu_2"
+        android:title="主页"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_teach"
+        android:icon="@drawable/bottom_menu_teach"
+        android:title="按钮"
+        app:showAsAction="always" />
+    <!--<item-->
+        <!--android:id="@+id/action_teach2"-->
+        <!--android:icon="@drawable/bottom_menu_teach"-->
+        <!--android:title="按钮"-->
+        <!--app:showAsAction="always" />-->
+    <!--<item-->
+        <!--android:id="@+id/action_teach3"-->
+        <!--android:icon="@drawable/bottom_menu_teach"-->
+        <!--android:title="按钮"-->
+        <!--app:showAsAction="always" />-->
+</menu>

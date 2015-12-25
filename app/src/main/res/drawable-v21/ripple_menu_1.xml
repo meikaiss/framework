@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#0000ff">
+
+    <!-- 两种写法 取一种 就可以  -->
+
+    <!--第一种 写法-->
+    <!--<item>-->
+        <!--<shape android:shape="rectangle">-->
+            <!--<solid android:color="#0000bb" />-->
+            <!--<corners android:radius="4dp" />-->
+        <!--</shape>-->
+    <!--</item>-->
+
+    <!-- 第二种  写法 -->
+    <item android:drawable="@drawable/bottom_menu_mine" />
+
+</ripple>

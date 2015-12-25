@@ -22,7 +22,7 @@ import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
-import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity2;
+import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
             RippleActivity.class,
             SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
-            CoordinatorLayoutActivity2.class,
+            AppBarLayoutActivity.class,
             CoordinatorLayoutActivity.class,
             InputLinearLayoutActivity.class,
             SlideViewPagerActivity.class, TabLayoutActivity.class,
