@@ -12,13 +12,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendMsg"
-            android:text="发消息到Thread" />
+            android:text="发消息到Thread"
+            android:textSize="14sp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendMsgHandlerThread"
-            android:text="发消息到handlerThread" />
+            android:text="发消息到handlerThread"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

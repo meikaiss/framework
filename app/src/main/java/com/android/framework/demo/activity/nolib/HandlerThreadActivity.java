@@ -46,12 +46,13 @@ public class HandlerThreadActivity extends Activity {
             public void run() {
                 Looper.prepare();
 
-                handler = new Handler(){
+                handler = new Handler() {
                     @Override
                     public void handleMessage(Message msg) {
                         super.handleMessage(msg);
 
-                        msgList.add("非主线程Thread接收到消息 ＝ " + msg.obj.toString());
+                        long threadId = Thread.currentThread().getId();
+                        msgList.add("threadId=" + threadId + "  ," + "非主线程Thread接收到消息 ＝ " + msg.obj.toString());
                         arrayAdapter.notifyDataSetChanged();
 
                         Log.e("handlerMsg", "非主线程Thread接收到消息 ＝ " + msg.obj.toString());
@@ -64,7 +65,7 @@ public class HandlerThreadActivity extends Activity {
         });
         thread.start();
 
-        HandlerThread handlerThread = new HandlerThread("myHandlerThread", Process.THREAD_PRIORITY_DEFAULT){
+        HandlerThread handlerThread = new HandlerThread("myHandlerThread", Process.THREAD_PRIORITY_DEFAULT) {
             @Override
             public void run() {
                 super.run();
@@ -78,42 +79,46 @@ public class HandlerThreadActivity extends Activity {
 
     }
 
-    private static class MyHandler extends Handler{
+    private static class MyHandler extends Handler {
 
         private WeakReference<HandlerThreadActivity> activity;
 
         public MyHandler(HandlerThreadActivity activity, Looper looper) {
             super(looper);
-            this.activity = new WeakReference<HandlerThreadActivity>(activity);
+            this.activity = new WeakReference<>(activity);
         }
 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            activity.get().msgList.add("非主线程HandlerThread接收到消息 ＝ " + msg.obj.toString());
+            long threadId = Thread.currentThread().getId();
+            activity.get().msgList.add("threadId=" + threadId + "  ," + "非主线程HandlerThread接收到消息 ＝ " + msg.obj.toString());
             activity.get().arrayAdapter.notifyDataSetChanged();
 
             Log.e("handlerMsg", "非主线程HandlerThread接收到消息 ＝ " + msg.obj.toString());
         }
     }
 
-    public void sendMsg(View view){
+    public void sendMsg(View view) {
 
         Message msg = handler.obtainMessage();
         msg.obj = "开始发送消息到非主线程Thread";
-        msgList.add(msg.obj.toString());
+
+        long threadId = Thread.currentThread().getId();
+        msgList.add("threadId=" + threadId + "  ," + msg.obj.toString());
         arrayAdapter.notifyDataSetChanged();
 
         handler.sendMessage(msg);
 
     }
 
-    public void sendMsgHandlerThread(View view){
+    public void sendMsgHandlerThread(View view) {
 
         Message msg = threadHandler.obtainMessage();
         msg.obj = "开始发送消息到非主线程HandlerThread";
-        msgList.add(msg.obj.toString());
+        long threadId = Thread.currentThread().getId();
+        msgList.add("threadId=" + threadId + "  ," + msg.obj.toString());
         arrayAdapter.notifyDataSetChanged();
 
         threadHandler.sendMessage(msg);

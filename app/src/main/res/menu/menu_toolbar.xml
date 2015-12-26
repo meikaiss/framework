@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_teach"
         android:icon="@drawable/bottom_menu_teach"
-        android:title="按钮"
+        android:title="详细"
         app:showAsAction="always" />
     <!--<item-->
         <!--android:id="@+id/action_teach2"-->

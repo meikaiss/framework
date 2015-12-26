@@ -42,18 +42,27 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            AppBarLayoutActivity.class,
             RippleActivity.class,
             SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
-            AppBarLayoutActivity.class,
             CoordinatorLayoutActivity.class,
             InputLinearLayoutActivity.class,
-            SlideViewPagerActivity.class, TabLayoutActivity.class,
-            BottomBarActivity.class, FlowLayoutActivity.class, ScrollLayoutActivity.class,
+            SlideViewPagerActivity.class,
+            TabLayoutActivity.class,
+            BottomBarActivity.class,
+            FlowLayoutActivity.class,
+            ScrollLayoutActivity.class,
             ExplosionActivity.class,
-            NumberSeekBarActivity.class, AppCompatTestActivity.class, StatusBarColorActivity.class,
-            NotificationActivity.class, BonuceLoadingActivity.class, CircleLoadingActivity.class,
-            HandlerThreadActivity.class, IntentServiceActivity.class, LayoutWeightActivity.class};
+            NumberSeekBarActivity.class,
+            AppCompatTestActivity.class,
+            StatusBarColorActivity.class,
+            NotificationActivity.class,
+            BonuceLoadingActivity.class,
+            CircleLoadingActivity.class,
+            HandlerThreadActivity.class,
+            IntentServiceActivity.class,
+            LayoutWeightActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

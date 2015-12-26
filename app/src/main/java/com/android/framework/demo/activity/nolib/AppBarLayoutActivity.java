@@ -1,6 +1,10 @@
 package com.android.framework.demo.activity.nolib;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +32,7 @@ public class AppBarLayoutActivity extends AppCompatActivity {
     private List<String> mDatas;
 
     private Toolbar toolbar;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,11 @@ public class AppBarLayoutActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.bottom_menu_mine);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("开发"));
+        tabLayout.addTab(tabLayout.newTab().setText("测试"));
+        tabLayout.addTab(tabLayout.newTab().setText("产品"));
 
         recyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -48,6 +58,14 @@ public class AppBarLayoutActivity extends AppCompatActivity {
 
 
         recyclerView.setAdapter(new HomeAdapter());
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AppBarLayoutActivity.this, "ToolBar左上角导航按钮被点击了", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
@@ -67,6 +85,9 @@ public class AppBarLayoutActivity extends AppCompatActivity {
                 break;
             case R.id.action_home:
                 Toast.makeText(this, "ToolBar主页被点击", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_teach:
+                Toast.makeText(this, "ToolBar详细被点击", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
@@ -102,4 +123,6 @@ public class AppBarLayoutActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
