@@ -77,6 +77,9 @@
         <activity
             android:name=".activity.PinnedHeaderExpandableListViewActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.SaveStateViewActivity"
+            android:theme="@style/BaseAppTheme" />
 
 
         <service android:name=".service.PlayMusicIntentService" />

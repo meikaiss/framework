@@ -17,6 +17,7 @@ import com.android.framework.demo.activity.ExplosionActivity;
 import com.android.framework.demo.activity.FlowLayoutActivity;
 import com.android.framework.demo.activity.NumberSeekBarActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
+import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
@@ -43,6 +44,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            SaveStateViewActivity.class,
             PinnedHeaderExpandableListViewActivity.class,
             AppBarLayoutActivity.class,
             RippleActivity.class,
