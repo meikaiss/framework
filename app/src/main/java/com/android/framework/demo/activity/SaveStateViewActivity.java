@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.android.framework.demo.R;
-import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.view.SaveStateView;
 
@@ -52,14 +48,15 @@ public class SaveStateViewActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.e("SaveStateViewActivity","SaveStateViewActivity__onSaveInstanceState111");
+        Log.e("SaveStateViewActivity","SaveStateViewActivity__onSaveInstanceState111, 保存前saveStateView.drawString="+saveStateView.drawString);
         super.onSaveInstanceState(outState);
-        Log.e("SaveStateViewActivity","SaveStateViewActivity__onSaveInstanceState222");
+        Log.e("SaveStateViewActivity","SaveStateViewActivity__onSaveInstanceState222, 保存后saveStateView.drawString="+saveStateView.drawString);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        Log.e("SaveStateViewActivity", "SaveStateViewActivity__onRestoreInstanceState, 重载前saveStateView.drawString="+saveStateView.drawString);
         super.onRestoreInstanceState(savedInstanceState);
-        Log.e("SaveStateViewActivity", "SaveStateViewActivity__onRestoreInstanceState");
+        Log.e("SaveStateViewActivity", "SaveStateViewActivity__onRestoreInstanceState, 重载后saveStateView.drawString="+saveStateView.drawString);
     }
 }

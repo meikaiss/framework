@@ -6,13 +6,23 @@
     android:orientation="vertical">
 
     <com.android.framework.view.SaveStateView
+        android:id="@+id/save_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:saveEnabled="true" />
 
     <Button
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="打开"/>
+        android:text="打开" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="1.设定有指定的id:
+        android:id=&quot;@+id/gallary&quot;
+        2.设定saveEnabled:
+        android:saveEnabled=&quot;true&quot;" />
 
 </LinearLayout>
