@@ -5,3 +5,8 @@
 .DS_Store
 /build
 /captures
+
+*.apk
+*.dex
+*.class
+*.log

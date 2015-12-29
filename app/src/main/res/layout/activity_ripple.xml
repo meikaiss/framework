@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/ripple_bg"
         android:text="波纹，带ripple backgroud" />
 
@@ -18,17 +18,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/ripple_bg_selector"
         android:text="有selector的波纹" />
+
+    <Button
+        android:id="@+id/btn_code_new_ripple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="代码生成的ripple" />
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:listSelector="@drawable/ripple_bg_selector"
         android:divider="@android:color/holo_red_light"
-        android:dividerHeight="1px" />
+        android:dividerHeight="1px"
+        android:listSelector="@drawable/ripple_bg_selector" />
 
 
 </LinearLayout>

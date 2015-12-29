@@ -30,6 +30,7 @@ import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
+import com.android.framework.demo.activity.nolib.OkHttpActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 
@@ -44,6 +45,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            OkHttpActivity.class,
             SaveStateViewActivity.class,
             PinnedHeaderExpandableListViewActivity.class,
             AppBarLayoutActivity.class,

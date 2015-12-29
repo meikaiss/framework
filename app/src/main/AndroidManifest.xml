@@ -9,6 +9,8 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".DemoApplicaton"
         android:allowBackup="true"
@@ -60,8 +62,7 @@
         <activity
             android:name=".activity.InputLinearLayoutActivity"
             android:theme="@style/BaseAppTheme"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".activity.nolib.CoordinatorLayoutActivity"
             android:theme="@style/BaseAppTheme" />
@@ -79,6 +80,9 @@
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.SaveStateViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.nolib.OkHttpActivity"
             android:theme="@style/BaseAppTheme" />
 
 
