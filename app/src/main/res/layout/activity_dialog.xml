@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.nolib.DialogActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog三按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog三按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog输入弹框" />
+
+        <Button
+            android:id="@+id/btn_04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog输入弹框" />
+
+        <Button
+            android:id="@+id/btn_05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog列表弹框" />
+
+        <Button
+            android:id="@+id/btn_06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog列表弹框" />
+
+        <Button
+            android:id="@+id/btn_07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog列表单选按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog列表单选按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog列表多选按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog列表多选按钮弹框" />
+
+    </LinearLayout>
+
+</ScrollView>
