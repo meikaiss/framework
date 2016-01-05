@@ -25,7 +25,7 @@ import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
-import com.android.framework.demo.activity.nolib.DialogActivity;
+import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
-            DialogActivity.class,
+            AlertDialogActivity.class,
             OkHttpActivity.class,
             SaveStateViewActivity.class,
             PinnedHeaderExpandableListViewActivity.class,

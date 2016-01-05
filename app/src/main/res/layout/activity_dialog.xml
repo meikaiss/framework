@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.nolib.DialogActivity">
+    tools:context=".activity.nolib.AlertDialogActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -79,6 +79,21 @@
             android:layout_height="wrap_content"
             android:onClick="onClick"
             android:text="android.support.v7.app.AlertDialog列表多选按钮弹框" />
+
+        <Button
+            android:id="@+id/btn_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.app.AlertDialog自定义内容弹框" />
+
+        <Button
+            android:id="@+id/btn_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog自定义内容弹框" />
+
 
     </LinearLayout>
 

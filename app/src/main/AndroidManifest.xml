@@ -86,7 +86,7 @@
         <activity
             android:name=".activity.nolib.OkHttpActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.nolib.DialogActivity"
+        <activity android:name=".activity.nolib.AlertDialogActivity"
             android:theme="@style/BaseAppTheme" />
 
 
