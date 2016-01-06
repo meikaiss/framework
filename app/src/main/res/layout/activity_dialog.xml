@@ -94,6 +94,13 @@
             android:onClick="onClick"
             android:text="android.support.v7.app.AlertDialog自定义内容弹框" />
 
+        <Button
+            android:id="@+id/btn_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog复选弹框-修改按钮selector" />
+
 
     </LinearLayout>
 

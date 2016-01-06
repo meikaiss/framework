@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -188,7 +189,8 @@ public class AlertDialogActivity extends Activity implements View.OnClickListene
                 break;
             case R.id.btn_10:
                 new AlertDialog.Builder(this).setTitle("复选框").setMultiChoiceItems(
-                        new String[]{"Item1", "Item2", "Item3", "Item4", "Item5"}, null, null)
+                        new String[]{"Item1", "Item2", "Item3", "Item4", "Item5"},
+                        new boolean[]{true, false, false, true, false}, null)
                         .setPositiveButton("确定", null)
                         .setNegativeButton("取消", null).show();
                 break;
@@ -258,6 +260,15 @@ public class AlertDialogActivity extends Activity implements View.OnClickListene
                         }).create().show();
             }
             break;
+            case R.id.btn_13:
+                new AlertDialog.Builder(this, R.style.MultiListAlertDialog)
+                        .setTitle("修改了多选项的selector复选框")
+                        .setMultiChoiceItems(
+                                new String[]{"Item1", "Item2", "Item3", "Item4", "Item5"},
+                                new boolean[]{true, false, false, true, false}, null)
+                        .setPositiveButton("确定", null)
+                        .setNegativeButton("取消", null).show();
+                break;
             default:
                 break;
         }
