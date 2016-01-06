@@ -198,7 +198,7 @@ public class PinnedHeaderExpandableListViewActivity extends AppCompatActivity im
             groupHolder.textView.setText(((Group) getGroup(groupPosition))
                     .getTitle());
             if (isExpanded)// ture is Expanded or false is not isExpanded
-                groupHolder.imageView.setImageResource(R.drawable.avater);
+                groupHolder.imageView.setImageResource(R.drawable.avatar);
             else
                 groupHolder.imageView.setImageResource(R.drawable.collapse);
             return convertView;

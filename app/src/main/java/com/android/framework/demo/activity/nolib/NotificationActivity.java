@@ -34,7 +34,7 @@ public class NotificationActivity extends AppCompatActivity {
         PendingIntent intent = PendingIntent.getActivity(this, 100, new Intent(this, MainActivity.class), PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.drawable.avater)
+        builder.setSmallIcon(R.drawable.avatar)
                 .setContentTitle("通知的标题").setContentText("通知的内容").setAutoCancel(true)
                 .setContentIntent(intent);
 
@@ -58,7 +58,7 @@ public class NotificationActivity extends AppCompatActivity {
         // 1、创建一个自定义的消息布局 view.xml
         // 2、在程序代码中使用RemoteViews的方法来定义image和text。然后把RemoteViews对象传到contentView字段
         RemoteViews remoteView = new RemoteViews(this.getPackageName(), R.layout.notification_layout);
-        remoteView.setImageViewResource(R.id.iv, R.drawable.avater);
+        remoteView.setImageViewResource(R.id.iv, R.drawable.avatar);
         remoteView.setTextViewText(R.id.tvNotiTitle, "通知类型为：自定义View");
         remoteView.setImageViewResource(R.id.btNotiLast, R.drawable.explosion_02);
         remoteView.setImageViewResource(R.id.btNotiPlay, R.drawable.explosion_02);
@@ -82,9 +82,9 @@ public class NotificationActivity extends AppCompatActivity {
         textStyle.setBigContentTitle("大标题")
                 .setSummaryText("小标题")
                 .bigText("这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容这是大通知的内容");
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.avater);
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);
         Notification notification = new NotificationCompat.Builder(this)
-                .setLargeIcon(largeIcon).setSmallIcon(R.drawable.avater)
+                .setLargeIcon(largeIcon).setSmallIcon(R.drawable.avatar)
                 .setTicker("showBigView_Text").setContentInfo("contentInfo")
                 .setContentTitle("ContentTitle").setContentText("ContentText")
                 .setStyle(textStyle)
@@ -100,19 +100,19 @@ public class NotificationActivity extends AppCompatActivity {
             Notification notification;
 
             RemoteViews remoteView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_layout);
-            remoteView.setImageViewResource(R.id.iv, R.drawable.avater);
+            remoteView.setImageViewResource(R.id.iv, R.drawable.avatar);
             remoteView.setTextViewText(R.id.tvNotiTitle, "通知类型为：自定义View");
             remoteView.setImageViewResource(R.id.btNotiLast, R.drawable.explosion_02);
             remoteView.setImageViewResource(R.id.btNotiPlay, R.drawable.explosion_02);
             remoteView.setImageViewResource(R.id.btNotiNext, R.drawable.explosion_02);
 
             // bigView.setOnClickPendingIntent() etc..
-            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.avater);
+            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);
 
             Notification.Builder builder = new Notification.Builder(this);
             notification = builder.setContentTitle("some string")
                     .setContentText("Slide down on note to expand")
-                    .setSmallIcon(R.drawable.avater)
+                    .setSmallIcon(R.drawable.avatar)
                     .setLargeIcon(largeIcon)
                     .build();
 

@@ -88,6 +88,10 @@
             android:theme="@style/BaseAppTheme" />
         <activity android:name=".activity.nolib.AlertDialogActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity android:name=".activity.shader.ShaderActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity android:name=".activity.colormatrix.ColorMatrixActivity"
+            android:theme="@style/BaseAppTheme" />
 
 
         <service android:name=".service.PlayMusicIntentService" />

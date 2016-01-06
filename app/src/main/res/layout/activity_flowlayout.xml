@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#bbb"
-            android:src="@drawable/avater"
+            android:src="@drawable/avatar"
             framework:BorderColor="#00f"
             framework:BorderWidth="3dp" />
 
@@ -72,14 +72,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:src="@drawable/avater"
+            android:src="@drawable/avatar"
             framework:type="0" />
 
         <com.android.framework.view.CircleImageView2
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:src="@drawable/avater"
+            android:src="@drawable/avatar"
             framework:borderRadius="25dp"
             framework:type="1" />
 

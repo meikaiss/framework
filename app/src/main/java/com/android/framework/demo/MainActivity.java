@@ -22,6 +22,7 @@ import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
+import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
@@ -34,6 +35,7 @@ import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
+import com.android.framework.demo.activity.shader.ShaderActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,6 +48,8 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            ColorMatrixActivity.class,
+            ShaderActivity.class,
             AlertDialogActivity.class,
             OkHttpActivity.class,
             SaveStateViewActivity.class,
