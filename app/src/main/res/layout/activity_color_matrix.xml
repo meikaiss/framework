@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.colormatrix.ColorMatrixActivity">
+
+    <com.android.framework.viewgroup.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <Button
+            android:id="@+id/btn_grayscale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="Grayscale" />
+
+        <Button
+            android:id="@+id/btn_sepia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="Sepia" />
+
+        <Button
+            android:id="@+id/btn_binary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="Binary" />
+
+        <Button
+            android:id="@+id/btn_invert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="Invert" />
+
+        <Button
+            android:id="@+id/btn_alpha_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="AlphaBlue" />
+
+        <Button
+            android:id="@+id/btn_alpha_pink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="onClick"
+            android:text="AlphaPink" />
+
+    </com.android.framework.viewgroup.FlowLayout>
+
+    <ImageView
+        android:id="@+id/imgv_shader"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/avatar" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/avatar" />
+
+</LinearLayout>
