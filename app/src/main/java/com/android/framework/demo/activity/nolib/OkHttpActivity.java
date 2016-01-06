@@ -1,12 +1,16 @@
 package com.android.framework.demo.activity.nolib;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
+import com.android.framework.demo.R;
+import com.android.framework.demo.data.Weather;
+import com.android.framework.libapi.ApiResponse;
+import com.android.framework.libapi.OkHttpManager;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
@@ -15,44 +19,70 @@ import java.io.IOException;
 /**
  * Created by meikai on 15/12/29.
  */
-public class OkHttpActivity extends AppCompatActivity {
+public class OkHttpActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+    TextView tvResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_okhttp);
+
+        tvResult = (TextView) findViewById(R.id.tv_result);
+    }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.btn_async:
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                OkHttpClient okHttpClient = new OkHttpClient();
-
-                Request request = new Request.Builder().url("http://www.weather.com.cn/adat/sk/101010300.html").build();
-
-                Call call = okHttpClient.newCall(request);
-
-                call.enqueue(new Callback() {
+                String url = "http://www.weather.com.cn/adat/sk/101200101.html";
+                OkHttpManager.getInstance().httpGetAsync(url, new OkHttpManager.ApiCallBack() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onApiSuccess(ApiResponse apiResponse) {
 
+                        Weather weather = apiResponse.getData(Weather.class);
+                        tvResult.setText(weather.weatherinfo.city + weather.weatherinfo.WD
+                                +weather.weatherinfo.WS);
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
+                    public void onApiFailed(Request request, IOException e) {
 
-                        String result = new String(response.body().bytes());
-                        Log.e("onResponse", result);
-//                        Toast.makeText(OkHttpActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                        tvResult.setText("请求失败=" + request.url() + "\n" + e.getMessage());
 
                     }
                 });
+                break;
+            case R.id.btn_sync:
 
-            }
-        }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String url = "http://www.weather.com.cn/adat/sk/101200101.html";
+                        try {
+                            Response response = OkHttpManager.getInstance().httpGetSync(url);
+
+                            final String result = new String(response.body().bytes());
+
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    tvResult.setText(result);
+                                }
+                            });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
+                break;
+        }
 
     }
-
 
 }

@@ -42,5 +42,9 @@
 
     <style name="ColorStatusBar" parent="@style/BaseColorStatusBar"></style>
 
+    <style name="MultiListAlertDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:listChoiceIndicatorMultiple">@drawable/alert_multi_list</item>
+    </style>
+
 
 </resources>
