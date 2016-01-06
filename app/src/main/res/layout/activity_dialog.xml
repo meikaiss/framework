@@ -101,6 +101,17 @@
             android:onClick="onClick"
             android:text="android.support.v7.app.AlertDialog复选弹框-修改按钮selector" />
 
+        <Button
+            android:id="@+id/btn_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="android.support.v7.app.AlertDialog列表单选按钮弹框-修改颜色" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lesson_alertdialog_theme" />
 
     </LinearLayout>
 

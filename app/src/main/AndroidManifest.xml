@@ -84,7 +84,7 @@
             android:name=".activity.SaveStateViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.nolib.OkHttpActivity"
+            android:name=".activity.OkHttpActivity"
             android:theme="@style/BaseAppTheme" />
         <activity android:name=".activity.nolib.AlertDialogActivity"
             android:theme="@style/BaseAppTheme" />

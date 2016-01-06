@@ -7,7 +7,7 @@ public class Weather {
 
     public WeatherInfo weatherinfo;
 
-    public class WeatherInfo {
+    public static class WeatherInfo {
 
         public String city;
         public String cityid;
@@ -21,6 +21,7 @@ public class Weather {
         public String Radar;
         public String njd;
         public String qy;
+
 
     }
 

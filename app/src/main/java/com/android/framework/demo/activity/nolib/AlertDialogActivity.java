@@ -157,8 +157,7 @@ public class AlertDialogActivity extends Activity implements View.OnClickListene
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(AlertDialogActivity.this, "第" + which + "项被点击", Toast.LENGTH_SHORT).show();
                             }
-                        }).setNegativeButton(
-                        "确定", null).show();
+                        }).setNegativeButton("确定", null).show();
                 break;
             case R.id.btn_07:
                 new android.app.AlertDialog.Builder(this).setTitle("单选框").setIcon(
@@ -268,6 +267,16 @@ public class AlertDialogActivity extends Activity implements View.OnClickListene
                                 new boolean[]{true, false, false, true, false}, null)
                         .setPositiveButton("确定", null)
                         .setNegativeButton("取消", null).show();
+                break;
+            case R.id.btn_14:
+                new AlertDialog.Builder(this, R.style.MultiListAlertDialog2).setTitle("单选框").setIcon(
+                        android.R.drawable.ic_dialog_info).setSingleChoiceItems(
+                        new String[]{"Item1", "Item2", "Item3", "Item4", "Item5"}, 1,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(AlertDialogActivity.this, "第" + which + "项被点击", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setPositiveButton("确定", null).setNegativeButton("取消", null).show();
                 break;
             default:
                 break;

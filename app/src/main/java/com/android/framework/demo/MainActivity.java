@@ -31,7 +31,7 @@ import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
-import com.android.framework.demo.activity.nolib.OkHttpActivity;
+import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 

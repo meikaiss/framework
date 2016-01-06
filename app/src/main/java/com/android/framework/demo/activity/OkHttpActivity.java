@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity.nolib;
+package com.android.framework.demo.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,9 +44,14 @@ public class OkHttpActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onApiSuccess(ApiResponse apiResponse) {
 
-                        Weather weather = apiResponse.getData(Weather.class);
-                        tvResult.setText(weather.weatherinfo.city + weather.weatherinfo.WD
-                                +weather.weatherinfo.WS);
+                        try {
+                            Weather weather = apiResponse.getData(Weather.class);
+                            tvResult.setText(weather.weatherinfo.city + weather.weatherinfo.WD
+                                    +weather.weatherinfo.WS);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
                     }
 
                     @Override
@@ -62,6 +67,7 @@ public class OkHttpActivity extends AppCompatActivity implements View.OnClickLis
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+
                         String url = "http://www.weather.com.cn/adat/sk/101200101.html";
                         try {
                             Response response = OkHttpManager.getInstance().httpGetSync(url);
