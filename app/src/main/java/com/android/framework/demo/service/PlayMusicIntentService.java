@@ -7,7 +7,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.android.framework.demo.DemoApplicaton;
+import com.android.framework.demo.DemoApplication;
 
 /**
  * Created by meikai on 15/10/28.
@@ -59,7 +59,7 @@ public class PlayMusicIntentService extends IntentService {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            Toast.makeText(DemoApplicaton.getInstance(), msg.obj.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(DemoApplication.getInstance(), msg.obj.toString(), Toast.LENGTH_SHORT).show();
         }
     };
 

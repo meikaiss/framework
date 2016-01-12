@@ -5,11 +5,11 @@ import android.app.Application;
 /**
  * Created by meikai on 15/10/28.
  */
-public class DemoApplicaton extends Application {
+public class DemoApplication extends Application {
 
-    private static DemoApplicaton instance;
+    private static DemoApplication instance;
 
-    public static DemoApplicaton getInstance(){
+    public static DemoApplication getInstance(){
         return instance;
     }
 

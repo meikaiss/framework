@@ -43,7 +43,13 @@ public class OkHttpManager {
     public Response httpGetSync(String url) throws IOException {
         Request request = new Request.Builder().url(url).build();
         Call call = okHttpClient.newCall(request);
-        return call.execute();
+
+        Response response = call.execute();
+
+        if(response.isSuccessful())
+            return response;
+        else
+            return null;
     }
 
     public void httpGetAsync(String url, final ApiCallBack apiCallBack) {

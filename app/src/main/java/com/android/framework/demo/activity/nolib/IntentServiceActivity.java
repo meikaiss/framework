@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.android.framework.demo.DemoApplicaton;
+import com.android.framework.demo.DemoApplication;
 import com.android.framework.demo.service.PlayMusicIntentService;
 
 /**
@@ -35,10 +35,10 @@ public class IntentServiceActivity extends Activity {
             public void onClick(View v) {
 
 
-                Toast.makeText(DemoApplicaton.getInstance(), "启动IntentService", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DemoApplication.getInstance(), "启动IntentService", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(IntentServiceActivity.this, PlayMusicIntentService.class);
                 i.putExtra("userName", "meikai");
-                DemoApplicaton.getInstance().startService(i);
+                DemoApplication.getInstance().startService(i);
             }
         });
 
