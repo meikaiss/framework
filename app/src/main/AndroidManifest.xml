@@ -18,8 +18,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.FlowLayoutActivity" />
         <activity android:name=".activity.ScrollLayoutActivity" />
         <activity android:name=".activity.ExplosionActivity" />
@@ -45,7 +42,6 @@
             android:theme="@style/Theme_TestAppCompat" />
         <activity android:name=".activity.BonuceLoadingActivity" />
         <activity android:name=".activity.CircleLoadingActivity" />
-
         <activity android:name=".activity.nolib.HandlerThreadActivity" />
         <activity android:name=".activity.nolib.IntentServiceActivity" />
         <activity android:name=".activity.nolib.LayoutWeightActivity" />
@@ -64,7 +60,7 @@
         <activity
             android:name=".activity.InputLinearLayoutActivity"
             android:theme="@style/BaseAppTheme"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.nolib.CoordinatorLayoutActivity"
             android:theme="@style/BaseAppTheme" />
@@ -86,17 +82,28 @@
         <activity
             android:name=".activity.OkHttpActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.nolib.AlertDialogActivity"
+        <activity
+            android:name=".activity.nolib.AlertDialogActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.shader.ShaderActivity"
+        <activity
+            android:name=".activity.shader.ShaderActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.colormatrix.ColorMatrixActivity"
+        <activity
+            android:name=".activity.colormatrix.ColorMatrixActivity"
             android:theme="@style/BaseAppTheme" />
-
 
         <service android:name=".service.PlayMusicIntentService" />
+        <service android:name=".widget.WeatherService" />
 
+        <receiver android:name=".widget.WeatherAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>
-
