@@ -45,8 +45,11 @@ public class CustomGridView extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
         if (getChildCount() == 0) {
-            setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+            //当 没有 图片需要显示，直接设置 高＝0， 否则最终高将会受到layout_height值的影响，并最终影响最外层listView和scroolView的高度
+            int zeroHeightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.EXACTLY);
+            setMeasuredDimension(widthMeasureSpec, zeroHeightMeasureSpec);
             return;
         }
         int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
@@ -72,7 +75,7 @@ public class CustomGridView extends FrameLayout {
         int marginTop = 0;
 
         if (getLayoutParams() != null) {
-            FrameLayout.LayoutParams lp = (LayoutParams) getLayoutParams();
+            LayoutParams lp = (LayoutParams) getLayoutParams();
             marginLeft = lp.leftMargin;
             marginRight = lp.rightMargin;
             marginTop = lp.topMargin;
@@ -89,12 +92,6 @@ public class CustomGridView extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int marginLeft = 0;
         int marginTop = 0;
-
-        if (getLayoutParams() != null) {
-            FrameLayout.LayoutParams lp = (LayoutParams) getLayoutParams();
-            marginLeft = lp.leftMargin;
-            marginTop = lp.topMargin;
-        }
 
         int lastTimeX = l + marginLeft + getPaddingLeft();
         int lastTimeY = t + marginTop + getPaddingTop();
