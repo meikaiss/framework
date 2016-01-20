@@ -94,6 +94,7 @@
 
         <service android:name=".service.PlayMusicIntentService" />
         <service android:name=".widget.WeatherService" />
+        <service android:name=".service.NotificationService"/>
 
         <receiver android:name=".widget.WeatherAppWidgetProvider">
             <intent-filter>

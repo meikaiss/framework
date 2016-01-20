@@ -15,6 +15,7 @@ import android.widget.RemoteViews;
 
 import com.android.framework.demo.MainActivity;
 import com.android.framework.demo.R;
+import com.android.framework.demo.service.NotificationService;
 
 import java.util.Random;
 
@@ -102,22 +103,37 @@ public class NotificationActivity extends AppCompatActivity {
             RemoteViews remoteView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_layout);
             remoteView.setImageViewResource(R.id.iv, R.drawable.avatar);
             remoteView.setTextViewText(R.id.tvNotiTitle, "通知类型为：自定义View");
-            remoteView.setImageViewResource(R.id.btNotiLast, R.drawable.explosion_02);
-            remoteView.setImageViewResource(R.id.btNotiPlay, R.drawable.explosion_02);
-            remoteView.setImageViewResource(R.id.btNotiNext, R.drawable.explosion_02);
 
-            // bigView.setOnClickPendingIntent() etc..
+            Intent intent = new Intent(this, NotificationService.class);
+            intent.putExtra("param", 888);
+            PendingIntent pendingIntent = PendingIntent.getService(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteView.setOnClickPendingIntent(R.id.iv, pendingIntent);
+
+            Intent intent1 = new Intent(this, NotificationService.class);
+            intent1.putExtra("param", 1);
+            PendingIntent pendingIntent1 = PendingIntent.getService(this, 1, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteView.setOnClickPendingIntent(R.id.btNotiLast, pendingIntent1);
+
+            Intent intent2 = new Intent(this, NotificationService.class);
+            intent2.putExtra("param", 2);
+            PendingIntent pendingIntent2 = PendingIntent.getService(this, 1, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteView.setOnClickPendingIntent(R.id.btNotiPlay, pendingIntent2);
+
+            Intent intent3 = new Intent(this, NotificationService.class);
+            intent3.putExtra("param", 33);
+            PendingIntent pendingIntent3 = PendingIntent.getService(this, 1, intent3, PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteView.setOnClickPendingIntent(R.id.btNotiNext, pendingIntent3);
+
             Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);
 
-            Notification.Builder builder = new Notification.Builder(this);
-            notification = builder.setContentTitle("some string")
+            android.support.v7.app.NotificationCompat.Builder builder = new android.support.v7.app.NotificationCompat.Builder(this);
+            builder.setContentTitle("some string")
                     .setContentText("Slide down on note to expand")
                     .setSmallIcon(R.drawable.avatar)
-                    .setLargeIcon(largeIcon)
-                    .build();
+                    .setLargeIcon(largeIcon);
 
+            notification = builder.build();
             notification.bigContentView = remoteView;
-            notification.flags = Notification.FLAG_NO_CLEAR;
 
             NotificationManager mNotifyManager = (NotificationManager) getSystemService(this.NOTIFICATION_SERVICE);
             mNotifyManager.notify(1, notification);
