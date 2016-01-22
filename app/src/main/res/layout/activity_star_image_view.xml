@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.0" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.1" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.2" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.3" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.4" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.5" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.6" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.7" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.8" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="0.9" />
+
+    <com.android.framework.libui.LevelImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableLeft="@drawable/star_color"
+        app:drawableRight="@drawable/star_empty"
+        app:level="1.0" />
+
 
 </LinearLayout>

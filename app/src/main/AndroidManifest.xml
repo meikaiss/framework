@@ -91,10 +91,13 @@
         <activity
             android:name=".activity.colormatrix.ColorMatrixActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.LevelImageViewActivity"
+            android:theme="@style/BaseAppTheme" />
 
         <service android:name=".service.PlayMusicIntentService" />
         <service android:name=".widget.WeatherService" />
-        <service android:name=".service.NotificationService"/>
+        <service android:name=".service.NotificationService" />
 
         <receiver android:name=".widget.WeatherAppWidgetProvider">
             <intent-filter>

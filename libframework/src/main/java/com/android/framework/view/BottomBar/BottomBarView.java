@@ -108,7 +108,7 @@ public class BottomBarView extends LinearLayout{
             this.addView(btn);
             mBtnList.add(btn);
         }
-        setBtnLisenter();
+        setBtnListenter();
 
         if(mBtnList.size() > 0 && mBtnList.size()-1-this.mDefaultSelectIndex >= 0){
             //由于设置了点击时间间隙,要进行处理,否则点击不了
@@ -118,7 +118,7 @@ public class BottomBarView extends LinearLayout{
         }
     }
 
-    private void setBtnLisenter() {
+    private void setBtnListenter() {
         for (int i = 0; i < mBtnList.size(); i++) {
             final BottomButton b = mBtnList.get(i);
             b.setOnClickListener(new OnClickListener() {

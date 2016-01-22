@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.widget.SeekBar;
 
 import com.android.framework.R;
-import com.android.framework.utils.DensityUtil;
+import com.android.framework.util.DensityUtil;
 
 /**
  * Created by meikai on 15/10/18.

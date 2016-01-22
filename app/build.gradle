@@ -1,26 +1,57 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.android.framework.demo"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
     buildTypes {
         release {
+            // 是否进行混淆
             minifyEnabled false
+            // 混淆文件的位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    // 移除lint检查的error
+    lintOptions {
+        abortOnError false
     }
 }
 
 dependencies {
+    // 编译libs目录下的所有jar包
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':libframework')
     compile project(':libapi')
+    compile project(':libui')
+}
+
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        println "****************************"
+        println "variant: ${output.name}"
+        println "flavor: ${variant.flavorName}"
+        println "manifest:  ${output.processResources.manifestFile}"
+        println "****************************"
+
+        if(output.name.toLowerCase().contains("debug")) {
+            def apkName = "app-${output.name}-${marsVersion}-#${buildNumber}.apk"
+            def file = output.outputFile
+            output.outputFile = new File(file.parent, apkName)
+        }
+    }
 }

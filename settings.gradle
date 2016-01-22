@@ -1,1 +1,1 @@
-include ':app', ':libframework', ':libapi'
+include ':app', ':libframework', ':libapi', ':libui', ':libutil'

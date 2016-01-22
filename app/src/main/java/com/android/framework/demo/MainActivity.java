@@ -15,24 +15,25 @@ import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
 import com.android.framework.demo.activity.ExplosionActivity;
 import com.android.framework.demo.activity.FlowLayoutActivity;
+import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.NumberSeekBarActivity;
+import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
+import com.android.framework.demo.activity.LevelImageViewActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
+import com.android.framework.demo.activity.nolib.AlertDialogActivity;
+import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
-import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
-import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
-import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
-import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            LevelImageViewActivity.class,
             ColorMatrixActivity.class,
             ShaderActivity.class,
             AlertDialogActivity.class,

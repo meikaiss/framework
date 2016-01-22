@@ -1,4 +1,4 @@
-package com.android.framework.libutil;
+package com.android.framework.util;
 
 import org.junit.Test;
 

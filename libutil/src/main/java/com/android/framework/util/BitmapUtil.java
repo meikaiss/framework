@@ -70,7 +70,6 @@ public class BitmapUtil {
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
 
-
         Bitmap bitmap = Bitmap.createBitmap(
 
                 drawable.getIntrinsicWidth(),
