@@ -49,7 +49,7 @@ android.applicationVariants.all { variant ->
         println "****************************"
 
         if(output.name.toLowerCase().contains("debug")) {
-            def apkName = "app-${output.name}-${marsVersion}-#${buildNumber}.apk"
+            def apkName = "app-${output.name}-${frameworkVersion}-#${buildNumber}.apk"
             def file = output.outputFile
             output.outputFile = new File(file.parent, apkName)
         }
