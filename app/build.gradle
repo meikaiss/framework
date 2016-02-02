@@ -17,11 +17,33 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file(debugMKeystoreFile)
+            storePassword debugMKeystorePassword
+            keyAlias debugMKeyAlias
+            keyPassword debugMKeyPassword
+        }
         release {
-            // 是否进行混淆
+            storeFile file(releaseMKeystoreFile)
+            storePassword releaseMKeystorePassword
+            keyAlias releaseMKeyAlias
+            keyPassword releaseMKeyPassword
+        }
+    }
+
+    buildTypes {
+        debug{
+            signingConfig signingConfigs.debug
             minifyEnabled false
-            // 混淆文件的位置
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,10 +72,8 @@ android.applicationVariants.all { variant ->
         println "manifest:  ${output.processResources.manifestFile}"
         println "****************************"
 
-        if(output.name.toLowerCase().contains("debug")) {
-            def apkName = "app-${output.name}-${frameworkVersion}-#${buildNumber}.apk"
-            def file = output.outputFile
-            output.outputFile = new File(file.parent, apkName)
-        }
+        def apkName = "app-${output.name}-${frameworkVersion}-#${buildNumber}.apk"
+        def file = output.outputFile
+        output.outputFile = new File(file.parent, apkName)
     }
 }
