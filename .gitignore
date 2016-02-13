@@ -2,8 +2,8 @@
 .idea
 build
 
-*.iml
-
 .DS_Store
+*.iml
+local.properties
 
 
