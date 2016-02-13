@@ -1,4 +1,4 @@
-package com.android.framework.libui;
+package com.android.framework.libui.viewgroup;
 
 import android.content.Context;
 import android.util.AttributeSet;

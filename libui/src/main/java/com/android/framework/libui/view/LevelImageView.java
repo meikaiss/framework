@@ -1,4 +1,4 @@
-package com.android.framework.libui;
+package com.android.framework.libui.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.android.framework.libui.R;
 
 /**
  * Created by meikai on 16/1/21.

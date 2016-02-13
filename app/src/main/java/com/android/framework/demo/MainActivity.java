@@ -15,6 +15,7 @@ import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
 import com.android.framework.demo.activity.ExplosionActivity;
 import com.android.framework.demo.activity.FlowLayoutActivity;
+import com.android.framework.demo.activity.FuseImageActivity;
 import com.android.framework.demo.activity.InputLinearLayoutActivity;
 import com.android.framework.demo.activity.NumberSeekBarActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            FuseImageActivity.class,
             LevelImageViewActivity.class,
             ColorMatrixActivity.class,
             ShaderActivity.class,
@@ -88,7 +90,7 @@ public class MainActivity extends Activity {
         addContentView(listView, lp);
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(listener);
 

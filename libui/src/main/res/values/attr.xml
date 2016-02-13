@@ -3,9 +3,13 @@
 
     <declare-styleable name="LevelImageView">
         <attr name="level" format="float"></attr>
-        <attr name="drawableLeft" format="reference"></attr>
-        <attr name="drawableRight" format="reference"></attr>
+        <attr name="drawableLeft" format="reference" />
+        <attr name="drawableRight" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="FuseImageView">
+        <attr name="drawableDefault" format="reference" />
+        <attr name="drawableFused" format="reference" />
+    </declare-styleable>
 
 </resources>
