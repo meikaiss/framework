@@ -3,7 +3,6 @@ package com.android.framework.demo.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSeekBar;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.android.framework.demo.R;

@@ -32,6 +32,7 @@ import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
 import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
+import com.android.framework.demo.activity.nolib.InsetClipActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
 import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            InsetClipActivity.class,
             FuseImageActivity.class,
             LevelImageViewActivity.class,
             ColorMatrixActivity.class,
