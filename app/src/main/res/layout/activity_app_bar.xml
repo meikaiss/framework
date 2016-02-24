@@ -5,14 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/id_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="#ffff0000"
-        android:dividerHeight="10dp"
-        android:scrollbars="none" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -24,17 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             app:elevation="@dimen/default_elevation"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="标题"
-                android:textColor="#fff"
-                android:textSize="18dp" />
-
-        </android.support.v7.widget.Toolbar>
+            app:layout_scrollFlags="scroll|enterAlways" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
@@ -54,5 +36,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#ffff0000"
+        android:dividerHeight="10dp"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </android.support.design.widget.CoordinatorLayout>

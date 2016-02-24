@@ -93,8 +93,6 @@ public class AppBarLayoutActivity extends AppCompatActivity {
             }
         });
 
-        AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) tabLayout.getLayoutParams();
-        lp.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL);
     }
 
 
