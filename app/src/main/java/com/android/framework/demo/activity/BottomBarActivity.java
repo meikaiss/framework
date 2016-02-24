@@ -127,12 +127,12 @@ public class BottomBarActivity extends AppCompatActivity {
 
     }
 
-    public class MyFragment extends Fragment {
+    public static class MyFragment extends Fragment {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            return LayoutInflater.from(BottomBarActivity.this).inflate(R.layout.fragment_bottombar, null);
+            return LayoutInflater.from(getContext()).inflate(R.layout.fragment_bottombar, null);
 
         }
 

@@ -114,13 +114,13 @@ public class TabLayoutActivity extends BaseCompactActivity {
         }
     }
 
-    private class TabFragment extends Fragment{
+    public static class TabFragment extends Fragment{
 
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            TextView textView = new TextView(TabLayoutActivity.this);
+            TextView textView = new TextView(getContext());
             textView.setText("11");
 
             return textView;

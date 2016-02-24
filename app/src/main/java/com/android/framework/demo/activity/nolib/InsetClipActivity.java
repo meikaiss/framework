@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.android.framework.demo.R;
 
@@ -64,6 +65,7 @@ public class InsetClipActivity extends AppCompatActivity {
                 drawable.setLevel(0);
             }
         });
+
     }
 
 

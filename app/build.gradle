@@ -42,7 +42,7 @@ android {
 
         release {
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -75,5 +75,17 @@ android.applicationVariants.all { variant ->
         def apkName = "app-${output.name}-${frameworkVersion}-#${buildNumber}.apk"
         def file = output.outputFile
         output.outputFile = new File(file.parent, apkName)
+
+        if(variant.getBuildType().isMinifyEnabled()){
+            variant.assemble.doLast{
+                copy{
+                    from variant.mappingFile
+                    into "${projectDir}/../mappings"
+                    rename { String fileName ->
+                        "mapping-${variant.name}-${output.name}-${frameworkVersion}-#${buildNumber}.txt"
+                    }
+                }
+            }
+        }
     }
 }
