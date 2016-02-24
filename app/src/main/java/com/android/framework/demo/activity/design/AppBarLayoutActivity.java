@@ -1,6 +1,8 @@
 package com.android.framework.demo.activity.design;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,7 +42,7 @@ public class AppBarLayoutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.bottom_menu_mine);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("开发"));
         tabLayout.addTab(tabLayout.newTab().setText("测试"));
         tabLayout.addTab(tabLayout.newTab().setText("产品"));
@@ -63,6 +65,36 @@ public class AppBarLayoutActivity extends AppCompatActivity {
             }
         });
 
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        Toast.makeText(AppBarLayoutActivity.this, "点击TabLayout= " + tab.getPosition(), Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(AppBarLayoutActivity.this, "点击TabLayout= " + tab.getPosition(), Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(AppBarLayoutActivity.this, "点击TabLayout= " + tab.getPosition(), Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) tabLayout.getLayoutParams();
+        lp.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL);
     }
 
 
@@ -76,7 +108,7 @@ public class AppBarLayoutActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_user:
                 Toast.makeText(this, "ToolBar用户被点击", Toast.LENGTH_SHORT).show();
                 break;
