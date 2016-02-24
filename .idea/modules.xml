@@ -4,9 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Framework.iml" filepath="$PROJECT_DIR$/Framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libapi/libapi.iml" filepath="$PROJECT_DIR$/libapi/libapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/libapi/libapi.iml" filepath="$PROJECT_DIR$/libapi/libapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/libframework/libframework.iml" filepath="$PROJECT_DIR$/libframework/libframework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libframework/libframework.iml" filepath="$PROJECT_DIR$/libframework/libframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/libui/libui.iml" filepath="$PROJECT_DIR$/libui/libui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libui/libui.iml" filepath="$PROJECT_DIR$/libui/libui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libutil/libutil.iml" filepath="$PROJECT_DIR$/libutil/libutil.iml" />
       <module fileurl="file://$PROJECT_DIR$/libutil/libutil.iml" filepath="$PROJECT_DIR$/libutil/libutil.iml" />
     </modules>
   </component>
