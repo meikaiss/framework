@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.nolib.CoordinatorLayoutActivity">
+    tools:context=".activity.design.CoordinatorLayoutActivity">
 
     <TextView
-    android:id="@+id/depentent"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_gravity="top|left"
-    android:background="#FFFF0000"
-    android:gravity="center"
-    android:text="depentent"
-    android:textColor="@android:color/white" />
+        android:id="@+id/depentent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|left"
+        android:background="#FFFF0000"
+        android:gravity="center"
+        android:text="depentent"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/depentent2"

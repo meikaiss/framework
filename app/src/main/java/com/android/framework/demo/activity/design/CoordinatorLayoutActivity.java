@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity.nolib;
+package com.android.framework.demo.activity.design;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
@@ -19,16 +19,16 @@ public class CoordinatorLayoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_coordinator);
 
 
-        final TextView depentent = (TextView) findViewById(R.id.depentent);
-        depentent.setOnClickListener(new View.OnClickListener() {
+        final TextView dependent = (TextView) findViewById(R.id.depentent);
+        dependent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewCompat.offsetTopAndBottom(v, 25);
             }
         });
 
-        final TextView depentent2 = (TextView) findViewById(R.id.depentent2);
-        depentent2.setOnClickListener(new View.OnClickListener() {
+        final TextView dependent2 = (TextView) findViewById(R.id.depentent2);
+        dependent2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewCompat.offsetTopAndBottom(v, 25);

@@ -27,10 +27,11 @@ import com.android.framework.demo.activity.LevelImageViewActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
+import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
-import com.android.framework.demo.activity.nolib.AppBarLayoutActivity;
+import com.android.framework.demo.activity.design.AppBarLayoutActivity;
 import com.android.framework.demo.activity.nolib.CardViewActivity;
-import com.android.framework.demo.activity.nolib.CoordinatorLayoutActivity;
+import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.nolib.InsetClipActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
@@ -51,6 +52,9 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            SwipeDismissBehaviorActivity.class,
+            CoordinatorLayoutActivity.class,
+            AppBarLayoutActivity.class,
             InsetClipActivity.class,
             FuseImageActivity.class,
             LevelImageViewActivity.class,
@@ -60,11 +64,9 @@ public class MainActivity extends Activity {
             OkHttpActivity.class,
             SaveStateViewActivity.class,
             PinnedHeaderExpandableListViewActivity.class,
-            AppBarLayoutActivity.class,
             RippleActivity.class,
             SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
-            CoordinatorLayoutActivity.class,
             InputLinearLayoutActivity.class,
             SlideViewPagerActivity.class,
             TabLayoutActivity.class,

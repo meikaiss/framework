@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity.nolib;
+package com.android.framework.demo.activity.design;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
