@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.android.framework.demo.activity.AppCompatTestActivity;
+import com.android.framework.demo.activity.design.AppCompatTestActivity;
 import com.android.framework.demo.activity.BonuceLoadingActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
@@ -27,10 +27,11 @@ import com.android.framework.demo.activity.LevelImageViewActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
+import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
-import com.android.framework.demo.activity.nolib.CardViewActivity;
+import com.android.framework.demo.activity.design.CardViewActivity;
 import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.nolib.InsetClipActivity;
@@ -52,6 +53,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            AnimatedVectorDrawableActivity.class,
             SwipeDismissBehaviorActivity.class,
             CoordinatorLayoutActivity.class,
             AppBarLayoutActivity.class,

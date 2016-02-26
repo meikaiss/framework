@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity;
+package com.android.framework.demo.activity.design;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

@@ -30,7 +30,7 @@
         <activity android:name=".activity.ExplosionActivity" />
         <activity android:name=".activity.NumberSeekBarActivity" />
         <activity
-            android:name=".activity.AppCompatTestActivity"
+            android:name=".activity.design.AppCompatTestActivity"
             android:theme="@style/Theme_TestAppCompat"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
@@ -62,7 +62,7 @@
             android:theme="@style/BaseAppTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.nolib.CardViewActivity"
+            android:name=".activity.design.CardViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.SwipRefreshLayoutActivity"
@@ -103,6 +103,8 @@
         <activity
             android:name=".activity.design.SwipeDismissBehaviorActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity android:name=".activity.design.AnimatedVectorDrawableActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <service android:name=".service.PlayMusicIntentService" />
         <service android:name=".widget.WeatherService" />
