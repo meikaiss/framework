@@ -20,8 +20,6 @@ public class AppCompatTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appcompat);
 
-
-
     }
 
     @Override

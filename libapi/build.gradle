@@ -23,5 +23,5 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.squareup.okhttp:okhttp:2.7.0'
-    compile 'com.alibaba:fastjson:1.2.7'
+    compile 'com.alibaba:fastjson:1.2.8'
 }
