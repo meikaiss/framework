@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="xunche_price_range_view_scale_text_size">14dp</dimen>
+    <dimen name="xunche_price_range_view_bubble_text_size">12dp</dimen>
+
+</resources>

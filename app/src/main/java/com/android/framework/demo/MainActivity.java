@@ -41,6 +41,7 @@ import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
+import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            PriceRangeActivity.class,
             AnimatedVectorDrawableActivity.class,
             SwipeDismissBehaviorActivity.class,
             CoordinatorLayoutActivity.class,
