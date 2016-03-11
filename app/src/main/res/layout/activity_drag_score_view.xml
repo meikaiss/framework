@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.android.framework.libui.view.DragScoreView
+        android:id="@+id/drag_score_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        app:drag_max="100"
+        app:drag_min="0"
+        app:thumbIconDisable="@drawable/drag_score_view_disable"
+        app:thumbIconEnable="@drawable/drag_score_view_enable" />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="----"
+        android:textColor="@android:color/holo_red_light" />
+
+</LinearLayout>

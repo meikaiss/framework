@@ -471,9 +471,9 @@ public class PriceRangeView extends View {
                             onValueChanging();
                             //告诉ViewPager不要拦截此控件的触摸事件
                             ViewParent parent = getParent();
-//                            if (parent != null) {
-//                                parent.requestDisallowInterceptTouchEvent(true);
-//                            }
+                            if (parent != null) {
+                                parent.requestDisallowInterceptTouchEvent(true);
+                            }
                             return true;
                         }
                     }

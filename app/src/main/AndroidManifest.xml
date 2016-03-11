@@ -92,6 +92,9 @@
             android:name=".activity.viewdemo.PriceRangeActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
+            android:name=".activity.viewdemo.DragScoreViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
             android:name=".activity.FuseImageActivity"
             android:theme="@style/BaseAppTheme" />
         <activity

@@ -12,4 +12,13 @@
         <attr name="drawableFused" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="DragScoreView">
+        <attr name="thumbIconEnable" format="reference"/>
+        <attr name="thumbIconDisable" format="reference"/>
+        <attr name="drag_max" format="float|integer"/>
+        <attr name="drag_min" format="float|integer"/>
+        <attr name="selectColor" format="reference|color"/>
+        <attr name="unSelectColor" format="reference|color"/>
+    </declare-styleable>
+
 </resources>
