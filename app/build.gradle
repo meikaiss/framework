@@ -63,8 +63,8 @@ android {
 dependencies {
     testCompile 'junit:junit:4.12'
 
-    // 编译libs目录下的所有jar包
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     compile project(':libframework')
     compile project(':libapi')
     compile project(':libui')
