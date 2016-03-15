@@ -12,8 +12,11 @@ import com.android.framework.libui.view.DragScoreView;
  */
 public class DragScoreViewActivity extends AppCompatActivity {
 
-    private TextView tvScore;
     private DragScoreView dragScoreView;
+    private TextView tvScore;
+
+    private DragScoreView dragScoreView_2;
+    private TextView tvScore_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,9 @@ public class DragScoreViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drag_score_view);
 
         dragScoreView = (DragScoreView) findViewById(R.id.drag_score_view);
+        dragScoreView_2 = (DragScoreView) findViewById(R.id.drag_score_view_2);
         tvScore = (TextView) findViewById(R.id.tv_score);
+        tvScore_2 = (TextView) findViewById(R.id.tv_score_2);
 
         dragScoreView.setOnScoreChangedListener(new DragScoreView.OnScoreChangedListener() {
             @Override
@@ -29,5 +34,14 @@ public class DragScoreViewActivity extends AppCompatActivity {
                 tvScore.setText(score + "");
             }
         });
+
+        dragScoreView_2.setOnScoreChangedListener(new DragScoreView.OnScoreChangedListener() {
+            @Override
+            public void onSelected(int score) {
+                tvScore_2.setText(score + "");
+            }
+        });
+
     }
+
 }

@@ -21,6 +21,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 import com.android.framework.libui.R;
 
@@ -29,19 +30,30 @@ import com.android.framework.libui.R;
  */
 public class DragScoreView extends View {
 
+    /**
+     * 默认 的 轨道高度值 (单位 px)
+     */
+    private static final int DEFAULT_RAIL_HEIGHT = 30;
+    /**
+     * 羽化阴影 的 偏移量
+     */
     private static int SHADOW_OFFSET = 0;
     /**
      * 允许的用户点击偏移，即当用户点击的位置与拖拽图标的距离小于此值时，认为点击成功
      */
     private static final int CLICK_OFFSET = 20;
+    private int mTouchSlop;
     /**
      * 刻度宽度
      */
     private float scaleWidth = 10;
+    /**
+     * 轨道高度
+     */
+    private float railHeight = DEFAULT_RAIL_HEIGHT;
 
     private Paint railPaint = null;
     private Paint holderPaint;
-    private Paint testPaint;
 
     private RectF unSelectRailRectF = new RectF();
     private RectF selectRailRectF = new RectF();
@@ -67,8 +79,6 @@ public class DragScoreView extends View {
 
     private float downEventX = 0f;
     private float downEventY = 0f;
-    private float currentEventX = 0f;
-    private float currentEventY = 0f;
     private float dragDeltaX = 0f;
 
     private OnScoreChangedListener scoreChangedListener = null;
@@ -104,33 +114,41 @@ public class DragScoreView extends View {
         maxScore = a.getFloat(R.styleable.DragScoreView_drag_max, 100);
         minScore = a.getFloat(R.styleable.DragScoreView_drag_min, 0);
         scaleArrStrAttr = a.getString(R.styleable.DragScoreView_scaleArr);
+        railHeight = a.getDimension(R.styleable.DragScoreView_rail_height, 30);
         a.recycle();
 
-        //初始化轨道画笔
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        mTouchSlop = 16;
+
         initRailPaint();
-        //初始化手柄画笔
+
         initHolderPaint();
+
         //初始化手柄图
         holderBitmapEnable = BitmapFactory.decodeResource(getResources(), thumbIconEnableRes);
         holderBitmapDisable = BitmapFactory.decodeResource(getResources(), thumbIconDisableRes);
+
         //初始化刻度宽度
         scaleWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
     }
 
+    /**
+     * 初始化轨道画笔
+     */
+    private void initRailPaint() {
+        railPaint = new Paint();
+        railPaint.setAntiAlias(true);
+        railPaint.setColor(unSelectColor);
+    }
+
+    /**
+     * 初始化手柄画笔
+     */
     private void initHolderPaint() {
         holderPaint = new Paint();
         holderPaint.setColor(Color.GRAY);
         BlurMaskFilter bf = new BlurMaskFilter(5, BlurMaskFilter.Blur.NORMAL);
         holderPaint.setMaskFilter(bf);
-
-        testPaint = new Paint();
-        testPaint.setColor(Color.RED);
-    }
-
-    private void initRailPaint() {
-        railPaint = new Paint();
-        railPaint.setAntiAlias(true);
-        railPaint.setColor(unSelectColor);
     }
 
     /**
@@ -143,7 +161,9 @@ public class DragScoreView extends View {
     }
 
     /**
-     * @param scaleArrStr 格式 :  0.25,0.5,0.75
+     * 初始化刻度位置坐标 的数组
+     *
+     * @param scaleArrStr 格式例如 :  0.25,0.5,0.75
      */
     private void initScale(String scaleArrStr) {
 
@@ -156,16 +176,67 @@ public class DragScoreView extends View {
         for (int i = 0; i < scaleArray.length; i++) {
             scaleArray[i] = getPercentageX(Float.parseFloat(scaleStrArr[i]));
         }
+    }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+        switch (widthMode) {
+            case MeasureSpec.UNSPECIFIED:
+            case MeasureSpec.EXACTLY: {
+                break;
+            }
+            case MeasureSpec.AT_MOST: {
+                width = holderBitmapDisable.getWidth() * 10;
+            }
+        }
+
+        switch (heightMode) {
+            case MeasureSpec.UNSPECIFIED: {
+                height = holderBitmapDisable.getHeight() + Math.abs(SHADOW_OFFSET);
+            }
+            case MeasureSpec.EXACTLY: {
+                break;
+            }
+            case MeasureSpec.AT_MOST: {
+                height = holderBitmapDisable.getHeight() + Math.abs(SHADOW_OFFSET);
+            }
+        }
+
+        setMeasuredDimension(width, height);
+
+        initRailRectF();
+
+        initHolderPosition();
+
+        initScale(scaleArrStrAttr);
+    }
+
+    /**
+     * 测量计算轨道高度宽度
+     */
+    private void initRailRectF() {
+
+        unSelectRailRectF.left = this.getPaddingLeft() + holderBitmapDisable.getWidth() / 2;
+        unSelectRailRectF.right = this.getMeasuredWidth() - this.getPaddingRight() - holderBitmapDisable.getWidth() / 2 + SHADOW_OFFSET;
+
+        unSelectRailRectF.top = (this.getMeasuredHeight() - railHeight) / 2;
+        unSelectRailRectF.bottom = unSelectRailRectF.top + railHeight;
+
+        if (selectRailRectF == null) {
+            selectRailRectF = new RectF(unSelectRailRectF);
+        }
+        selectRailRectF.right = selectRailRectF.left;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
         boolean consumed = false;
-
-        currentEventX = event.getX();
-        currentEventY = event.getY();
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
@@ -183,12 +254,20 @@ public class DragScoreView extends View {
             break;
             case MotionEvent.ACTION_MOVE: {
 
+                if (Math.abs(event.getX() - downEventX) < mTouchSlop && Math.abs(event.getY() - downEventY) < mTouchSlop) {
+                    isInDrag = null;
+                    consumed = true;
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                    break;
+                }
+
+
                 if (isInDrag == Boolean.TRUE) {
                     consumed = true;
 
                     dragDeltaX = event.getX() - downEventX;
 
-                    processValueChanged(dragDeltaX);
+                    processDragDeltaXChanged(dragDeltaX);
 
                 } else {
                     if (Math.abs(event.getX() - downEventX) > Math.abs(event.getY() - downEventY)) {
@@ -198,13 +277,15 @@ public class DragScoreView extends View {
 
                         dragDeltaX = event.getX() - downEventX;
 
-                        processValueChanged(dragDeltaX);
+                        processDragDeltaXChanged(dragDeltaX);
 
                     } else {
                         getParent().requestDisallowInterceptTouchEvent(false);
+                        isInDrag = Boolean.FALSE;
+
+                        Log.e("", " 111  isInDrag= " + isInDrag);
                         consumed = false;
 
-                        isInDrag = Boolean.FALSE;
                     }
                 }
 
@@ -223,7 +304,7 @@ public class DragScoreView extends View {
                 isInDrag = null;
                 isInTouch = false;
 
-                magnetism();
+                autoMoveToNearest();
             }
             break;
             default:
@@ -243,9 +324,6 @@ public class DragScoreView extends View {
         drawRailWay(canvas);
         drawHolder(canvas);
 
-        if (currentEventX > 0 && currentEventY > 0) {
-            canvas.drawCircle(currentEventX, currentEventY, 5, testPaint);
-        }
     }
 
     private void drawRailWay(Canvas canvas) {
@@ -278,6 +356,7 @@ public class DragScoreView extends View {
         //画 禁用模式 的 灰色 把柄图
         canvas.drawBitmap(holderBitmapDisable, filerHolderX(left + dragDeltaX), top, holderPaint);
 
+        Log.e("", " 222  isInDrag= " + isInDrag);
         //画 启用模式 的 彩色 把柄图
         if ((isInTouch && (isInDrag == null || isInDrag == true)) || currentScore > 0)
             canvas.drawBitmap(holderBitmapEnable, filerHolderX(left + dragDeltaX), top, holderPaint);
@@ -302,15 +381,13 @@ public class DragScoreView extends View {
 
         return logicLeft;
     }
-    private void processValueChanged(float dragDeltaX) {
+
+    private void processDragDeltaXChanged(float dragDeltaX) {
 
         if (scoreChangedListener == null)
             return;
 
         float valueX = holderCenterPoint.x + dragDeltaX - unSelectRailRectF.left;
-
-        Log.e("processValueChanged", "x=" + holderCenterPoint.x + " ,dragDeltaX=" + dragDeltaX + " , valueX " + valueX
-                + ", left=" + unSelectRailRectF.left);
 
         if (holderCenterPoint.x + dragDeltaX < unSelectRailRectF.left)
             valueX = 0;
@@ -320,13 +397,10 @@ public class DragScoreView extends View {
         currentScore = valueX * (maxScore - minScore) / (unSelectRailRectF.right - unSelectRailRectF.left)
                 + minScore;
 
-        scoreChangedListener.onSelected((int) currentScore);
+        scoreChangedListener.onSelected(Math.round(currentScore));
     }
 
-    /**
-     * 磁力吸引
-     */
-    private void magnetism() {
+    private void autoMoveToNearest() {
         float centerX = holderCenterPoint.x;
 
         float[] scaleArrayWithHeadTail = new float[scaleArray.length + 2];
@@ -394,76 +468,10 @@ public class DragScoreView extends View {
                     / (unSelectRailRectF.right - unSelectRailRectF.left)
                     + minScore;
 
-            scoreChangedListener.onSelected((int) currentScore);
+            scoreChangedListener.onSelected(Math.round(currentScore));
         }
         invalidate();
     }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = MeasureSpec.getSize(heightMeasureSpec);
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
-        switch (widthMode) {
-            case MeasureSpec.UNSPECIFIED:
-            case MeasureSpec.EXACTLY: {
-                break;
-            }
-            case MeasureSpec.AT_MOST: {
-                width = holderBitmapDisable.getWidth() * 10;
-            }
-        }
-
-        switch (heightMode) {
-            case MeasureSpec.UNSPECIFIED:
-            case MeasureSpec.EXACTLY: {
-                break;
-            }
-            case MeasureSpec.AT_MOST: {
-                height = holderBitmapDisable.getHeight();
-            }
-        }
-
-        setMeasuredDimension(width, height);
-
-        measureRailRectF(widthMeasureSpec, heightMeasureSpec);
-
-        initHolderPosition();
-
-        //初始化刻度位置数组
-        initScale(scaleArrStrAttr);
-    }
-
-    /**
-     * 测量计算轨道高度宽度
-     */
-    private void measureRailRectF(int widthMeasureSpec, int heightMeasureSpec) {
-
-        unSelectRailRectF.left = this.getPaddingLeft() + holderBitmapDisable.getWidth() / 2;
-
-        switch (MeasureSpec.getMode(heightMeasureSpec)) {
-            case MeasureSpec.UNSPECIFIED:
-            case MeasureSpec.EXACTLY: {
-                unSelectRailRectF.top = (this.getMeasuredHeight() - holderBitmapDisable.getHeight()) / 2 + holderBitmapDisable.getHeight() / 3;
-                break;
-            }
-            case MeasureSpec.AT_MOST: {
-                unSelectRailRectF.top = holderBitmapDisable.getHeight() / 3;
-            }
-        }
-
-        unSelectRailRectF.bottom = unSelectRailRectF.top + holderBitmapDisable.getHeight() / 3;
-
-        unSelectRailRectF.right = this.getMeasuredWidth() - this.getPaddingRight() - holderBitmapDisable.getWidth() / 2 + SHADOW_OFFSET;
-
-        if (selectRailRectF == null) {
-            selectRailRectF = new RectF(unSelectRailRectF);
-        }
-        selectRailRectF.right = selectRailRectF.left;
-    }
-
 
     private float getPercentageX(float percent) {
         percent = percent < 0 ? 0 : percent > 1 ? 1 : percent;

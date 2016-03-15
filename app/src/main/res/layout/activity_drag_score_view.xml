@@ -14,11 +14,34 @@
             android:layout_gravity="center_horizontal"
             android:background="#eee"
             android:gravity="center"
-            android:text="一个200dp的View"
+            android:text="一个200dp的View\n下面是一个高为wrap_content的DragScoreView"
             android:textColor="@android:color/holo_red_light" />
 
         <com.android.framework.libui.view.DragScoreView
             android:id="@+id/drag_score_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#3f00"
+            app:drag_max="100"
+            app:drag_min="0"
+            app:holderIconDisable="@drawable/drag_score_view_disable"
+            app:holderIconEnable="@drawable/drag_score_view_enable"
+            app:rail_height="10dp"
+            app:scaleArr="0.25,0.5,0.75" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="----"
+            android:textColor="@android:color/holo_red_light" />
+
+        <com.android.framework.libui.view.DragScoreView
+            android:id="@+id/drag_score_view_2"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
@@ -28,14 +51,15 @@
             app:drag_min="0"
             app:holderIconDisable="@drawable/drag_score_view_disable"
             app:holderIconEnable="@drawable/drag_score_view_enable"
-            app:scaleArr="0.25,0.5,0.75" />
+            app:rail_height="10dp"
+            app:scaleArr="0.2,0.4,0.6,0.8" />
 
         <TextView
-            android:id="@+id/tv_score"
+            android:id="@+id/tv_score_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_margin="10dp"
             android:text="----"
             android:textColor="@android:color/holo_red_light" />
 

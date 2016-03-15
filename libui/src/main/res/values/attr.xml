@@ -18,6 +18,7 @@
         <attr name="drag_max" format="float|integer" />
         <attr name="drag_min" format="float|integer" />
         <attr name="scaleArr" format="string" />
+        <attr name="rail_height" format="dimension" />
         <attr name="selectColor" format="reference|color" />
         <attr name="unSelectColor" format="reference|color" />
     </declare-styleable>
