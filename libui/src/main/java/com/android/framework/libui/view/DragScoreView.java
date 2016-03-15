@@ -118,7 +118,6 @@ public class DragScoreView extends View {
         a.recycle();
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        mTouchSlop = 16;
 
         initRailPaint();
 
