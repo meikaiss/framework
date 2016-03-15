@@ -17,6 +17,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,50 +28,48 @@ import com.android.framework.libui.R;
  * Created by meikai on 16/3/11.
  */
 public class DragScoreView extends View {
+
+    private static int SHADOW_OFFSET = 0;
     /**
-     * 影子偏离度
+     * 允许的用户点击偏移，即当用户点击的位置与拖拽图标的距离小于此值时，认为点击成功
      */
-    private static final int SHADOW_OFFSET = 10;
+    private static final int CLICK_OFFSET = 20;
     /**
      * 刻度宽度
      */
-    private float scaleWidth = 0;
-
-    private Context mContext = null;
+    private float scaleWidth = 10;
 
     private Paint railPaint = null;
+    private Paint holderPaint;
+    private Paint testPaint;
 
-    private Paint thumbPaint = null;
+    private RectF unSelectRailRectF = new RectF();
+    private RectF selectRailRectF = new RectF();
+    private PointF holderCenterPoint = new PointF();
 
-    private RectF unSelectRailRectF = null;
+    private Bitmap holderBitmapEnable = null;
+    private Bitmap holderBitmapDisable = null;
 
-    private RectF selectRailRectF = null;
+    private String scaleArrStrAttr;
+    private float minScore = 0;
+    private float maxScore = 100;
+    private int selectColor;
+    private int unSelectColor;
 
-    private Bitmap thumbsBitmapEnable = null;
-
-    private Bitmap thumbsBitmapDisable = null;
-
-    private Bitmap thumbsBitmap = null;//是可用的,和不可用的引用
-
-    private PointF thumb = null;
-
-    private boolean isFirstDown = false;
-
-    private float max = 100;
-
-    private float min = 0;
-
-    private int selectColor = Color.parseColor("#3190e8");
-
-    private int unSelectColor = Color.parseColor("#333333");
-
-    private int thumbIconEnableRes = 0;
-
-    private int thumbIconDisableRes = 0;
-
+    private float currentScore = minScore;
     private float[] scaleArray = null;
 
-    private boolean isTouchAble = true;
+    private boolean isInTouch = false;
+    private boolean touchEnable = true;
+
+    private Boolean isInDrag = null;
+    private boolean dragEnable = true;
+
+    private float downEventX = 0f;
+    private float downEventY = 0f;
+    private float currentEventX = 0f;
+    private float currentEventY = 0f;
+    private float dragDeltaX = 0f;
 
     private OnScoreChangedListener scoreChangedListener = null;
 
@@ -96,37 +95,36 @@ public class DragScoreView extends View {
     }
 
     private void initialize(Context context, AttributeSet attrs) {
-        this.mContext = context.getApplicationContext();
 
-        if (attrs != null) {
-            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.DragScoreView);
-            thumbIconEnableRes = a.getResourceId(R.styleable.DragScoreView_thumbIconEnable, 0);
-            thumbIconDisableRes = a.getResourceId(R.styleable.DragScoreView_thumbIconDisable, 0);
-            selectColor = a.getColor(R.styleable.DragScoreView_selectColor, Color.parseColor("#3190e8"));
-            unSelectColor = a.getColor(R.styleable.DragScoreView_unSelectColor, Color.parseColor("#cccccc"));
-            max = a.getFloat(R.styleable.DragScoreView_drag_max, 100);
-            min = a.getFloat(R.styleable.DragScoreView_drag_min, 0);
-            a.recycle();
-        }
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.DragScoreView);
+        int thumbIconEnableRes = a.getResourceId(R.styleable.DragScoreView_holderIconEnable, 0);
+        int thumbIconDisableRes = a.getResourceId(R.styleable.DragScoreView_holderIconDisable, 0);
+        selectColor = a.getColor(R.styleable.DragScoreView_selectColor, Color.parseColor("#3190e8"));
+        unSelectColor = a.getColor(R.styleable.DragScoreView_unSelectColor, Color.parseColor("#cccccc"));
+        maxScore = a.getFloat(R.styleable.DragScoreView_drag_max, 100);
+        minScore = a.getFloat(R.styleable.DragScoreView_drag_min, 0);
+        scaleArrStrAttr = a.getString(R.styleable.DragScoreView_scaleArr);
+        a.recycle();
 
         //初始化轨道画笔
         initRailPaint();
         //初始化手柄画笔
-        initThumbPaint();
+        initHolderPaint();
         //初始化手柄图
-        thumbsBitmapEnable = BitmapFactory.decodeResource(getResources(), thumbIconEnableRes);
-        thumbsBitmapDisable = BitmapFactory.decodeResource(getResources(), thumbIconDisableRes);
-        thumbsBitmap = thumbsBitmapDisable;
+        holderBitmapEnable = BitmapFactory.decodeResource(getResources(), thumbIconEnableRes);
+        holderBitmapDisable = BitmapFactory.decodeResource(getResources(), thumbIconDisableRes);
         //初始化刻度宽度
-        scaleWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, mContext.getResources().getDisplayMetrics());
+        scaleWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
     }
 
-    private void initThumbPaint() {
-        thumbPaint = new Paint();
-        thumbPaint.setColor(Color.GRAY);
+    private void initHolderPaint() {
+        holderPaint = new Paint();
+        holderPaint.setColor(Color.GRAY);
         BlurMaskFilter bf = new BlurMaskFilter(5, BlurMaskFilter.Blur.NORMAL);
-        thumbPaint.setMaskFilter(bf);
+        holderPaint.setMaskFilter(bf);
 
+        testPaint = new Paint();
+        testPaint.setColor(Color.RED);
     }
 
     private void initRailPaint() {
@@ -135,64 +133,225 @@ public class DragScoreView extends View {
         railPaint.setColor(unSelectColor);
     }
 
+    /**
+     * 初始化手柄位置
+     */
+    private void initHolderPosition() {
+        // 初始时 拖拽图标中心 需要与 轨道起点重叠
+        holderCenterPoint.x = unSelectRailRectF.left;
+        holderCenterPoint.y = getHeight() / 2;
+    }
+
+    /**
+     * @param scaleArrStr 格式 :  0.25,0.5,0.75
+     */
+    private void initScale(String scaleArrStr) {
+
+        String[] scaleStrArr = scaleArrStr.split(",");
+
+        if (scaleArray == null) {
+            scaleArray = new float[scaleStrArr.length];
+        }
+
+        for (int i = 0; i < scaleArray.length; i++) {
+            scaleArray[i] = getPercentageX(Float.parseFloat(scaleStrArr[i]));
+        }
+
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        boolean consumed = false;
+
+        currentEventX = event.getX();
+        currentEventY = event.getY();
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
-                getParent().requestDisallowInterceptTouchEvent(true);
-                if (isTouchAble && event.getX() > thumb.x - 20
-                        && event.getX() < thumb.x + thumbsBitmap.getWidth() + 20) {//判断点击区域
-                    isFirstDown = true;
-                    return true;
+
+                downEventX = event.getX();
+                downEventY = event.getY();
+
+                if (touchEnable && dragEnable && isEventInHolder(event)) {
+                    consumed = true;
+                    isInTouch = true;
+
+                    isInDrag = null;
                 }
-                return false;
             }
+            break;
             case MotionEvent.ACTION_MOVE: {
-                float eventX = event.getX();
-                if (isFirstDown) {
-                    moveThumb(eventX);
-                    isFirstDown = false;
+
+                if (isInDrag == Boolean.TRUE) {
+                    consumed = true;
+
+                    dragDeltaX = event.getX() - downEventX;
+
+                    processValueChanged(dragDeltaX);
+
                 } else {
-                    moveThumb(eventX);
-                    invalidate();
+                    if (Math.abs(event.getX() - downEventX) > Math.abs(event.getY() - downEventY)) {
+                        isInDrag = Boolean.TRUE;
+                        consumed = true;
+                        getParent().requestDisallowInterceptTouchEvent(true);
+
+                        dragDeltaX = event.getX() - downEventX;
+
+                        processValueChanged(dragDeltaX);
+
+                    } else {
+                        getParent().requestDisallowInterceptTouchEvent(false);
+                        consumed = false;
+
+                        isInDrag = Boolean.FALSE;
+                    }
                 }
-                break;
+
             }
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL: {
-                isFirstDown = false;
-                getParent().requestDisallowInterceptTouchEvent(false);
+            break;
+            case MotionEvent.ACTION_UP: {
+                holderCenterPoint.x += dragDeltaX;
+
+                if (holderCenterPoint.x < unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2)
+                    holderCenterPoint.x = unSelectRailRectF.left;
+                if (holderCenterPoint.x > unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2)
+                    holderCenterPoint.x = unSelectRailRectF.right;
+
+                dragDeltaX = 0;
+
+                isInDrag = null;
+                isInTouch = false;
+
                 magnetism();
-                invalidate();
-                break;
             }
+            break;
+            default:
+                break;
+
         }
-        return true;
+
+        invalidate();
+
+        return consumed;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        drawRailWay(canvas);
+        drawHolder(canvas);
+
+        if (currentEventX > 0 && currentEventY > 0) {
+            canvas.drawCircle(currentEventX, currentEventY, 5, testPaint);
+        }
+    }
+
+    private void drawRailWay(Canvas canvas) {
+        //画 轨道 的 灰色背景
+        railPaint.setColor(unSelectColor);
+        canvas.drawRoundRect(unSelectRailRectF, 15, 15, railPaint);
+
+        //画 轨道 的 有效彩色背景
+        railPaint.setColor(selectColor);
+        canvas.drawRoundRect(selectRailRectF, 15, 15, railPaint);
+
+        //画 节点刻度线
+        railPaint.setColor(Color.WHITE);
+        for (Float scale : scaleArray) {
+            canvas.drawRect(scale - scaleWidth / 2, unSelectRailRectF.top, scale + scaleWidth / 2, unSelectRailRectF.bottom, railPaint);
+        }
+    }
+
+    private void drawHolder(Canvas canvas) {
+        float left = holderCenterPoint.x - holderBitmapDisable.getWidth() / 2;
+        float top = (this.getMeasuredHeight() - holderBitmapDisable.getHeight()) / 2;
+
+        int[] offsetXY = {0, 0};
+        //画 把柄的 边缘羽化背景图
+        canvas.drawBitmap(holderBitmapDisable.extractAlpha(holderPaint, offsetXY), filerHolderX(left + dragDeltaX), top, holderPaint);
+        SHADOW_OFFSET = offsetXY[0];
+
+        selectRailRectF.right = filerHolderX(left + dragDeltaX);
+
+        //画 禁用模式 的 灰色 把柄图
+        canvas.drawBitmap(holderBitmapDisable, filerHolderX(left + dragDeltaX), top, holderPaint);
+
+        //画 启用模式 的 彩色 把柄图
+        if ((isInTouch && (isInDrag == null || isInDrag == true)) || currentScore > 0)
+            canvas.drawBitmap(holderBitmapEnable, filerHolderX(left + dragDeltaX), top, holderPaint);
+    }
+
+    private boolean isEventInHolder(MotionEvent event) {
+
+        if (event.getX() + CLICK_OFFSET > holderCenterPoint.x - holderBitmapEnable.getWidth() / 2
+                && event.getX() - CLICK_OFFSET < holderCenterPoint.x + holderBitmapEnable.getWidth() / 2
+                && event.getY() + CLICK_OFFSET > holderCenterPoint.y - holderBitmapEnable.getHeight() / 2
+                && event.getY() - CLICK_OFFSET < holderCenterPoint.y + holderBitmapEnable.getHeight() / 2)
+            return true;
+
+        return false;
+    }
+
+    private float filerHolderX(float logicLeft) {
+        if (logicLeft < unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2)
+            return unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2;
+        if (logicLeft > unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2)
+            return unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2;
+
+        return logicLeft;
+    }
+    private void processValueChanged(float dragDeltaX) {
+
+        if (scoreChangedListener == null)
+            return;
+
+        float valueX = holderCenterPoint.x + dragDeltaX - unSelectRailRectF.left;
+
+        Log.e("processValueChanged", "x=" + holderCenterPoint.x + " ,dragDeltaX=" + dragDeltaX + " , valueX " + valueX
+                + ", left=" + unSelectRailRectF.left);
+
+        if (holderCenterPoint.x + dragDeltaX < unSelectRailRectF.left)
+            valueX = 0;
+        if (holderCenterPoint.x + dragDeltaX > unSelectRailRectF.right)
+            valueX = unSelectRailRectF.right - unSelectRailRectF.left;
+
+        currentScore = valueX * (maxScore - minScore) / (unSelectRailRectF.right - unSelectRailRectF.left)
+                + minScore;
+
+        scoreChangedListener.onSelected((int) currentScore);
     }
 
     /**
      * 磁力吸引
      */
     private void magnetism() {
-        float minX = unSelectRailRectF.left;
-        float maxX = unSelectRailRectF.right;
-        float centerX = thumb.x;
-        if (centerX <= (minX + scaleArray[0]) / 2) {
-            //归零
-            moveThumbWithAnimation(centerX, minX);
-        } else if (centerX >= (minX + scaleArray[0]) / 2 && centerX < (scaleArray[0] + scaleArray[1]) / 2) {
-            //归第一刻度
-            moveThumbWithAnimation(centerX, scaleArray[0]);
-        } else if (centerX >= (scaleArray[0] + scaleArray[1]) / 2 && centerX < (scaleArray[1] + maxX) / 2) {
-            //归第二刻度
-            moveThumbWithAnimation(centerX, scaleArray[1]);
-        } else if (centerX >= (scaleArray[1] + maxX) / 2) {
-            //归最大
-            moveThumbWithAnimation(centerX, maxX);
+        float centerX = holderCenterPoint.x;
+
+        float[] scaleArrayWithHeadTail = new float[scaleArray.length + 2];
+        scaleArrayWithHeadTail[0] = unSelectRailRectF.left;
+        scaleArrayWithHeadTail[scaleArrayWithHeadTail.length - 1] = unSelectRailRectF.right;
+
+        for (int i = 0; i < scaleArray.length; i++) {
+            scaleArrayWithHeadTail[i + 1] = scaleArray[i];
         }
+
+        float[] scaleArrayHalfPos = new float[scaleArray.length + 1];
+        for (int j = 0; j < scaleArrayWithHeadTail.length - 1; j++) {
+            scaleArrayHalfPos[j] = (scaleArrayWithHeadTail[j] + scaleArrayWithHeadTail[j + 1]) / 2;
+        }
+
+        int k;
+        for (k = 0; k < scaleArrayHalfPos.length; k++) {
+            if (centerX < scaleArrayHalfPos[k])
+                break;
+        }
+
+        moveHolderSmooth(centerX, scaleArrayWithHeadTail[k]);
     }
 
-    private void moveThumbWithAnimation(float srcX, float dstX) {
+    private void moveHolderSmooth(float srcX, float dstX) {
         ValueAnimator animator = new ValueAnimator();
         PropertyValuesHolder pvh = PropertyValuesHolder.ofFloat("x", srcX, dstX);
         animator.setValues(pvh);
@@ -201,19 +360,20 @@ public class DragScoreView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float x = (float) animation.getAnimatedValue("x");
-                moveThumb(x);
-                isTouchAble = false;
+                moveHolder(x);
+                touchEnable = false;
             }
         });
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                isTouchAble = true;
+                touchEnable = true;
+                dragEnable = true;
             }
 
             @Override
             public void onAnimationCancel(Animator animation) {
-                isTouchAble = true;
+                touchEnable = true;
             }
         });
         animator.start();
@@ -225,118 +385,78 @@ public class DragScoreView extends View {
      *
      * @param x
      */
-    private void moveThumb(float x) {
-        if (rangeCheck(x)) {//检查范围
-            thumb.x = x;
-            selectRailRectF.right = thumb.x + thumbsBitmap.getWidth() / 2;
-            if (this.scoreChangedListener != null) {
-                this.scoreChangedListener
-                        .onSelected((int) ((x - thumbsBitmap.getWidth() / 2) *
-                                (max - min) / (unSelectRailRectF.right - unSelectRailRectF.left)));
-            }
-        }
-        if (thumb.x <= unSelectRailRectF.left + 1 /*加1是因为体验好点...没别的,可以删*/ || thumb.x > unSelectRailRectF.right) {
-            thumbsBitmap = thumbsBitmapDisable;
-        } else {
-            thumbsBitmap = thumbsBitmapEnable;
+    private void moveHolder(float x) {
+        holderCenterPoint.x = x;
+        selectRailRectF.right = holderCenterPoint.x + holderBitmapDisable.getWidth() / 2;
+        if (scoreChangedListener != null) {
+
+            currentScore = (holderCenterPoint.x - unSelectRailRectF.left) * (maxScore - minScore)
+                    / (unSelectRailRectF.right - unSelectRailRectF.left)
+                    + minScore;
+
+            scoreChangedListener.onSelected((int) currentScore);
         }
         invalidate();
-    }
-
-    /**
-     * 范围检查
-     *
-     * @return
-     */
-    private boolean rangeCheck(float x) {
-        return x >= unSelectRailRectF.left
-                && x <= unSelectRailRectF.right;
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        drawRail(canvas);
-        drawThumb(canvas);
-    }
-
-    private void drawRail(Canvas canvas) {
-        //背景
-        railPaint.setColor(unSelectColor);
-        canvas.drawRoundRect(unSelectRailRectF, 15, 15, railPaint);
-        //选中部分
-        railPaint.setColor(selectColor);
-        canvas.drawRoundRect(selectRailRectF, 15, 15, railPaint);
-        //画刻度
-        railPaint.setColor(Color.WHITE);
-        for (Float scale : scaleArray) {
-            canvas.drawRect(scale - scaleWidth / 2, unSelectRailRectF.top,
-                    scale + scaleWidth / 2, unSelectRailRectF.bottom, railPaint);
-        }
-    }
-
-    private void drawThumb(Canvas canvas) {
-        float top = (this.getMeasuredHeight() - thumbsBitmap.getHeight()) / 2;
-        canvas.drawBitmap(thumbsBitmap.extractAlpha(thumbPaint, null), thumb.x - thumbsBitmap.getWidth() / 2,
-                top, thumbPaint);//画影子,extractAlpha边缘羽化效果
-        canvas.drawBitmap(thumbsBitmap, thumb.x - thumbsBitmap.getWidth() / 2, top, thumbPaint);//画手柄
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
-        int widthSpec = MeasureSpec.getMode(widthMeasureSpec);
-        int heightSpec = MeasureSpec.getMode(heightMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-        switch (widthSpec) {
+        switch (widthMode) {
             case MeasureSpec.UNSPECIFIED:
             case MeasureSpec.EXACTLY: {
                 break;
             }
             case MeasureSpec.AT_MOST: {
-                width = thumbsBitmap.getWidth() * 10;
+                width = holderBitmapDisable.getWidth() * 10;
             }
         }
 
-        switch (heightSpec) {
+        switch (heightMode) {
             case MeasureSpec.UNSPECIFIED:
             case MeasureSpec.EXACTLY: {
                 break;
             }
             case MeasureSpec.AT_MOST: {
-                height = thumbsBitmap.getHeight();
+                height = holderBitmapDisable.getHeight();
             }
         }
-        //设置本控件大小
+
         setMeasuredDimension(width, height);
-        //测量计算轨道高度宽度
-        measureRailRectf(widthMeasureSpec, heightMeasureSpec);
-        //初始化刻度
-        initScale();
-        //初始化手柄位置
-        initThumbPosition();
+
+        measureRailRectF(widthMeasureSpec, heightMeasureSpec);
+
+        initHolderPosition();
+
+        //初始化刻度位置数组
+        initScale(scaleArrStrAttr);
     }
 
-    private void measureRailRectf(int widthMeasureSpec, int heightMeasureSpec) {
-        if (unSelectRailRectF == null) {
-            unSelectRailRectF = new RectF();
-        }
+    /**
+     * 测量计算轨道高度宽度
+     */
+    private void measureRailRectF(int widthMeasureSpec, int heightMeasureSpec) {
 
-        unSelectRailRectF.left = this.getPaddingLeft() + thumbsBitmap.getWidth() / 2;
+        unSelectRailRectF.left = this.getPaddingLeft() + holderBitmapDisable.getWidth() / 2;
+
         switch (MeasureSpec.getMode(heightMeasureSpec)) {
             case MeasureSpec.UNSPECIFIED:
             case MeasureSpec.EXACTLY: {
-                unSelectRailRectF.top = (this.getMeasuredHeight() - thumbsBitmap.getHeight()) / 2 + thumbsBitmap.getHeight() / 3;
+                unSelectRailRectF.top = (this.getMeasuredHeight() - holderBitmapDisable.getHeight()) / 2 + holderBitmapDisable.getHeight() / 3;
                 break;
             }
             case MeasureSpec.AT_MOST: {
-                unSelectRailRectF.top = thumbsBitmap.getHeight() / 3;
+                unSelectRailRectF.top = holderBitmapDisable.getHeight() / 3;
             }
         }
 
-        unSelectRailRectF.bottom = unSelectRailRectF.top + thumbsBitmap.getHeight() / 3;
-        unSelectRailRectF.right = this.getMeasuredWidth() - this.getPaddingRight() - thumbsBitmap.getWidth() / 2 - SHADOW_OFFSET;
+        unSelectRailRectF.bottom = unSelectRailRectF.top + holderBitmapDisable.getHeight() / 3;
+
+        unSelectRailRectF.right = this.getMeasuredWidth() - this.getPaddingRight() - holderBitmapDisable.getWidth() / 2 + SHADOW_OFFSET;
 
         if (selectRailRectF == null) {
             selectRailRectF = new RectF(unSelectRailRectF);
@@ -344,27 +464,10 @@ public class DragScoreView extends View {
         selectRailRectF.right = selectRailRectF.left;
     }
 
-    private void initThumbPosition() {
-        if (thumb == null) {
-            thumb = new PointF();
-        }
-        thumb.x = selectRailRectF.right;
-        thumbsBitmap = thumbsBitmapDisable;//此时图标应为不可用
-    }
-
-    private void initScale() {
-        if (scaleArray == null) {
-            scaleArray = new float[2];
-        }
-        //60%
-        scaleArray[0] = getPercentageX(0.6f);
-        //90%
-        scaleArray[1] = getPercentageX(0.9f);
-    }
 
     private float getPercentageX(float percent) {
         percent = percent < 0 ? 0 : percent > 1 ? 1 : percent;
-        return (percent * (unSelectRailRectF.right - unSelectRailRectF.left)) + thumbsBitmap.getWidth() / 2;
+        return (percent * (unSelectRailRectF.right - unSelectRailRectF.left)) + holderBitmapDisable.getWidth() / 2;
     }
 
     public interface OnScoreChangedListener {

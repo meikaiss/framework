@@ -8,16 +8,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#eee"
+            android:gravity="center"
+            android:text="一个200dp的View"
+            android:textColor="@android:color/holo_red_light" />
+
         <com.android.framework.libui.view.DragScoreView
             android:id="@+id/drag_score_view"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:background="#3f00"
             app:drag_max="100"
             app:drag_min="0"
-            app:thumbIconDisable="@drawable/drag_score_view_disable"
-            app:thumbIconEnable="@drawable/drag_score_view_enable" />
+            app:holderIconDisable="@drawable/drag_score_view_disable"
+            app:holderIconEnable="@drawable/drag_score_view_enable"
+            app:scaleArr="0.25,0.5,0.75" />
 
         <TextView
             android:id="@+id/tv_score"
@@ -35,7 +46,7 @@
             android:layout_marginTop="50dp"
             android:background="#eee"
             android:gravity="center_horizontal"
-            android:text="一个很高的View"
+            android:text="一个900dp的View"
             android:textColor="@android:color/holo_red_light" />
 
     </LinearLayout>
