@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.android.framework.libui.view.DragScoreView
-        android:id="@+id/drag_score_view"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
-        app:drag_max="100"
-        app:drag_min="0"
-        app:thumbIconDisable="@drawable/drag_score_view_disable"
-        app:thumbIconEnable="@drawable/drag_score_view_enable" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:text="----"
-        android:textColor="@android:color/holo_red_light" />
+        <com.android.framework.libui.view.DragScoreView
+            android:id="@+id/drag_score_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:drag_max="100"
+            app:drag_min="0"
+            app:thumbIconDisable="@drawable/drag_score_view_disable"
+            app:thumbIconEnable="@drawable/drag_score_view_enable" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:text="----"
+            android:textColor="@android:color/holo_red_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="#eee"
+            android:gravity="center_horizontal"
+            android:text="一个很高的View"
+            android:textColor="@android:color/holo_red_light" />
+
+    </LinearLayout>
+
+</ScrollView>

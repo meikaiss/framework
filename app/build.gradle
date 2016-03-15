@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.android.framework.demo"
-        minSdkVersion 14
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         generatedDensities = []
     }
 
@@ -22,9 +22,8 @@ android {
         additionalParameters "--no-version-vectors"
     }
 
-    // 移除lint检查的error
     lintOptions {
-        abortOnError false
+        abortOnError false // 移除lint检查的error
     }
 
     signingConfigs {
@@ -43,7 +42,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             signingConfig signingConfigs.debug
             minifyEnabled false
             shrinkResources false
@@ -61,7 +60,7 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testCompile rootProject.ext.dependencies["junit"]
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -69,6 +68,8 @@ dependencies {
     compile project(':libapi')
     compile project(':libui')
 }
+
+
 
 android.applicationVariants.all { variant ->
     variant.outputs.each { output ->
@@ -82,9 +83,9 @@ android.applicationVariants.all { variant ->
         def file = output.outputFile
         output.outputFile = new File(file.parent, apkName)
 
-        if(variant.getBuildType().isMinifyEnabled()){
-            variant.assemble.doLast{
-                copy{
+        if (variant.getBuildType().isMinifyEnabled()) {
+            variant.assemble.doLast {
+                copy {
                     from variant.mappingFile
                     into "${projectDir}/../mappings"
                     rename { String fileName ->
