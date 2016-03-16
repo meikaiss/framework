@@ -215,7 +215,7 @@ public class DragScoreView extends View {
     }
 
     /**
-     * 测量计算轨道高度宽度
+     * 初始化 轨道 位置
      */
     private void initRailRectF() {
 
