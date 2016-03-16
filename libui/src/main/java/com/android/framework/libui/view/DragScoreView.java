@@ -17,7 +17,6 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -226,9 +225,7 @@ public class DragScoreView extends View {
         unSelectRailRectF.top = (this.getMeasuredHeight() - railHeight) / 2;
         unSelectRailRectF.bottom = unSelectRailRectF.top + railHeight;
 
-        if (selectRailRectF == null) {
-            selectRailRectF = new RectF(unSelectRailRectF);
-        }
+        selectRailRectF.set(unSelectRailRectF);
         selectRailRectF.right = selectRailRectF.left;
     }
 
@@ -282,9 +279,7 @@ public class DragScoreView extends View {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         isInDrag = Boolean.FALSE;
 
-                        Log.e("", " 111  isInDrag= " + isInDrag);
                         consumed = false;
-
                     }
                 }
 
@@ -326,6 +321,9 @@ public class DragScoreView extends View {
     }
 
     private void drawRailWay(Canvas canvas) {
+
+        selectRailRectF.right = filterUnSelectRailRectFRight(holderCenterPoint.x + dragDeltaX);
+
         //画 轨道 的 灰色背景
         railPaint.setColor(unSelectColor);
         canvas.drawRoundRect(unSelectRailRectF, 15, 15, railPaint);
@@ -347,18 +345,15 @@ public class DragScoreView extends View {
 
         int[] offsetXY = {0, 0};
         //画 把柄的 边缘羽化背景图
-        canvas.drawBitmap(holderBitmapDisable.extractAlpha(holderPaint, offsetXY), filerHolderX(left + dragDeltaX), top, holderPaint);
+        canvas.drawBitmap(holderBitmapDisable.extractAlpha(holderPaint, offsetXY), filterHolderX(left + dragDeltaX), top, holderPaint);
         SHADOW_OFFSET = offsetXY[0];
 
-        selectRailRectF.right = filerHolderX(left + dragDeltaX);
-
         //画 禁用模式 的 灰色 把柄图
-        canvas.drawBitmap(holderBitmapDisable, filerHolderX(left + dragDeltaX), top, holderPaint);
+        canvas.drawBitmap(holderBitmapDisable, filterHolderX(left + dragDeltaX), top, holderPaint);
 
-        Log.e("", " 222  isInDrag= " + isInDrag);
         //画 启用模式 的 彩色 把柄图
         if ((isInTouch && (isInDrag == null || isInDrag == true)) || currentScore > 0)
-            canvas.drawBitmap(holderBitmapEnable, filerHolderX(left + dragDeltaX), top, holderPaint);
+            canvas.drawBitmap(holderBitmapEnable, filterHolderX(left + dragDeltaX), top, holderPaint);
     }
 
     private boolean isEventInHolder(MotionEvent event) {
@@ -372,13 +367,22 @@ public class DragScoreView extends View {
         return false;
     }
 
-    private float filerHolderX(float logicLeft) {
-        if (logicLeft < unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2)
+    private float filterHolderX(float logicHolderLeft) {
+        if (logicHolderLeft < unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2)
             return unSelectRailRectF.left - holderBitmapDisable.getWidth() / 2;
-        if (logicLeft > unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2)
+        if (logicHolderLeft > unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2)
             return unSelectRailRectF.right - holderBitmapDisable.getWidth() / 2;
 
-        return logicLeft;
+        return logicHolderLeft;
+    }
+
+    private float filterUnSelectRailRectFRight(float logicUnSelectRailRectFRight){
+        if (logicUnSelectRailRectFRight < unSelectRailRectF.left)
+            return unSelectRailRectF.left;
+        if (logicUnSelectRailRectFRight > unSelectRailRectF.right)
+            return unSelectRailRectF.right;
+
+        return logicUnSelectRailRectFRight;
     }
 
     private void processDragDeltaXChanged(float dragDeltaX) {
