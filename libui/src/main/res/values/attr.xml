@@ -15,12 +15,22 @@
     <declare-styleable name="DragScoreView">
         <attr name="holderIconEnable" format="reference" />
         <attr name="holderIconDisable" format="reference" />
-        <attr name="drag_max" format="float|integer" />
-        <attr name="drag_min" format="float|integer" />
+        <attr name="dragMax" format="float|integer" />
+        <attr name="dragMin" format="float|integer" />
         <attr name="scaleArr" format="string" />
-        <attr name="rail_height" format="dimension" />
+        <attr name="railHeight" format="dimension" />
         <attr name="selectColor" format="reference|color" />
         <attr name="unSelectColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageOuterTextView">
+        <attr name="outerDrawable" format="reference" />
+        <attr name="maxLengthText" format="string" />
+        <attr name="innerText" format="string" />
+        <attr name="innerTextRadian" format="float" />
+        <attr name="innerRadius" format="integer" />
+        <attr name="outerRadius" format="integer" />
+        <attr name="innerTextColor" format="color" />
     </declare-styleable>
 
 </resources>

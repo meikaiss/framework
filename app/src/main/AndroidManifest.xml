@@ -40,7 +40,7 @@
         <activity
             android:name=".activity.nolib.NotificationActivity"
             android:theme="@style/Theme_TestAppCompat" />
-        <activity android:name=".activity.BonuceLoadingActivity" />
+        <activity android:name=".activity.BounceLoadingActivity" />
         <activity android:name=".activity.CircleLoadingActivity" />
         <activity android:name=".activity.nolib.HandlerThreadActivity" />
         <activity android:name=".activity.nolib.IntentServiceActivity" />
@@ -95,6 +95,9 @@
             android:name=".activity.viewdemo.DragScoreViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
+            android:name=".activity.viewdemo.ImageOuterTextViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
             android:name=".activity.FuseImageActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
@@ -109,7 +112,8 @@
         <activity
             android:name=".activity.design.SwipeDismissBehaviorActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.design.AnimatedVectorDrawableActivity"
+        <activity
+            android:name=".activity.design.AnimatedVectorDrawableActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <service android:name=".service.PlayMusicIntentService" />
@@ -125,6 +129,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_app_widget_info" />
         </receiver>
+
     </application>
 
 </manifest>

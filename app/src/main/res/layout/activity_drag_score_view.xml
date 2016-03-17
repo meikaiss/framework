@@ -24,11 +24,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="#3f00"
-            app:drag_max="100"
-            app:drag_min="0"
+            app:dragMax="100"
+            app:dragMin="0"
             app:holderIconDisable="@drawable/drag_score_view_disable"
             app:holderIconEnable="@drawable/drag_score_view_enable"
-            app:rail_height="10dp"
+            app:railHeight="10dp"
             app:scaleArr="0.25,0.5,0.75" />
 
         <TextView
@@ -47,11 +47,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="#3f00"
-            app:drag_max="100"
-            app:drag_min="0"
+            app:dragMax="100"
+            app:dragMin="0"
             app:holderIconDisable="@drawable/drag_score_view_disable"
             app:holderIconEnable="@drawable/drag_score_view_enable"
-            app:rail_height="10dp"
+            app:railHeight="10dp"
             app:scaleArr="0.2,0.4,0.6,0.8" />
 
         <TextView

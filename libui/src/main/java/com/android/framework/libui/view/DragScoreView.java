@@ -16,7 +16,10 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -110,10 +113,10 @@ public class DragScoreView extends View {
         int thumbIconDisableRes = a.getResourceId(R.styleable.DragScoreView_holderIconDisable, 0);
         selectColor = a.getColor(R.styleable.DragScoreView_selectColor, Color.parseColor("#3190e8"));
         unSelectColor = a.getColor(R.styleable.DragScoreView_unSelectColor, Color.parseColor("#cccccc"));
-        maxScore = a.getFloat(R.styleable.DragScoreView_drag_max, 100);
-        minScore = a.getFloat(R.styleable.DragScoreView_drag_min, 0);
+        minScore = a.getFloat(R.styleable.DragScoreView_dragMin, 0);
+        maxScore = a.getFloat(R.styleable.DragScoreView_dragMax, 100);
         scaleArrStrAttr = a.getString(R.styleable.DragScoreView_scaleArr);
-        railHeight = a.getDimension(R.styleable.DragScoreView_rail_height, 30);
+        railHeight = a.getDimension(R.styleable.DragScoreView_railHeight, 30);
         a.recycle();
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -315,6 +318,8 @@ public class DragScoreView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        Log.e("onDraw", "onDraw");
+
         drawRailWay(canvas);
         drawHolder(canvas);
 
@@ -334,8 +339,9 @@ public class DragScoreView extends View {
 
         //画 节点刻度线
         railPaint.setColor(Color.WHITE);
+//        canvas.drawRect(new RectF(unSelectRailRectF.left, unSelectRailRectF.top+1,unSelectRailRectF.right,unSelectRailRectF.bottom+1), railPaint);
         for (Float scale : scaleArray) {
-            canvas.drawRect(scale - scaleWidth / 2, unSelectRailRectF.top, scale + scaleWidth / 2, unSelectRailRectF.bottom, railPaint);
+            canvas.drawRect(scale - scaleWidth / 2, unSelectRailRectF.top, scale + scaleWidth / 2, unSelectRailRectF.bottom + 1, railPaint);
         }
     }
 
@@ -346,7 +352,7 @@ public class DragScoreView extends View {
         int[] offsetXY = {0, 0};
         //画 把柄的 边缘羽化背景图
         canvas.drawBitmap(holderBitmapDisable.extractAlpha(holderPaint, offsetXY), filterHolderX(left + dragDeltaX), top, holderPaint);
-        SHADOW_OFFSET = offsetXY[0];
+        SHADOW_OFFSET = offsetXY[0] * 2;
 
         //画 禁用模式 的 灰色 把柄图
         canvas.drawBitmap(holderBitmapDisable, filterHolderX(left + dragDeltaX), top, holderPaint);
@@ -376,13 +382,32 @@ public class DragScoreView extends View {
         return logicHolderLeft;
     }
 
-    private float filterUnSelectRailRectFRight(float logicUnSelectRailRectFRight){
+    private float filterUnSelectRailRectFRight(float logicUnSelectRailRectFRight) {
         if (logicUnSelectRailRectFRight < unSelectRailRectF.left)
             return unSelectRailRectF.left;
         if (logicUnSelectRailRectFRight > unSelectRailRectF.right)
             return unSelectRailRectF.right;
 
         return logicUnSelectRailRectFRight;
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Log.e("DragScoreView", "DragScoreView_onSaveInstanceState");
+
+        Parcelable parcelable = super.onSaveInstanceState();
+
+        SavedState savedState = new SavedState(parcelable, 5, 2, 3);
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+
+        SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+
+        Log.e("DragScoreView", "DragScoreView_onRestoreInstanceState"+ss.getNumber1() +ss.getNumber2()+ ss.getNumber3());
     }
 
     private void processDragDeltaXChanged(float dragDeltaX) {
@@ -493,4 +518,54 @@ public class DragScoreView extends View {
         this.scoreChangedListener = scoreSelectedListener;
     }
 
+
+    protected static class SavedState extends BaseSavedState {
+        private final int number1;
+        private final int number2;
+        private final int number3;
+
+        private SavedState(Parcelable superState, int number1, int number2, int number3) {
+            super(superState);
+            this.number1 = number1;
+            this.number2 = number2;
+            this.number3 = number3;
+        }
+
+        private SavedState(Parcel in) {
+            super(in);
+            number1 = in.readInt();
+            number2 = in.readInt();
+            number3 = in.readInt();
+        }
+
+        public int getNumber1() {
+            return number1;
+        }
+
+        public int getNumber2() {
+            return number2;
+        }
+
+        public int getNumber3() {
+            return number3;
+        }
+
+        @Override
+        public void writeToParcel(Parcel destination, int flags) {
+            super.writeToParcel(destination, flags);
+            destination.writeInt(number1);
+            destination.writeInt(number2);
+            destination.writeInt(number3);
+        }
+
+        public static final Parcelable.Creator<SavedState> CREATOR = new Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
+    }
 }

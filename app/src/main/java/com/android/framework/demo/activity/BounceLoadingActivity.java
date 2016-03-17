@@ -11,7 +11,7 @@ import com.android.framework.view.BounceLoadingView;
 /**
  * Created by meikai on 15/10/22.
  */
-public class BonuceLoadingActivity extends Activity {
+public class BounceLoadingActivity extends Activity {
 
     BounceLoadingView bounceLoadingView;
 

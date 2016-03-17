@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.android.framework.libui.view.ImageOuterTextView
+            android:id="@+id/imageOuterTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:innerRadius="78"
+            app:innerText="65分"
+            app:innerTextColor="#f25e5e"
+            app:innerTextRadian="0"
+            app:maxLengthText="100分"
+            app:outerDrawable="@drawable/image_out_text_view_red"
+            app:outerRadius="132" />
+
+        <com.android.framework.libui.view.ImageOuterTextView
+            android:id="@+id/imageOuterTextView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:innerRadius="78"
+            app:innerText="75分"
+            app:innerTextColor="#f25e5e"
+            app:innerTextRadian="60"
+            app:maxLengthText="100分"
+            app:outerDrawable="@drawable/image_out_text_view_red"
+            app:outerRadius="132" />
+
+
+        <com.android.framework.libui.view.ImageOuterTextView
+            android:id="@+id/imageOuterTextView3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:innerRadius="78"
+            app:innerText="55分"
+            app:innerTextColor="#f25e5e"
+            app:innerTextRadian="60"
+            app:maxLengthText="100分"
+            app:outerDrawable="@drawable/image_out_text_view_red"
+            app:outerRadius="132" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_add_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加分" />
+
+        <Button
+            android:id="@+id/btn_modify_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改文字颜色" />
+
+        <Button
+            android:id="@+id/btn_modify_drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改图片" />
+
+    </LinearLayout>
+
+    <com.android.framework.libui.view.ImageOuterTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:innerRadius="78"
+        app:innerText="5分"
+        app:innerTextColor="#f25e5e"
+        app:innerTextRadian="10"
+        app:maxLengthText="100分"
+        app:outerDrawable="@drawable/image_out_text_view_red"
+        app:outerRadius="132" />
+
+    <com.android.framework.libui.view.ImageOuterTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:innerRadius="78"
+        app:innerText="100分"
+        app:innerTextColor="#f25e5e"
+        app:innerTextRadian="45"
+        app:maxLengthText="100分"
+        app:outerDrawable="@drawable/image_out_text_view_red"
+        app:outerRadius="132" />
+
+    <com.android.framework.libui.view.ImageOuterTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:innerRadius="78"
+        app:innerText="85分"
+        app:innerTextColor="#45c018"
+        app:innerTextRadian="10"
+        app:maxLengthText="100分"
+        app:outerDrawable="@drawable/image_out_text_view_green"
+        app:outerRadius="132" />
+
+    <com.android.framework.libui.view.ImageOuterTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:innerRadius="78"
+        app:innerText="85分"
+        app:innerTextColor="#45c018"
+        app:innerTextRadian="-30"
+        app:maxLengthText="100分"
+        app:outerDrawable="@drawable/image_out_text_view_green"
+        app:outerRadius="132" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_out_text_view_red" />
+
+</LinearLayout>

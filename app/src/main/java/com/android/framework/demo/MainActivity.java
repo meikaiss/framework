@@ -9,8 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.framework.demo.activity.BounceLoadingActivity;
 import com.android.framework.demo.activity.design.AppCompatTestActivity;
-import com.android.framework.demo.activity.BonuceLoadingActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
 import com.android.framework.demo.activity.ExplosionActivity;
@@ -42,6 +42,7 @@ import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
+import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            ImageOuterTextViewActivity.class,
             DragScoreViewActivity.class,
             PriceRangeActivity.class,
             AnimatedVectorDrawableActivity.class,
@@ -84,7 +86,7 @@ public class MainActivity extends Activity {
             AppCompatTestActivity.class,
             StatusBarColorActivity.class,
             NotificationActivity.class,
-            BonuceLoadingActivity.class,
+            BounceLoadingActivity.class,
             CircleLoadingActivity.class,
             HandlerThreadActivity.class,
             IntentServiceActivity.class,
