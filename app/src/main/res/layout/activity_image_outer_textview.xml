@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.android.framework.libui.view.DoubleTextView
+        android:id="@+id/double_text_view"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="15dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000" />
 
     <LinearLayout
         android:layout_width="match_parent"

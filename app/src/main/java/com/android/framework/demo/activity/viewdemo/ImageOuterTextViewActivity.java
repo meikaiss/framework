@@ -1,18 +1,23 @@
 package com.android.framework.demo.activity.viewdemo;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 
 import com.android.framework.demo.R;
+import com.android.framework.libui.view.DoubleTextView;
 import com.android.framework.libui.view.ImageOuterTextView;
 
 /**
  * Created by meikai on 16/3/17.
  */
 public class ImageOuterTextViewActivity extends AppCompatActivity {
+
+    DoubleTextView doubleTextView;
 
     ImageOuterTextView imageOuterTextView1;
     ImageOuterTextView imageOuterTextView2;
@@ -61,6 +66,13 @@ public class ImageOuterTextViewActivity extends AppCompatActivity {
                     imageOuterTextView1.setOuterDrawableId(R.drawable.image_out_text_view_green);
             }
         });
+
+
+        doubleTextView = (DoubleTextView) findViewById(R.id.double_text_view);
+        doubleTextView.setText("• 左边的内容", "右边的");
+        doubleTextView.setTextSizePx((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18,
+                Resources.getSystem().getDisplayMetrics()));
+        doubleTextView.setTextColor(Color.BLUE);
 
     }
 }

@@ -31,6 +31,11 @@ public class ImageOuterTextView extends View {
     private float innerFactor;
     private float innerTextRadian;
     private String maxLengthText;
+    private String innerText;
+
+    private Paint textPaint;
+
+    private int baseline;
 
     public int getInnerTextColor() {
         return innerTextColor;
@@ -60,10 +65,6 @@ public class ImageOuterTextView extends View {
         this.innerText = innerText;
         invalidate();
     }
-
-    private String innerText;
-
-    private Paint textPaint;
 
     public ImageOuterTextView(Context context) {
         this(context, null);
@@ -157,6 +158,9 @@ public class ImageOuterTextView extends View {
 
         int realTextSizeDp = hitTextSizeDp - TEXT_SIZE_SLOP;
         textPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, realTextSizeDp, Resources.getSystem().getDisplayMetrics()));
+
+        Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
+        baseline = (getMeasuredHeight() - fontMetrics.bottom + fontMetrics.top) / 2 - fontMetrics.top;
     }
 
     @Override
@@ -164,8 +168,6 @@ public class ImageOuterTextView extends View {
 
         canvas.drawBitmap(outerBitmap, null, new Rect(0, 0, getWidth(), getHeight()), null);
 
-        Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
-        int baseline = (getMeasuredHeight() - fontMetrics.bottom + fontMetrics.top) / 2 - fontMetrics.top;
 
         canvas.rotate(-innerTextRadian, getMeasuredWidth() / 2, getMeasuredHeight() / 2);
         canvas.drawText(innerText, getMeasuredWidth() / 2, baseline, textPaint);
