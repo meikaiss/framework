@@ -22,6 +22,11 @@ public class DoubleTextView extends View {
     private String leftText;
     private String rightText;
 
+    private Paint textPaint;
+    private Rect bounds;
+
+    private int baseline = 0;
+
     public void setText(String leftText, String rightText) {
         this.leftText = leftText == null ? "" : leftText;
         this.rightText = rightText == null ? "" : rightText;
@@ -46,8 +51,12 @@ public class DoubleTextView extends View {
         invalidate();
     }
 
-    private Paint textPaint;
-    private Rect bounds;
+    public DoubleTextView(Context context, int textColor, int textSizePx) {
+        super(context);
+        this.textColor = textColor;
+        this.textSizePx = textSizePx;
+        init();
+    }
 
     public DoubleTextView(Context context) {
         super(context);
@@ -71,21 +80,18 @@ public class DoubleTextView extends View {
     }
 
     private void init() {
-
         leftText = rightText = "";
 
         textPaint = new Paint();
-        textPaint.setColor(Color.RED);
-        textPaint.setTextSize(36);
+        textPaint.setColor(this.textColor == 0 ? Color.RED : this.textColor);
+        textPaint.setTextSize(this.textSizePx == 0 ? 36 : textSizePx);
         textPaint.setAntiAlias(true);
         textPaint.setTextAlign(Paint.Align.LEFT);
-
 
         bounds = new Rect();
         textPaint.getTextBounds(rightText, 0, rightText.length(), bounds);
     }
 
-    int baseline = 0;
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -102,7 +108,6 @@ public class DoubleTextView extends View {
         canvas.drawText(leftText, 0, baseline, textPaint);
 
         canvas.drawText(rightText, getMeasuredWidth() - bounds.right, baseline, textPaint);
-
     }
-}
 
+}
