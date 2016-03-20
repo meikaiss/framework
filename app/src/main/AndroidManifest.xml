@@ -65,6 +65,9 @@
             android:name=".activity.design.CardViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
+            android:name=".activity.design.BottomSheetActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
             android:name=".activity.SwipRefreshLayoutActivity"
             android:theme="@style/BaseAppTheme" />
         <activity

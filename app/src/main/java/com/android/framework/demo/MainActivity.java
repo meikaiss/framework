@@ -28,6 +28,7 @@ import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
+import com.android.framework.demo.activity.design.BottomSheetActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -56,6 +57,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            BottomSheetActivity.class,
             ImageOuterTextViewActivity.class,
             DragScoreViewActivity.class,
             PriceRangeActivity.class,

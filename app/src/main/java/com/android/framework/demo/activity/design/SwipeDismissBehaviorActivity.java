@@ -1,6 +1,7 @@
 package com.android.framework.demo.activity.design;
 
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.SwipeDismissBehavior;
 import android.support.v4.view.ViewCompat;
@@ -28,10 +29,10 @@ public class SwipeDismissBehaviorActivity extends AppCompatActivity {
 
         swipeView = (TextView) findViewById(R.id.swip);
 
-        final SwipeDismissBehavior<View> swipe = new SwipeDismissBehavior();
-        swipe.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_START_TO_END);
+        final SwipeDismissBehavior<TextView> swipeDismissBehavior = new SwipeDismissBehavior<>();
+        swipeDismissBehavior.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_ANY);
 
-        swipe.setListener(
+        swipeDismissBehavior.setListener(
                 new SwipeDismissBehavior.OnDismissListener() {
                     @Override
                     public void onDismiss(View view) {
@@ -46,7 +47,7 @@ public class SwipeDismissBehaviorActivity extends AppCompatActivity {
         CoordinatorLayout.LayoutParams coordinatorParams =
                 (CoordinatorLayout.LayoutParams) swipeView.getLayoutParams();
 
-        coordinatorParams.setBehavior(swipe);
+        coordinatorParams.setBehavior(swipeDismissBehavior);
 
 
         buttonReset = (Button) findViewById(R.id.btn_reset);

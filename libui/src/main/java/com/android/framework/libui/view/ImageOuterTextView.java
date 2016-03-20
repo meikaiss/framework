@@ -172,6 +172,7 @@ public class ImageOuterTextView extends View {
         canvas.rotate(-innerTextRadian, getMeasuredWidth() / 2, getMeasuredHeight() / 2);
         canvas.drawText(innerText, getMeasuredWidth() / 2, baseline, textPaint);
 
+        canvas.save();
         canvas.restore();
     }
 }
