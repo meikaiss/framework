@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Libmedia</string>
+
+    <string name="btn_recorder_normal">按住说话</string>
+    <string name="btn_recorder_recording">松开结束</string>
+    <string name="btn_recorder_want_cancel">松开手指，取消发送</string>
+    <string name="btn_recorder_move_up_to_cancel">手指上滑，取消发送</string>
+    <string name="btn_recorder_too_short">录音时间过短</string>
+
 </resources>

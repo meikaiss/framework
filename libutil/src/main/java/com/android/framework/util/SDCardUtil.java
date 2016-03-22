@@ -80,5 +80,23 @@ public class SDCardUtil {
         return Environment.getRootDirectory().getAbsolutePath();
     }
 
+    public static String getExternalCachePath(String packageName) {
+        String appPath = getExternalAppPath(packageName);
+        return StringUtil.isEmpty(appPath)?null:appPath + "/cache";
+    }
+
+    public static String getExternalRootPath() {
+        return Environment.getExternalStorageDirectory().getPath();
+    }
+
+    public static String getExternalAppPath(String packageName) {
+        if("mounted".equals(Environment.getExternalStorageState())) {
+            File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + packageName);
+            return file.getPath();
+        } else {
+            return null;
+        }
+    }
+
 
 }

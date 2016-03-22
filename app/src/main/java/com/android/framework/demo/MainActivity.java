@@ -45,6 +45,7 @@ import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.media.demo.MediaDemoActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +58,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            MediaDemoActivity.class,
             BottomSheetActivity.class,
             ImageOuterTextViewActivity.class,
             DragScoreViewActivity.class,
