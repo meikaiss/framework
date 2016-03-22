@@ -24,6 +24,7 @@ import android.view.ViewConfiguration;
 
 import com.android.framework.customview.R;
 
+
 /**
  * Created by meikai on 16/3/11.
  */

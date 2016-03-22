@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.framework.libui">
+    package="com.android.framework.customview">
 
     <application
         android:allowBackup="true"
