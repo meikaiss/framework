@@ -1,4 +1,4 @@
-package com.android.framework.libui.view;
+package com.android.framework.customview.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.android.framework.libui.R;
+import com.android.framework.customview.R;
 
 /**
  * Created by meikai on 16/3/17.

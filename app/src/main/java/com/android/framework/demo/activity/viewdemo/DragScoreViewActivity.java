@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.android.framework.demo.R;
-import com.android.framework.libui.view.DragScoreView;
+import com.android.framework.customview.view.DragScoreView;
 
 /**
  * Created by meikai on 16/3/11.

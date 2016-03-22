@@ -17,7 +17,7 @@
             android:text="一个200dp的View\n下面是一个高为wrap_content的DragScoreView"
             android:textColor="@android:color/holo_red_light" />
 
-        <com.android.framework.libui.view.DragScoreView
+        <com.android.framework.customview.view.DragScoreView
             android:id="@+id/drag_score_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:text="----"
             android:textColor="@android:color/holo_red_light" />
 
-        <com.android.framework.libui.view.DragScoreView
+        <com.android.framework.customview.view.DragScoreView
             android:id="@+id/drag_score_view_2"
             android:layout_width="match_parent"
             android:layout_height="100dp"

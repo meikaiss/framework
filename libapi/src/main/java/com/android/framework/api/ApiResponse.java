@@ -1,4 +1,4 @@
-package com.android.framework.libapi;
+package com.android.framework.api;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

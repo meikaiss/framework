@@ -1,4 +1,4 @@
-package com.android.framework.libui.view;
+package com.android.framework.customview.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.android.framework.demo.R;
 import com.android.framework.demo.data.Weather;
-import com.android.framework.libapi.ApiResponse;
-import com.android.framework.libapi.OkHttpManager;
+import com.android.framework.api.ApiResponse;
+import com.android.framework.api.OkHttpManager;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 

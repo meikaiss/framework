@@ -1,4 +1,4 @@
-package com.android.framework.libui.view;
+package com.android.framework.customview.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.android.framework.libui.R;
+import com.android.framework.customview.R;
 
 /**
  * Created by meikai on 16/2/3.

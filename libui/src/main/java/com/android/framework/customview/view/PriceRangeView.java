@@ -1,4 +1,4 @@
-package com.android.framework.libui.view;
+package com.android.framework.customview.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewParent;
 
-import com.android.framework.libui.R;
+import com.android.framework.customview.R;
 import com.android.framework.util.DensityUtil;
 
 import java.util.ArrayList;

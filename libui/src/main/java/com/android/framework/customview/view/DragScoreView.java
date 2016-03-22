@@ -1,4 +1,4 @@
-package com.android.framework.libui.view;
+package com.android.framework.customview.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -22,7 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
-import com.android.framework.libui.R;
+import com.android.framework.customview.R;
 
 /**
  * Created by meikai on 16/3/11.

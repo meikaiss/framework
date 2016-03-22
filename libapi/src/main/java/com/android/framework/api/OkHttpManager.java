@@ -1,4 +1,4 @@
-package com.android.framework.libapi;
+package com.android.framework.api;
 
 import android.os.Handler;
 import android.os.Looper;

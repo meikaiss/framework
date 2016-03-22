@@ -1,4 +1,4 @@
-package com.android.framework.libapi;
+package com.android.framework.api;
 
 /**
  * Created by meikai on 16/1/6.

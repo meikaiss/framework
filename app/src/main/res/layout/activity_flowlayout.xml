@@ -17,7 +17,7 @@
         android:text="Hello World!" />
 
 
-    <com.android.framework.libui.viewgroup.FlowLayout
+    <com.android.framework.customview.viewgroup.FlowLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/textview_01"
@@ -84,6 +84,6 @@
             framework:type="1" />
 
 
-    </com.android.framework.libui.viewgroup.FlowLayout>
+    </com.android.framework.customview.viewgroup.FlowLayout>
 
 </RelativeLayout>

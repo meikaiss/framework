@@ -6,7 +6,7 @@ import android.support.v7.widget.AppCompatSeekBar;
 import android.widget.SeekBar;
 
 import com.android.framework.demo.R;
-import com.android.framework.libui.view.FuseImageView;
+import com.android.framework.customview.view.FuseImageView;
 
 /**
  * Created by meikai on 16/2/3.

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.android.framework.libui.view.DoubleTextView
+    <com.android.framework.customview.view.DoubleTextView
         android:id="@+id/double_text_view"
         android:layout_width="300dp"
         android:layout_height="35dp"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.android.framework.libui.view.ImageOuterTextView
+        <com.android.framework.customview.view.ImageOuterTextView
             android:id="@+id/imageOuterTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             app:outerDrawable="@drawable/image_out_text_view_red"
             app:outerRadius="132" />
 
-        <com.android.framework.libui.view.ImageOuterTextView
+        <com.android.framework.customview.view.ImageOuterTextView
             android:id="@+id/imageOuterTextView2"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -45,7 +45,7 @@
             app:outerRadius="132" />
 
 
-        <com.android.framework.libui.view.ImageOuterTextView
+        <com.android.framework.customview.view.ImageOuterTextView
             android:id="@+id/imageOuterTextView3"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -84,7 +84,7 @@
 
     </LinearLayout>
 
-    <com.android.framework.libui.view.ImageOuterTextView
+    <com.android.framework.customview.view.ImageOuterTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:innerRadius="78"
@@ -95,7 +95,7 @@
         app:outerDrawable="@drawable/image_out_text_view_red"
         app:outerRadius="132" />
 
-    <com.android.framework.libui.view.ImageOuterTextView
+    <com.android.framework.customview.view.ImageOuterTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:innerRadius="78"
@@ -106,7 +106,7 @@
         app:outerDrawable="@drawable/image_out_text_view_red"
         app:outerRadius="132" />
 
-    <com.android.framework.libui.view.ImageOuterTextView
+    <com.android.framework.customview.view.ImageOuterTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:innerRadius="78"
@@ -117,7 +117,7 @@
         app:outerDrawable="@drawable/image_out_text_view_green"
         app:outerRadius="132" />
 
-    <com.android.framework.libui.view.ImageOuterTextView
+    <com.android.framework.customview.view.ImageOuterTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:innerRadius="78"

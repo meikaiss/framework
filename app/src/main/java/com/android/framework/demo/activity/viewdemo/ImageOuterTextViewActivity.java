@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.android.framework.demo.R;
-import com.android.framework.libui.view.DoubleTextView;
-import com.android.framework.libui.view.ImageOuterTextView;
+import com.android.framework.customview.view.DoubleTextView;
+import com.android.framework.customview.view.ImageOuterTextView;
 
 /**
  * Created by meikai on 16/3/17.

@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.android.framework.libui.view.PriceRangeView
+        <com.android.framework.customview.view.PriceRangeView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#2f00" />

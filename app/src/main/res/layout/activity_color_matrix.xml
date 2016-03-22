@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".activity.colormatrix.ColorMatrixActivity">
 
-    <com.android.framework.libui.viewgroup.FlowLayout
+    <com.android.framework.customview.viewgroup.FlowLayout
         android:layout_width="match_parent"
         android:layout_height="120dp">
 
@@ -58,7 +58,7 @@
             android:onClick="onClick"
             android:text="AlphaPink" />
 
-    </com.android.framework.libui.viewgroup.FlowLayout>
+    </com.android.framework.customview.viewgroup.FlowLayout>
 
     <ImageView
         android:id="@+id/imgv_shader"
