@@ -1,13 +1,15 @@
 package com.android.framework.demo.activity.design;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
 
 import com.android.framework.demo.R;
 
@@ -16,6 +18,8 @@ import com.android.framework.demo.R;
  */
 public class BottomSheetActivity extends AppCompatActivity {
 
+    BottomSheetBehavior behavior;
+    boolean hasRequest = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +28,9 @@ public class BottomSheetActivity extends AppCompatActivity {
 
         // The View with the BottomSheetBehavior
         CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.cl);
-        View bottomSheet = coordinatorLayout.findViewById(R.id.bottom_sheet);
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                //这里是bottomSheet 状态的改变回调
-                Log.e("onStateChanged", "bottomSheet+" + bottomSheet + " , newState" + newState);
-
-//                if(newState == BottomSheetBehavior.STATE_DRAGGING)
-//                behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                //这里是拖拽中的回调，根据slideOffset可以做一些动画
-//                Log.e("onSlide", "bottomSheet+" + bottomSheet + " , slideOffset" + slideOffset);
-            }
-        });
+        View nestedScrollView = coordinatorLayout.findViewById(R.id.bottom_sheet);
+        behavior = BottomSheetBehavior.from(nestedScrollView);
+        behavior.setBottomSheetCallback(bottomSheetCallback);
 
         findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +70,38 @@ public class BottomSheetActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    BottomSheetBehavior.BottomSheetCallback bottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() {
+        @Override
+        public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+        }
+
+        @Override
+        public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            if (!hasRequest && behavior.getPeekHeight() == 0 && slideOffset > 0) {
+                hasRequest = true;
+                updateOffsets(bottomSheet);
+            }
+        }
+    };
+
+    private void updateOffsets(View view) {
+
+        // Manually invalidate the view and parent to make sure we get drawn pre-M
+        if (Build.VERSION.SDK_INT < 23) {
+            tickleInvalidationFlag(view);
+            final ViewParent vp = view.getParent();
+            if (vp instanceof View) {
+                tickleInvalidationFlag((View) vp);
+            }
+        }
+    }
+
+    private static void tickleInvalidationFlag(View view) {
+        final float y = ViewCompat.getTranslationY(view);
+        ViewCompat.setTranslationY(view, y + 1);
+        ViewCompat.setTranslationY(view, y);
     }
 }

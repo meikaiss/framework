@@ -16,10 +16,7 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -131,6 +128,9 @@ public class DragScoreView extends View {
 
         //初始化刻度宽度
         scaleWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
+
+        // 初始时 拖拽图标中心 需要与 轨道起点重叠
+        holderCenterPoint.x = holderBitmapDisable.getWidth() / 2;
     }
 
     /**
@@ -156,8 +156,6 @@ public class DragScoreView extends View {
      * 初始化手柄位置
      */
     private void initHolderPosition() {
-        // 初始时 拖拽图标中心 需要与 轨道起点重叠
-        holderCenterPoint.x = unSelectRailRectF.left;
         holderCenterPoint.y = getHeight() / 2;
     }
 
@@ -318,8 +316,6 @@ public class DragScoreView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Log.e("onDraw", "onDraw");
-
         drawRailWay(canvas);
         drawHolder(canvas);
 
@@ -389,25 +385,6 @@ public class DragScoreView extends View {
             return unSelectRailRectF.right;
 
         return logicUnSelectRailRectFRight;
-    }
-
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Log.e("DragScoreView", "DragScoreView_onSaveInstanceState");
-
-        Parcelable parcelable = super.onSaveInstanceState();
-
-        SavedState savedState = new SavedState(parcelable, 5, 2, 3);
-        return savedState;
-    }
-
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-
-        SavedState ss = (SavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
-
-        Log.e("DragScoreView", "DragScoreView_onRestoreInstanceState"+ss.getNumber1() +ss.getNumber2()+ ss.getNumber3());
     }
 
     private void processDragDeltaXChanged(float dragDeltaX) {
@@ -518,54 +495,4 @@ public class DragScoreView extends View {
         this.scoreChangedListener = scoreSelectedListener;
     }
 
-
-    protected static class SavedState extends BaseSavedState {
-        private final int number1;
-        private final int number2;
-        private final int number3;
-
-        private SavedState(Parcelable superState, int number1, int number2, int number3) {
-            super(superState);
-            this.number1 = number1;
-            this.number2 = number2;
-            this.number3 = number3;
-        }
-
-        private SavedState(Parcel in) {
-            super(in);
-            number1 = in.readInt();
-            number2 = in.readInt();
-            number3 = in.readInt();
-        }
-
-        public int getNumber1() {
-            return number1;
-        }
-
-        public int getNumber2() {
-            return number2;
-        }
-
-        public int getNumber3() {
-            return number3;
-        }
-
-        @Override
-        public void writeToParcel(Parcel destination, int flags) {
-            super.writeToParcel(destination, flags);
-            destination.writeInt(number1);
-            destination.writeInt(number2);
-            destination.writeInt(number3);
-        }
-
-        public static final Parcelable.Creator<SavedState> CREATOR = new Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
-    }
 }
