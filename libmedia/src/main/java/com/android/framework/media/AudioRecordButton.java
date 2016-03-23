@@ -20,7 +20,7 @@ public class AudioRecordButton extends Button {
     private int currentState = STATE_NORMAL;
     private boolean isRecording = false;
     private AudioRecordDialog dialogManager;
-    private AudioManager audioManager;
+    private AudioRecordManager audioRecordManager;
 
     private float mTime;
     private boolean isReady = false;
@@ -33,9 +33,9 @@ public class AudioRecordButton extends Button {
         super(context, attrs);
         dialogManager = new AudioRecordDialog(getContext());
 
-        String dir = AudioManager.getSourceFolderPath();
-        audioManager = AudioManager.getInstance(dir);
-        audioManager
+        String dir = AudioRecordManager.getSourceFolderPath();
+        audioRecordManager = AudioRecordManager.getInstance(dir);
+        audioRecordManager
                 .setOnAudioStateChangeListener(new MyOnAudioStateChangeListener());
 
         setOnLongClickListener(new OnLongClickListener() {
@@ -43,13 +43,13 @@ public class AudioRecordButton extends Button {
             @Override
             public boolean onLongClick(View v) {
                 isReady = true;
-                audioManager.prepareAudio();
+                audioRecordManager.prepareAudio();
                 return false;
             }
         });
     }
 
-    class MyOnAudioStateChangeListener implements AudioManager.AudioStateChangeListener {
+    class MyOnAudioStateChangeListener implements AudioRecordManager.AudioStateChangeListener {
 
         @Override
         public void wellPrepared() {
@@ -102,7 +102,7 @@ public class AudioRecordButton extends Button {
 
                     break;
                 case MSG_VOLUME_CHAMGED:
-                    dialogManager.updateVolumeLevel(audioManager.getVoiceLevel(7));
+                    dialogManager.updateVolumeLevel(audioRecordManager.getVoiceLevel(7));
                     break;
                 case MSG_DIALOG_DISMISS:
                     dialogManager.dismissDialog();
@@ -145,21 +145,21 @@ public class AudioRecordButton extends Button {
                 }
                 if (!isRecording || mTime < 0.6f) {
                     dialogManager.stateLengthShort();
-                    audioManager.cancel();
+                    audioRecordManager.cancel();
                     mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DISMISS, 1300);
                 } else if (currentState == STATE_RECORDING) {
                     dialogManager.dismissDialog();
-                    audioManager.release();
+                    audioRecordManager.release();
 
                     // callbackToActivity
                     if (audioRecordFinishListener != null) {
                         audioRecordFinishListener.onFinish(mTime,
-                                audioManager.getCurrentPath());
+                                audioRecordManager.getCurrentPath());
                     }
 
                 } else if (currentState == STATE_WANT_CANCEL) {
                     dialogManager.dismissDialog();
-                    audioManager.cancel();
+                    audioRecordManager.cancel();
 
                 }
                 resetState();

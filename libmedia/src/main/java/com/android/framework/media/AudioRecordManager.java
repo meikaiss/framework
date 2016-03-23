@@ -10,17 +10,17 @@ import java.util.UUID;
 /**
  * Created by meikai on 16/3/22.
  */
-public class AudioManager {
+public class AudioRecordManager {
 
     private MediaRecorder mediaRecorder;
     private String dir;
     private String currentFilePath;
 
-    private static AudioManager audioInstance;
+    private static AudioRecordManager audioInstance;
 
     public boolean isPrepared = false;
 
-    private AudioManager(String dir) {
+    private AudioRecordManager(String dir) {
         this.dir = dir;
     }
 
@@ -34,11 +34,11 @@ public class AudioManager {
         audioStateChangeListener = listener;
     }
 
-    public static AudioManager getInstance(String dir) {
+    public static AudioRecordManager getInstance(String dir) {
         if (audioInstance == null) {
-            synchronized (AudioManager.class) {
+            synchronized (AudioRecordManager.class) {
                 if (audioInstance == null) {
-                    audioInstance = new AudioManager(dir);
+                    audioInstance = new AudioRecordManager(dir);
                 }
             }
         }
