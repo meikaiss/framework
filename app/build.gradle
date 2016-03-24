@@ -6,10 +6,12 @@ android {
 
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
+
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
         generatedDensities = []
     }
 
@@ -23,7 +25,8 @@ android {
     }
 
     lintOptions {
-        abortOnError false // 移除lint检查的error
+        // 移除lint检查的error
+        abortOnError false
     }
 
     signingConfigs {
@@ -71,27 +74,45 @@ dependencies {
 
 
 android.applicationVariants.all { variant ->
+
+    // 开始构建当前变体的即时时间
+    def currentTime = buildTime()
+
     variant.outputs.each { output ->
-        println "****************************"
+        println "**************************************"
+        println "currentTime: ${currentTime}"
         println "variant: ${output.name}"
+        println "buildType: ${variant.buildType.name}"
         println "flavor: ${variant.flavorName}"
         println "manifest:  ${output.processResources.manifestFile}"
-        println "****************************"
+        println "**************************************"
 
-        def apkName = "app-${output.name}-${frameworkVersion}-#${buildNumber}.apk"
-        def file = output.outputFile
-        output.outputFile = new File(file.parent, apkName)
+        //将生成的apk文件保存至根目录的_apk文件下
+        def outputFile = output.outputFile
+        if (outputFile != null && outputFile.name.endsWith('.apk')) {
 
+            File outputDirectory = new File("${projectDir}/../_apk");
+            def apkName = "${variant.buildType.name}/app-${output.name}-V${frameworkVersion}-#${buildNumber}-${currentTime}.apk"
+
+            output.outputFile = new File(outputDirectory, apkName)
+        }
+
+        // 如果开启混淆,则保留混淆的映射关系文件,方便release进行调试
         if (variant.getBuildType().isMinifyEnabled()) {
             variant.assemble.doLast {
                 copy {
                     from variant.mappingFile
-                    into "${projectDir}/../mappings"
+                    into "${projectDir}/../_mappings"
                     rename { String fileName ->
-                        "mapping-${variant.name}-${output.name}-${frameworkVersion}-#${buildNumber}.txt"
+                        "mapping-${output.name}-V${frameworkVersion}-#${buildNumber}-${currentTime}.txt"
                     }
                 }
             }
         }
+
     }
+}
+
+def buildTime() {
+    return new Date().format("yyyy.MM.dd_HH.mm.ss", TimeZone.getTimeZone("UTC"))
 }

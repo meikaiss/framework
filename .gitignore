@@ -8,4 +8,5 @@ build
 
 local.properties
 
-mappings
+_mappings
+_apk
