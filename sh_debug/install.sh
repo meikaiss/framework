@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-adb install ../app/build/outputs/apk/app-debug-1.2-#0.apk
+adb install ../_apk/debug/app-debug-V1.2-#0.apk
