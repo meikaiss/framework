@@ -97,7 +97,7 @@ android.applicationVariants.all { variant ->
         }
 
         // 如果开启混淆,则保留混淆的映射关系文件,方便release进行调试
-            if (variant.getBuildType().isMinifyEnabled()) {
+        if (variant.getBuildType().isMinifyEnabled()) {
             variant.assemble.doLast {
 
                 deleteDirectory("${projectDir}/../_mappings")
@@ -115,15 +115,12 @@ android.applicationVariants.all { variant ->
 }
 
 
-
-
-
 import java.io.File
 
 /**
  * 删除目录（文件夹）以及目录下的文件
- * @param   sPath 被删除目录的文件路径
- * @return  目录删除成功返回true，否则返回false
+ * @param sPath 被删除目录的文件路径
+ * @return 目录删除成功返回true，否则返回false
  */
 def deleteDirectory(String sPath) {
 
@@ -161,7 +158,7 @@ def deleteDirectory(String sPath) {
 
 /**
  * 删除单个文件
- * @param   sPath    被删除文件的文件名
+ * @param sPath 被删除文件的文件名
  * @return 单个文件删除成功返回true，否则返回false
  */
 def deleteFile(String sPath) {
