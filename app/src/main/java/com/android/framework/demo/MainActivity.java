@@ -34,6 +34,7 @@ import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
 import com.android.framework.demo.activity.design.CardViewActivity;
 import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
+import com.android.framework.demo.activity.nolib.AnimatorActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
 import com.android.framework.demo.activity.nolib.InsetClipActivity;
 import com.android.framework.demo.activity.nolib.IntentServiceActivity;
@@ -59,6 +60,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            AnimatorActivity.class,
             PermissionUtilDemoActivity.class,
             MediaDemoActivity.class,
             BottomSheetActivity.class,

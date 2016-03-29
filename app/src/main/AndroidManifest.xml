@@ -33,18 +33,36 @@
         <activity android:name=".activity.ExplosionActivity" />
         <activity android:name=".activity.NumberSeekBarActivity" />
         <activity
+            android:name=".activity.StatusBarColorActivity"
+            android:theme="@style/ColorStatusBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
             android:name=".activity.design.AppCompatTestActivity"
             android:theme="@style/Theme_TestAppCompat"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
-            android:name=".activity.StatusBarColorActivity"
-            android:theme="@style/ColorStatusBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:name=".activity.design.CoordinatorLayoutActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.design.AppBarLayoutActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.design.SwipeDismissBehaviorActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.design.AnimatedVectorDrawableActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activity.design.CardViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.design.BottomSheetActivity"
+            android:theme="@style/BaseAppTheme" />
+
         <activity
             android:name=".activity.nolib.NotificationActivity"
             android:theme="@style/Theme_TestAppCompat" />
-        <activity android:name=".activity.BounceLoadingActivity" />
-        <activity android:name=".activity.CircleLoadingActivity" />
         <activity android:name=".activity.nolib.HandlerThreadActivity" />
         <activity android:name=".activity.nolib.IntentServiceActivity" />
         <activity android:name=".activity.nolib.LayoutWeightActivity" />
@@ -52,11 +70,23 @@
             android:name=".activity.nolib.RippleActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.BottomBarActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
             android:name=".activity.nolib.TabLayoutActivity"
             android:theme="@style/Theme_TabLayoutAppCompat" />
+        <activity
+            android:name=".activity.nolib.AnimatorActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.nolib.AlertDialogActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.nolib.InsetClipActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity android:name=".activity.BounceLoadingActivity" />
+        <activity android:name=".activity.CircleLoadingActivity" />
+
+        <activity
+            android:name=".activity.BottomBarActivity"
+            android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.SlideViewPagerActivity"
             android:theme="@style/BaseAppTheme" />
@@ -64,12 +94,7 @@
             android:name=".activity.InputLinearLayoutActivity"
             android:theme="@style/BaseAppTheme"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".activity.design.CardViewActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.design.BottomSheetActivity"
-            android:theme="@style/BaseAppTheme" />
+
         <activity
             android:name=".activity.SwipRefreshLayoutActivity"
             android:theme="@style/BaseAppTheme" />
@@ -81,9 +106,6 @@
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.OkHttpActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.nolib.AlertDialogActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.shader.ShaderActivity"
@@ -106,21 +128,6 @@
         <activity
             android:name=".activity.FuseImageActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.nolib.InsetClipActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.design.CoordinatorLayoutActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.design.AppBarLayoutActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.design.SwipeDismissBehaviorActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
-            android:name=".activity.design.AnimatedVectorDrawableActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <activity
             android:name=".activity.utildemo.PermissionUtilDemoActivity"

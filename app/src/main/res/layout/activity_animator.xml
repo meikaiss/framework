@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/avatar" />
+
+    <Button
+        android:id="@+id/btn_ObjectAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ObjectAnimator" />
+
+    <Button
+        android:id="@+id/btn_PropertyValuesHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PropertyValuesHolder" />
+
+    <Button
+        android:id="@+id/btn_ObjectAnimator_Group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ObjectAnimator更新一组属性" />
+
+    <Button
+        android:id="@+id/btn_AnimatorSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AnimatorSet一组动画" />
+
+</LinearLayout>
