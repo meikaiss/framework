@@ -64,11 +64,12 @@ android {
 
 dependencies {
     testCompile rootProject.ext.dependencies["junit"]
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':libframework')
     compile project(':libapi')
     compile project(':libcustomview')
     compile project(':libmedia')
+    compile project(':libaidl')
 }
 
 def buildTime() {
@@ -171,4 +172,3 @@ def deleteFile(String sPath) {
     }
     return flag;
 }
-

@@ -1,1 +1,1 @@
-include ':app', ':libframework', ':libapi', ':libcustomview', ':libutil', ':libmedia'
+include ':app', ':libframework', ':libapi', ':libcustomview', ':libutil', ':libmedia', ':libaidl'

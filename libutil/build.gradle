@@ -24,7 +24,6 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-
     compile rootProject.ext.dependencies["support-annotations"]
     compile rootProject.ext.dependencies["support-v4"]
 }
