@@ -26,4 +26,5 @@ dependencies {
 
 
     compile rootProject.ext.dependencies["support-annotations"]
+    compile rootProject.ext.dependencies["support-v4"]
 }

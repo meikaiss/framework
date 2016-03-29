@@ -42,6 +42,7 @@ import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
+import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            PermissionUtilDemoActivity.class,
             MediaDemoActivity.class,
             BottomSheetActivity.class,
             ImageOuterTextViewActivity.class,
