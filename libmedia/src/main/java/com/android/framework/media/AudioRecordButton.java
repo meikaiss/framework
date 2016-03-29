@@ -2,10 +2,13 @@ package com.android.framework.media;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+
+import java.lang.ref.WeakReference;
 
 /**
  * Created by meikai on 16/3/22.
@@ -77,7 +80,7 @@ public class AudioRecordButton extends Button {
                 try {
                     Thread.sleep(100);
                     mTime += 0.1f;
-                    mHandler.sendEmptyMessage(MSG_VOLUME_CHAMGED);
+                    mHandler.sendEmptyMessage(MSG_VOLUME_CHANGED);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -88,31 +91,44 @@ public class AudioRecordButton extends Button {
     };
 
     private static final int MSG_AUDIO_PREPARED = 0x110;
-    private static final int MSG_VOLUME_CHAMGED = 0x111;
+    private static final int MSG_VOLUME_CHANGED = 0x111;
     private static final int MSG_DIALOG_DISMISS = 0x112;
 
-    public Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+    public Handler mHandler = new StaticHandler(this);
+
+    private static class StaticHandler extends Handler {
+
+        WeakReference<AudioRecordButton> audioRecordButtonWeakReference;
+
+        public StaticHandler(AudioRecordButton audioRecordButton) {
+            this.audioRecordButtonWeakReference = new WeakReference<>(audioRecordButton);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            AudioRecordButton audioRecordButton = audioRecordButtonWeakReference.get();
+            if (audioRecordButton == null) {
+                return;
+            }
             switch (msg.what) {
                 case MSG_AUDIO_PREPARED:
-                    dialogManager.showDialog();
-                    isRecording = true;
+                    audioRecordButton.dialogManager.showDialog();
+                    audioRecordButton.isRecording = true;
 
-                    new Thread(getVolumeRunnable).start();
+                    new Thread(audioRecordButton.getVolumeRunnable).start();
 
                     break;
-                case MSG_VOLUME_CHAMGED:
-                    dialogManager.updateVolumeLevel(audioRecordManager.getVoiceLevel(7));
+                case MSG_VOLUME_CHANGED:
+                    audioRecordButton.dialogManager.updateVolumeLevel(audioRecordButton.audioRecordManager.getVoiceLevel(7));
                     break;
                 case MSG_DIALOG_DISMISS:
-                    dialogManager.dismissDialog();
-
+                    audioRecordButton.dialogManager.dismissDialog();
                     break;
                 default:
                     break;
             }
         }
-    };
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

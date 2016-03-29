@@ -1,6 +1,5 @@
 package com.android.framework.demo.activity.nolib;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
