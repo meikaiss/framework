@@ -21,7 +21,7 @@ android {
     //这里设置目录，默认就这样写就可以了
     sourceSets {
         main {
-            jni.srcDir "src/main/jni"
+            jni.srcDirs = []
             jniLibs.srcDir "src/main/libs"
         }
     }
