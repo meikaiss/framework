@@ -131,6 +131,10 @@
             android:theme="@style/BaseAppTheme" />
 
         <activity
+            android:name=".activity.ndk.NDKTestActivity"
+            android:theme="@style/BaseAppTheme" />
+
+        <activity
             android:name=".activity.utildemo.PermissionUtilDemoActivity"
             android:theme="@style/BaseAppTheme" />
 

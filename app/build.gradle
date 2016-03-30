@@ -70,6 +70,7 @@ dependencies {
     compile project(':libcustomview')
     compile project(':libmedia')
     compile project(':libaidl')
+    compile project(':libndk')
 }
 
 def buildTime() {

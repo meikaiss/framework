@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
+import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.process.MultiProcessActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.BounceLoadingActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            NDKTestActivity.class,
             AidlMainActivity.class,
             AnimatorActivity.class,
             PermissionUtilDemoActivity.class,

@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //这里设置目录，默认就这样写就可以了
+    sourceSets {
+        main {
+            jni.srcDir "src/main/jni"
+            jniLibs.srcDir "src/main/libs"
+        }
+    }
+}
+
+dependencies {
+    testCompile rootProject.ext.dependencies["junit"]
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile rootProject.ext.dependencies["appcompat-v7"]
+}
