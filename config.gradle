@@ -2,7 +2,7 @@ ext {
 
     android = [
             compileSdkVersion: "23" as int,
-            buildToolsVersion: "23.0.2",
+            buildToolsVersion: "23.0.3",
 
             applicationId    : "com.android.framework.demo",
 
