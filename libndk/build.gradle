@@ -34,3 +34,35 @@ dependencies {
 
     compile rootProject.ext.dependencies["appcompat-v7"]
 }
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}
+
+
+
+task ndkBuild(type: Exec) {
+    workingDir file('src/main/jni')
+    commandLine getNdkBuildCmd()
+}
+
+def getNdkDir() {
+    if (System.env.ANDROID_NDK_ROOT != null)
+        return System.env.ANDROID_NDK_ROOT
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def ndkdir = properties.getProperty('ndk.dir', null)
+    if (ndkdir == null)
+        throw new GradleException("NDK location not found. Define location with ndk.dir in the local.properties file or with an ANDROID_NDK_ROOT environment variable.")
+
+    println "****************************"
+    println "ndkdir===: " + ndkdir
+    println "****************************"
+    return ndkdir
+}
+
+def getNdkBuildCmd() {
+    def ndkbuild = getNdkDir() + "/ndk-build"
+//    ndkbuild += ".cmd"  //windows 下才需要此配置
+    return ndkbuild
+}
