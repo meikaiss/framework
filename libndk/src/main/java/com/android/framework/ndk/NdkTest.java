@@ -10,4 +10,7 @@ public class NdkTest {
 
     public static native String getStringInNDK();
 
+
+    public static native String encryptString(String name);
+
 }

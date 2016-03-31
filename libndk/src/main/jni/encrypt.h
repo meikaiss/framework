@@ -8,11 +8,11 @@
 #ifndef FRAMEWORK_ENCRYPT_H
 #define FRAMEWORK_ENCRYPT_H
 
-#endif //FRAMEWORK_ENCRYPT_H
-
-
 const char key[] = "abcdefghijklmnop"; //16个字符
 int len = 0;
+
+#endif //FRAMEWORK_ENCRYPT_H
+
 
 //计算字符对应的byte值
 unsigned char getByteNumber(unsigned char first, unsigned char end);

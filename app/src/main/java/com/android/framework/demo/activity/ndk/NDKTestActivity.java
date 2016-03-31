@@ -21,5 +21,9 @@ public class NDKTestActivity extends AppCompatActivity {
 
         textView.setText(NdkTest.getStringInNDK());
 
+        TextView textView2 = (TextView) findViewById(R.id.tv_ndk_encrypt);
+
+        textView2.setText(NdkTest.encryptString("meikai"));
+
     }
 }

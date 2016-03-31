@@ -10,4 +10,12 @@
         android:layout_height="wrap_content"
         android:text="这是从so文件中提取出的字符串" />
 
+
+    <TextView
+        android:id="@+id/tv_ndk_encrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="这是从so文件中加密得到的字符串" />
+
 </LinearLayout>
