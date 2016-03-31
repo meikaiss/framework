@@ -3,7 +3,7 @@
 //
 
 
-#include "com_android_framework_ndk_NdkTest.h"
+#include "NdkTest.h"
 
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_getStringInNDK
         (JNIEnv *env, jclass jc)
