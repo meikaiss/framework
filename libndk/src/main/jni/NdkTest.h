@@ -9,6 +9,11 @@
 extern "C" {
 #endif
 
+extern const char key[];
+extern int len;
+
+
+
 /*
  * Class:     com_android_framework_ndk_NdkTest
  * Method:    getStringInNDK

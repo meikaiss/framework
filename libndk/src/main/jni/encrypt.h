@@ -8,19 +8,18 @@
 #ifndef FRAMEWORK_ENCRYPT_H
 #define FRAMEWORK_ENCRYPT_H
 
-const char key[] = "abcdefghijklmnop"; //16个字符
-int len = 0;
-
-#endif //FRAMEWORK_ENCRYPT_H
 
 
 //计算字符对应的byte值
-unsigned char getByteNumber(unsigned char first, unsigned char end);
+unsigned char getByteNumber( char first,  char end);
 
 
 //加密函数
-void encrypt(unsigned char p[], unsigned char res[]);
+void encrypt( char p[],  char res[], int pLen);
 
 
 //解密函数
-void decrypt(unsigned char p[], char res[]);
+void decrypt( char p[], char res[], int pLen);
+
+
+#endif //FRAMEWORK_ENCRYPT_H
