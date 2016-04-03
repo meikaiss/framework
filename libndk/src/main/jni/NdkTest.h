@@ -25,6 +25,9 @@ JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_getStringInNDK
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
   (JNIEnv *, jclass, jbyteArray);
 
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_decryptString
+  (JNIEnv *, jclass, jbyteArray);
+
 
 #ifdef __cplusplus
 }

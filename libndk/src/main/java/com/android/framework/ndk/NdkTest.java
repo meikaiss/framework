@@ -13,4 +13,7 @@ public class NdkTest {
 
     public static native String encryptString(String name);
 
+
+    public static native String decryptString(String name);
+
 }

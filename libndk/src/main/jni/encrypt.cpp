@@ -23,18 +23,29 @@ unsigned char getByteNumber(char first, char end) {
 }
 
 //加密函数
-void encrypt(char p[], char res[], int pLen) {
+char *encrypt(char sourceChar[], int pLen) {
+    char *encrypt = new char[pLen * 2];
+
     int i = 0;
     for (; i < pLen; i++) {
-        res[2 * i] = key[p[i] / 16];
-        res[2 * i + 1] = key[p[i] % 16];
+        encrypt[2 * i] = key[sourceChar[i] / 16];
+        encrypt[2 * i + 1] = key[sourceChar[i] % 16];
     }
+    encrypt[pLen * 2] = '\0';
+
+    return encrypt;
 }
 
 //解密函数
-void decrypt(char p[], char res[] , int pLen) {
+char *decrypt(char encryptChar[], int pLen) {
+    char *decryptChar = new char[pLen];
+
     int i;
     for (i = 0; i < pLen; i++) {
-        res[i] = getByteNumber(p[i * 2], p[i * 2 + 1]);
+        decryptChar[i] = getByteNumber(encryptChar[i * 2], encryptChar[i * 2 + 1]);
     }
+
+    decryptChar[pLen] = '\0';
+
+    return decryptChar;
 }

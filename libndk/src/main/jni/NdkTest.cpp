@@ -23,22 +23,43 @@ JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
 
     int len = env->GetStringLength(sourceString);
     char *c1 = jstringToChar(env, sourceString);
-    char *c2 = new char[len * 2];
 
-    encrypt(c1, c2, len);
-    c2[len * 2] = '\0';
-
-    jstring encryptResult = CharTojstring(env, c2);
+    char *encryptChar = encrypt(c1, len);
+    jstring encryptResult = CharTojstring(env, encryptChar);
 
 
-    decrypt(c2, c1, len);
-    jstring decryptResult = CharTojstring(env, c1);
+    char * decryptChar = decrypt(encryptChar, len);
+    jstring decryptResult = CharTojstring(env, decryptChar);
 
 
+
+    return encryptResult;
+}
+
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_decryptString
+        (JNIEnv *env, jclass jc, jbyteArray src) {
+
+    jsize len0 = env->GetArrayLength(src);
+    jbyte* arrayBody = (jbyte *)malloc(len0 * sizeof(jbyte));
+    env->GetByteArrayRegion(src,0,len0,arrayBody);
+
+
+    jstring sourceString = CharTojstring(env, (char *)arrayBody);
+
+    int len = env->GetStringLength(sourceString);
+    char *c1 = jstringToChar(env, sourceString);
+
+    char *encryptChar = encrypt(c1, len);
+    jstring encryptResult = CharTojstring(env, encryptChar);
+
+
+    char * decryptChar = decrypt(encryptChar, len);
+    jstring decryptResult = CharTojstring(env, decryptChar);
+
+    free(arrayBody);
 
     return decryptResult;
 }
-
 
 //////
 jstring CharTojstring(JNIEnv *env, char *str) {
