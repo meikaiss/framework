@@ -23,8 +23,11 @@ public class NDKTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ndk_test);
 
-        TextView textView = (TextView) findViewById(R.id.tv_ndk_string);
+        TextView textView = (TextView) findViewById(R.id.tv_string_in_ndk);
         textView.setText(NdkTest.getStringInNDK());
+
+        TextView tvTransmit = (TextView) findViewById(R.id.tv_transmit_string_to_ndk);
+        tvTransmit.setText(tvTransmit.getText().toString() + NdkTest.converseInSo("mike"));
 
 
         edt = (EditText) findViewById(R.id.edt);

@@ -7,20 +7,6 @@
 
 const char key[] = "abcdefghijklmnop"; //16个字符
 
-//计算字符对应的byte值
-unsigned char getByteNumber(char first, char end) {
-    int firstPosition = 0, endPosition = 0;
-    int position = 0;
-    for (; position < 16; position++) {
-        if (key[position] == first) {
-            firstPosition = position;
-        }
-        if (key[position] == end) {
-            endPosition = position;
-        }
-    }
-    return (firstPosition << 4) | (endPosition);
-}
 
 //加密函数
 char *encrypt(char sourceChar[], int pLen) {
@@ -48,4 +34,19 @@ char *decrypt(char encryptChar[], int pLen) {
     decryptChar[pLen] = '\0';
 
     return decryptChar;
+}
+
+//计算字符对应的byte值
+unsigned char getByteNumber(char first, char end) {
+    int firstPosition = 0, endPosition = 0;
+    int position = 0;
+    for (; position < 16; position++) {
+        if (key[position] == first) {
+            firstPosition = position;
+        }
+        if (key[position] == end) {
+            endPosition = position;
+        }
+    }
+    return (firstPosition << 4) | (endPosition);
 }

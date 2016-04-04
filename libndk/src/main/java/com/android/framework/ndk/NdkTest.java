@@ -10,10 +10,14 @@ public class NdkTest {
 
     public static native String getStringInNDK();
 
+    public static native String converseInSo(String name);
+
 
     public static native String encryptString(String name);
 
 
     public static native String decryptString(String name);
+
+
 
 }

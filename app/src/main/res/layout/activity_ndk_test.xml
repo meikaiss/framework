@@ -2,13 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <TextView
-        android:id="@+id/tv_ndk_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="这是从so文件中提取出的字符串" />
+    <TextView
+        android:id="@+id/tv_string_in_ndk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="向so传递参数:mike" />
+    <TextView
+        android:id="@+id/tv_transmit_string_to_ndk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="so接收到参数,并反转处理后返回:" />
 
 
     <EditText

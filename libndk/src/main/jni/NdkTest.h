@@ -22,11 +22,16 @@ extern int len;
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_getStringInNDK
   (JNIEnv *, jclass);
 
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_converseInSo
+        (JNIEnv *, jobject, jstring);
+
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
   (JNIEnv *, jclass, jbyteArray);
 
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_decryptString
   (JNIEnv *, jclass, jbyteArray);
+
+
 
 
 #ifdef __cplusplus

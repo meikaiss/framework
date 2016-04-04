@@ -9,16 +9,17 @@
 #define FRAMEWORK_ENCRYPT_H
 
 
-//计算字符对应的byte值
-unsigned char getByteNumber(char first, char end);
-
-
 //加密函数
 char *encrypt(char p[], int pLen);
 
 
 //解密函数
 char *decrypt(char encryptChar[], int pLen);
+
+
+//计算字符对应的byte值
+unsigned char getByteNumber(char first, char end);
+
 
 
 #endif //FRAMEWORK_ENCRYPT_H
