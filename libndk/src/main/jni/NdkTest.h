@@ -20,18 +20,16 @@ extern int len;
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_getStringInNDK
-  (JNIEnv *, jclass);
+        (JNIEnv *, jclass);
 
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_converseInSo
         (JNIEnv *, jobject, jstring);
 
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
-  (JNIEnv *, jclass, jbyteArray);
+        (JNIEnv *, jobject, jstring);
 
 JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_decryptString
-  (JNIEnv *, jclass, jbyteArray);
-
-
+        (JNIEnv *, jobject, jstring);
 
 
 #ifdef __cplusplus

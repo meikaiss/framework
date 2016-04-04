@@ -5,7 +5,7 @@
 #include "encrypt.h"
 
 
-const char key[] = "abcdefghijklmnop"; //16个字符
+const char key[] = "!@#$%^&*()_+{}[]"; //16个密文字符
 
 
 //加密函数

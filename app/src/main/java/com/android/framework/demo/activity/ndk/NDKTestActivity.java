@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.framework.demo.R;
 import com.android.framework.ndk.NdkTest;
@@ -48,7 +49,12 @@ public class NDKTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tvDecrypt.setText(NdkTest.decryptString(tvEncrypt.getText().toString()));
+                if (tvEncrypt.getText().toString().length() > 0)
+                    tvDecrypt.setText(NdkTest.decryptString(tvEncrypt.getText().toString()));
+                else {
+                    tvDecrypt.setText("");
+                    Toast.makeText(NDKTestActivity.this, "没有密文", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
