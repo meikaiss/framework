@@ -7,7 +7,7 @@ ext {
             applicationId    : "com.android.framework.demo",
 
             minSdkVersion    : 14,
-            targetSdkVersion : 23,
+            targetSdkVersion : 19,
 
             versionCode      : 1,
             versionName      : "1.0"
@@ -21,13 +21,13 @@ ext {
             "okhttp"             : "com.squareup.okhttp:okhttp:2.7.0",
             "fastjson"           : "com.alibaba:fastjson:1.2.8",
 
-            "support-v4"         : "com.android.support:support-v4:23.2.1",
-            "support-annotations": "com.android.support:support-annotations:23.2.1",
+            "support-v4"         : "com.android.support:support-v4:23.3.0",
+            "support-annotations": "com.android.support:support-annotations:23.3.0",
 
-            "appcompat-v7"       : "com.android.support:appcompat-v7:23.2.1",
-            "design"             : "com.android.support:design:23.2.1",
-            "recyclerview-v7"    : "com.android.support:recyclerview-v7:23.2.1",
-            "cardview-v7"        : "com.android.support:cardview-v7:23.2.1"
+            "appcompat-v7"       : "com.android.support:appcompat-v7:23.3.0",
+            "design"             : "com.android.support:design:23.3.0",
+            "recyclerview-v7"    : "com.android.support:recyclerview-v7:23.3.0",
+            "cardview-v7"        : "com.android.support:cardview-v7:23.3.0"
     ]
 
 }
