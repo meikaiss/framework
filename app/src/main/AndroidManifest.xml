@@ -60,6 +60,9 @@
         <activity
             android:name=".activity.design.BottomSheetActivity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.design.FABBehaviorActivity"
+            android:theme="@style/BaseAppTheme" />
 
         <activity
             android:name=".activity.nolib.NotificationActivity"
@@ -137,6 +140,7 @@
         <activity
             android:name=".activity.utildemo.PermissionUtilDemoActivity"
             android:theme="@style/BaseAppTheme" />
+
 
         <service android:name=".service.PlayMusicIntentService" />
         <service android:name=".widget.WeatherService" />

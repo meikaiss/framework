@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
-import com.android.framework.demo.activity.ndk.NDKTestActivity;
-import com.android.framework.process.MultiProcessActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.BounceLoadingActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
@@ -27,7 +25,6 @@ import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
-import com.android.framework.demo.activity.SwipRefreshLayoutActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -35,7 +32,9 @@ import com.android.framework.demo.activity.design.AppCompatTestActivity;
 import com.android.framework.demo.activity.design.BottomSheetActivity;
 import com.android.framework.demo.activity.design.CardViewActivity;
 import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
+import com.android.framework.demo.activity.design.FABBehaviorActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
+import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.AnimatorActivity;
 import com.android.framework.demo.activity.nolib.HandlerThreadActivity;
@@ -63,6 +62,7 @@ public class MainActivity extends Activity {
 
     private ListView listView;
     private Class<?>[] classes = {
+            FABBehaviorActivity.class,
             NDKTestActivity.class,
             AidlMainActivity.class,
             AnimatorActivity.class,
@@ -86,7 +86,6 @@ public class MainActivity extends Activity {
             SaveStateViewActivity.class,
             PinnedHeaderExpandableListViewActivity.class,
             RippleActivity.class,
-            SwipRefreshLayoutActivity.class,
             CardViewActivity.class,
             InputLinearLayoutActivity.class,
             SlideViewPagerActivity.class,

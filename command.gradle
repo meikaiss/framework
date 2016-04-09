@@ -2,7 +2,6 @@
 // the build that imports this script.
 apply plugin: UtilitiesPlugin
 
-import java.io.File
 
 /**
  * This is a plugin.
