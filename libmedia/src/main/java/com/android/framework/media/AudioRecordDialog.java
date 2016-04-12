@@ -24,6 +24,8 @@ public class AudioRecordDialog {
     public void showDialog() {
 
         dialog = new Dialog(context, R.style.Theme_RecorderDialog);
+        dialog.setCancelable(false);
+
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.dialog, null);
         dialog.setContentView(view);

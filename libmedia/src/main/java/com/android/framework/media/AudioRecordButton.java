@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +24,9 @@ public class AudioRecordButton extends Button {
     private int currentState = STATE_NORMAL;
     private boolean isRecording = false;
     private AudioRecordDialog dialogManager;
-    private AudioRecordManager audioRecordManager;
+    private static AudioRecordManager audioRecordManager;
 
-    private float mTime;
+    private static float mTime;
     private boolean isReady = false;
 
     public AudioRecordButton(Context context) {
@@ -122,6 +123,8 @@ public class AudioRecordButton extends Button {
                     audioRecordButton.dialogManager.updateVolumeLevel(audioRecordButton.audioRecordManager.getVoiceLevel(7));
                     break;
                 case MSG_DIALOG_DISMISS:
+                    mTime = 0;
+                    audioRecordManager.cancel();
                     audioRecordButton.dialogManager.dismissDialog();
                     break;
                 default:
@@ -138,6 +141,9 @@ public class AudioRecordButton extends Button {
         int y = (int) event.getY();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
+                Log.e("__onTouchEvent" , "ACTION_DOWN, isReady"+isReady+ ", mTime="+mTime);
+                mTime = 0;
+                Log.e("__onTouchEvent" , "ACTION_DOWN, isReady"+isReady+ ", 之后  mTime="+mTime);
                 changeState(STATE_RECORDING);
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -155,14 +161,15 @@ public class AudioRecordButton extends Button {
                 break;
 
             case MotionEvent.ACTION_UP:
+                Log.e("__onTouchEvent" , "ACTION_UP, isReady"+isReady+ ", mTime="+mTime);
                 if (!isReady) {
                     resetState();
                     return super.onTouchEvent(event);
                 }
-                if (!isRecording || mTime < 0.6f) {
+                if (!isRecording || mTime < 0.8f) {
                     dialogManager.stateLengthShort();
-                    audioRecordManager.cancel();
-                    mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DISMISS, 1300);
+//                    audioRecordManager.cancel();
+                    mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DISMISS, 1500);
                 } else if (currentState == STATE_RECORDING) {
                     dialogManager.dismissDialog();
                     audioRecordManager.release();

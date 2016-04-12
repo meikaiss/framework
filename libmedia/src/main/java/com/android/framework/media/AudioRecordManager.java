@@ -2,10 +2,12 @@ package com.android.framework.media;
 
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by meikai on 16/3/22.
@@ -46,32 +48,33 @@ public class AudioRecordManager {
     }
 
     public void prepareAudio() {
+
+        File fileDir = new File(dir);
+        if (!fileDir.exists())
+            fileDir.mkdirs();
+        String fileName = generateFileName();
+        File file = new File(fileDir, fileName);
+
+        currentFilePath = file.getAbsolutePath();
+
+        mediaRecorder = new MediaRecorder();
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+
+        mediaRecorder.setOutputFile(file.getAbsolutePath());
+        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
         try {
-            isPrepared = false;
-            File fileDir = new File(dir);
-            if (!fileDir.exists())
-                fileDir.mkdirs();
-            String fileName = generateFileName();
-            File file = new File(fileDir, fileName);
-
-            currentFilePath = file.getAbsolutePath();
-
-            mediaRecorder = new MediaRecorder();
-            mediaRecorder.setOutputFile(file.getAbsolutePath());
-            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-
             mediaRecorder.prepare();
             mediaRecorder.start();
-
             isPrepared = true;
+        } catch (IOException e) {
+            Log.e("prepareAudio", "Error when preparing or starting recorder", e);
+            return;
+        }
 
-            if (audioStateChangeListener != null) {
-                audioStateChangeListener.wellPrepared();
-            }
-        } catch (IllegalStateException | IOException e) {
-            e.printStackTrace();
+        if (audioStateChangeListener != null) {
+            audioStateChangeListener.wellPrepared();
         }
     }
 
@@ -97,10 +100,15 @@ public class AudioRecordManager {
     }
 
     public void release() {
-        mediaRecorder.stop();
-        mediaRecorder.release();
-        mediaRecorder = null;
-
+        if( mediaRecorder != null){
+            try{
+                mediaRecorder.stop();
+                mediaRecorder.release();
+                mediaRecorder = null;
+            }catch (IllegalStateException e){
+                Log.e("AudioRecordManager", "release");
+            }
+        }
     }
 
     public void cancel() {

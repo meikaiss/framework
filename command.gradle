@@ -28,7 +28,7 @@ class UtilitiesPluginConvention {
 
     /* DEFINE YOUR UTILITY METHODS HERE */
 
-    /**
+     /**
      * 删除目录（文件夹）以及目录下的文件
      * @param sPath 被删除目录的文件路径
      * @return 目录删除成功返回true，否则返回false
