@@ -5,6 +5,24 @@ package com.android.framework.util;
  */
 public class TimeUtil {
 
+
+    /**
+     * 将 秒数 转换成  a'b" 的格式 ,例如 75s 转换成 1'15"
+     *
+     * @param iSecond 秒数
+     */
+    public static String formatSecond(int iSecond) {
+
+        if(iSecond < 60)
+            return iSecond + "\"";
+        else if (iSecond < 60 * 60) {
+            return iSecond / 60 + "'" + formatSecond(iSecond % 60);
+        } else {
+            return iSecond / (60 * 60) + "°" + formatSecond(iSecond % (60 * 60));
+        }
+    }
+
+
     /**
      * 将 秒数 转换在 小时:分:秒 的格式
      * @param durationSeconds

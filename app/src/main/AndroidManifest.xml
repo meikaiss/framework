@@ -100,9 +100,6 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".activity.SwipRefreshLayoutActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity
             android:name=".activity.PinnedHeaderExpandableListViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
