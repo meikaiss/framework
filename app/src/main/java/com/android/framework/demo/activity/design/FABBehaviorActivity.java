@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.customview.design.FixedRecyclerView;
 import com.android.framework.demo.R;
 
@@ -25,27 +26,28 @@ import java.util.List;
 /**
  * Created by meikai on 16/4/9.
  */
-public class FABBehaviorActivity extends AppCompatActivity {
+public class FABBehaviorActivity extends BaseCompactActivity {
 
     SwipeRefreshLayout swipeRefreshLayout;
     FixedRecyclerView fixedRecyclerView;
 
     List<String> dataList = new ArrayList<>();
 
+    @Override
+    public int getContentViewLayoutId() {
+        return R.layout.activity_behavior;
+    }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_behavior);
-
+    public void findViews() {
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresher);
-        fixedRecyclerView = (FixedRecyclerView) findViewById(R.id.recyclerView);
-
-        for (int i = 0; i < 100; i++)
-            dataList.add(i + "");
-
         swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA);
 
+        fixedRecyclerView = (FixedRecyclerView) findViewById(R.id.recyclerView);
+    }
+
+    @Override
+    public void setListeners() {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -59,6 +61,17 @@ public class FABBehaviorActivity extends AppCompatActivity {
                 }, 5000l);
             }
         });
+    }
+
+    @Override
+    public void parseBundle() {
+
+    }
+
+    @Override
+    public void afterView() {
+        for (int i = 0; i < 100; i++)
+            dataList.add(i + "");
 
         fixedRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         fixedRecyclerView.addItemDecoration(new ItemDivider(this, R.drawable.item_decoration));
