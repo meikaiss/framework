@@ -41,7 +41,9 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
 
     public void initSystemBarTint(boolean on) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
             setTranslucentStatus(on);
+
             SystemBarTintManager tintManager = new SystemBarTintManager(this);
             tintManager.setStatusBarTintEnabled(on);
             tintManager.setStatusBarTintColor(getColorPrimary());

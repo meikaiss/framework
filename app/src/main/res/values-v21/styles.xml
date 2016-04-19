@@ -3,10 +3,11 @@
 
     <style name="AppTheme" parent="BaseAppTheme">
         <!-- Customize your theme here. -->
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/holo_red_light</item>
-        <item name="android:windowTranslucentStatus">false</item>
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--<item name="android:statusBarColor">@color/colorPrimary</item>-->
+        <!--<item name="android:windowTranslucentStatus">false</item>-->
         <item name="android:fitsSystemWindows">true</item>
+        <!--<item name="android:navigationBarColor">@color/colorPrimary</item>-->
     </style>
 
     <style name="ColorStatusBar" parent="@style/BaseColorStatusBar"></style>
