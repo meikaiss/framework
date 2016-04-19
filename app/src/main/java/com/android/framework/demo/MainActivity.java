@@ -1,15 +1,14 @@
 package com.android.framework.demo;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
+import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.BounceLoadingActivity;
 import com.android.framework.demo.activity.CircleLoadingActivity;
@@ -58,9 +57,11 @@ import java.util.List;
 /**
  * Created by meikai on 15/10/14.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseCompactActivity {
 
+    private Toolbar toolbar;
     private ListView listView;
+
     private Class<?>[] classes = {
             FABBehaviorActivity.class,
             NDKTestActivity.class,
@@ -102,28 +103,44 @@ public class MainActivity extends Activity {
             CircleLoadingActivity.class,
             HandlerThreadActivity.class,
             IntentServiceActivity.class,
-            LayoutWeightActivity.class};
+            LayoutWeightActivity.class
+    };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_main;
+    }
 
-        listView = new ListView(this);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+    @Override
+    public void findViews() {
+        toolbar = f(R.id.toolbar);
 
-        addContentView(listView, lp);
+        listView = f(R.id.demo_list_view);
+    }
 
+    @Override
+    public void setListeners() {
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(listener);
+        listView.setOnItemClickListener(itemClickListener);
+    }
+
+    @Override
+    public void parseBundle() {
 
     }
 
-    private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
+    @Override
+    public void afterView() {
+        toolbar.setTitle(R.string.app_name);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
+        listView.setAdapter(adapter);
+    }
+
+
+    private AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            Class<?> className = (Class<?>) parent.getAdapter().getItem(position);
 
             Class<?> className = classes[position];
             MainActivity.this.startActivity(new Intent(MainActivity.this, className));
@@ -140,5 +157,4 @@ public class MainActivity extends Activity {
 
         return stringList.toArray(new String[stringList.size()]);
     }
-
 }

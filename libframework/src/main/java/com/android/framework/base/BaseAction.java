@@ -1,11 +1,13 @@
 package com.android.framework.base;
 
+import android.support.annotation.LayoutRes;
+
 /**
  * Created by meikai on 15/12/3.
  */
 public interface BaseAction {
 
-    int getContentViewLayoutId();
+    @LayoutRes int getContentViewLayoutId();
 
     void findViews();
 

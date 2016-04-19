@@ -1,8 +1,19 @@
 <resources>
 
+
     <!--Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#FF4081</item>
+        <!-- alertDialogTheme用于为每个的AlertDialog弹框定义一个主题 -->
+        <item name="alertDialogTheme">@style/MultiListAlertDialog2</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- Customize your theme here. -->
+
     </style>
 
     <style name="Theme_TestAppCompat" parent="Theme.AppCompat.Light">
@@ -24,15 +35,6 @@
         <item name="windowActionBar">true</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:fitsSystemWindows">true</item>
-    </style>
-
-    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">#FF4081</item>
-        <!-- alertDialogTheme用于为每个的AlertDialog弹框定义一个主题 -->
-        <item name="alertDialogTheme">@style/MultiListAlertDialog2</item>
     </style>
 
     <style name="MultiListAlertDialog2" parent="Theme.AppCompat.Light.Dialog">

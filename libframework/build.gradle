@@ -29,6 +29,8 @@ dependencies {
     compile rootProject.ext.dependencies["recyclerview-v7"]
     compile rootProject.ext.dependencies["cardview-v7"]
 
+    compile rootProject.ext.dependencies["systembartint"]
+
     compile project(':libutil')
 
 }
