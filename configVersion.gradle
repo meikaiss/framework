@@ -1,5 +1,9 @@
 ext {
 
+
+    jdkVersion = JavaVersion.VERSION_1_8;
+
+
     android = [
             compileSdkVersion: "23" as int,
             buildToolsVersion: "23.0.3",
@@ -12,7 +16,6 @@ ext {
             versionCode      : 1,
             versionName      : "1.0"
     ]
-
 
 
     dependencies = [

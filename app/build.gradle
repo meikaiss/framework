@@ -1,6 +1,7 @@
 import java.lang.reflect.Array
 import java.lang.reflect.Field
 
+apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 
 android {
@@ -19,8 +20,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility rootProject.ext.jdkVersion
+        targetCompatibility rootProject.ext.jdkVersion
     }
 
     aaptOptions {
@@ -33,6 +34,12 @@ android {
 
         htmlOutput file("$project.buildDir/reports/lint/lint.html")
         xmlOutput file("$project.buildDir/reports/lint/lint.xml")
+    }
+
+    dexOptions {
+        //incremental true
+        //preDexLibraries = false
+        javaMaxHeapSize "4g"
     }
 
     signingConfigs {
@@ -81,9 +88,7 @@ dependencies {
     compile project(':libndk')
 }
 
-def buildTime() {
-    return new Date().format("yyyy.MM.dd_HH.mm.ss")
-}
+patchKeepSpecs()
 
 android.applicationVariants.all { variant ->
 
@@ -124,6 +129,12 @@ android.applicationVariants.all { variant ->
     }
 }
 
+
+
+def buildTime() {
+    return new Date().format("yyyy.MM.dd_HH.mm.ss")
+}
+
 //将Activity类从主dex中移除
 def patchKeepSpecs() {
     def clazz = Class.forName("com.android.build.gradle.internal.tasks.multidex.CreateManifestKeepList")
@@ -157,6 +168,4 @@ def patchKeepSpecs() {
         println "KEEP_SPECS patched: removed 'activity' root"
     }
 }
-
-patchKeepSpecs()
 
