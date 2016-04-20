@@ -25,6 +25,9 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -136,6 +139,10 @@
 
         <activity
             android:name=".activity.utildemo.PermissionUtilDemoActivity"
+            android:theme="@style/BaseAppTheme" />
+
+        <activity
+            android:name=".activity.ThemeChangeActivity"
             android:theme="@style/BaseAppTheme" />
 
 

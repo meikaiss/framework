@@ -16,16 +16,12 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
 
-        generatedDensities = []
+        vectorDrawables.useSupportLibrary = true
     }
 
     compileOptions {
         sourceCompatibility rootProject.ext.jdkVersion
         targetCompatibility rootProject.ext.jdkVersion
-    }
-
-    aaptOptions {
-        additionalParameters "--no-version-vectors"
     }
 
     lintOptions {

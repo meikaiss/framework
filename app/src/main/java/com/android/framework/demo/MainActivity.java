@@ -1,7 +1,13 @@
 package com.android.framework.demo;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +30,7 @@ import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
+import com.android.framework.demo.activity.ThemeChangeActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -49,6 +56,7 @@ import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 import com.android.framework.media.demo.MediaDemoActivity;
+import com.android.framework.utils.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,10 +67,14 @@ import java.util.List;
  */
 public class MainActivity extends BaseCompactActivity {
 
+    private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private ListView listView;
 
+    private ThemeChangeBroadCastReceiver broadCastReceiver;
+
     private Class<?>[] classes = {
+            ThemeChangeActivity.class,
             FABBehaviorActivity.class,
             NDKTestActivity.class,
             AidlMainActivity.class,
@@ -113,6 +125,9 @@ public class MainActivity extends BaseCompactActivity {
 
     @Override
     public void findViews() {
+
+        drawerLayout = f(R.id.root_drawer_layout);
+
         toolbar = f(R.id.toolbar);
 
         listView = f(R.id.demo_list_view);
@@ -125,6 +140,13 @@ public class MainActivity extends BaseCompactActivity {
             Class<?> className = classes[position];
             MainActivity.this.startActivity(new Intent(MainActivity.this, className));
         });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
     }
 
     @Override
@@ -135,23 +157,25 @@ public class MainActivity extends BaseCompactActivity {
     @Override
     public void afterView() {
         toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.fuse1_default);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
         listView.setAdapter(adapter);
+
+        broadCastReceiver = new ThemeChangeBroadCastReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        localBroadcastManager.registerReceiver(broadCastReceiver, intentFilter);
+
     }
 
-
-    /**
-     * 被JDK1.8的 lambd 表达式代替
-     */
-    private AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            Class<?> className = classes[position];
-            MainActivity.this.startActivity(new Intent(MainActivity.this, className));
-        }
-    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        localBroadcastManager.unregisterReceiver(broadCastReceiver);
+    }
 
     private String[] getArray(Class<?>[] classes) {
         List<Class<?>> classList = Arrays.asList(classes);
@@ -162,5 +186,16 @@ public class MainActivity extends BaseCompactActivity {
         }
 
         return stringList.toArray(new String[stringList.size()]);
+    }
+
+
+    class ThemeChangeBroadCastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE)) {
+                MainActivity.this.recreate();
+            }
+        }
     }
 }
