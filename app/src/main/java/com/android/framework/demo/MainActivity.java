@@ -121,7 +121,10 @@ public class MainActivity extends BaseCompactActivity {
     @Override
     public void setListeners() {
 
-        listView.setOnItemClickListener(itemClickListener);
+        listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+            Class<?> className = classes[position];
+            MainActivity.this.startActivity(new Intent(MainActivity.this, className));
+        });
     }
 
     @Override
@@ -138,6 +141,9 @@ public class MainActivity extends BaseCompactActivity {
     }
 
 
+    /**
+     * 被JDK1.8的 lambd 表达式代替
+     */
     private AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

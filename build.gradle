@@ -21,6 +21,11 @@ allprojects {
         jcenter()
         mavenCentral()
     }
+
+    tasks.withType(JavaCompile) {
+        // 设置全局编码,包括对中文注释GBK, GB18030等编码方式转换成UTF-8
+        options.encoding = "UTF-8"
+    }
 }
 
 
