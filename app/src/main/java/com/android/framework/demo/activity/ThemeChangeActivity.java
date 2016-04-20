@@ -8,7 +8,6 @@ import android.widget.CompoundButton;
 
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.R;
-import com.android.framework.util.PermissionUtil;
 import com.android.framework.util.PreferenceUtil;
 import com.android.framework.utils.ThemeUtils;
 
@@ -54,21 +53,39 @@ public class ThemeChangeActivity extends BaseCompactActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
+
+        int themeValue = 0;
+
         switch (v.getId()) {
             case R.id.btn_red:
-                PreferenceUtil.getInstance(this, ThemeUtils.PREFERENCE_FILE_NAME).saveParam(ThemeUtils.CURRENT_THEME_KEY, 0);
+                themeValue = 0;
                 break;
             case R.id.btn_brown:
-                PreferenceUtil.getInstance(this, ThemeUtils.PREFERENCE_FILE_NAME).saveParam(ThemeUtils.CURRENT_THEME_KEY, 1);
-
+                themeValue = 1;
                 break;
             case R.id.btn_blue:
-                PreferenceUtil.getInstance(this, ThemeUtils.PREFERENCE_FILE_NAME).saveParam(ThemeUtils.CURRENT_THEME_KEY, 2);
-
+                themeValue = 2;
+                break;
+            case R.id.btn_blue_grey:
+                themeValue = 3;
+                break;
+            case R.id.btn_yellow:
+                themeValue = 4;
+                break;
+            case R.id.btn_deep_purple:
+                themeValue = 5;
+                break;
+            case R.id.btn_pink:
+                themeValue = 6;
+                break;
+            case R.id.btn_green:
+                themeValue = 7;
                 break;
             default:
                 break;
         }
+
+        PreferenceUtil.getInstance(this, ThemeUtils.PREFERENCE_FILE_NAME).saveParam(ThemeUtils.CURRENT_THEME_KEY, themeValue);
         this.reload();
 
 
