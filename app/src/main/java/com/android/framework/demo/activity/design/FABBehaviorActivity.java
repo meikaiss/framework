@@ -99,6 +99,12 @@ public class FABBehaviorActivity extends BaseCompactActivity {
                 }
             }
         });
+
+        this.getWindow().getDecorView().post(() -> {
+            swipeRefreshLayout.setRefreshing(true);
+            FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(
+                    () -> swipeRefreshLayout.setRefreshing(false), 5000l);
+        });
     }
 
     class ItemDivider extends RecyclerView.ItemDecoration {

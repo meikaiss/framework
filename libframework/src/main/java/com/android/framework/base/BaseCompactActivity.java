@@ -86,11 +86,11 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
         localBroadcastManager.registerReceiver(broadCastReceiver, intentFilter);
     }
 
-    public void reload() {
+    public final void reload() {
         reload(false);
     }
 
-    public void reload(boolean anim) {
+    public final void reload(boolean anim) {
         Intent intent = getIntent();
         if (!anim) {
             overridePendingTransition(0, 0);
