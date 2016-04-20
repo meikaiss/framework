@@ -1,5 +1,6 @@
 package com.android.framework.demo.activity.nolib;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -77,7 +78,7 @@ public class TabLayoutActivity extends BaseCompactActivity {
     }
 
     @Override
-    public void parseBundle() {
+    public void parseBundle(Intent intent) {
 
     }
 

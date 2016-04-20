@@ -1,5 +1,6 @@
 package com.android.framework.base;
 
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
 
 /**
@@ -13,8 +14,12 @@ public interface BaseAction {
 
     void setListeners();
 
-    void parseBundle();
+    void parseBundle(Intent intent);
 
     void afterView();
+
+
+
+    void onThemeChange();
 
 }

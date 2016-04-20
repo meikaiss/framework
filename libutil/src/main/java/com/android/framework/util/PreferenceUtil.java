@@ -19,11 +19,11 @@ public class PreferenceUtil{
         shareEditor = sharedPreferences.edit();
     }
 
-    public static PreferenceUtil getInstance(Context context, String preferenceFileName){
+    public static PreferenceUtil getInstance(Context context){
         if (preferenceUtils == null) {
             synchronized (PreferenceUtil.class) {
                 if (preferenceUtils == null) {
-                    preferenceUtils = new PreferenceUtil(context.getApplicationContext(), preferenceFileName);
+                    preferenceUtils = new PreferenceUtil(context.getApplicationContext(), context.getString(R.string.app_name));
                 }
             }
         }

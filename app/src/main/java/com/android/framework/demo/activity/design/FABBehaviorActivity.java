@@ -1,6 +1,7 @@
 package com.android.framework.demo.activity.design;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -48,23 +49,13 @@ public class FABBehaviorActivity extends BaseCompactActivity {
 
     @Override
     public void setListeners() {
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        swipeRefreshLayout.setRefreshing(false);
-
-                    }
-                }, 5000l);
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(
+                () -> FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(
+                        () -> swipeRefreshLayout.setRefreshing(false), 5000l));
     }
 
     @Override
-    public void parseBundle() {
+    public void parseBundle(Intent intent) {
 
     }
 

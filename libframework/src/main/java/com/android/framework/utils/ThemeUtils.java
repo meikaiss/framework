@@ -2,6 +2,8 @@ package com.android.framework.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.framework.R;
 import com.android.framework.util.PreferenceUtil;
@@ -11,9 +13,21 @@ import com.android.framework.util.PreferenceUtil;
  */
 public class ThemeUtils {
 
-    public static final String PREFERENCE_FILE_NAME = "AppThemePreferenceFile";
     public static final String CURRENT_THEME_KEY = "current_theme_key";
     public static final String BROADCAST_ACTION_THEME_CHANGE = "broadcast_action_theme_change";
+
+    /**
+     * 发送广播 通知 已经加载的Activity更新主题
+     * @param context
+     */
+    public static void sendThemeChangeBroadCast(Context context){
+
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
+        Intent intent = new Intent();
+        intent.setAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
+        localBroadcastManager.sendBroadcast(intent);
+
+    }
 
     public static void changeTheme(Activity activity, Theme theme) {
         if (activity == null)
@@ -48,8 +62,7 @@ public class ThemeUtils {
     }
 
     public static Theme getCurrentTheme(Context context) {
-        int value = PreferenceUtil.getInstance(context, PREFERENCE_FILE_NAME)
-                .getIntParam(CURRENT_THEME_KEY, 0);
+        int value = PreferenceUtil.getInstance(context).getIntParam(CURRENT_THEME_KEY, 0);
         return ThemeUtils.Theme.mapValueToTheme(value);
     }
 
@@ -75,7 +88,6 @@ public class ThemeUtils {
                     return theme;
                 }
             }
-            // If run here, return default
             return RED;
         }
 

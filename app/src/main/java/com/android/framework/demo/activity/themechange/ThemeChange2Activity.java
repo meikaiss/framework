@@ -1,7 +1,8 @@
-package com.android.framework.demo.activity;
+package com.android.framework.demo.activity.themechange;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -14,41 +15,49 @@ import com.android.framework.utils.ThemeUtils;
 /**
  * Created by meikai on 16/4/20.
  */
-public class ThemeChangeActivity extends BaseCompactActivity implements View.OnClickListener {
+public class ThemeChange2Activity extends BaseCompactActivity implements View.OnClickListener {
 
-    private static final String TAG = "ThemeChangeActivity";
+    private static final String TAG = "ThemeChange2Activity";
 
     CheckBox checkBox;
+    Toolbar toolbar;
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, ThemeChange2Activity.class);
+
+        context.startActivity(intent);
+    }
 
     @Override
     public int getContentViewLayoutId() {
-        return R.layout.activity_theme_change;
+        return R.layout.activity_theme_change_2;
     }
 
     @Override
     public void findViews() {
 
-        checkBox = (CheckBox) findViewById(R.id.checkbox_hobby);
+        checkBox = f(R.id.checkbox_hobby);
+        toolbar = f(R.id.toolbar);
 
     }
 
     @Override
     public void setListeners() {
         checkBox.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) ->
-        {
-            PreferenceUtil.getInstance(this, TAG).saveParam("isChecked", isChecked);
-        });
+                PreferenceUtil.getInstance(this).saveParam(TAG + "isChecked", isChecked));
 
     }
 
     @Override
-    public void parseBundle() {
+    public void parseBundle(Intent intent) {
 
     }
 
     @Override
     public void afterView() {
-        checkBox.setChecked(PreferenceUtil.getInstance(this, TAG).getBooleanParam("isChecked", true));
+        toolbar.setTitle("终态Activity");
+
+        checkBox.setChecked(PreferenceUtil.getInstance(this).getBooleanParam(TAG + "isChecked", true));
     }
 
     @Override
@@ -85,14 +94,11 @@ public class ThemeChangeActivity extends BaseCompactActivity implements View.OnC
                 break;
         }
 
-        PreferenceUtil.getInstance(this, ThemeUtils.PREFERENCE_FILE_NAME).saveParam(ThemeUtils.CURRENT_THEME_KEY, themeValue);
-        this.reload();
+        PreferenceUtil.getInstance(this).saveParam(ThemeUtils.CURRENT_THEME_KEY, themeValue);
 
-
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        Intent intent = new Intent();
-        intent.setAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
-        localBroadcastManager.sendBroadcast(intent);
+        // 通知 其它 已经加载的Activity更新主题
+        ThemeUtils.sendThemeChangeBroadCast(this);
 
     }
+
 }

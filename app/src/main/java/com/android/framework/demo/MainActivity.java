@@ -30,7 +30,7 @@ import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
-import com.android.framework.demo.activity.ThemeChangeActivity;
+import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -70,8 +70,6 @@ public class MainActivity extends BaseCompactActivity {
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private ListView listView;
-
-    private ThemeChangeBroadCastReceiver broadCastReceiver;
 
     private Class<?>[] classes = {
             ThemeChangeActivity.class,
@@ -141,16 +139,11 @@ public class MainActivity extends BaseCompactActivity {
             MainActivity.this.startActivity(new Intent(MainActivity.this, className));
         });
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(Gravity.LEFT);
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(Gravity.LEFT));
     }
 
     @Override
-    public void parseBundle() {
+    public void parseBundle(Intent intent) {
 
     }
 
@@ -162,19 +155,11 @@ public class MainActivity extends BaseCompactActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
         listView.setAdapter(adapter);
 
-        broadCastReceiver = new ThemeChangeBroadCastReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        localBroadcastManager.registerReceiver(broadCastReceiver, intentFilter);
-
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        localBroadcastManager.unregisterReceiver(broadCastReceiver);
+    public void onThemeChange() {
+        this.recreate();
     }
 
     private String[] getArray(Class<?>[] classes) {
@@ -188,14 +173,4 @@ public class MainActivity extends BaseCompactActivity {
         return stringList.toArray(new String[stringList.size()]);
     }
 
-
-    class ThemeChangeBroadCastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE)) {
-                MainActivity.this.recreate();
-            }
-        }
-    }
 }
