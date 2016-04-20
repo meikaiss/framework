@@ -15,7 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.framework.R;
-import com.android.framework.utils.ThemeUtils;
+import com.android.framework.theme.ThemeManager;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 /**
@@ -61,8 +61,8 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
     }
 
     private void initTheme() {
-        ThemeUtils.Theme theme = ThemeUtils.getCurrentTheme(this);
-        ThemeUtils.changeTheme(this, theme);
+        ThemeManager.Theme theme = ThemeManager.getCurrentTheme(this);
+        ThemeManager.changeTheme(this, theme);
     }
 
     public void initSystemBarTint(boolean on) {
@@ -81,7 +81,7 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
     private void registerThemeChangeBroadCast() {
         broadCastReceiver = new ThemeChangeBroadCastReceiver();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
+        intentFilter.addAction(ThemeManager.BROADCAST_ACTION_THEME_CHANGE);
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
         localBroadcastManager.registerReceiver(broadCastReceiver, intentFilter);
     }
@@ -141,7 +141,7 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE)) {
+            if (intent.getAction().equals(ThemeManager.BROADCAST_ACTION_THEME_CHANGE)) {
                 onThemeChange();
             }
         }

@@ -1,4 +1,4 @@
-package com.android.framework.utils;
+package com.android.framework.theme;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,7 @@ import com.android.framework.util.PreferenceUtil;
 /**
  * Created by meikai on 16/4/20.
  */
-public class ThemeUtils {
+public class ThemeManager {
 
     public static final String CURRENT_THEME_KEY = "current_theme_key";
     public static final String BROADCAST_ACTION_THEME_CHANGE = "broadcast_action_theme_change";
@@ -24,7 +24,7 @@ public class ThemeUtils {
 
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
         Intent intent = new Intent();
-        intent.setAction(ThemeUtils.BROADCAST_ACTION_THEME_CHANGE);
+        intent.setAction(ThemeManager.BROADCAST_ACTION_THEME_CHANGE);
         localBroadcastManager.sendBroadcast(intent);
 
     }
@@ -63,7 +63,7 @@ public class ThemeUtils {
 
     public static Theme getCurrentTheme(Context context) {
         int value = PreferenceUtil.getInstance(context).getIntParam(CURRENT_THEME_KEY, 0);
-        return ThemeUtils.Theme.mapValueToTheme(value);
+        return ThemeManager.Theme.mapValueToTheme(value);
     }
 
     public enum Theme {

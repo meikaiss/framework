@@ -1,10 +1,6 @@
 package com.android.framework.demo;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -56,7 +52,6 @@ import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 import com.android.framework.media.demo.MediaDemoActivity;
-import com.android.framework.utils.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.R;
 import com.android.framework.util.PreferenceUtil;
-import com.android.framework.utils.ThemeUtils;
+import com.android.framework.theme.ThemeManager;
 
 /**
  * Created by meikai on 16/4/20.
@@ -94,10 +94,10 @@ public class ThemeChange2Activity extends BaseCompactActivity implements View.On
                 break;
         }
 
-        PreferenceUtil.getInstance(this).saveParam(ThemeUtils.CURRENT_THEME_KEY, themeValue);
+        PreferenceUtil.getInstance(this).saveParam(ThemeManager.CURRENT_THEME_KEY, themeValue);
 
         // 通知 其它 已经加载的Activity更新主题
-        ThemeUtils.sendThemeChangeBroadCast(this);
+        ThemeManager.sendThemeChangeBroadCast(this);
 
     }
 
