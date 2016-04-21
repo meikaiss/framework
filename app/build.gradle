@@ -75,13 +75,13 @@ android {
 dependencies {
     testCompile rootProject.ext.dependencies["junit"]
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     compile project(':libframework')
     compile project(':libapi')
     compile project(':libcustomview')
     compile project(':libmedia')
     compile project(':libaidl')
     compile project(':libndk')
+    compile project(':libwebsocket')
 }
 
 patchKeepSpecs()

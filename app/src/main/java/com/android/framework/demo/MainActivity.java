@@ -52,6 +52,7 @@ import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 import com.android.framework.media.demo.MediaDemoActivity;
+import com.android.framework.websocket.WebSocketActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +68,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            WebSocketActivity.class,
             ThemeChangeActivity.class,
             FABBehaviorActivity.class,
             NDKTestActivity.class,
