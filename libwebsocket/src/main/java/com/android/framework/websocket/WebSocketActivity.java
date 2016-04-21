@@ -58,6 +58,11 @@ public class WebSocketActivity extends AppCompatActivity {
                 @Override
                 public void onOpen(ServerHandshake arg0) {
                     Log.e("WebSocketClient_onOpen", arg0.toString());
+
+                    Message msg = Message.obtain();
+                    msg.what = -1;
+                    msg.obj = arg0.getHttpStatusMessage();
+                    handler.sendMessage(msg);
                 }
 
                 @Override
@@ -73,18 +78,22 @@ public class WebSocketActivity extends AppCompatActivity {
 
                 @Override
                 public void onError(Exception arg0) {
+                    Log.e("WebSocketClient_onError", arg0.getMessage());
+
                     Message msg = Message.obtain();
                     msg.what = -1;
                     msg.obj = arg0.getMessage();
                     handler.sendMessage(msg);
-
-                    Log.e("WebSocketClient_onError", arg0.getMessage());
                 }
 
                 @Override
                 public void onClose(int arg0, String arg1, boolean arg2) {
-
                     Log.e("WebSocketClient_onClose", arg1);
+
+                    Message msg = Message.obtain();
+                    msg.what = -1;
+                    msg.obj = arg1;
+                    handler.sendMessage(msg);
                 }
             };
 
@@ -112,12 +121,20 @@ public class WebSocketActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
 
             if(msg.what == -1){
-                Toast.makeText(WebSocketActivity.this, msg.obj.toString(), Toast.LENGTH_SHORT).show();
+
+                ImData item = new ImData();
+                item.time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                item.content = msg.obj.toString();
+                list.add(item);
+
+                adapter.notifyDataSetChanged();
+
                 return;
+            }else if(msg.what == -0){
+                adapter.notifyDataSetChanged();
+                listView.setSelection(list.size() - 1);
             }
 
-            adapter.notifyDataSetChanged();
-            listView.setSelection(list.size() - 1);
         }
     };
 
