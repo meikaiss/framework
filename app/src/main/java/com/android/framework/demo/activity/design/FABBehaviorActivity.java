@@ -100,11 +100,18 @@ public class FABBehaviorActivity extends BaseCompactActivity {
             }
         });
 
-        this.getWindow().getDecorView().post(() -> {
-            swipeRefreshLayout.setRefreshing(true);
-            FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(
-                    () -> swipeRefreshLayout.setRefreshing(false), 5000l);
-        });
+
+        swipeRefreshLayout.measure(View.MEASURED_SIZE_MASK, View.MEASURED_HEIGHT_STATE_SHIFT);
+        swipeRefreshLayout.setRefreshing(true);
+        FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(
+                () -> swipeRefreshLayout.setRefreshing(false), 5000l);
+
+//        //通过 post一个Runnable的方式 来设置刷新会有一定的延迟
+//        this.getWindow().getDecorView().post(() -> {
+//            swipeRefreshLayout.setRefreshing(true);
+//            FABBehaviorActivity.this.getWindow().getDecorView().postDelayed(
+//                    () -> swipeRefreshLayout.setRefreshing(false), 5000l);
+//        });
     }
 
     class ItemDivider extends RecyclerView.ItemDecoration {
