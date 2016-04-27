@@ -1,4 +1,4 @@
-package com.android.framework.media;
+package com.android.framework.media.audio;
 
 import android.media.MediaRecorder;
 import android.os.Environment;
@@ -7,7 +7,6 @@ import android.util.Log;
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by meikai on 16/3/22.

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mucang.audio.test.MainActivity">
+    tools:context=".audiodemo.AudioDemoActivity">
 
     <ListView
         android:id="@+id/voiceList"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp">
 
-        <com.android.framework.media.AudioRecordButton
+        <com.android.framework.media.audio.AudioRecordButton
             android:id="@+id/btnRecord"
             android:layout_width="match_parent"
             android:layout_height="60dp"

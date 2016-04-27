@@ -51,7 +51,8 @@ import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
-import com.android.framework.media.demo.MediaDemoActivity;
+import com.android.framework.media.audiodemo.AudioDemoActivity;
+import com.android.framework.media.videodemo.VideoDemoActivity;
 import com.android.framework.websocket.WebSocketActivity;
 
 import java.util.ArrayList;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            VideoDemoActivity.class,
             WebSocketActivity.class,
             ThemeChangeActivity.class,
             FABBehaviorActivity.class,
@@ -75,7 +77,7 @@ public class MainActivity extends BaseCompactActivity {
             AidlMainActivity.class,
             AnimatorActivity.class,
             PermissionUtilDemoActivity.class,
-            MediaDemoActivity.class,
+            AudioDemoActivity.class,
             BottomSheetActivity.class,
             ImageOuterTextViewActivity.class,
             DragScoreViewActivity.class,

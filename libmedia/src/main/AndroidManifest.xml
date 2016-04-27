@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
-        <activity android:name=".demo.MediaDemoActivity" />
+        <activity android:name=".audiodemo.AudioDemoActivity" />
+        <activity android:name=".videodemo.VideoDemoActivity" />
 
     </application>
 

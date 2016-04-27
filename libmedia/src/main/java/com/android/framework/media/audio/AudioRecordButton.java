@@ -1,4 +1,4 @@
-package com.android.framework.media;
+package com.android.framework.media.audio;
 
 import android.content.Context;
 import android.os.Handler;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+
+import com.android.framework.media.R;
 
 import java.lang.ref.WeakReference;
 

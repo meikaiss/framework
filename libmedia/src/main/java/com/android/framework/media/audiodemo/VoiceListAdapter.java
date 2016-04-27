@@ -1,4 +1,4 @@
-package com.android.framework.media.demo;
+package com.android.framework.media.audiodemo;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.android.framework.media.R;
-import com.android.framework.media.Recorder;
+import com.android.framework.media.audio.Recorder;
 
 import java.util.List;
 

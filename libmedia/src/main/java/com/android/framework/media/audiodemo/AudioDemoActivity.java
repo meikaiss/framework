@@ -1,4 +1,4 @@
-package com.android.framework.media.demo;
+package com.android.framework.media.audiodemo;
 
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
@@ -9,10 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.android.framework.media.AudioRecordButton;
-import com.android.framework.media.MediaPlayManager;
+import com.android.framework.media.audio.AudioRecordButton;
+import com.android.framework.media.audio.MediaPlayManager;
 import com.android.framework.media.R;
-import com.android.framework.media.Recorder;
+import com.android.framework.media.audio.Recorder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by meikai on 16/3/22.
  */
-public class MediaDemoActivity extends Activity {
+public class AudioDemoActivity extends Activity {
 
     private AudioRecordButton btnRecord;
     private ListView voiceList;
@@ -33,7 +33,7 @@ public class MediaDemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_media_demo);
+        setContentView(R.layout.activity_audio_demo);
 
 
         voiceList = (ListView) findViewById(R.id.voiceList);

@@ -1,4 +1,4 @@
-package com.android.framework.media;
+package com.android.framework.media.audio;
 
 /**
  * Created by meikai on 16/3/22.

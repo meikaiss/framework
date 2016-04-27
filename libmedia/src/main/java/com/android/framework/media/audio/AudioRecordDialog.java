@@ -1,4 +1,4 @@
-package com.android.framework.media;
+package com.android.framework.media.audio;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.framework.media.R;
 
 /**
  * Created by meikai on 16/3/22.
