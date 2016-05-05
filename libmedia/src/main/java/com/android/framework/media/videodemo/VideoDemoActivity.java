@@ -2,6 +2,7 @@ package com.android.framework.media.videodemo;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.android.framework.media.R;
 
@@ -21,13 +23,16 @@ import java.io.IOException;
  */
 public class VideoDemoActivity extends AppCompatActivity {
 
-//    String videoUrl = "http://192.168.31.221/~meikai/Video/fd9b0b2cc80f44b58eef44ae807 799fd.low.mp4";
-    String videoUrl = "http://192.168.31.221/~meikai/Video/output.mp4";
+    //    String videoUrl = "http://192.168.2.246/~meikai/Video/fd9b0b2cc80f44b58eef44ae807799fd.mp4";
+//    String videoUrl = "http://192.168.2.246/~meikai/Video/ScreenFlow22.mp4";
+    String videoUrl = "http://192.168.31.221/~meikai/Video/outout22.mp4";
 
     Button btnStart;
     Button btnTest;
 
     TextureView textureView;
+    VideoView videoView;
+
     MediaPlayer mediaPlayer;
 
     @Override
@@ -36,6 +41,7 @@ public class VideoDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_demo);
 
         textureView = (TextureView) findViewById(R.id.video_texture_view);
+        videoView = (VideoView) findViewById(R.id.my_video_view);
 
         btnStart = (Button) findViewById(R.id.btn_play);
         btnTest = (Button) findViewById(R.id.btn_test);
@@ -44,26 +50,29 @@ public class VideoDemoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mediaPlayer = new MediaPlayer();
+                videoView.setVideoPath(videoUrl);
+                videoView.start();
 
-                try {
-
-                    mediaPlayer.setDataSource(videoUrl);
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
-                    mediaPlayer.setOnBufferingUpdateListener(bufferingUpdateListener);
-                    mediaPlayer.setOnCompletionListener(completionListener);
-                    mediaPlayer.setOnPreparedListener(preparedListener);
-                    mediaPlayer.setOnErrorListener(errorListener);
-
-                    mediaPlayer.setSurface(new Surface(textureView.getSurfaceTexture()));
-
-                    mediaPlayer.prepare();
-
-                    mediaPlayer.start();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//                mediaPlayer = new MediaPlayer();
+//
+//                try {
+//
+//                    mediaPlayer.setDataSource(videoUrl);
+//                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+//
+//                    mediaPlayer.setOnBufferingUpdateListener(bufferingUpdateListener);
+//                    mediaPlayer.setOnCompletionListener(completionListener);
+//                    mediaPlayer.setOnPreparedListener(preparedListener);
+//                    mediaPlayer.setOnErrorListener(errorListener);
+//
+//                    mediaPlayer.setSurface(new Surface(textureView.getSurfaceTexture()));
+//
+//                    mediaPlayer.prepare();
+//
+//                    mediaPlayer.start();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 
@@ -78,7 +87,7 @@ public class VideoDemoActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if(mediaPlayer != null){
+        if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
@@ -88,9 +97,9 @@ public class VideoDemoActivity extends AppCompatActivity {
     MediaPlayer.OnBufferingUpdateListener bufferingUpdateListener = new MediaPlayer.OnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(MediaPlayer mp, int percent) {
-            Log.e("VideoDemoActivity", "onBufferingUpdate, 进度:"+ percent + "%");
+            Log.e("VideoDemoActivity", "onBufferingUpdate, 进度:" + percent + "%");
         }
-    } ;
+    };
 
     MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
