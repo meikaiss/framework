@@ -132,6 +132,9 @@
             android:name=".activity.viewdemo.ImageOuterTextViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
+            android:name=".activity.viewdemo.PinnedHeaderListViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
             android:name=".activity.FuseImageActivity"
             android:theme="@style/BaseAppTheme" />
 
