@@ -52,6 +52,7 @@ import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
 import com.android.framework.media.audiodemo.AudioDemoActivity;
 import com.android.framework.media.videodemo.VideoDemoActivity;
 import com.android.framework.websocket.WebSocketActivity;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            SmartGridViewActivity.class,
             PinnedHeaderListViewActivity.class,
             VideoDemoActivity.class,
             WebSocketActivity.class,

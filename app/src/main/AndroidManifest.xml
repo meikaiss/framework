@@ -36,6 +36,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.viewdemo.SmartGridViewActivity" />
+
         <activity android:name=".activity.FlowLayoutActivity" />
         <activity android:name=".activity.ScrollLayoutActivity" />
         <activity android:name=".activity.ExplosionActivity" />
