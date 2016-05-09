@@ -37,7 +37,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.viewdemo.SmartGridViewActivity" />
+        <activity android:name=".media.MediaDemoMainActivity" />
+        <activity android:name=".media.PLMediaPlayerActivity" />
+        <activity android:name=".media.PLAudioPlayerActivity" />
+        <activity android:name=".media.PLVideoViewActivity" />
+        <activity android:name=".media.PLVideoTextureActivity" />
+        <activity android:name=".media.VideoViewActivity" />
 
         <activity android:name=".activity.FlowLayoutActivity" />
         <activity android:name=".activity.ScrollLayoutActivity" />
@@ -136,6 +141,9 @@
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.viewdemo.PinnedHeaderListViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.viewdemo.SmartGridViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.FuseImageActivity"

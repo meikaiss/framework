@@ -3,4 +3,27 @@
 
     <string name="appwidget_text">武汉天气</string>
 
+
+    <string name="back_title">BACK</string>
+    <string name="buffering">Buffering</string>
+
+    <string name="play_setting">播放设置</string>
+    <string name="decode_config">解码配置</string>
+    <string name="sw_decode">软件解码</string>
+    <string name="hw_decode">硬件解码</string>
+    <string name="dlg_ok">OK</string>
+    <string name="dlg_cancel">Cancel</string>
+
+    <string name="pls_choose_activity">[请选择测试 Activity]:</string>
+    <string name="pls_choose_videopath">[输入或选择视频地址]:</string>
+    <string name="input_video_path">手动输入测试视频地址</string>
+    <string name="btn_local_file">本地文件</string>
+    <string name="btn_play_setting">播放配置</string>
+    <string name="btn_click_play">点击播放</string>
+
+    <string name="btn_start">开始</string>
+    <string name="btn_pause">暂停</string>
+    <string name="btn_resume">继续</string>
+    <string name="btn_stop">停止</string>
+
 </resources>
