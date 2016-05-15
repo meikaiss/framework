@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=320,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,user-scalable=no">
+
+    <title>jsBridge v1.0</title>
+
+    <script src="../source/core.js"></script>
+    <script src="../source/router.js"></script>
+
+</head>
+
+<body bgcolor="#ff0000">
+
+
+<div>
+    <button id="system.toast" style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">system.toast</button>
+
+    <br>
+    <label id="operation_log" >日志列表\n</label>
+</div>
+
+<script language="javascript">
+
+    var page_version = "1.0";
+    document.write("current page version is " + page_version);
+
+    var domEventBind = function (id, onclick) {
+        document.getElementById(id).onclick = onclick;
+    }
+
+    domEventBind('system.toast', function () {
+        window.webview.system.toast('toast的测试');
+
+        var temp=document.getElementById("operation_log").innerText;
+        document.getElementById('operation_log').innerText += "toast的测试<br>\n";
+    });
+
+
+
+</script>
+
+</body>
+</html>

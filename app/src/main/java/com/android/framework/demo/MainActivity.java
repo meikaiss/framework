@@ -26,7 +26,6 @@ import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScrollLayoutActivity;
 import com.android.framework.demo.activity.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
-import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -47,12 +46,14 @@ import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
+import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
+import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
 import com.android.framework.media.audiodemo.AudioDemoActivity;
 import com.android.framework.media.videodemo.VideoDemoActivity;
@@ -72,6 +73,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            MikeWebViewActivity.class,
             MediaDemoMainActivity.class,
             SmartGridViewActivity.class,
             PinnedHeaderListViewActivity.class,

@@ -82,6 +82,7 @@ dependencies {
     compile project(':libaidl')
     compile project(':libndk')
     compile project(':libwebsocket')
+    compile project(':libwebview')
 }
 
 patchKeepSpecs()

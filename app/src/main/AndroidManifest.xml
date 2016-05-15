@@ -37,6 +37,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.webview.MikeWebViewActivity" />
+
         <activity android:name=".media.MediaDemoMainActivity" />
         <activity android:name=".media.PLMediaPlayerActivity" />
         <activity android:name=".media.PLAudioPlayerActivity" />
