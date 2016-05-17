@@ -36,4 +36,5 @@ public class FlexboxActivity extends BaseCompactActivity {
     public void afterView() {
 
     }
+    
 }
