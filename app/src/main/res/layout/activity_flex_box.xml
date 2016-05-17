@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.design.FlexboxActivity">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:flexDirection="row"
+        app:justifyContent="space_around"
+        app:alignItems="center"
+        app:flexWrap="wrap">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="头条"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="导购"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="新闻"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="美图"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="三个字"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_flex_box_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="四个字啊"
+            android:textSize="16dp" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</LinearLayout>

@@ -34,6 +34,7 @@ import com.android.framework.demo.activity.design.BottomSheetActivity;
 import com.android.framework.demo.activity.design.CardViewActivity;
 import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
 import com.android.framework.demo.activity.design.FABBehaviorActivity;
+import com.android.framework.demo.activity.design.FlexboxActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            FlexboxActivity.class,
             MikeWebViewActivity.class,
             MediaDemoMainActivity.class,
             SmartGridViewActivity.class,

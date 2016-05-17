@@ -75,6 +75,9 @@ android {
 dependencies {
     testCompile rootProject.ext.dependencies["junit"]
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile rootProject.ext.dependencies["flexbox"]
+
     compile project(':libframework')
     compile project(':libapi')
     compile project(':libcustomview')
