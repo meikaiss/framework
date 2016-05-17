@@ -25,6 +25,7 @@ public class MikeWebViewActivity extends AppCompatActivity {
 
         mikeWebView.loadUrl("file:///android_asset/webview/demo/v1.0.html");
 //        mikeWebView.loadUrl("http://www.jiecao.fm/news/article/detailV3/XjY1MDjO.htm?u=k5yZx0eP&down=true&v=3.9.8");
+
         
     }
 }
