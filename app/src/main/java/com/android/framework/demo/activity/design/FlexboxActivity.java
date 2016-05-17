@@ -9,6 +9,7 @@ import com.android.framework.demo.R;
  * Created by meikai on 16/5/17.
  */
 public class FlexboxActivity extends BaseCompactActivity {
+    
 
 
     @Override
