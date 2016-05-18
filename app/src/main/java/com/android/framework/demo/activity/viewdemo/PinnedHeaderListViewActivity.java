@@ -86,7 +86,7 @@ public class PinnedHeaderListViewActivity extends BaseCompactActivity {
             } else {
                 layout = (LinearLayout) convertView;
             }
-            ((TextView) layout.findViewById(R.id.textItem)).setText("Section " + section + " Item " + position);
+            ((TextView) layout.findViewById(R.id.textItem)).setText("Section " + section + " DragItem " + position);
             return layout;
         }
 

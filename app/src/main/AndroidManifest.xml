@@ -37,6 +37,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.design.dragrecycler.DragRecyclerGridViewActivity" />
         <activity android:name=".activity.webview.MikeWebViewActivity" />
 
         <activity android:name=".media.MediaDemoMainActivity" />

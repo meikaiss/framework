@@ -37,7 +37,8 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
 
         initSystemBarTint(true);
 
-        setContentView(getContentViewLayoutId());
+        if (getContentViewLayoutId() > 0)
+            setContentView(getContentViewLayoutId());
 
         registerThemeChangeBroadCast();
 
@@ -134,7 +135,6 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
     public <T extends View> T f(View view, @IdRes int viewId) {
         return (T) view.findViewById(viewId);
     }
-
 
 
     class ThemeChangeBroadCastReceiver extends BroadcastReceiver {

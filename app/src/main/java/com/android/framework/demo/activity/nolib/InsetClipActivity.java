@@ -58,13 +58,11 @@ public class InsetClipActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipDrawable drawable = (ClipDrawable) clipImageView.getBackground();
-                drawable.setLevel(0);
-            }
+        findViewById(R.id.btn_clear).setOnClickListener(v -> {
+            ClipDrawable drawable1 = (ClipDrawable) clipImageView.getBackground();
+            drawable1.setLevel(0);
         });
+
 
     }
 
