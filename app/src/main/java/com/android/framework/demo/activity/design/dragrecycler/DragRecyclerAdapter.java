@@ -38,7 +38,7 @@ public class DragRecyclerAdapter extends RecyclerView.Adapter<DragRecyclerAdapte
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        holder.imageView.setImageResource(results.get(position).getImg());
+//        holder.imageView.setImageResource(results.get(position).getImg());
         holder.textView.setText(results.get(position).getName());
     }
 
@@ -80,10 +80,10 @@ public class DragRecyclerAdapter extends RecyclerView.Adapter<DragRecyclerAdapte
             WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
             int width = wm.getDefaultDisplay().getWidth();
             ViewGroup.LayoutParams layoutParams = itemView.getLayoutParams();
-            layoutParams.height = width / 4;
-            itemView.setLayoutParams(layoutParams);
+//            layoutParams.height = width / 6;
+//            itemView.setLayoutParams(layoutParams);
             textView = (TextView) itemView.findViewById(R.id.item_text);
-            imageView = (ImageView) itemView.findViewById(R.id.item_img);
+//            imageView = (ImageView) itemView.findViewById(R.id.item_img);
         }
     }
 }

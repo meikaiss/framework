@@ -88,7 +88,6 @@ dependencies {
     compile project(':libwebview')
 }
 
-patchKeepSpecs()
 
 android.applicationVariants.all { variant ->
 
@@ -130,10 +129,12 @@ android.applicationVariants.all { variant ->
 }
 
 
-
 def buildTime() {
     return new Date().format("yyyy.MM.dd_HH.mm.ss")
 }
+
+
+patchKeepSpecs()
 
 //将Activity类从主dex中移除
 def patchKeepSpecs() {

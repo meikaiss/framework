@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.os.Build;
+import android.os.PowerManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
@@ -104,11 +106,28 @@ public class ScreenUtil {
         int width = getScreenWidth(activity);
         int height = getScreenHeight(activity);
         Bitmap bp = null;
-        bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height
-                - statusBarHeight);
+        bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height - statusBarHeight);
         view.destroyDrawingCache();
         return bp;
 
+    }
+
+    /**
+     * 检测屏幕是否开启
+     *
+     * @param context 上下文
+     * @return 是否屏幕开启
+     */
+    public static boolean isScreenOn(Context context) {
+        Context appContext = context.getApplicationContext();
+        PowerManager pm = (PowerManager) appContext.getSystemService(Context.POWER_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+            return pm.isInteractive();
+        } else {
+            // noinspection all
+            return pm.isScreenOn();
+        }
     }
 
 }

@@ -33,10 +33,10 @@ import com.android.framework.demo.activity.design.AppCompatTestActivity;
 import com.android.framework.demo.activity.design.BottomSheetActivity;
 import com.android.framework.demo.activity.design.CardViewActivity;
 import com.android.framework.demo.activity.design.CoordinatorLayoutActivity;
-import com.android.framework.demo.activity.design.dragrecycler.DragRecyclerGridViewActivity;
 import com.android.framework.demo.activity.design.FABBehaviorActivity;
 import com.android.framework.demo.activity.design.FlexboxActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
+import com.android.framework.demo.activity.design.dragrecycler.DragRecyclerGridViewActivity;
 import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.AnimatorActivity;
@@ -51,6 +51,7 @@ import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
+import com.android.framework.demo.activity.viewdemo.HeadNewsRefreshViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
@@ -58,7 +59,6 @@ import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
 import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
 import com.android.framework.media.audiodemo.AudioDemoActivity;
-import com.android.framework.media.videodemo.VideoDemoActivity;
 import com.android.framework.websocket.WebSocketActivity;
 
 import java.util.ArrayList;
@@ -75,13 +75,13 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            HeadNewsRefreshViewActivity.class,
             DragRecyclerGridViewActivity.class,
             FlexboxActivity.class,
             MikeWebViewActivity.class,
             MediaDemoMainActivity.class,
             SmartGridViewActivity.class,
             PinnedHeaderListViewActivity.class,
-            VideoDemoActivity.class,
             WebSocketActivity.class,
             ThemeChangeActivity.class,
             FABBehaviorActivity.class,

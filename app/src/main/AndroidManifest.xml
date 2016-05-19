@@ -137,6 +137,9 @@
             android:name=".activity.LevelImageViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
+            android:name=".activity.viewdemo.HeadNewsRefreshViewActivity"
+            android:theme="@style/BaseAppTheme" />
+        <activity
             android:name=".activity.viewdemo.PriceRangeActivity"
             android:theme="@style/BaseAppTheme" />
         <activity

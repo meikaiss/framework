@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -45,8 +44,8 @@ public class DragRecyclerGridViewActivity extends BaseCompactActivity {
             for (int i = 0; i < 5; i++) {
                 dataList.add(new DragItem(i * 8 + 0, "收款", R.drawable.fuse1_color));
                 dataList.add(new DragItem(i * 8 + 1, "转账", R.drawable.fuse3_color));
-                dataList.add(new DragItem(i * 8 + 2, "余额宝", R.drawable.fuse2_color));
-                dataList.add(new DragItem(i * 8 + 3, "手机充值", R.drawable.fuse4_color));
+                dataList.add(new DragItem(i * 8 + 2, "余额", R.drawable.fuse2_color));
+                dataList.add(new DragItem(i * 8 + 3, "充值", R.drawable.fuse4_color));
                 dataList.add(new DragItem(i * 8 + 4, "医疗", R.drawable.fuse3_color));
                 dataList.add(new DragItem(i * 8 + 5, "彩票", R.drawable.fuse1_color));
                 dataList.add(new DragItem(i * 8 + 6, "电影", R.drawable.fuse4_color));
@@ -65,13 +64,8 @@ public class DragRecyclerGridViewActivity extends BaseCompactActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         recyclerView.addItemDecoration(new DividerGridItemDecoration(Color.RED));
 
-        itemTouchHelper = new ItemTouchHelper(new GridItemTouchCallback(adapter).setOnDragListener(new GridItemTouchCallback.OnDragListener() {
-            @Override
-            public void onFinishDrag() {
-
-                ACache.get(DragRecyclerGridViewActivity.this).put("items", (ArrayList<DragItem>) dataList);
-            }
-        }));
+        itemTouchHelper = new ItemTouchHelper(new GridItemTouchCallback(adapter).setOnDragListener(() ->
+                ACache.get(DragRecyclerGridViewActivity.this).put("items", (ArrayList<DragItem>) dataList)));
 
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
@@ -80,7 +74,7 @@ public class DragRecyclerGridViewActivity extends BaseCompactActivity {
             public void onLongClick(RecyclerView.ViewHolder vh) {
                 if (vh.getLayoutPosition() != dataList.size() - 1) {
                     itemTouchHelper.startDrag(vh);
-                    VibratorUtil.Vibrate(DragRecyclerGridViewActivity.this, 200);   //震动70ms
+                    VibratorUtil.Vibrate(DragRecyclerGridViewActivity.this, 200);   //震动200ms
                 }
             }
 
