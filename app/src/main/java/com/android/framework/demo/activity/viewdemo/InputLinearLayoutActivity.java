@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity;
+package com.android.framework.demo.activity.viewdemo;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

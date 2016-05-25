@@ -11,20 +11,22 @@ import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
+import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
-import com.android.framework.demo.activity.BounceLoadingActivity;
-import com.android.framework.demo.activity.CircleLoadingActivity;
-import com.android.framework.demo.activity.ExplosionActivity;
-import com.android.framework.demo.activity.FlowLayoutActivity;
-import com.android.framework.demo.activity.FuseImageActivity;
-import com.android.framework.demo.activity.InputLinearLayoutActivity;
-import com.android.framework.demo.activity.LevelImageViewActivity;
-import com.android.framework.demo.activity.NumberSeekBarActivity;
+import com.android.framework.demo.activity.LayoutAnimationActivity;
+import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
+import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
+import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
+import com.android.framework.demo.activity.viewdemo.FlowLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.FuseImageActivity;
+import com.android.framework.demo.activity.viewdemo.InputLinearLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.LevelImageViewActivity;
+import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
-import com.android.framework.demo.activity.ScrollLayoutActivity;
-import com.android.framework.demo.activity.SlideViewPagerActivity;
+import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
@@ -75,6 +77,8 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            LayoutAnimationActivity.class,
+            AnimationListActivity.class,
             HeadNewsRefreshViewActivity.class,
             DragRecyclerGridViewActivity.class,
             FlexboxActivity.class,

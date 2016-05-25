@@ -1,4 +1,4 @@
-package com.android.framework.demo.activity;
+package com.android.framework.demo.activity.viewdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

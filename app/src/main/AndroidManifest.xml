@@ -37,6 +37,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.LayoutAnimationActivity" />
+        <activity android:name=".activity.AnimationListActivity" />
         <activity android:name=".activity.design.dragrecycler.DragRecyclerGridViewActivity" />
         <activity android:name=".activity.webview.MikeWebViewActivity" />
 
@@ -47,10 +49,10 @@
         <activity android:name=".media.PLVideoTextureActivity" />
         <activity android:name=".media.VideoViewActivity" />
 
-        <activity android:name=".activity.FlowLayoutActivity" />
-        <activity android:name=".activity.ScrollLayoutActivity" />
-        <activity android:name=".activity.ExplosionActivity" />
-        <activity android:name=".activity.NumberSeekBarActivity" />
+        <activity android:name=".activity.viewdemo.FlowLayoutActivity" />
+        <activity android:name=".activity.viewdemo.ScrollLayoutActivity" />
+        <activity android:name=".activity.viewdemo.ExplosionActivity" />
+        <activity android:name=".activity.viewdemo.NumberSeekBarActivity" />
         <activity
             android:name=".activity.StatusBarColorActivity"
             android:theme="@style/ColorStatusBar"
@@ -104,17 +106,17 @@
         <activity
             android:name=".activity.nolib.InsetClipActivity"
             android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.BounceLoadingActivity" />
-        <activity android:name=".activity.CircleLoadingActivity" />
+        <activity android:name=".activity.viewdemo.BounceLoadingActivity" />
+        <activity android:name=".activity.viewdemo.CircleLoadingActivity" />
 
         <activity
             android:name=".activity.BottomBarActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.SlideViewPagerActivity"
+            android:name=".activity.viewdemo.SlideViewPagerActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.InputLinearLayoutActivity"
+            android:name=".activity.viewdemo.InputLinearLayoutActivity"
             android:theme="@style/BaseAppTheme"
             android:windowSoftInputMode="adjustResize" />
 
@@ -134,7 +136,7 @@
             android:name=".activity.colormatrix.ColorMatrixActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.LevelImageViewActivity"
+            android:name=".activity.viewdemo.LevelImageViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.viewdemo.HeadNewsRefreshViewActivity"
@@ -155,7 +157,7 @@
             android:name=".activity.viewdemo.SmartGridViewActivity"
             android:theme="@style/BaseAppTheme" />
         <activity
-            android:name=".activity.FuseImageActivity"
+            android:name=".activity.viewdemo.FuseImageActivity"
             android:theme="@style/BaseAppTheme" />
 
         <activity

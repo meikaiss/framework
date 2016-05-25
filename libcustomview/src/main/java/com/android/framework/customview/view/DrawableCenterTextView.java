@@ -13,7 +13,6 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
     }
 
     public DrawableCenterTextView(Context context, AttributeSet attrs, int defStyle) {
