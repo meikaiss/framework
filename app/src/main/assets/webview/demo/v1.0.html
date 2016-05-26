@@ -16,27 +16,60 @@
 
 
 <div>
-    <button id="system.toast" style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">system.toast</button>
+
+    <label>current page version is 1.0<br></label>
+
+
+    <button id="system.version"
+            style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
+        system.toast
+    </button>
+    <button id="system.toast"
+            style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
+        system.toast
+    </button>
+    <button id="system.log"
+            style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
+        system.log
+    </button>
 
     <br>
-    <label id="operation_log" >日志列表\n</label>
+    <label id="operation_log">日志列表<br></label>
 </div>
 
 <script language="javascript">
 
-    var page_version = "1.0";
-    document.write("current page version is " + page_version);
+    var printLog = function(message){
+        document.getElementById('operation_log').innerText +=  message+'\n';
+    }
 
     var domEventBind = function (id, onclick) {
         document.getElementById(id).onclick = onclick;
     }
 
-    domEventBind('system.toast', function () {
-        window.webview.system.toast('toast的测试');
 
-        var temp=document.getElementById("operation_log").innerText;
-        document.getElementById('operation_log').innerText += "toast的测试<br>\n";
+
+    domEventBind('system.version', function () {
+        var message = window.webview.system.version();
+        printLog(message);
     });
+
+    domEventBind('system.toast', function () {
+        var message = '从js中弹出toast的测试';
+        window.webview.system.toast(message);
+
+        printLog(message);
+    });
+
+    domEventBind('system.log', function () {
+        var message = '从js中让安卓打印日志的测试';
+        window.webview.system.log(message);
+
+        printLog(message);
+    });
+
+
+
 
 
 

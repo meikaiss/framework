@@ -2,6 +2,7 @@ package com.android.framework.webview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -9,9 +10,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.android.framework.webview.protocolv1.LogProtocolAnt;
 import com.android.framework.webview.protocolv1.MikeProtocolV1;
-import com.android.framework.webview.protocolv1.ToastProtocolAnt;
 
 /**
  * Created by meikai on 16/5/15.
@@ -48,9 +47,7 @@ public class MikeWebView extends WebView {
         this.getSettings().setJavaScriptEnabled(true);
         this.setWebViewClient(new WebViewClient());
 
-        this.mikeProtocol = new MikeProtocolV1()
-                .registerProtocolAnt(new ToastProtocolAnt("toast"))
-                .registerProtocolAnt(new LogProtocolAnt("log"));
+        this.mikeProtocol = new MikeProtocolV1();
 
         this.mikeWebViewInterface = new MikeWebViewInterface();
 
@@ -64,7 +61,8 @@ public class MikeWebView extends WebView {
 
             Log.e("getMikeWebViewData", url + "_" + callback);
 
-            mikeProtocol.handleProtocol(url);
+            Uri uri = Uri.parse(url);
+            mikeProtocol.handleProtocol(uri);
 
             return "test1";
         }
@@ -74,9 +72,10 @@ public class MikeWebView extends WebView {
 
             Log.e("getMikeWebViewData", url);
 
-            mikeProtocol.handleProtocol(url);
 
-            return "test2";
+            Uri uri = Uri.parse(url);
+
+            return mikeProtocol.handleProtocol(uri);
         }
     }
 

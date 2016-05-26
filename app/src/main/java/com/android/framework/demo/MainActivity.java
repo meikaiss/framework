@@ -77,12 +77,12 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            MikeWebViewActivity.class,
             LayoutAnimationActivity.class,
             AnimationListActivity.class,
             HeadNewsRefreshViewActivity.class,
             DragRecyclerGridViewActivity.class,
             FlexboxActivity.class,
-            MikeWebViewActivity.class,
             MediaDemoMainActivity.class,
             SmartGridViewActivity.class,
             PinnedHeaderListViewActivity.class,

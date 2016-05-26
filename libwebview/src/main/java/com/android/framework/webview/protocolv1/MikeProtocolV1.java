@@ -1,38 +1,49 @@
 package com.android.framework.webview.protocolv1;
 
+import android.net.Uri;
 import android.util.Log;
 
 import com.android.framework.webview.IMikeProtocol;
-import com.android.framework.webview.IMikeProtocolAnt;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by meikai on 16/5/15.
  */
 public class MikeProtocolV1 implements IMikeProtocol {
 
-    List<IMikeProtocolAnt> mikeProtocolAntList = new ArrayList<>();
+    private String host;
+    private String path;
+    private String params;
 
+    private static IMikeProtocolV1Helper mikeProtocolV1Helper;
 
-    public IMikeProtocol registerProtocolAnt(IMikeProtocolAnt iMikeProtocolAnt) {
-        mikeProtocolAntList.add(iMikeProtocolAnt);
-        return this;
+    public static void setIMikeProtocolV1Helper(IMikeProtocolV1Helper IMikeProtocolV1Helper) {
+        mikeProtocolV1Helper = IMikeProtocolV1Helper;
     }
-
 
     @Override
-    public String handleProtocol(String url) {
+    public String handleProtocol(Uri uri) {
 
-        for (int i = 0; i < mikeProtocolAntList.size(); i++) {
-            mikeProtocolAntList.get(i).tryHandler(url);
+        host = uri.getHost();
+        path = uri.getPath();
+
+        String result = "";
+
+        Log.e("MikeProtocolV1", "uri=" + uri.toString() + "    ,host=" + host + "    , path=" + path);
+
+        if ("system".equals(host)) {
+            if ("/version".equals(path)) {
+                result = mikeProtocolV1Helper.version();
+            } else if ("/toast".equals(path)) {
+                params = uri.getQueryParameter("message");
+                mikeProtocolV1Helper.toast(params);
+            } else if ("/log".equals(path)) {
+                params = uri.getQueryParameter("message");
+                mikeProtocolV1Helper.log(params);
+            }
         }
 
-        Log.e("MikeProtocolV1", "handleProtocol=" + url);
-
-
-        return "被处理之后的数据" + url;
+        return result;
     }
+
 
 }

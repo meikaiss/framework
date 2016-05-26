@@ -19,6 +19,12 @@
             return self.webview.core.execute('system', 'toast', {
                 message: message
             });
+        },
+
+        "log": function (message) {
+            return self.webview.core.execute('system', 'log', {
+                message: message
+            });
         }
    }
 
