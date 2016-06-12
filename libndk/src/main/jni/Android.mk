@@ -12,9 +12,10 @@ $(info MY_CPP_LIST=$(MY_CPP_LIST))
 
 include $(CLEAR_VARS)
 
+#模块名
 LOCAL_MODULE := libndk
 
-#定义LOCAL_SRC_FILES变量,赋值方式以下三选一即可
+#定义LOCAL_SRC_FILES变量, 表示需要编译的源文件, 赋值方式以下三选一即可
 #方式一:对MY_CPP_LIST中每一项,应用冒号后面的规则,规则是$(LOCAL_PATH)/%=%,意思是,查找所有$(LOCAL_PATH)/开头的项,并截取后面部分
 LOCAL_SRC_FILES := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
 #方式二:替换每一项中的 "$(LOCAL_PATH)/" 为 ""(空)
