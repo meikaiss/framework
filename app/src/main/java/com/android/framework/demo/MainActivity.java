@@ -14,6 +14,7 @@ import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
+import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
@@ -78,6 +79,7 @@ public class MainActivity extends BaseCompactActivity {
 
     private Class<?>[] classes = {
             MikeWebViewActivity.class,
+            ScreenLightSettingActivity.class,
             LayoutAnimationActivity.class,
             AnimationListActivity.class,
             HeadNewsRefreshViewActivity.class,

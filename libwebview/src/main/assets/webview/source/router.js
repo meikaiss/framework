@@ -28,4 +28,13 @@
         }
    }
 
+   self.webview.jump = {
+
+        "action":function(message){
+            return self.webview.core.execute('jump', 'action', {
+                message:message
+            });
+        }
+   }
+
 }(self, undefined);

@@ -10,4 +10,8 @@ public interface IMikeProtocolV1Helper {
     void toast(String message);
 
     void log(String message);
+
+
+
+    void action(String message);
 }

@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created by meikai on 16/1/12.
  */
@@ -88,6 +90,21 @@ public class BitmapUtil {
 
         return bitmap;
 
+    }
+
+
+    public static byte[] Bitmap2Bytes(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
+    }
+
+    public static Bitmap Bytes2Bimap(byte[] b) {
+        if (b.length != 0) {
+            return BitmapFactory.decodeByteArray(b, 0, b.length);
+        } else {
+            return null;
+        }
     }
 
 

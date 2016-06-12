@@ -117,4 +117,25 @@
 
         return 'other';
     }
+
+
+    // 监听获取数据
+        !function () {
+
+            if (getSystem() === 'android') {
+
+                var handle = function () {
+                    var value = JSON.parse(window.mcAndroidWebview2.getMucangWebViewCallbackData());
+                    window[value.callback] && window[value.callback](value.data);
+                }
+
+                window.addEventListener('online', handle, false);
+
+                window.addEventListener('offline', handle, false);
+
+            }
+
+        }();
+
+
 }(window, undefined);

@@ -22,7 +22,7 @@
 
     <button id="system.version"
             style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
-        system.toast
+        system.version
     </button>
     <button id="system.toast"
             style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
@@ -31,6 +31,10 @@
     <button id="system.log"
             style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
         system.log
+    </button>
+    <button id="jump.action"
+            style="width:200px; height:45px; border:#00F 2px solid; background:#69F; color:#FFF">
+        jump.action
     </button>
 
     <br>
@@ -68,10 +72,12 @@
         printLog(message);
     });
 
+    domEventBind('jump.action', function () {
+        var message = '从js中打开安卓Activity';
+        window.webview.jump.action('com.android.framework.demo.activity.LayoutAnimationActivity');
 
-
-
-
+        printLog(message);
+    });
 
 </script>
 

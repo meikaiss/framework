@@ -42,6 +42,13 @@ public class MikeProtocolV1 implements IMikeProtocol {
             }
         }
 
+        if ("jump".equals(host)) {
+            if ("/action".equals(path)) {
+                params = uri.getQueryParameter("message");
+                mikeProtocolV1Helper.action(params);
+            }
+        }
+
         return result;
     }
 

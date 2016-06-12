@@ -36,6 +36,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.drawable.avatar)
+
                 .setContentTitle("通知的标题").setContentText("通知的内容").setAutoCancel(true)
                 .setContentIntent(intent);
 
