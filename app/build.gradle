@@ -19,6 +19,12 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    aaptOptions {
+        // 关闭 aapt提供的基础的png(有且仅有png)优化功能, 因为"png的优化不一定是幂等的", 例如用工具A优化后 再用工具B优化的图片可能比原图还大
+        // 注意: 关闭优化 并不会排除对 .9 图的预处理
+        cruncherEnabled false
+    }
+
     compileOptions {
         sourceCompatibility rootProject.ext.jdkVersion
         targetCompatibility rootProject.ext.jdkVersion
