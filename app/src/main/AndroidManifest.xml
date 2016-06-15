@@ -25,6 +25,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:label,android:theme,android:icon">
 
+        <meta-data android:name="com.android.framework.demo.activity.GlideConfiguration"
+            android:value="GlideModule"/>
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
@@ -38,6 +41,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.GlideActivity" />
         <activity android:name=".activity.ScreenLightSettingActivity" />
         <activity android:name=".activity.LayoutAnimationActivity">
             <intent-filter>
@@ -196,6 +200,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_app_widget_info" />
         </receiver>
+
+
+
 
     </application>
 

@@ -13,6 +13,7 @@ import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
 import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
@@ -78,6 +79,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            GlideActivity.class,
             MikeWebViewActivity.class,
             ScreenLightSettingActivity.class,
             LayoutAnimationActivity.class,
