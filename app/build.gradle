@@ -114,7 +114,7 @@ android.applicationVariants.all { variant ->
             deleteDirectory("${projectDir}/../_apk/${variant.buildType.name}")
 
             File outputDirectory = new File("${projectDir}/../_apk");
-            def apkName = "${variant.buildType.name}/app-${output.name}-V${frameworkVersion}-#${buildNumber}.apk"
+            def apkName = "${variant.buildType.name}/app-${output.name}-V${frameworkVersionName}-#${buildNumber}.apk"
             output.outputFile = new File(outputDirectory, apkName)
         }
 
@@ -128,7 +128,7 @@ android.applicationVariants.all { variant ->
                     from variant.mappingFile
                     into "${projectDir}/../_mappings"
                     rename { String fileName ->
-                        "mapping-${output.name}-V${frameworkVersion}-#${buildNumber}.txt"
+                        "mapping-${output.name}-V${frameworkVersionName}-#${buildNumber}.txt"
                     }
                 }
             }
