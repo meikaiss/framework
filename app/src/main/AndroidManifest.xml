@@ -25,8 +25,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:label,android:theme,android:icon">
 
-        <meta-data android:name="com.android.framework.demo.activity.GlideConfiguration"
-            android:value="GlideModule"/>
+        <meta-data
+            android:name="com.android.framework.demo.activity.GlideConfiguration"
+            android:value="GlideModule" />
 
         <activity
             android:name=".MainActivity"
@@ -60,6 +61,7 @@
         <activity android:name=".media.PLVideoTextureActivity" />
         <activity android:name=".media.VideoViewActivity" />
 
+        <activity android:name=".activity.viewdemo.MarqueeViewActivity" />
         <activity android:name=".activity.viewdemo.FlowLayoutActivity" />
         <activity android:name=".activity.viewdemo.ScrollLayoutActivity" />
         <activity android:name=".activity.viewdemo.ExplosionActivity" />
@@ -200,8 +202,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_app_widget_info" />
         </receiver>
-
-
 
 
     </application>

@@ -15,20 +15,10 @@ import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
-import com.android.framework.demo.activity.ScreenLightSettingActivity;
-import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
-import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
-import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
-import com.android.framework.demo.activity.viewdemo.FlowLayoutActivity;
-import com.android.framework.demo.activity.viewdemo.FuseImageActivity;
-import com.android.framework.demo.activity.viewdemo.InputLinearLayoutActivity;
-import com.android.framework.demo.activity.viewdemo.LevelImageViewActivity;
-import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
-import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
-import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
+import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
@@ -54,11 +44,22 @@ import com.android.framework.demo.activity.nolib.TabLayoutActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
+import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
+import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
+import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
+import com.android.framework.demo.activity.viewdemo.FlowLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.FuseImageActivity;
 import com.android.framework.demo.activity.viewdemo.HeadNewsRefreshViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
+import com.android.framework.demo.activity.viewdemo.InputLinearLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.LevelImageViewActivity;
+import com.android.framework.demo.activity.viewdemo.MarqueeViewActivity;
+import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
 import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
 import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
@@ -79,6 +80,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            MarqueeViewActivity.class,
             GlideActivity.class,
             MikeWebViewActivity.class,
             ScreenLightSettingActivity.class,

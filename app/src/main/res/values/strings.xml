@@ -26,4 +26,7 @@
     <string name="btn_resume">继续</string>
     <string name="btn_stop">停止</string>
 
+    <string name="marquee_text">一个集美貌与才华于一身的程序猿！</string>
+    <string name="marquee_texts">一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！</string>
+
 </resources>
