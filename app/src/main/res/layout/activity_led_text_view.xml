@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <com.android.framework.customview.view.LedTextView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:text="呵呵"
+        app:scroll="true"
+        app:scrollDirection="left"
+        app:textColor="#f00" />
+
+    <com.android.framework.customview.view.LedTextView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:text="一个集美貌与才华与一身的程序猿"
+        app:scroll="true"
+        app:scrollDirection="left"
+        app:textColor="#f00" />
+
+</LinearLayout>

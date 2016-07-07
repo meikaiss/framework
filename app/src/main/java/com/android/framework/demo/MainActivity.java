@@ -53,6 +53,7 @@ import com.android.framework.demo.activity.viewdemo.FuseImageActivity;
 import com.android.framework.demo.activity.viewdemo.HeadNewsRefreshViewActivity;
 import com.android.framework.demo.activity.viewdemo.ImageOuterTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.InputLinearLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.LedTextViewActivity;
 import com.android.framework.demo.activity.viewdemo.LevelImageViewActivity;
 import com.android.framework.demo.activity.viewdemo.MarqueeViewActivity;
 import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            LedTextViewActivity.class,
             MarqueeViewActivity.class,
             GlideActivity.class,
             MikeWebViewActivity.class,
