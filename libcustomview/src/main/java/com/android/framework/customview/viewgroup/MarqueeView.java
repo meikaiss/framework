@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.android.framework.customview.R;
-import com.android.framework.util.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,8 +59,8 @@ public class MarqueeView extends ViewFlipper {
         interval = typedArray.getInteger(R.styleable.MarqueeViewStyle_mvInterval, DEFAULT_INTERVAL);
         animDuration = typedArray.getInteger(R.styleable.MarqueeViewStyle_mvAnimDuration, DEFAULT_ANIM_DURATION);
         singleLine = typedArray.getBoolean(R.styleable.MarqueeViewStyle_mvSingleLine, false);
-        int defaultTextSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, DEFAULT_TEXT_SIZE_SP, Resources.getSystem().getDisplayMetrics());
-        textSize = (int) typedArray.getDimension(R.styleable.MarqueeViewStyle_mvTextSize, defaultTextSize);
+        int defaultTextSizePX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, DEFAULT_TEXT_SIZE_SP, Resources.getSystem().getDisplayMetrics());
+        textSize = (int) typedArray.getDimension(R.styleable.MarqueeViewStyle_mvTextSize, defaultTextSizePX);
         textColor = typedArray.getColor(R.styleable.MarqueeViewStyle_mvTextColor, textColor);
         int gravityType = typedArray.getInt(R.styleable.MarqueeViewStyle_mvGravity, TEXT_GRAVITY_LEFT);
         switch (gravityType) {
@@ -101,7 +100,7 @@ public class MarqueeView extends ViewFlipper {
                     getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                startWithFixedWidth(notice, getWidth());
+                startWithFixedWidth(notice);
             }
         });
     }
@@ -132,15 +131,13 @@ public class MarqueeView extends ViewFlipper {
      * 根据宽度和公告字符串启动轮播
      *
      * @param notice
-     * @param width  控件本身的测量后的宽度
      */
-    private void startWithFixedWidth(String notice, int width) {
+    private void startWithFixedWidth(String notice) {
         int noticeLength = notice.length();
-        int dpW = DensityUtil.px2dp(getContext(), width);
-        int limit = dpW / textSize;
-        if (dpW == 0) {
+        if (getWidth() == 0) {
             throw new RuntimeException("Please set MarqueeView width !");
         }
+        int limit = getWidth() / textSize;
 
         if (noticeLength <= limit) {
             notices.add(notice);
@@ -212,11 +209,11 @@ public class MarqueeView extends ViewFlipper {
         for (int i = 0; i < notices.size(); i++) {
             String notice = notices.get(i);
             int noticeLength = notice.length();
-            int dpW = DensityUtil.px2dp(getContext(), getWidth());
-            int limit = dpW / textSize;
-            if (dpW == 0) {
+            if (getWidth() == 0) {
                 throw new RuntimeException("Please set MarqueeView width !");
             }
+
+            int limit = getWidth() / textSize;
 
             if (noticeLength <= limit) {
                 this.notices.add(notice);
