@@ -48,6 +48,7 @@ import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
+import com.android.framework.demo.activity.viewdemo.FloatingActionsMenuActivity;
 import com.android.framework.demo.activity.viewdemo.FlowLayoutActivity;
 import com.android.framework.demo.activity.viewdemo.FuseImageActivity;
 import com.android.framework.demo.activity.viewdemo.HeadNewsRefreshViewActivity;
@@ -81,6 +82,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            FloatingActionsMenuActivity.class,
             LedTextViewActivity.class,
             MarqueeViewActivity.class,
             GlideActivity.class,

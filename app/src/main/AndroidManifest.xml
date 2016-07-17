@@ -148,6 +148,10 @@
         <activity
             android:name=".activity.colormatrix.ColorMatrixActivity"
             android:theme="@style/BaseAppTheme" />
+
+        <activity
+            android:name=".activity.viewdemo.FloatingActionsMenuActivity"
+            android:theme="@style/BaseAppTheme" />
         <activity
             android:name=".activity.viewdemo.LedTextViewActivity"
             android:theme="@style/BaseAppTheme" />

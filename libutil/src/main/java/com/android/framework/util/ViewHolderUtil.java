@@ -8,7 +8,7 @@ import android.view.View;
  */
 public class ViewHolderUtil {
 
-    public ViewHolderUtil() {
+    private ViewHolderUtil() {
 
     }
 

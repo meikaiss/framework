@@ -156,7 +156,7 @@ public class PriceRangeView extends View {
     private void toScaleTextPaint() {
         paint.reset();
         paint.setColor(Color.parseColor("#32373B"));
-        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.xunche_price_range_view_scale_text_size));
+        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.price_range_view_scale_text_size));
         paint.setAntiAlias(true);
     }
 
@@ -166,7 +166,7 @@ public class PriceRangeView extends View {
     private void toValueTextPaint() {
         paint.reset();
         paint.setColor(Color.parseColor("#FFFFFF"));
-        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.xunche_price_range_view_bubble_text_size));
+        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.price_range_view_bubble_text_size));
         paint.setAntiAlias(true);
     }
 
@@ -178,7 +178,7 @@ public class PriceRangeView extends View {
     private void toValueTextShadowPaint() {
         paint.reset();
         paint.setColor(Color.parseColor("#FFFFFF"));
-        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.xunche_price_range_view_scale_text_size));
+        paint.setTextSize(getResources().getDimensionPixelSize(R.dimen.price_range_view_scale_text_size));
         paint.setAntiAlias(true);
     }
 

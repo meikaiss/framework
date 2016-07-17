@@ -21,9 +21,7 @@ public class SDCardUtil {
      * @return
      */
     public static boolean isSDCardEnable() {
-        return Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED);
-
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
 
     /**
@@ -32,8 +30,7 @@ public class SDCardUtil {
      * @return
      */
     public static String getSDCardPath() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + File.separator;
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
     }
 
     /**
@@ -82,7 +79,7 @@ public class SDCardUtil {
 
     public static String getExternalCachePath(String packageName) {
         String appPath = getExternalAppPath(packageName);
-        return StringUtil.isEmpty(appPath)?null:appPath + "/cache";
+        return StringUtil.isEmpty(appPath) ? null : appPath + "/cache";
     }
 
     public static String getExternalRootPath() {
@@ -90,7 +87,7 @@ public class SDCardUtil {
     }
 
     public static String getExternalAppPath(String packageName) {
-        if("mounted".equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
             File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + packageName);
             return file.getPath();
         } else {
