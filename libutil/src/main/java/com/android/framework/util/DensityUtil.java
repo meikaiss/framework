@@ -1,6 +1,7 @@
 package com.android.framework.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.TypedValue;
 
 /**
@@ -60,6 +61,16 @@ public class DensityUtil {
     public static int px2sp(Context context, int pxVal) {
         return (int) (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
     }
+
+    /**
+     * 获取 系统 状态栏 的 高度
+     *
+     * @return
+     */
+    public static int getStateBarHeight() {
+        return Resources.getSystem().getDimensionPixelSize(Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android"));
+    }
+
 
 }
 
