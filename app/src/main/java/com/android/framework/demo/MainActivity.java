@@ -63,6 +63,7 @@ import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
 import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
 import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
 import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
+import com.android.framework.demo.activity.viewdemo.XFlowLayoutActivity;
 import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
 import com.android.framework.media.audiodemo.AudioDemoActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            XFlowLayoutActivity.class,
             FloatingActionsMenuActivity.class,
             LedTextViewActivity.class,
             MarqueeViewActivity.class,

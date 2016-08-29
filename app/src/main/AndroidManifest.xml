@@ -61,6 +61,7 @@
         <activity android:name=".media.PLVideoTextureActivity" />
         <activity android:name=".media.VideoViewActivity" />
 
+        <activity android:name=".activity.viewdemo.XFlowLayoutActivity" />
         <activity android:name=".activity.viewdemo.MarqueeViewActivity" />
         <activity android:name=".activity.viewdemo.FlowLayoutActivity" />
         <activity android:name=".activity.viewdemo.ScrollLayoutActivity" />
