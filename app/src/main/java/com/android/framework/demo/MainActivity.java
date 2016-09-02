@@ -20,6 +20,7 @@ import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivit
 import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
+import com.android.framework.demo.activity.WrapTypeJsonActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
 import com.android.framework.demo.activity.design.AnimatedVectorDrawableActivity;
 import com.android.framework.demo.activity.design.AppBarLayoutActivity;
@@ -83,6 +84,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            WrapTypeJsonActivity.class,
             XFlowLayoutActivity.class,
             FloatingActionsMenuActivity.class,
             LedTextViewActivity.class,

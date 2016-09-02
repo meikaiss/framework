@@ -107,5 +107,26 @@ public class BitmapUtil {
         }
     }
 
+    /**
+     * @param percent 0.5 表示 50%的透明度
+     */
+    public String calculateAlpha(float percent) {
+
+        String[] flag = {"A", "B", "C", "D", "E", "F"};
+
+        percent = Math.max(0.0f, percent);
+        percent = Math.min(1.0f, percent);
+
+        int maxAlpha10 = (int) (Math.pow(2, 8) - 1);
+
+        float fAlpha10 = percent * maxAlpha10;
+        int iAlpha10 = (int) (fAlpha10 + 0.5);
+
+        int alphaLeft = iAlpha10 / 16;
+        int alphaRight = iAlpha10 % 16;
+
+        return (alphaLeft < 10 ? String.valueOf(alphaLeft) : flag[alphaLeft - 10]) + (alphaRight < 10 ? String.valueOf(alphaRight) : flag[alphaRight - 10]);
+    }
+
 
 }

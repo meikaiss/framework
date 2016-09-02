@@ -29,4 +29,6 @@
     <string name="marquee_text">一个集美貌与才华于一身的程序猿！</string>
     <string name="marquee_texts">一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！一个集美貌与才华于一身的程序猿！</string>
 
+    <string name="wrap_type_json">"{\"int1\":null,\"int2\":null,\"int3\":\"null\",\"int4\":\"null\",\"name\":\"meikai\"}"</string>
+
 </resources>
