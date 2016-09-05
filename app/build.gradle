@@ -1,5 +1,7 @@
 import java.lang.reflect.Array
 import java.lang.reflect.Field
+import java.security.MessageDigest
+import java.math.BigInteger
 
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
@@ -96,6 +98,30 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 
+def distribution = 'https://services.gradle.org/distributions/gradle-2.8-all.zip'
+
+task getWrapperDiskCacheName << {
+    MessageDigest messageDigest = MessageDigest.getInstance('MD5')
+    messageDigest.update(distribution.bytes)
+    name = new BigInteger(1, messageDigest.digest()).toString(32)
+    println("source: $distribution")
+    println("wrapper disk cache name : $name")
+}
+
+getWrapperDiskCacheName2();
+
+def getWrapperDiskCacheName2() {
+    def distribution = 'https://services.gradle.org/distributions/gradle-2.10-all.zip'
+    MessageDigest messageDigest = MessageDigest.getInstance('MD5')
+    messageDigest.update(distribution.bytes)
+    def dig = messageDigest.digest();
+    println("dig: $dig")
+    def bigInt = new BigInteger(1, messageDigest.digest());
+    println("bigInt: $bigInt")
+    def cacheName = new BigInteger(1, messageDigest.digest()).toString(32)
+    println("source: $distribution")
+    println("wrapper disk cache name : $cacheName")
+}
 
 android.applicationVariants.all { variant ->
 
