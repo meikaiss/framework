@@ -2,6 +2,7 @@ package com.android.framework.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Build;
@@ -66,6 +67,11 @@ public class ScreenUtil {
             e.printStackTrace();
         }
         return statusHeight;
+    }
+
+    public static int getStateBarHeight() {
+        return Resources.getSystem().getDimensionPixelSize(Resources.getSystem().
+                getIdentifier("status_bar_height", "dimen", "android"));
     }
 
     /**
