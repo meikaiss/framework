@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="page_trans_menu">
+        <item>RotateDown</item>
+        <item>RotateUp</item>
+        <item>RotateY</item>
+        <item>Standard</item>
+        <item>Alpha</item>
+        <item>ScaleIn</item>
+        <item>RotateDown and Alpha</item>
+        <item>RotateDown and Alpha And ScaleIn</item>
+        <item>Depth</item>
+        <item>ZoomOut</item>
+    </string-array>
+
+</resources>

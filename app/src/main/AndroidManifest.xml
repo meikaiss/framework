@@ -196,6 +196,9 @@
         <activity
             android:name=".activity.themechange.ThemeChange2Activity"
             android:theme="@style/BaseAppTheme" />
+        <activity
+            android:name=".activity.ViewPageTransFormerActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
 
 
         <service android:name=".service.PlayMusicIntentService" />
