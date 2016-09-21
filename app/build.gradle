@@ -1,7 +1,6 @@
 import java.lang.reflect.Array
 import java.lang.reflect.Field
 import java.security.MessageDigest
-import java.math.BigInteger
 
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
@@ -111,9 +110,17 @@ task getWrapperDiskCacheName << {
 getWrapperDiskCacheName2();
 
 def getWrapperDiskCacheName2() {
-    def distribution = 'https://services.gradle.org/distributions/gradle-2.10-all.zip'
+//    def distribution = "http://192.168.31.221/~meikai/Gradle/gradle-2.14.1-all.zip"
+    def distribution = "https:////services.gradle.org/distributions/gradle-2.14.1-all.zip"
     MessageDigest messageDigest = MessageDigest.getInstance('MD5')
     messageDigest.update(distribution.bytes)
+
+    def name = new BigInteger(1, messageDigest.digest()).toString(32)
+
+    println("source: $distribution")
+    println("wrapper disk cache name : $name")
+    println("________________________")
+
     def dig = messageDigest.digest();
     println("dig: $dig")
     def bigInt = new BigInteger(1, messageDigest.digest());
