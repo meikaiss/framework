@@ -39,6 +39,7 @@ public class ViewPageTransFormerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_view_page_trans_form);
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager_1);
         mViewPager.setPageMargin(40);
