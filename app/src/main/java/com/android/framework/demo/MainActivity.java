@@ -17,6 +17,7 @@ import com.android.framework.demo.activity.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
+import com.android.framework.demo.activity.PullDownDismissActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
@@ -85,6 +86,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            PullDownDismissActivity.class,
             ViewPageTransFormerActivity.class,
             WrapTypeJsonActivity.class,
             XFlowLayoutActivity.class,

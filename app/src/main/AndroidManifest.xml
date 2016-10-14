@@ -199,6 +199,9 @@
         <activity
             android:name=".activity.ViewPageTransFormerActivity"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".activity.PullDownDismissActivity"
+            android:theme="@style/PullDownDismiss" />
 
 
         <service android:name=".service.PlayMusicIntentService" />
