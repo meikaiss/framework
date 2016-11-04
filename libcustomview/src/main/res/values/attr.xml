@@ -3,53 +3,53 @@
 
     <declare-styleable name="LevelImageView">
         <attr name="level" format="float"></attr>
-        <attr name="drawableLeft" format="reference" />
-        <attr name="drawableRight" format="reference" />
+        <attr name="drawableLeft" format="reference"/>
+        <attr name="drawableRight" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="FuseImageView">
-        <attr name="drawableDefault" format="reference" />
-        <attr name="drawableFused" format="reference" />
+        <attr name="drawableDefault" format="reference"/>
+        <attr name="drawableFused" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="DragScoreView">
-        <attr name="holderIconEnable" format="reference" />
-        <attr name="holderIconDisable" format="reference" />
-        <attr name="dragMax" format="float|integer" />
-        <attr name="dragMin" format="float|integer" />
-        <attr name="scaleArr" format="string" />
-        <attr name="railHeight" format="dimension" />
-        <attr name="selectColor" format="reference|color" />
-        <attr name="unSelectColor" format="reference|color" />
+        <attr name="holderIconEnable" format="reference"/>
+        <attr name="holderIconDisable" format="reference"/>
+        <attr name="dragMax" format="float|integer"/>
+        <attr name="dragMin" format="float|integer"/>
+        <attr name="scaleArr" format="string"/>
+        <attr name="railHeight" format="dimension"/>
+        <attr name="selectColor" format="reference|color"/>
+        <attr name="unSelectColor" format="reference|color"/>
     </declare-styleable>
 
     <declare-styleable name="ImageOuterTextView">
-        <attr name="outerDrawable" format="reference" />
-        <attr name="maxLengthText" format="string" />
-        <attr name="innerText" format="string" />
-        <attr name="innerTextRadian" format="float" />
-        <attr name="innerRadius" format="integer" />
-        <attr name="outerRadius" format="integer" />
-        <attr name="innerTextColor" format="color" />
+        <attr name="outerDrawable" format="reference"/>
+        <attr name="maxLengthText" format="string"/>
+        <attr name="innerText" format="string"/>
+        <attr name="innerTextRadian" format="float"/>
+        <attr name="innerRadius" format="integer"/>
+        <attr name="outerRadius" format="integer"/>
+        <attr name="innerTextColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="MarqueeViewStyle">
-        <attr name="mvInterval" format="integer|reference" />
-        <attr name="mvAnimDuration" format="integer|reference" />
-        <attr name="mvTextSize" format="dimension|reference" />
-        <attr name="mvTextColor" format="color|reference" />
-        <attr name="mvSingleLine" format="boolean" />
+        <attr name="mvInterval" format="integer|reference"/>
+        <attr name="mvAnimDuration" format="integer|reference"/>
+        <attr name="mvTextSize" format="dimension|reference"/>
+        <attr name="mvTextColor" format="color|reference"/>
+        <attr name="mvSingleLine" format="boolean"/>
         <attr name="mvGravity">
-            <enum name="left" value="0" />
-            <enum name="center" value="1" />
-            <enum name="right" value="2" />
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
         </attr>
     </declare-styleable>
 
     <declare-styleable name="LedTextView">
-        <attr name="textColor" format="color" />
-        <attr name="spacing" format="dimension" />
-        <attr name="scroll" format="boolean" />
+        <attr name="textColor" format="color"/>
+        <attr name="spacing" format="dimension"/>
+        <attr name="scroll" format="boolean"/>
         <attr name="speed">
             <enum name="normal" value="0"></enum>
             <enum name="slow" value="1"></enum>
@@ -61,60 +61,64 @@
     </declare-styleable>
 
     <declare-styleable name="FloatingActionButton">
-        <attr name="fab_colorPressed" format="color" />
-        <attr name="fab_colorDisabled" format="color" />
-        <attr name="fab_colorNormal" format="color" />
-        <attr name="fab_icon" format="reference" />
+        <attr name="fab_colorPressed" format="color"/>
+        <attr name="fab_colorDisabled" format="color"/>
+        <attr name="fab_colorNormal" format="color"/>
+        <attr name="fab_icon" format="reference"/>
         <attr name="fab_size" format="enum">
-            <enum name="normal" value="0" />
-            <enum name="mini" value="1" />
+            <enum name="normal" value="0"/>
+            <enum name="mini" value="1"/>
         </attr>
-        <attr name="fab_title" format="string" />
-        <attr name="fab_stroke_visible" format="boolean" />
+        <attr name="fab_title" format="string"/>
+        <attr name="fab_stroke_visible" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="AddFloatingActionButton">
-        <attr name="fab_plusIconColor" format="color" />
+        <attr name="fab_plusIconColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="FloatingActionsMenu">
-        <attr name="fab_addButtonColorPressed" format="color" />
-        <attr name="fab_addButtonColorNormal" format="color" />
+        <attr name="fab_addButtonColorPressed" format="color"/>
+        <attr name="fab_addButtonColorNormal" format="color"/>
         <attr name="fab_addButtonSize" format="enum">
-            <enum name="normal" value="0" />
-            <enum name="mini" value="1" />
+            <enum name="normal" value="0"/>
+            <enum name="mini" value="1"/>
         </attr>
-        <attr name="fab_addButtonPlusIconColor" format="color" />
-        <attr name="fab_addButtonStrokeVisible" format="boolean" />
-        <attr name="fab_labelStyle" format="reference" />
+        <attr name="fab_addButtonPlusIconColor" format="color"/>
+        <attr name="fab_addButtonStrokeVisible" format="boolean"/>
+        <attr name="fab_labelStyle" format="reference"/>
         <attr name="fab_labelsPosition" format="enum">
-            <enum name="left" value="0" />
-            <enum name="right" value="1" />
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
         </attr>
         <attr name="fab_expandDirection" format="enum">
-            <enum name="up" value="0" />
-            <enum name="down" value="1" />
-            <enum name="left" value="2" />
-            <enum name="right" value="3" />
+            <enum name="up" value="0"/>
+            <enum name="down" value="1"/>
+            <enum name="left" value="2"/>
+            <enum name="right" value="3"/>
         </attr>
     </declare-styleable>
 
     <declare-styleable name="XFlowLayout">
-        <attr name="android:orientation" />
+        <attr name="android:orientation"/>
         <attr name="layoutDirection" format="enum">
-            <enum name="ltr" value="0" />
-            <enum name="rtl" value="1" />
+            <enum name="ltr" value="0"/>
+            <enum name="rtl" value="1"/>
         </attr>
-        <attr name="debugDraw" format="boolean" />
-        <attr name="weightDefault" format="float" />
-        <attr name="maxFlowLines" format="integer" />
-        <attr name="android:gravity" />
+        <attr name="debugDraw" format="boolean"/>
+        <attr name="weightDefault" format="float"/>
+        <attr name="maxFlowLines" format="integer"/>
+        <attr name="android:gravity"/>
     </declare-styleable>
 
     <declare-styleable name="FlowLayout_LayoutParams">
-        <attr name="layout_newLine" format="boolean" />
-        <attr name="layout_weight" format="float" />
-        <attr name="android:layout_gravity" />
+        <attr name="layout_newLine" format="boolean"/>
+        <attr name="layout_weight" format="float"/>
+        <attr name="android:layout_gravity"/>
+    </declare-styleable>
+
+    <declare-styleable name="FloatDragFrameLayout">
+        <attr name="float_image_res" format="reference"/>
     </declare-styleable>
 
 

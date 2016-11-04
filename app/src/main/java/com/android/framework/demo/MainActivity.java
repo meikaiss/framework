@@ -21,6 +21,7 @@ import com.android.framework.demo.activity.PullDownDismissActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
+import com.android.framework.demo.activity.TouchFloatActivity;
 import com.android.framework.demo.activity.ViewPageTransFormerActivity;
 import com.android.framework.demo.activity.WrapTypeJsonActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
@@ -86,6 +87,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            TouchFloatActivity.class,
             PullDownDismissActivity.class,
             ViewPageTransFormerActivity.class,
             WrapTypeJsonActivity.class,

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.framework.demo">
+<manifest package="com.android.framework.demo"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
 
     <supports-screens
@@ -14,7 +14,7 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true"
-        android:xlargeScreens="true" />
+        android:xlargeScreens="true"/>
 
     <application
         android:name=".DemoApplication"
@@ -27,195 +27,193 @@
 
         <meta-data
             android:name="com.android.framework.demo.activity.GlideConfiguration"
-            android:value="GlideModule" />
+            android:value="GlideModule"/>
 
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+                android:resource="@xml/searchable"/>
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.GlideActivity" />
-        <activity android:name=".activity.ScreenLightSettingActivity" />
+        <activity android:name=".activity.GlideActivity"/>
+        <activity android:name=".activity.ScreenLightSettingActivity"/>
         <activity android:name=".activity.LayoutAnimationActivity">
             <intent-filter>
-                <action android:name="com.android.framework.demo.activity.LayoutAnimationActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.android.framework.demo.activity.LayoutAnimationActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AnimationListActivity" />
-        <activity android:name=".activity.design.dragrecycler.DragRecyclerGridViewActivity" />
-        <activity android:name=".activity.webview.MikeWebViewActivity" />
+        <activity android:name=".activity.AnimationListActivity"/>
+        <activity android:name=".activity.design.dragrecycler.DragRecyclerGridViewActivity"/>
+        <activity android:name=".activity.webview.MikeWebViewActivity"/>
 
-        <activity android:name=".media.MediaDemoMainActivity" />
-        <activity android:name=".media.PLMediaPlayerActivity" />
-        <activity android:name=".media.PLAudioPlayerActivity" />
-        <activity android:name=".media.PLVideoViewActivity" />
-        <activity android:name=".media.PLVideoTextureActivity" />
-        <activity android:name=".media.VideoViewActivity" />
+        <activity android:name=".media.MediaDemoMainActivity"/>
+        <activity android:name=".media.PLMediaPlayerActivity"/>
+        <activity android:name=".media.PLAudioPlayerActivity"/>
+        <activity android:name=".media.PLVideoViewActivity"/>
+        <activity android:name=".media.PLVideoTextureActivity"/>
+        <activity android:name=".media.VideoViewActivity"/>
 
-        <activity android:name=".activity.WrapTypeJsonActivity" />
-        <activity android:name=".activity.viewdemo.XFlowLayoutActivity" />
-        <activity android:name=".activity.viewdemo.MarqueeViewActivity" />
-        <activity android:name=".activity.viewdemo.FlowLayoutActivity" />
-        <activity android:name=".activity.viewdemo.ScrollLayoutActivity" />
-        <activity android:name=".activity.viewdemo.ExplosionActivity" />
-        <activity android:name=".activity.viewdemo.NumberSeekBarActivity" />
+        <activity android:name=".activity.WrapTypeJsonActivity"/>
+        <activity android:name=".activity.viewdemo.XFlowLayoutActivity"/>
+        <activity android:name=".activity.viewdemo.MarqueeViewActivity"/>
+        <activity android:name=".activity.viewdemo.FlowLayoutActivity"/>
+        <activity android:name=".activity.viewdemo.ScrollLayoutActivity"/>
+        <activity android:name=".activity.viewdemo.ExplosionActivity"/>
+        <activity android:name=".activity.viewdemo.NumberSeekBarActivity"/>
         <activity
             android:name=".activity.StatusBarColorActivity"
             android:theme="@style/ColorStatusBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
 
         <activity
             android:name=".activity.design.FlexboxActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.design.AppCompatTestActivity"
             android:theme="@style/Theme_TestAppCompat"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity
             android:name=".activity.design.CoordinatorLayoutActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.design.AppBarLayoutActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.design.SwipeDismissBehaviorActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.design.AnimatedVectorDrawableActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".activity.design.CardViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.design.BottomSheetActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.design.FABBehaviorActivity" />
+            android:theme="@style/BaseAppTheme"/>
+        <activity android:name=".activity.design.FABBehaviorActivity"/>
 
         <activity
             android:name=".activity.nolib.NotificationActivity"
-            android:theme="@style/Theme_TestAppCompat" />
-        <activity android:name=".activity.nolib.HandlerThreadActivity" />
-        <activity android:name=".activity.nolib.IntentServiceActivity" />
-        <activity android:name=".activity.nolib.LayoutWeightActivity" />
+            android:theme="@style/Theme_TestAppCompat"/>
+        <activity android:name=".activity.nolib.HandlerThreadActivity"/>
+        <activity android:name=".activity.nolib.IntentServiceActivity"/>
+        <activity android:name=".activity.nolib.LayoutWeightActivity"/>
         <activity
             android:name=".activity.nolib.RippleActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.nolib.TabLayoutActivity"
-            android:theme="@style/Theme_TabLayoutAppCompat" />
+            android:theme="@style/Theme_TabLayoutAppCompat"/>
         <activity
             android:name=".activity.nolib.AnimatorActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.nolib.AlertDialogActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.nolib.InsetClipActivity"
-            android:theme="@style/BaseAppTheme" />
-        <activity android:name=".activity.viewdemo.BounceLoadingActivity" />
-        <activity android:name=".activity.viewdemo.CircleLoadingActivity" />
-
+            android:theme="@style/BaseAppTheme"/>
+        <activity android:name=".activity.viewdemo.BounceLoadingActivity"/>
+        <activity android:name=".activity.viewdemo.CircleLoadingActivity"/>
         <activity
             android:name=".activity.BottomBarActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.SlideViewPagerActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.InputLinearLayoutActivity"
             android:theme="@style/BaseAppTheme"
-            android:windowSoftInputMode="adjustResize" />
-
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".activity.PinnedHeaderExpandableListViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.SaveStateViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.OkHttpActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.shader.ShaderActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.colormatrix.ColorMatrixActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
 
         <activity
             android:name=".activity.viewdemo.FloatingActionsMenuActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.LedTextViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.LevelImageViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.HeadNewsRefreshViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.PriceRangeActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.DragScoreViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.ImageOuterTextViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.PinnedHeaderListViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.SmartGridViewActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.viewdemo.FuseImageActivity"
-            android:theme="@style/BaseAppTheme" />
-
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.ndk.NDKTestActivity"
-            android:theme="@style/BaseAppTheme" />
-
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.utildemo.PermissionUtilDemoActivity"
-            android:theme="@style/BaseAppTheme" />
-
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.themechange.ThemeChangeActivity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.themechange.ThemeChange2Activity"
-            android:theme="@style/BaseAppTheme" />
+            android:theme="@style/BaseAppTheme"/>
         <activity
             android:name=".activity.ViewPageTransFormerActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light"/>
         <activity
             android:name=".activity.PullDownDismissActivity"
-            android:theme="@style/PullDownDismiss" />
+            android:theme="@style/PullDownDismiss"/>
+        <activity
+            android:name=".activity.TouchFloatActivity"
+            android:theme="@style/BaseAppTheme"/>
 
 
-        <service android:name=".service.PlayMusicIntentService" />
-        <service android:name=".widget.WeatherService" />
-        <service android:name=".service.NotificationService" />
+        <service android:name=".service.PlayMusicIntentService"/>
+        <service android:name=".widget.WeatherService"/>
+        <service android:name=".service.NotificationService"/>
 
         <receiver android:name=".widget.WeatherAppWidgetProvider">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/weather_app_widget_info" />
+                android:resource="@xml/weather_app_widget_info"/>
         </receiver>
 
 
