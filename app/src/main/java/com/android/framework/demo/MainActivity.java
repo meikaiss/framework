@@ -15,11 +15,13 @@ import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
+import com.android.framework.demo.activity.ListViewActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
 import com.android.framework.demo.activity.PinnedHeaderExpandableListViewActivity;
 import com.android.framework.demo.activity.PullDownDismissActivity;
 import com.android.framework.demo.activity.SaveStateViewActivity;
 import com.android.framework.demo.activity.ScreenLightSettingActivity;
+import com.android.framework.demo.activity.ShortCutActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.TouchFloatActivity;
 import com.android.framework.demo.activity.ViewPageTransFormerActivity;
@@ -87,6 +89,8 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            ListViewActivity.class,
+            ShortCutActivity.class,
             TouchFloatActivity.class,
             PullDownDismissActivity.class,
             ViewPageTransFormerActivity.class,
@@ -187,7 +191,8 @@ public class MainActivity extends BaseCompactActivity {
         toolbar.setTitle(R.string.app_name);
         toolbar.setNavigationIcon(R.drawable.fuse1_default);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name, getArray(classes));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_demo, R.id.tv_item_name,
+                getArray(classes));
         listView.setAdapter(adapter);
 
     }

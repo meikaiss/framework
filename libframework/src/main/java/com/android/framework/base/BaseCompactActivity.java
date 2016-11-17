@@ -27,6 +27,8 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
 
     private ThemeChangeBroadCastReceiver broadCastReceiver;
 
+    public boolean isDestroyed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        isDestroyed = true;
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
         localBroadcastManager.unregisterReceiver(broadCastReceiver);
     }

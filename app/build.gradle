@@ -138,6 +138,12 @@ android.applicationVariants.all { variant ->
         println "buildType: ${variant.buildType.name}"
         println "flavor: ${variant.flavorName}"
         println "manifest:  ${output.processResources.manifestFile}"
+        println "rootProject.ext.android.compileSdkVersion:  ${rootProject.ext.android.compileSdkVersion}"
+        println "rootProject.ext.android.buildToolsVersion:  ${rootProject.ext.android.buildToolsVersion}"
+        println "rootProject.ext.android.applicationId:  ${rootProject.ext.android.applicationId}"
+        println "rootProject.ext.android.minSdkVersion:  ${rootProject.ext.android.minSdkVersion}"
+        println "rootProject.ext.android.versionCode:  ${rootProject.ext.android.versionCode}"
+        println "rootProject.ext.android.versionName:  ${rootProject.ext.android.versionName}"
         println "**************************************"
 
         //将生成的apk文件保存至根目录的_apk文件下
