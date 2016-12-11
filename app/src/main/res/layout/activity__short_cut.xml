@@ -22,4 +22,10 @@
         android:layout_width="80dp"
         android:layout_height="80dp"/>
 
+    <TextView
+        android:id="@+id/drawable_override"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+
 </LinearLayout>

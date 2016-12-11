@@ -72,6 +72,7 @@ import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
 import com.android.framework.demo.activity.viewdemo.XFlowLayoutActivity;
 import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
+import com.android.framework.demo.requesttest.RequestTestActivity;
 import com.android.framework.media.audiodemo.AudioDemoActivity;
 import com.android.framework.websocket.WebSocketActivity;
 
@@ -89,6 +90,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            RequestTestActivity.class,
             ListViewActivity.class,
             ShortCutActivity.class,
             TouchFloatActivity.class,

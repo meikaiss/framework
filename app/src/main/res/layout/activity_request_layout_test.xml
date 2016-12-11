@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.android.framework.demo.requesttest.MyViewGroup
+        android:id="@+id/my_view_group_root_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:tag="root_1">
+
+        <com.android.framework.demo.requesttest.MyViewGroup
+            android:id="@+id/my_view_group_1"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#0f0"
+            android:tag="middle_parent_1">
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#f00"
+                android:text="子View1"/>
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#f00"
+                android:text="子View2"/>
+
+        </com.android.framework.demo.requesttest.MyViewGroup>
+
+        <com.android.framework.demo.requesttest.MyViewGroup
+            android:id="@+id/my_view_group_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00f"
+            android:tag="middle_parent_2">
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="#ff0"
+                android:text="子View3"/>
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_4"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:background="#ff0"
+                android:text="子View4"/>
+
+        </com.android.framework.demo.requesttest.MyViewGroup>
+
+    </com.android.framework.demo.requesttest.MyViewGroup>
+
+    <com.android.framework.demo.requesttest.MyViewGroup
+        android:id="@+id/my_view_group_root_2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:tag="root_2">
+
+        <com.android.framework.demo.requesttest.MyViewGroup
+            android:id="@+id/my_view_group_3"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#0f0"
+            android:tag="middle_parent_3">
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_5"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#f00"
+                android:text="子View5"/>
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_6"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#f00"
+                android:text="子View6"/>
+
+        </com.android.framework.demo.requesttest.MyViewGroup>
+
+        <com.android.framework.demo.requesttest.MyViewGroup
+            android:id="@+id/my_view_group_4"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#00f"
+            android:tag="middle_parent_4">
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_7"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#ff0"
+                android:text="子View7"/>
+
+            <com.android.framework.demo.requesttest.MyView
+                android:id="@+id/my_view_8"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="#ff0"
+                android:text="子View8"/>
+
+        </com.android.framework.demo.requesttest.MyViewGroup>
+
+    </com.android.framework.demo.requesttest.MyViewGroup>
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变子view3的高度"/>
+
+    <Button
+        android:id="@+id/btn_test_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变子middle_root_2的高度"/>
+
+</LinearLayout>
