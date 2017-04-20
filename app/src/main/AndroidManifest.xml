@@ -235,6 +235,7 @@
             android:name=".activity.DestinationActivity"
             android:theme="@style/BaseAppTheme"/>
         <activity android:name=".requesttest.RequestTestActivity"/>
+        <activity android:name=".activity.GalleryRecyclerViewActivity"/>
 
 
         <service android:name=".service.PlayMusicIntentService"/>

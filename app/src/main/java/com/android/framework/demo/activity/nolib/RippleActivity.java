@@ -75,7 +75,7 @@ public class RippleActivity extends Activity {
 
         List<Map<String, String>> dataList = new ArrayList<>();
 
-        for (int i = 0 ; i  < 4 ; i ++){
+        for (int i = 0 ; i  < 10 ; i ++){
             Map<String, String> map = new HashMap<>();
             map.put("name", "meikai"+i);
             map.put("age", "25");

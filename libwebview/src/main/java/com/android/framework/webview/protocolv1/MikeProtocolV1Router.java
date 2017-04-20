@@ -8,16 +8,16 @@ import com.android.framework.webview.IMikeProtocol;
 /**
  * Created by meikai on 16/5/15.
  */
-public class MikeProtocolV1 implements IMikeProtocol {
+public class MikeProtocolV1Router implements IMikeProtocol {
 
     private String host;
     private String path;
     private String params;
 
-    private static IMikeProtocolV1Helper mikeProtocolV1Helper;
+    private static IMikeProtocolV1Processor mikeProtocolV1Processor;
 
-    public static void setIMikeProtocolV1Helper(IMikeProtocolV1Helper IMikeProtocolV1Helper) {
-        mikeProtocolV1Helper = IMikeProtocolV1Helper;
+    public static void setIMikeProtocolV1Helper(IMikeProtocolV1Processor IMikeProtocolV1Helper) {
+        mikeProtocolV1Processor = IMikeProtocolV1Helper;
     }
 
     @Override
@@ -32,20 +32,20 @@ public class MikeProtocolV1 implements IMikeProtocol {
 
         if ("system".equals(host)) {
             if ("/version".equals(path)) {
-                result = mikeProtocolV1Helper.version();
+                result = mikeProtocolV1Processor.version();
             } else if ("/toast".equals(path)) {
                 params = uri.getQueryParameter("message");
-                mikeProtocolV1Helper.toast(params);
+                mikeProtocolV1Processor.toast(params);
             } else if ("/log".equals(path)) {
                 params = uri.getQueryParameter("message");
-                mikeProtocolV1Helper.log(params);
+                mikeProtocolV1Processor.log(params);
             }
         }
 
         if ("jump".equals(host)) {
             if ("/action".equals(path)) {
                 params = uri.getQueryParameter("message");
-                mikeProtocolV1Helper.action(params);
+                mikeProtocolV1Processor.action(params);
             }
         }
 

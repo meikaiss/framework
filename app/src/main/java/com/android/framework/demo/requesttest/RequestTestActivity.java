@@ -2,6 +2,7 @@ package com.android.framework.demo.requesttest;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
 import com.android.framework.base.BaseCompactActivity;
@@ -15,6 +16,7 @@ public class RequestTestActivity extends BaseCompactActivity {
 
     MyView myView3;
     MyViewGroup myViewGroup2;
+    HorizontalScrollView scrollView;
 
     @Override
     public int getContentViewLayoutId() {
@@ -26,6 +28,13 @@ public class RequestTestActivity extends BaseCompactActivity {
 
         myView3 = (MyView) findViewById(R.id.my_view_3);
         myViewGroup2 = (MyViewGroup) findViewById(R.id.my_view_group_2);
+        scrollView = f(R.id.horizontal_scroll_view);
+        f(R.id.btn_scroll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView.scrollTo(100, 0);
+            }
+        });
 
         findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
             @Override

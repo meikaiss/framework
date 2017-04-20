@@ -11,8 +11,10 @@ import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
+import com.android.framework.customview.viewgroup.GalleryRecyclerView;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
 import com.android.framework.demo.activity.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
 import com.android.framework.demo.activity.ListViewActivity;
@@ -90,6 +92,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            GalleryRecyclerViewActivity.class,
             RequestTestActivity.class,
             ListViewActivity.class,
             ShortCutActivity.class,

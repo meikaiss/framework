@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 import com.android.framework.demo.R;
 import com.android.framework.webview.MikeWebView;
-import com.android.framework.webview.protocolv1.IMikeProtocolV1Helper;
-import com.android.framework.webview.protocolv1.MikeProtocolV1;
+import com.android.framework.webview.protocolv1.IMikeProtocolV1Processor;
+import com.android.framework.webview.protocolv1.MikeProtocolV1Router;
 
 /**
  * Created by meikai on 16/5/15.
@@ -27,7 +27,7 @@ public class MikeWebViewActivity extends AppCompatActivity {
 
         findViewById(R.id.imgb_back).setOnClickListener(v -> MikeWebViewActivity.this.onBackPressed());
 
-        MikeProtocolV1.setIMikeProtocolV1Helper(new IMikeProtocolV1Helper() {
+        MikeProtocolV1Router.setIMikeProtocolV1Helper(new IMikeProtocolV1Processor() {
             @Override
             public String version() {
                 return "型号" + android.os.Build.MODEL + ", 安卓版本" + android.os.Build.VERSION.RELEASE;
@@ -53,8 +53,8 @@ public class MikeWebViewActivity extends AppCompatActivity {
         mikeWebView = (MikeWebView) findViewById(R.id.mike_web_view);
         mikeWebView.init();
 
-//        mikeWebView.loadUrl("file:///android_asset/webview/demo/v1.0.html");
-        mikeWebView.loadUrl("file:///android_asset/page/meikai.html");
+        mikeWebView.loadUrl("file:///android_asset/webview/demo/v1.0.html");
+//        mikeWebView.loadUrl("file:///android_asset/page/meikai.html");
 
 //        mikeWebView.loadUrl("http://www.jiecao.fm/news/article/detailV3/XjY1MDjO.htm?u=k5yZx0eP&down=true&v=3.9.8");
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="14dp">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="14dp">
 
     <com.android.framework.view.NumberSeekBar
         style="@style/NumberProgressBar_Default"
@@ -12,19 +12,55 @@
         android:focusable="false"
         android:max="100"
         android:progressDrawable="@drawable/bg_number_seekbar"
-        android:thumb="@drawable/selector_btn_seekbar" />
+        android:thumb="@drawable/selector_btn_seekbar"/>
 
     <com.android.framework.view.NumberSeekBar
         style="@style/NumberProgressBar_Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#11ff0000"
         android:focusable="false"
         android:max="100"
-        android:thumb="@drawable/selector_btn_seekbar" />
+        android:thumb="@drawable/selector_btn_seekbar"/>
+
+    <SeekBar
+        android:id="@+id/controller_seekbar_2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:max="100"
+        android:maxHeight="2dp"
+        android:minHeight="2dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_number_seekbar"
+        android:thumb="@drawable/libvideo__seekbar_thumb"/>
+
+    <SeekBar
+        android:id="@+id/controller_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:max="100"
+        android:maxHeight="2dp"
+        android:minHeight="2dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_number_seekbar"
+        android:thumb="@drawable/libvideo__seekbar_thumb"
+        android:thumbOffset="0dp"/>
 
     <SeekBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="150dp"
+        android:background="#1100ff00"
+        android:maxHeight="2dp"
+        android:minHeight="2dp"
+        android:max="100"
+        android:thumb="@drawable/libvideo__seekbar_thumb"/>
 
 </LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/demo"
+        layout="@layout/item_gallery"/>
+
+    <Button
+        android:id="@+id/btn_set_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/demo"
+        android:text="定位到第10个"/>
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="0km"
+        android:textColor="@color/colorAccent"
+        android:textSize="28sp"/>
+
+    <com.android.framework.customview.viewgroup.GalleryRecyclerView
+        android:id="@+id/gallery"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/position"
+        android:clipChildren="false"/>
+
+</RelativeLayout>

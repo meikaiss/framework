@@ -10,7 +10,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.android.framework.webview.protocolv1.MikeProtocolV1;
+import com.android.framework.webview.protocolv1.MikeProtocolV1Router;
 
 /**
  * Created by meikai on 16/5/15.
@@ -47,7 +47,7 @@ public class MikeWebView extends WebView {
         this.getSettings().setJavaScriptEnabled(true);
         this.setWebViewClient(new WebViewClient());
 
-        this.mikeProtocol = new MikeProtocolV1();
+        this.mikeProtocol = new MikeProtocolV1Router();
 
         this.mikeWebViewInterface = new MikeWebViewInterface();
 
