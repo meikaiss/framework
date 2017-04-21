@@ -2,10 +2,10 @@ package com.android.framework.demo.activity;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,7 +60,7 @@ public class GalleryRecyclerViewActivity extends BaseCompactActivity {
 
         for (int i = 0; i < 30; i++) {
             Item item = new Item();
-            item.name = "麦克"+i;
+            item.name = "麦克" + i;
             item.img = R.drawable.avatar;
             item.position = i * 3 + i;
 
@@ -71,33 +71,56 @@ public class GalleryRecyclerViewActivity extends BaseCompactActivity {
 
     @Override
     public void afterView() {
-        mGalleryRecyclerView.setAdapter(new RecyclerView.Adapter() {
+        MyAdapter adapter = new MyAdapter(dataList);
+        adapter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
-
-                return new MyViewHolder(itemView);
-            }
-
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                ((MyViewHolder) holder).imgAvatar.setImageResource(dataList.get(position).img);
-                ((MyViewHolder) holder).tvName.setText(dataList.get(position).name);
-            }
-
-            @Override
-            public int getItemCount() {
-                return dataList.size();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mGalleryRecyclerView.setSelectPosition(position);
             }
         });
+        mGalleryRecyclerView.setAdapter(adapter);
 
-        mGalleryRecyclerView.setOnViewSelectedListener(new GalleryRecyclerView.OnViewSelectedListener() {
-            @Override
-            public void onSelected(View view, final int position) {
-                Log.v("MainActivity", "" + dataList.get(position).name);
-                mPosition.setText(dataList.get(position).name);
+    }
+
+    public static class MyAdapter extends RecyclerView.Adapter {
+
+        private List<Item> dataList = new ArrayList<>();
+        private AdapterView.OnItemClickListener onItemClickListener;
+
+        public MyAdapter(List<Item> dataList) {
+            this.dataList = dataList;
+        }
+
+        public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+            this.onItemClickListener = onItemClickListener;
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
+
+            return new MyViewHolder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            ((MyViewHolder) holder).imgAvatar.setImageResource(dataList.get(position).img);
+            ((MyViewHolder) holder).tvName.setText(dataList.get(position).name);
+
+            if (onItemClickListener != null){
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onItemClickListener.onItemClick(null, holder.itemView, position, position);
+                    }
+                });
             }
-        });
+        }
+
+        @Override
+        public int getItemCount() {
+            return dataList.size();
+        }
 
     }
 

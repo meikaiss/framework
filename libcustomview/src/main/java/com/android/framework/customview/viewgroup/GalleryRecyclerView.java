@@ -45,7 +45,6 @@ public class GalleryRecyclerView extends RecyclerView {
     private int selectedPosition;
     private LinearLayoutManager mLinearLayoutManager;
 
-    private TouchDownListem listem;
     //缩放基数
     private float baseScale = 0.7f;
     //缩放透明度
@@ -314,46 +313,34 @@ public class GalleryRecyclerView extends RecyclerView {
 
         View targetView = getChildClosestToLocation(location);
 
-        if (!userScrolling) {
-            if (event.getAction() == MotionEvent.ACTION_UP) {
-                if (targetView != getCenterView()) {
-                    scrollToView(targetView);
-                    return true;
-                }
-            }
-        }
+//        if (!userScrolling) {
+//            if (event.getAction() == MotionEvent.ACTION_UP) {
+//                if (targetView != getCenterView()) {
+//                    scrollToView(targetView);
+//                    return true;
+//                }
+//            }
+//        }
 
         return super.dispatchTouchEvent(event);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            if (listem != null) { listem.onTouchDown(); }
-        }
-        int location = orientation == Orientation.VERTICAL ? (int) event.getY() : (int) event.getX();
-        View targetView = getChildClosestToLocation(location);
-        if (targetView != getCenterView()) {
-            return true;
-        }
+//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//            if (listem != null) { listem.onTouchDown(); }
+//        }
+//        int location = orientation == Orientation.VERTICAL ? (int) event.getY() : (int) event.getX();
+//        View targetView = getChildClosestToLocation(location);
+//        if (targetView != getCenterView()) {
+//            return true;
+//        }
         return super.onInterceptTouchEvent(event);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
-        if (e.getAction() == MotionEvent.ACTION_DOWN) {
-            if (listem != null) { listem.onTouchDown(); }
-        }
         return super.onTouchEvent(e);
-    }
-
-
-    public void setTouchDownlistem(TouchDownListem listem) {
-        this.listem = listem;
-    }
-
-    public interface TouchDownListem {
-        void onTouchDown();
     }
 
     private View getChildClosestToLocation(int location) {
