@@ -236,7 +236,7 @@
             android:theme="@style/BaseAppTheme"/>
         <activity android:name=".requesttest.RequestTestActivity"/>
         <activity android:name=".activity.GalleryRecyclerViewActivity"/>
-
+        <activity android:name=".activity.ViewDragHelperActivity"/>
 
         <service android:name=".service.PlayMusicIntentService"/>
         <service android:name=".widget.WeatherService"/>

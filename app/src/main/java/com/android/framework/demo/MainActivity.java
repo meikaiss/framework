@@ -3,6 +3,7 @@ package com.android.framework.demo;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +27,7 @@ import com.android.framework.demo.activity.ScreenLightSettingActivity;
 import com.android.framework.demo.activity.ShortCutActivity;
 import com.android.framework.demo.activity.StatusBarColorActivity;
 import com.android.framework.demo.activity.TouchFloatActivity;
+import com.android.framework.demo.activity.ViewDragHelperActivity;
 import com.android.framework.demo.activity.ViewPageTransFormerActivity;
 import com.android.framework.demo.activity.WrapTypeJsonActivity;
 import com.android.framework.demo.activity.colormatrix.ColorMatrixActivity;
@@ -92,6 +94,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            ViewDragHelperActivity.class,
             GalleryRecyclerViewActivity.class,
             RequestTestActivity.class,
             ListViewActivity.class,
@@ -173,6 +176,7 @@ public class MainActivity extends BaseCompactActivity {
         toolbar = f(R.id.toolbar);
 
         listView = f(R.id.demo_list_view);
+
     }
 
     @Override
