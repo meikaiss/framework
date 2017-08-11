@@ -3,6 +3,7 @@ package com.android.framework.demo;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 
 import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
+import com.android.framework.customview.viewgroup.GalleryRecyclerView;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
