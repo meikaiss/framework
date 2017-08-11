@@ -5,13 +5,13 @@ ext {
 
 
     android = [
-            compileSdkVersion: "24" as int,
-            buildToolsVersion: "24.0.3",
+            compileSdkVersion: "25" as int,
+            buildToolsVersion: "25.0.2",
 
             applicationId    : "com.android.framework.demo",
 
             minSdkVersion    : 15,
-            targetSdkVersion : 19,
+            targetSdkVersion : 25,
 
             versionCode      : "${frameworkVersionCode}" as int,
             versionName      : "${frameworkVersionName}"

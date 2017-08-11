@@ -1,7 +1,3 @@
-import java.lang.reflect.Array
-import java.lang.reflect.Field
-import java.security.MessageDigest
-
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 
@@ -34,9 +30,6 @@ android {
     lintOptions {
         // 移除lint检查的error
         abortOnError false
-
-        htmlOutput file("$project.buildDir/reports/lint/lint.html")
-        xmlOutput file("$project.buildDir/reports/lint/lint.xml")
     }
 
     dexOptions {
@@ -97,39 +90,6 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 
-def distribution = 'https://services.gradle.org/distributions/gradle-2.8-all.zip'
-
-task getWrapperDiskCacheName << {
-    MessageDigest messageDigest = MessageDigest.getInstance('MD5')
-    messageDigest.update(distribution.bytes)
-    name = new BigInteger(1, messageDigest.digest()).toString(32)
-    println("source: $distribution")
-    println("wrapper disk cache name : $name")
-}
-
-getWrapperDiskCacheName2();
-
-def getWrapperDiskCacheName2() {
-//    def distribution = "http://192.168.31.221/~meikai/Gradle/gradle-2.14.1-all.zip"
-    def distribution = "https:////services.gradle.org/distributions/gradle-2.14.1-all.zip"
-    MessageDigest messageDigest = MessageDigest.getInstance('MD5')
-    messageDigest.update(distribution.bytes)
-
-    def name = new BigInteger(1, messageDigest.digest()).toString(32)
-
-    println("source: $distribution")
-    println("wrapper disk cache name : $name")
-    println("________________________")
-
-    def dig = messageDigest.digest();
-    println("dig: $dig")
-    def bigInt = new BigInteger(1, messageDigest.digest());
-    println("bigInt: $bigInt")
-    def cacheName = new BigInteger(1, messageDigest.digest()).toString(32)
-    println("source: $distribution")
-    println("wrapper disk cache name : $cacheName")
-}
-
 android.applicationVariants.all { variant ->
 
     variant.outputs.each { output ->
@@ -142,8 +102,10 @@ android.applicationVariants.all { variant ->
         println "rootProject.ext.android.buildToolsVersion:  ${rootProject.ext.android.buildToolsVersion}"
         println "rootProject.ext.android.applicationId:  ${rootProject.ext.android.applicationId}"
         println "rootProject.ext.android.minSdkVersion:  ${rootProject.ext.android.minSdkVersion}"
+        println "rootProject.ext.android.targetSdkVersion:  ${rootProject.ext.android.targetSdkVersion}"
         println "rootProject.ext.android.versionCode:  ${rootProject.ext.android.versionCode}"
         println "rootProject.ext.android.versionName:  ${rootProject.ext.android.versionName}"
+        println "jdkVersion:  ${rootProject.ext.jdkVersion}"
         println "**************************************"
 
         //将生成的apk文件保存至根目录的_apk文件下
@@ -175,45 +137,6 @@ android.applicationVariants.all { variant ->
     }
 }
 
-
 def buildTime() {
     return new Date().format("yyyy.MM.dd_HH.mm.ss")
 }
-
-
-patchKeepSpecs()
-
-//将Activity类从主dex中移除
-def patchKeepSpecs() {
-    def clazz = Class.forName("com.android.build.gradle.internal.tasks.multidex.CreateManifestKeepList")
-    def keepSpecsField = clazz.getDeclaredField("KEEP_SPECS")
-    keepSpecsField.setAccessible(true)
-    def keepSpecs = (Map) keepSpecsField.get(null)
-
-    Class mapClazz = Class.forName("com.google.common.collect.RegularImmutableMap")
-    Field tableField = mapClazz.getDeclaredField("table")
-    tableField.setAccessible(true)
-    Object table = tableField.get(keepSpecs)
-    int length = Array.getLength(table)
-
-    int activityIndex = -1
-
-    for (int i = 0; i < length; ++i) {
-        Object entry = Array.get(table, i)
-        if (entry != null) {
-            java.util.Map.Entry<String, String> mapEntry = (java.util.Map.Entry<String, String>) entry
-            if ("activity".equals(mapEntry.getKey())) {
-                activityIndex = i
-                break
-            }
-        }
-    }
-
-    if (activityIndex == -1) {
-        println "Failed to patch KEEP_SPECS: no 'activity' root found"
-    } else {
-        Array.set(table, activityIndex, null)
-        println "KEEP_SPECS patched: removed 'activity' root"
-    }
-}
-
