@@ -52,6 +52,7 @@ import com.android.framework.demo.activity.nolib.LayoutWeightActivity;
 import com.android.framework.demo.activity.nolib.NotificationActivity;
 import com.android.framework.demo.activity.nolib.RippleActivity;
 import com.android.framework.demo.activity.nolib.TabLayoutActivity;
+import com.android.framework.demo.activity.recyclerDecorat.RecyclerViewActivity;
 import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
@@ -95,6 +96,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            RecyclerViewActivity.class,
             AActivity.class,
             ViewDragHelperActivity.class,
             GalleryRecyclerViewActivity.class,
