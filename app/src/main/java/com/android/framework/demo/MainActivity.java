@@ -41,6 +41,7 @@ import com.android.framework.demo.activity.design.FABBehaviorActivity;
 import com.android.framework.demo.activity.design.FlexboxActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.design.dragrecycler.DragRecyclerGridViewActivity;
+import com.android.framework.demo.activity.fragmentT.AActivity;
 import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.AnimatorActivity;
@@ -94,6 +95,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            AActivity.class,
             ViewDragHelperActivity.class,
             GalleryRecyclerViewActivity.class,
             RequestTestActivity.class,

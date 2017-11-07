@@ -237,6 +237,8 @@
         <activity android:name=".requesttest.RequestTestActivity"/>
         <activity android:name=".activity.GalleryRecyclerViewActivity"/>
         <activity android:name=".activity.ViewDragHelperActivity"/>
+        <activity android:name=".activity.fragmentT.AActivity"/>
+        <activity android:name=".activity.fragmentT.BActivity"/>
 
         <service android:name=".service.PlayMusicIntentService"/>
         <service android:name=".widget.WeatherService"/>
