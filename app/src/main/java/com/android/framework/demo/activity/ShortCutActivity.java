@@ -3,6 +3,7 @@ package com.android.framework.demo.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
 import android.widget.Toast;
@@ -11,9 +12,10 @@ import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.R;
 import com.android.framework.util.BitmapUtil;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 /**
  * Created by meikai on 16/11/4.
@@ -65,12 +67,9 @@ public class ShortCutActivity extends BaseCompactActivity {
 
     private void addShortcut(String name) {
 
-        Glide.with(this)
-                .load("http://upload.jianshu.io/users/upload_avatars/1779681/d2a671fe7f07?imageMogr/thumbnail/90x90"
-                        + "/quality/100")
-                .centerCrop().into(new SimpleTarget<GlideDrawable>() {
+        SimpleTarget<Drawable> simpleTarget = new SimpleTarget<Drawable>() {
             @Override
-            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
 
                 Intent addShortcutIntent = new Intent(ACTION_ADD_SHORTCUT);
 
@@ -101,8 +100,20 @@ public class ShortCutActivity extends BaseCompactActivity {
                 sendBroadcast(addShortcutIntent);
 
                 Toast.makeText(ShortCutActivity.this, "添加成功", Toast.LENGTH_LONG).show();
+
             }
-        });
+        };
+
+        RequestBuilder builder = Glide.with(this).load("http://upload.jianshu"
+                 + ".io/users/upload_avatars/1779681/d2a671fe7f07?imageMogr/thumbnail/90x90"
+                + "/quality/100");
+
+        RequestOptions options = new RequestOptions();
+        options.centerCrop();
+
+        builder.apply(options);
+        builder.into(simpleTarget);
+
 
         // 设置关联程序
 //        Intent launcherIntent = new Intent("com.android.framework.demo.activity.ShortCutActivity");

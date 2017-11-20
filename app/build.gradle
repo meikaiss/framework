@@ -87,7 +87,13 @@ dependencies {
     compile project(':libwebsocket')
     compile project(':libwebview')
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:glide:4.3.1'
+
+    /**
+     * 这个 glide:compiler 是个编译器 注解处理器，这个注解处理器会对 标记 @GlideModule 的 AppGlideModule，生成 GlideApp
+     */
+    compile 'com.github.bumptech.glide:compiler:4.3.1'
+
 }
 
 android.applicationVariants.all { variant ->

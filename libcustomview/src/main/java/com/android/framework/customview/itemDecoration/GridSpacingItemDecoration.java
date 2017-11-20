@@ -24,6 +24,7 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     private Paint dividerPaint;
 
     /**
+     * @param spanCount gridLayoutManager 列数
      * @param dividerWidthDp 分割块宽高,单位:dp
      */
     public GridSpacingItemDecoration(Context context, int spanCount, int dividerWidthDp) {
@@ -42,7 +43,7 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         super.getItemOffsets(outRect, child, parent, state);
 
         int pos = parent.getChildAdapterPosition(child);
-        int column = (pos) % spanCount;
+        int column = (pos) % spanCount;// 计算这个child 处于第几列
 
         outRect.top = dividerWidthTop;
         outRect.bottom = dividerWidthBot;
