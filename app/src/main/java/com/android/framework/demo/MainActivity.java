@@ -13,8 +13,8 @@ import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
-import com.android.framework.demo.activity.glide.GlideActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
 import com.android.framework.demo.activity.ListViewActivity;
 import com.android.framework.demo.activity.OkHttpActivity;
@@ -40,6 +40,7 @@ import com.android.framework.demo.activity.design.FlexboxActivity;
 import com.android.framework.demo.activity.design.SwipeDismissBehaviorActivity;
 import com.android.framework.demo.activity.design.dragrecycler.DragRecyclerGridViewActivity;
 import com.android.framework.demo.activity.fragmentT.AActivity;
+import com.android.framework.demo.activity.glide.GlideActivity;
 import com.android.framework.demo.activity.ndk.NDKTestActivity;
 import com.android.framework.demo.activity.nolib.AlertDialogActivity;
 import com.android.framework.demo.activity.nolib.AnimatorActivity;
@@ -94,6 +95,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            DecimalFormatActivity.class,
             GlideActivity.class,
             RecyclerViewActivity.class,
             AActivity.class,
