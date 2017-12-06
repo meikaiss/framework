@@ -2,17 +2,17 @@
 // Created by meikai on 16/3/31.
 //
 
-#include "NdkTest.h"
+#include "NdkWrap.h"
 #include "encrypt.h"
 
 
-JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_getStringInNDK
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkWrapper_getStringInNDK
         (JNIEnv *env, jclass jc) {
 
     return env->NewStringUTF("Hello NDK !!!\n this is a string in so");
 }
 
-JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_converseInSo
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkWrapper_converseInSo
         (JNIEnv *env, jobject obj, jstring source) {
 
     const char *pSourceChar;
@@ -32,7 +32,7 @@ JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_converseInSo
     return converseJString;
 }
 
-JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkWrapper_encryptString
         (JNIEnv *env, jobject obj, jstring source) {
 
     const char *pSourceChar = env->GetStringUTFChars(source, (jboolean *) false);
@@ -46,7 +46,7 @@ JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_encryptString
     return encryptResult;
 }
 
-JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkTest_decryptString
+JNIEXPORT jstring JNICALL Java_com_android_framework_ndk_NdkWrapper_decryptString
         (JNIEnv *env, jobject obj, jstring source) {
 
     const char *pSourceChar = env->GetStringUTFChars(source, (jboolean *) false);

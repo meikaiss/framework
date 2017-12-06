@@ -3,7 +3,7 @@ package com.android.framework.ndk;
 /**
  * Created by meikai on 16/3/30.
  */
-public class NdkTest {
+public class NdkWrapper {
 
     static {
         System.loadLibrary("ndk");

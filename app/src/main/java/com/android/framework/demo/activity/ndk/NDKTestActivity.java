@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.framework.demo.R;
-import com.android.framework.ndk.NdkTest;
+import com.android.framework.ndk.NdkWrapper;
 
 /**
  * Created by meikai on 16/3/30.
@@ -25,10 +25,10 @@ public class NDKTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ndk_test);
 
         TextView textView = (TextView) findViewById(R.id.tv_string_in_ndk);
-        textView.setText(NdkTest.getStringInNDK());
+        textView.setText(NdkWrapper.getStringInNDK());
 
         TextView tvTransmit = (TextView) findViewById(R.id.tv_transmit_string_to_ndk);
-        tvTransmit.setText(tvTransmit.getText().toString() + NdkTest.converseInSo("mike"));
+        tvTransmit.setText(tvTransmit.getText().toString() + NdkWrapper.converseInSo("mike"));
 
 
         edt = (EditText) findViewById(R.id.edt);
@@ -40,7 +40,7 @@ public class NDKTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tvEncrypt.setText(NdkTest.encryptString(edt.getText().toString()));
+                tvEncrypt.setText(NdkWrapper.encryptString(edt.getText().toString()));
 
             }
         });
@@ -50,7 +50,7 @@ public class NDKTestActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (tvEncrypt.getText().toString().length() > 0)
-                    tvDecrypt.setText(NdkTest.decryptString(tvEncrypt.getText().toString()));
+                    tvDecrypt.setText(NdkWrapper.decryptString(tvEncrypt.getText().toString()));
                 else {
                     tvDecrypt.setText("");
                     Toast.makeText(NDKTestActivity.this, "没有密文", Toast.LENGTH_SHORT).show();
