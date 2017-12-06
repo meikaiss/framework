@@ -236,12 +236,19 @@
         <activity android:name=".activity.fragmentT.AActivity"/>
         <activity android:name=".activity.fragmentT.BActivity"/>
         <activity android:name=".activity.recyclerDecorat.RecyclerViewActivity"/>
+        <activity android:name=".activity.ConstraintLayoutActivity"/>
         <activity android:name=".activity.DecimalFormatActivity"/>
 
+
+
+
+        <!-- service 注册 -->
         <service android:name=".service.PlayMusicIntentService"/>
         <service android:name=".widget.WeatherService"/>
         <service android:name=".service.NotificationService"/>
 
+
+        <!-- receiver 注册 -->
         <receiver android:name=".widget.WeatherAppWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>

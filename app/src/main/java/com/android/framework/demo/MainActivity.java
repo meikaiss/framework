@@ -13,6 +13,7 @@ import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
@@ -96,6 +97,7 @@ public class MainActivity extends BaseCompactActivity {
 
     private Class<?>[] classes = {
             DecimalFormatActivity.class,
+            ConstraintLayoutActivity.class,
             GlideActivity.class,
             RecyclerViewActivity.class,
             AActivity.class,

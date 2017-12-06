@@ -103,9 +103,7 @@ public class DecimalFormatActivity extends BaseCompactActivity {
         dataList.add("结论：#格式化时，特征如下。\na:如果你的数字少了，则不处理，不会补0，也不会补#；\nb:如果数字多了，就切掉，但只切小数的末尾，整数不能切;"
                 + "\nc:同时被切掉的小数位会进行四舍五入处理");
         dataList.add("");
-        dataList.add("#适用的场景是:当小数位超过两位时，只显示两位，但若只有一位或没有，则不需要补0");
-        dataList.add("");
-        dataList.add("#按以上用法，整数位用多个#是没有意义的");
+        dataList.add("总结:\na:0强制按格式对齐，#最充足的情况以这样的格式对齐\nb:# 适用的场景是:当小数位超过两位时，只显示两位，但若只有一位或没有，则不需要补0\nc:整数位用多个#是没有意义的");
         dataList.add("");
 
         adapter = new DecimalAdapter(dataList);
@@ -166,6 +164,12 @@ public class DecimalFormatActivity extends BaseCompactActivity {
         @Override
         public void onBindViewHolder(DecimalViewHolder decimalViewHolder, int i) {
             decimalViewHolder.textView.setText(dataList.get(i));
+
+            if (dataList.get(i).startsWith("结论") || dataList.get(i).startsWith("总结")) {
+                decimalViewHolder.textView.setTextColor(Color.RED);
+            } else {
+                decimalViewHolder.textView.setTextColor(Color.BLACK);
+            }
         }
 
         @Override

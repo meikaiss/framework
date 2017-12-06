@@ -31,4 +31,11 @@
 
     <string name="wrap_type_json">"{\"int1\":null,\"int2\":null,\"int3\":\"null\",\"int4\":\"null\",\"name\":\"meikai\"}"</string>
 
+    <string name="constraint_layout_tip">layout_constraint[本源]_[目标]="[目标ID]\nmarginLeft等需要结合constraint
+        一起使用，否则不知道Left是谁，也就无法应用marginLeft\n
+        layout_constraintHorizontal_bias 设置距离左边锚点和右边锚点的距离比例，垂直方向类似\n
+        Guideline 写宽度没有意义，也不会被draw，但是有layout位置的，仅用于被当作一个锚点\n
+        layout_constraintDimensionRatio 宽度比，支持比例和小数，同样需要指定至少一个锚点
+        "</string>
+
 </resources>
