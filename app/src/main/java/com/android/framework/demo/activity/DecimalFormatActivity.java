@@ -66,6 +66,15 @@ public class DecimalFormatActivity extends BaseCompactActivity {
         dataList.add(getResult("0.00", money3));
 
         dataList.add("");
+        double money4 = 0.72;
+        dataList.add("原始 double 数据=" + money4);
+        dataList.add(getResult("00.00", money4));
+        dataList.add(getResult("00.000", money4));
+        dataList.add(getResult("00.0", money4));
+        dataList.add(getResult("000.00", money4));
+        dataList.add(getResult("0.00", money4));
+
+        dataList.add("");
         dataList.add("结论：0格式化时，特征如下。\na:如果你的数字少了，就会补0，小数和整数都会补；\nb:如果数字多了，就切掉，但只切小数的末尾，整数不能切;"
                 + "\nc:同时被切掉的小数位会进行四舍五入处理");
         dataList.add("");
@@ -99,11 +108,34 @@ public class DecimalFormatActivity extends BaseCompactActivity {
         dataList.add(getResult("#.##", money3));
 
         dataList.add("");
+        dataList.add("原始 double 数据=" + money4);
+        dataList.add(getResult("##.##", money4));
+        dataList.add(getResult("##.###", money4));
+        dataList.add(getResult("##.#", money4));
+        dataList.add(getResult("###.##", money4));
+        dataList.add(getResult("#.##", money4));
+
+        double d0 = 0;
+        dataList.add("");
+        dataList.add("原始 定义的 double d0 = 0 的 数据=" + d0 + "，转成String后，默认为0.0");
+        dataList.add(getResult("#.00", d0));
+
+        dataList.add("");
+        dataList.add("原始 定义的 double d0 = 0 的 数据=" + d0 + "，转成String后，默认为0.0");
+        dataList.add(getResult("#0.00", d0));
+
+        double d1 = 0.0;
+        dataList.add("");
+        dataList.add("原始 定义的 double d1 = 0.0 的 数据=" + d1 + "，转成String后，默认为0.0");
+        dataList.add(getResult("#.00", d1));
+
+        dataList.add("");
 
         dataList.add("结论：#格式化时，特征如下。\na:如果你的数字少了，则不处理，不会补0，也不会补#；\nb:如果数字多了，就切掉，但只切小数的末尾，整数不能切;"
                 + "\nc:同时被切掉的小数位会进行四舍五入处理");
         dataList.add("");
-        dataList.add("总结:\na:0强制按格式对齐，#最充足的情况以这样的格式对齐\nb:# 适用的场景是:当小数位超过两位时，只显示两位，但若只有一位或没有，则不需要补0\nc:整数位用多个#是没有意义的");
+        dataList.add("总结:\na:0强制按格式对齐，#最充足的情况以这样的格式对齐\nb:# "
+                + "适用的场景是:当小数位超过两位时，只显示两位，但若只有一位或没有，则不需要补0\nc:整数位用多个#是没有意义的\nd:对于固定保留两位小数的格式化设为 #0.00 是最合适的");
         dataList.add("");
 
         adapter = new DecimalAdapter(dataList);
