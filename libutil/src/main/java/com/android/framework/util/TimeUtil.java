@@ -87,6 +87,38 @@ public class TimeUtil {
 
     }
 
+    /**
+     * 返回两个时间点的具体描述。
+     *
+     * @param min 发生的时间
+     * @param max 当前的时间
+     */
+    public static String getBetweenTime(long min, long max) {
+        int seconds = (int) ((max - min) / 1000L);
+        if (seconds < 30) {
+            return "刚刚";
+        } else if (seconds < 60) {
+            return "30秒前";
+        } else if (seconds < 3600) {
+            return (seconds / 60) + "分钟前";
+        } else {
+            // 如果是同一天，则显示时分，否则就显示某一天
+            Calendar minCal = Calendar.getInstance();
+            Calendar maxCal = Calendar.getInstance();
+            minCal.setTimeInMillis(min);
+            maxCal.setTimeInMillis(max);
+            Date minDate = minCal.getTime();
+            // 如果同年月日，则显示时间和分钟就可以了
+            if (minCal.get(Calendar.YEAR) == maxCal.get(Calendar.YEAR) && minCal.get(Calendar.MONTH) == maxCal
+                    .get(Calendar.MONTH) && minCal.get(Calendar.DATE) == maxCal.get(Calendar.DATE)) {
+                return format(minDate, "HH:mm");
+            } else if (minCal.get(Calendar.YEAR) == maxCal.get(Calendar.YEAR)) { // 如果同年，则显示日期和时间
+                return format(minDate, "MM月dd日");
+            } else {
+                return format(minDate, "yyyy年MM月dd日");
+            }
+        }
+    }
 
     /**
      * 将 时间戳 转换成  XX前 , 如 2分钟前, 1 小时前
