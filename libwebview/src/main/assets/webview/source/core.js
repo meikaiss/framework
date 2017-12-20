@@ -125,7 +125,7 @@
             if (getSystem() === 'android') {
 
                 var handle = function () {
-                    var value = JSON.parse(window.mcAndroidWebview2.getMucangWebViewCallbackData());
+                    var value = JSON.parse(window.msAndroidWebview2.getSSWebViewCallbackData());
                     window[value.callback] && window[value.callback](value.data);
                 }
 
