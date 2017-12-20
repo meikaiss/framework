@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
  * Created by meikai on 15/10/16.
  */
 public class NetUtil {
+
     private NetUtil() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
@@ -18,38 +19,43 @@ public class NetUtil {
 
     /**
      * 判断网络是否连接
-     *
-     * @param context
-     * @return
      */
-    public static boolean isConnected(Context context) {
-
-        ConnectivityManager connectivity = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (null != connectivity) {
-
-            NetworkInfo info = connectivity.getActiveNetworkInfo();
-            if (null != info && info.isConnected()) {
-                if (info.getState() == NetworkInfo.State.CONNECTED) {
-                    return true;
-                }
-            }
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = null;
+        try {
+            activeNetworkInfo = connManager.getActiveNetworkInfo();
+        } catch (Exception e) {
+            LogUtil.d(e.getMessage());
         }
-        return false;
+        return (activeNetworkInfo != null && activeNetworkInfo.isConnected());
+    }
+
+    /**
+     * 判断是否是 流量连接
+     */
+    public static boolean isMobileNetworkConnected(Context context) {
+        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo =
+                connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        return networkInfo != null && networkInfo.isConnected();
     }
 
     /**
      * 判断是否是wifi连接
      */
-    public static boolean isWifi(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (cm == null)
+    public static boolean isWifiConnected(Context context) {
+        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connManager == null) {
             return false;
-        return cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
-
+        }
+        NetworkInfo networkInfo = null;
+        try {
+            networkInfo = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        } catch (Exception e) {
+            LogUtil.d(e.getMessage());
+        }
+        return (networkInfo != null && networkInfo.isConnected());
     }
 
     /**
