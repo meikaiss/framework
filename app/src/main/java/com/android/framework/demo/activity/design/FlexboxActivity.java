@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
@@ -50,7 +49,7 @@ public class FlexboxActivity extends BaseCompactActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.btn_change:
 
-                imageView.setImageResource(R.drawable.toutiao__news_ic_video_selected);
+                imageView.setImageResource(R.drawable.home__news_ic_video_selected);
 
                 PropertyValuesHolder pvhAlpha = PropertyValuesHolder.ofFloat("alpha", 0.3f, 1f);
                 PropertyValuesHolder pvhScaleX = PropertyValuesHolder.ofFloat("scaleX", 0.3f, 1f);

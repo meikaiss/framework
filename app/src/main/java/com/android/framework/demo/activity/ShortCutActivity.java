@@ -88,7 +88,7 @@ public class ShortCutActivity extends BaseCompactActivity {
                 findViewById(R.id.img_short_icon).setBackgroundDrawable(new BitmapDrawable(bitmap));
                 addShortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON, bitmap);
 
-                Uri uri = Uri.parse("mucang-qichetoutiao://gateway?navUrl=nav.meikai.sayyou8" + name);
+                Uri uri = Uri.parse("test_scheme://gateway?navUrl=nav.meikai.sayyou8" + name);
                 Intent launcherIntent = new Intent();
                 launcherIntent.setAction(Intent.ACTION_VIEW);
                 launcherIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

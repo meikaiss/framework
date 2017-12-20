@@ -224,7 +224,7 @@
 
                 <data
                     android:host="gateway"
-                    android:scheme="mucang-qichetoutiao"/>
+                    android:scheme="test_scheme"/>
             </intent-filter>
         </activity>
         <activity
