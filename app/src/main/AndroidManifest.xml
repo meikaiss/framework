@@ -238,6 +238,7 @@
         <activity android:name=".activity.recyclerDecorat.RecyclerViewActivity"/>
         <activity android:name=".activity.ConstraintLayoutActivity"/>
         <activity android:name=".activity.DecimalFormatActivity"/>
+        <activity android:name=".activity.CustomDrawableActivity"/>
 
 
 

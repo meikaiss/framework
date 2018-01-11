@@ -14,6 +14,7 @@ import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
+import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
@@ -96,6 +97,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            CustomDrawableActivity.class,
             DecimalFormatActivity.class,
             ConstraintLayoutActivity.class,
             GlideActivity.class,
