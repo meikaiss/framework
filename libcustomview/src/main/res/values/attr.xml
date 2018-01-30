@@ -131,4 +131,11 @@
         <attr name="height_scale" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="RangeSeekBar">
+        <attr name="bgDrawableRes" format="integer"/>
+        <attr name="thumbDrawableRes" format="integer"/>
+        <attr name="dpGap" format="dimension"/>
+    </declare-styleable>
+
+
 </resources>

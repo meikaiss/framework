@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#000"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColor="#fff"/>
+
+    <com.android.framework.customview.view.RangeSeekBar
+        android:id="@+id/rang_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        app:bgDrawableRes="@drawable/asgard__voice_control_bg"
+        app:dpGap="10dp"
+        app:thumbDrawableRes="@drawable/asgard__voice_control_thumb"/>
+
+
+</LinearLayout>

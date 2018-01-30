@@ -1,6 +1,7 @@
 package com.android.framework.demo;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
@@ -73,6 +75,7 @@ import com.android.framework.demo.activity.viewdemo.MarqueeViewActivity;
 import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.demo.activity.viewdemo.RangeSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
 import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
 import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
@@ -97,6 +100,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            RangeSeekBarActivity.class,
             CustomDrawableActivity.class,
             DecimalFormatActivity.class,
             ConstraintLayoutActivity.class,
@@ -185,6 +189,18 @@ public class MainActivity extends BaseCompactActivity {
 
         listView = f(R.id.demo_list_view);
 
+        String[] abis;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            abis = Build.SUPPORTED_ABIS;
+        } else {
+            abis = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+        }
+        StringBuilder abiStr = new StringBuilder();
+        for (String abi : abis) {
+            abiStr.append(abi);
+            abiStr.append(',');
+        }
+        Toast.makeText(this, abiStr, Toast.LENGTH_SHORT).show();
     }
 
     @Override

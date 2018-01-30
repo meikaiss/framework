@@ -239,6 +239,7 @@
         <activity android:name=".activity.ConstraintLayoutActivity"/>
         <activity android:name=".activity.DecimalFormatActivity"/>
         <activity android:name=".activity.CustomDrawableActivity"/>
+        <activity android:name=".activity.viewdemo.RangeSeekBarActivity"/>
 
 
 

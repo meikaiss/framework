@@ -11,10 +11,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
-import android.widget.ImageView;
 
 import com.android.framework.R;
 
@@ -24,7 +24,7 @@ import java.lang.ref.WeakReference;
  * Created by meikai on 15/10/16.
  * 基于 Xfermode
  */
-public class CircleImageView2 extends ImageView {
+public class CircleImageView2 extends AppCompatImageView {
 
     private Paint mPaint;
     private Xfermode mXfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
@@ -146,8 +146,6 @@ public class CircleImageView2 extends ImageView {
 
     /**
      * 绘制形状
-     *
-     * @return
      */
     public Bitmap getBitmap() {
         Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(),
