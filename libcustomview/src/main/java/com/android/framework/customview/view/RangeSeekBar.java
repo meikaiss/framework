@@ -24,7 +24,7 @@ import com.android.framework.customview.R;
  */
 public class RangeSeekBar extends View {
 
-    private Bitmap bitmapBgoriginal;
+    private Bitmap bitmapBgOriginal; // 原始的未经压缩的bitmap，当背景图过大时需要压缩背景图
     private Bitmap bitmapBg;
     private Bitmap bitmapThumb;
 
@@ -82,8 +82,8 @@ public class RangeSeekBar extends View {
         thumbMarginTop = arr.getDimensionPixelSize(R.styleable.RangeSeekBar_dpGap, 0);
         arr.recycle();
 
-        bitmapBgoriginal = BitmapFactory.decodeResource(getContext().getResources(), bgDrawableResId);
-        bitmapBg = Bitmap.createBitmap(bitmapBgoriginal);
+        bitmapBgOriginal = BitmapFactory.decodeResource(getContext().getResources(), bgDrawableResId);
+        bitmapBg = Bitmap.createBitmap(bitmapBgOriginal);
         bitmapThumb = BitmapFactory.decodeResource(getContext().getResources(), thumbDrawableId);
 
         paint = new Paint();
@@ -131,24 +131,32 @@ public class RangeSeekBar extends View {
             return;
         }
 
-        // 如果 测量出的控件宽度小于 背景图片宽度，则需要将背景图片宽度压缩
-        if (measuredHeight != 0 && bitmapBgoriginal.getWidth() != 0 && measuredHeight < bitmapBgoriginal.getHeight()) {
-            int newWidth = measuredWidth;
-            int newHeight = (int) ((float) bitmapBgoriginal.getHeight() * newWidth / bitmapBgoriginal.getWidth()
+        if (measuredHeight != 0 && bitmapBgOriginal.getWidth() != 0 && measuredWidth < bitmapBgOriginal.getWidth()) {
+            // 如果 控件宽度 小于 背景图片宽度，则需要将背景图片宽度压缩
+
+            int newWidth = measuredWidth - bitmapThumb.getWidth();//左右预留一半滑块的宽度
+            int newHeight = (int) ((float) bitmapBgOriginal.getHeight() * newWidth / bitmapBgOriginal.getWidth()
                     + 0.5f);
             if (newWidth > 0 && newHeight > 0) {
-                bitmapBg = Bitmap.createScaledBitmap(bitmapBgoriginal, newWidth, newHeight, false);
+                bitmapBg = Bitmap.createScaledBitmap(bitmapBgOriginal, newWidth, newHeight, false);
             }
-        } else {
-            bitmapBg = Bitmap.createBitmap(bitmapBgoriginal);
-        }
 
-        //背景图的 两个 Rect
-        bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
-        if (paddingHorizontal > 0) {
-            bgDstRect = new Rect(paddingHorizontal, 0, paddingHorizontal + bitmapBg.getWidth(), bitmapBg.getHeight());
+            //背景图的 两个 Rect
+            bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
+            bgDstRect = new Rect(bitmapThumb.getWidth() / 2, 0, bitmapThumb.getWidth() / 2 + bitmapBg.getWidth(),
+                    bitmapBg.getHeight());
         } else {
-            bgDstRect = bgSrcRect;
+            // 如果 控件宽度 大于 背景图片宽度
+            bitmapBg = Bitmap.createBitmap(bitmapBgOriginal);
+
+            //背景图的 两个 Rect
+            bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
+            if (paddingHorizontal > 0) {
+                bgDstRect = new Rect(paddingHorizontal, 0, paddingHorizontal + bitmapBg.getWidth(),
+                        bitmapBg.getHeight());
+            } else {
+                bgDstRect = bgSrcRect;
+            }
         }
 
         //滑块的 两个 Rect

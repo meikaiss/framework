@@ -13,14 +13,68 @@
         android:layout_marginTop="40dp"
         android:textColor="#fff"/>
 
-    <com.android.framework.customview.view.RangeSeekBar
-        android:id="@+id/rang_seek_bar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="200dp"
-        app:bgDrawableRes="@drawable/asgard__voice_control_bg"
-        app:dpGap="10dp"
-        app:thumbDrawableRes="@drawable/asgard__voice_control_thumb"/>
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:background="#f00"/>
+
+        <com.android.framework.customview.view.RangeSeekBar
+            android:id="@+id/rang_seek_bar"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            app:bgDrawableRes="@drawable/asgard__voice_control_bg"
+            app:dpGap="10dp"
+            app:thumbDrawableRes="@drawable/asgard__voice_control_thumb"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:background="#f00"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp">
+
+
+        <com.android.framework.customview.view.RangeSeekBar
+            android:id="@+id/rang_seek_bar_2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:bgDrawableRes="@drawable/asgard__voice_control_bg"
+            app:dpGap="10dp"
+            app:thumbDrawableRes="@drawable/asgard__voice_control_thumb"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <com.android.framework.customview.view.RangeSeekBar
+            android:id="@+id/rang_seek_bar_3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:bgDrawableRes="@drawable/asgard__voice_control_bg"
+            app:dpGap="10dp"
+            app:thumbDrawableRes="@drawable/asgard__voice_control_thumb"/>
+
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击设置"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>
