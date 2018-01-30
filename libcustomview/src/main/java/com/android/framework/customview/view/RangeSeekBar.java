@@ -351,6 +351,12 @@ public class RangeSeekBar extends View {
             thumbDstRect = new Rect(thumbLeft, thumbTop, thumbLeft + bitmapThumb.getWidth(),
                     thumbTop + bitmapThumb.getHeight());
 
+            if (onDragChangeListener != null) {
+                float startPosition = (float) leftWhiteRect.width() / bgDstRect.width() * audioDuration;
+                float endPosition = startPosition + videoDuration;
+                onDragChangeListener.onDragChange((long) (startPosition + 0.5f), (long) (endPosition + 0.5f));
+            }
+
             invalidate();
         }
     }
