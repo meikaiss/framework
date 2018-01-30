@@ -133,7 +133,6 @@ public class RangeSeekBar extends View {
 
         if (measuredHeight != 0 && bitmapBgOriginal.getWidth() != 0 && measuredWidth < bitmapBgOriginal.getWidth()) {
             // 如果 控件宽度 小于 背景图片宽度，则需要将背景图片宽度压缩
-
             int newWidth = measuredWidth - bitmapThumb.getWidth();//左右预留一半滑块的宽度
             int newHeight = (int) ((float) bitmapBgOriginal.getHeight() * newWidth / bitmapBgOriginal.getWidth()
                     + 0.5f);
@@ -149,13 +148,30 @@ public class RangeSeekBar extends View {
             // 如果 控件宽度 大于 背景图片宽度
             bitmapBg = Bitmap.createBitmap(bitmapBgOriginal);
 
-            //背景图的 两个 Rect
-            bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
-            if (paddingHorizontal > 0) {
-                bgDstRect = new Rect(paddingHorizontal, 0, paddingHorizontal + bitmapBg.getWidth(),
-                        bitmapBg.getHeight());
+            if (measuredWidth - bitmapBgOriginal.getWidth() >= bitmapThumb.getWidth()) {
+                //控件宽度两侧 足以 容纳半个滑块宽度
+
+                //背景图的 两个 Rect
+                bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
+                if (paddingHorizontal > 0) {
+                    bgDstRect = new Rect(paddingHorizontal, 0, paddingHorizontal + bitmapBg.getWidth(),
+                            bitmapBg.getHeight());
+                } else {
+                    bgDstRect = bgSrcRect;
+                }
             } else {
-                bgDstRect = bgSrcRect;
+                //控件宽度两侧 不足以 容纳半个滑块宽度，则仍然需要将背景图压缩，使两侧足以容纳半个滑块的宽度
+                int newWidth = measuredWidth - bitmapThumb.getWidth();//左右预留一半滑块的宽度
+                int newHeight = (int) ((float) bitmapBgOriginal.getHeight() * newWidth / bitmapBgOriginal.getWidth()
+                        + 0.5f);
+                if (newWidth > 0 && newHeight > 0) {
+                    bitmapBg = Bitmap.createScaledBitmap(bitmapBgOriginal, newWidth, newHeight, false);
+                }
+
+                //背景图的 两个 Rect
+                bgSrcRect = new Rect(0, 0, bitmapBg.getWidth(), bitmapBg.getHeight());
+                bgDstRect = new Rect(bitmapThumb.getWidth() / 2, 0, bitmapThumb.getWidth() / 2 + bitmapBg.getWidth(),
+                        bitmapBg.getHeight());
             }
         }
 
