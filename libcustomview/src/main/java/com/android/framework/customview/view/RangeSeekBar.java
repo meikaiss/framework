@@ -20,6 +20,7 @@ import com.android.framework.customview.R;
 
 
 /**
+ * 左右双端不能移动，但有效区域可以移动的范围选择控件
  * Created by meikai on 2018/01/29.
  */
 public class RangeSeekBar extends View {

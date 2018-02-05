@@ -75,6 +75,7 @@ import com.android.framework.demo.activity.viewdemo.MarqueeViewActivity;
 import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.demo.activity.viewdemo.RangeSeekBar2Activity;
 import com.android.framework.demo.activity.viewdemo.RangeSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
 import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
@@ -100,6 +101,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            RangeSeekBar2Activity.class,
             RangeSeekBarActivity.class,
             CustomDrawableActivity.class,
             DecimalFormatActivity.class,

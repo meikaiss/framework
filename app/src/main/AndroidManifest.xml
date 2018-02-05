@@ -240,6 +240,7 @@
         <activity android:name=".activity.DecimalFormatActivity"/>
         <activity android:name=".activity.CustomDrawableActivity"/>
         <activity android:name=".activity.viewdemo.RangeSeekBarActivity"/>
+        <activity android:name=".activity.viewdemo.RangeSeekBar2Activity"/>
 
 
 

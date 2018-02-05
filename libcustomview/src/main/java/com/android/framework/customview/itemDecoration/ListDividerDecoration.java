@@ -15,14 +15,14 @@ import com.android.framework.util.DensityUtil;
  */
 public class ListDividerDecoration extends RecyclerView.ItemDecoration {
 
-    private int margin = 0;
+    private int marginLeftRight = 0;
 
     private int dividerHeight = 0;
 
     private Paint dividerPaint;
 
     public ListDividerDecoration(Context context) {
-        margin = DensityUtil.dp2px(context, 12);
+        marginLeftRight = DensityUtil.dp2px(context, 12);
         dividerHeight = 1; //  分割线高度 固定为 1px
 
         dividerPaint = new Paint();
@@ -52,8 +52,8 @@ public class ListDividerDecoration extends RecyclerView.ItemDecoration {
         super.onDraw(c, parent, state);
 
         int childCount = parent.getChildCount();
-        int left = parent.getPaddingLeft() + margin;
-        int right = parent.getWidth() - parent.getPaddingRight() - margin;
+        int left = parent.getPaddingLeft() + marginLeftRight;
+        int right = parent.getWidth() - parent.getPaddingRight() - marginLeftRight;
 
         for (int i = 0; i < childCount - 1; i++) {
             View view = parent.getChildAt(i);
