@@ -241,6 +241,9 @@
         <activity android:name=".activity.CustomDrawableActivity"/>
         <activity android:name=".activity.viewdemo.RangeSeekBarActivity"/>
         <activity android:name=".activity.viewdemo.RangeSeekBar2Activity"/>
+        <activity android:name=".activity.viewdemo.CameraShootButtonActivity"/>
+        <activity android:name=".activity.viewdemo.DouYinSeekViewActivity"/>
+        <activity android:name=".activity.YouKuLinkActivity"/>
 
 
 

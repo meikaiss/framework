@@ -18,6 +18,8 @@ import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
+import com.android.framework.demo.activity.YouKuLinkActivity;
+import com.android.framework.demo.activity.viewdemo.DouYinSeekViewActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
 import com.android.framework.demo.activity.ListViewActivity;
@@ -60,6 +62,7 @@ import com.android.framework.demo.activity.shader.ShaderActivity;
 import com.android.framework.demo.activity.themechange.ThemeChangeActivity;
 import com.android.framework.demo.activity.utildemo.PermissionUtilDemoActivity;
 import com.android.framework.demo.activity.viewdemo.BounceLoadingActivity;
+import com.android.framework.demo.activity.viewdemo.CameraShootButtonActivity;
 import com.android.framework.demo.activity.viewdemo.CircleLoadingActivity;
 import com.android.framework.demo.activity.viewdemo.DragScoreViewActivity;
 import com.android.framework.demo.activity.viewdemo.ExplosionActivity;
@@ -101,6 +104,9 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            YouKuLinkActivity.class,
+            DouYinSeekViewActivity.class,
+            CameraShootButtonActivity.class,
             RangeSeekBar2Activity.class,
             RangeSeekBarActivity.class,
             CustomDrawableActivity.class,
