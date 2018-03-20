@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,user-scalable=no">
+    <script>(function(doc,win){var docEl=doc.documentElement;var resizeEvt='orientationchange'in window?'orientationchange':'resize';var reCalc=function(){var clientWidth=docEl.clientWidth;if(!clientWidth)return;win.baseFontSize=100*(clientWidth/750);docEl.style.fontSize=win.baseFontSize+'px'};if(!doc.addEventListener)return;reCalc();win.addEventListener(resizeEvt,reCalc,false);doc.addEventListener('DOMContentLoaded',reCalc,false)})(document,window);</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="applicable-device" content="mobile" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="format-detection" content="telephone=no,email=no,adress=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="simple-application" content="travel:application/home/main">
+    <script>var _hmt = _hmt || [];</script>
+    <style>
+        .page-loading{
+            position: fixed; top:0; left: 0; width: 100%; height: 100%; z-index:100000;
+        }
+
+        .page-loading span{
+            position: absolute; left:0; top:0; width: 100%; height: 100%; background: #fff;
+        }
+
+        .page-loading:before{
+             display: block; content: ""; width: 40px; height: 40px; position: absolute; left: 50%; top:50%; margin-left: -20px; margin-top: -20px;
+             background-image: url(static/img_loading.png); background-size: contain; background-repeat: no-repeat;
+             animation: roateing 1.3s linear 0s infinite;
+             -moz-animation: roateing 1.3s linear 0s infinite;
+             -webkit-animation: roateing 1.3s linear 0s infinite;
+         }
+
+        @-webkit-keyframes roateing{
+            0%   {-webkit-transform: rotate(0deg);}
+            100% {-webkit-transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+<!--<div class="page-loading"></div>-->
+<h1>下面是优酷</h1>
+<!--<iframe height=498 width=510 src='http://player.youku.com/embed/XMzQ3NzQ4NjY2MA==' frameborder=0 allowfullscreen></iframe>-->
+<iframe width="100%" src="http://player.youku.com/embed/XMzQ3NzQ4NjY2MA==" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>
