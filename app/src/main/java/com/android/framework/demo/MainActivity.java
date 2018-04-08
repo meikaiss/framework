@@ -110,6 +110,9 @@ public class MainActivity extends BaseCompactActivity {
             ViewDragHelperActivity.class,
             GalleryRecyclerViewActivity.class,
             RequestTestActivity.class,
+
+
+
             ListViewActivity.class,
             ShortCutActivity.class,
             TouchFloatActivity.class,
