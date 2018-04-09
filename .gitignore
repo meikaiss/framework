@@ -1,6 +1,7 @@
 .gradle
 .idea
 build
+captures
 
 .DS_Store
 

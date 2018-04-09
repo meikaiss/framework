@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root_1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f00"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/root_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff0"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false"
+            android:text="横屏时适配华为虚拟导航栏----横屏时适配华为虚拟导航栏----横屏时适配华为虚拟导航栏----横屏时适配华为虚拟导航栏----横屏时适配华为虚拟导航栏----横屏时适配华为虚拟导航栏----"/>
+
+        <Button
+            android:id="@+id/btn_2_lan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            android:text="设为横屏"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

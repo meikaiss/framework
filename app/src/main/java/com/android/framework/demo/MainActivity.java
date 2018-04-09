@@ -18,6 +18,7 @@ import com.android.framework.demo.activity.BottomBarActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
+import com.android.framework.demo.activity.HuaWeiNavBarActivity;
 import com.android.framework.demo.activity.YouKuLinkActivity;
 import com.android.framework.demo.activity.viewdemo.DouYinSeekViewActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
@@ -104,6 +105,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            HuaWeiNavBarActivity.class,
             YouKuLinkActivity.class,
             DouYinSeekViewActivity.class,
             CameraShootButtonActivity.class,
