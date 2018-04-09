@@ -103,7 +103,7 @@ public class MainActivity extends BaseCompactActivity {
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private ListView listView;
-
+    //写个注释
     private Class<?>[] classes = {
             HuaWeiNavBarActivity.class,
             YouKuLinkActivity.class,
