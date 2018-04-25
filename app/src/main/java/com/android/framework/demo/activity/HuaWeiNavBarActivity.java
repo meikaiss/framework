@@ -85,8 +85,6 @@ public class HuaWeiNavBarActivity extends AppCompatActivity {
                                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                                 View.SYSTEM_UI_FLAG_IMMERSIVE);
 
-                ((ViewGroup) window.getDecorView()).getChildAt(1).setVisibility(View.GONE);
-
 //                findViewById(R.id.tv_word).setPadding(0, 0, 0, 0);
 
 //                findViewById(R.id.tv_word).requestLayout();

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#666"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="120dp"
+        android:layout_height="200dp"
+        android:clipChildren="false">
+
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#f00"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="10dp"
+                android:background="#0f0"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="作用1：clipChildren 作用于爷ViewGroup，用于限制“爷爷ViewGroup的孙子View”是否可以超出“孙子View的父ViewGroup”的范围，默认为true即不可以。
+
+作用2：孙子View虽然能显示超出 其父ViewGroup , 但不会 超出 其爷爷ViewGroup。   这是需要注意的地方."/>
+
+</LinearLayout>

@@ -15,6 +15,7 @@ import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.ClipChildrenActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
@@ -105,6 +106,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
     //写个注释
     private Class<?>[] classes = {
+            ClipChildrenActivity.class,
             HuaWeiNavBarActivity.class,
             YouKuLinkActivity.class,
             DouYinSeekViewActivity.class,
