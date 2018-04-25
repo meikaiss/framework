@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * 颜色处理工具类
+ * 颜色工具类
  */
 public class ColorUtils {
 

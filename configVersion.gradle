@@ -2,7 +2,7 @@ ext {
 
     jdkVersion = JavaVersion.VERSION_1_8
 
-    supportVersion = "27.0.2"
+    supportVersion = "27.1.1"
 
     android = [
             compileSdkVersion: "27" as int,

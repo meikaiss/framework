@@ -9,6 +9,7 @@ import com.android.framework.demo.R;
 import com.android.framework.util.LogUtil;
 
 /**
+ * 测试Fragment中 startActivityForResult 后，此Fragment和它所在的Activity能否onActivityResult，且request是否正确
  * Created by meikai on 2017/11/07.
  */
 public class AActivity extends AppCompatActivity {
