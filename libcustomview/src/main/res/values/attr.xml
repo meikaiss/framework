@@ -124,6 +124,9 @@
     <declare-styleable name="ScaleRelativeLayout">
         <attr name="relative_layout_width_scale" format="integer"/>
         <attr name="relative_layout_height_scale" format="integer"/>
+        <attr name="relative_layout_scale_wh" format="string"/>
+        <attr name="relative_layout_span_count" format="integer"/>
+        <attr name="relative_layout_span_divider" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="ScaleImageView">
