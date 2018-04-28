@@ -7,6 +7,10 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by meikai on 16/1/12.
@@ -16,8 +20,7 @@ public class BitmapUtil {
 
     public static Bitmap getThumbBitmap(String absolutePath, int squareWidth) {
         Bitmap bitmapReal = BitmapFactory.decodeFile(absolutePath);
-        if (bitmapReal == null)
-            return null;
+        if (bitmapReal == null) { return null; }
 
         Bitmap centerSquareScaleBitmap = centerSquareScaleBitmap(bitmapReal, squareWidth);
         bitmapReal.recycle();
@@ -28,7 +31,7 @@ public class BitmapUtil {
     /**
      * 将给定图片维持宽高比缩放后，截取正中间的正方形部分。
      *
-     * @param bitmap     原图
+     * @param bitmap 原图
      * @param edgeLength 希望得到的正方形部分的边长
      * @return 缩放截取正中部分后的位图。
      */
@@ -80,7 +83,7 @@ public class BitmapUtil {
 
                 drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
 
-                        : Bitmap.Config.RGB_565);
+                                                            : Bitmap.Config.RGB_565);
 
         Canvas canvas = new Canvas(bitmap);
 
@@ -125,8 +128,35 @@ public class BitmapUtil {
         int alphaLeft = iAlpha10 / 16;
         int alphaRight = iAlpha10 % 16;
 
-        return (alphaLeft < 10 ? String.valueOf(alphaLeft) : flag[alphaLeft - 10]) + (alphaRight < 10 ? String.valueOf(alphaRight) : flag[alphaRight - 10]);
+        return (alphaLeft < 10 ? String.valueOf(alphaLeft) : flag[alphaLeft - 10]) + (alphaRight < 10 ? String
+                .valueOf(alphaRight) : flag[alphaRight - 10]);
     }
 
+
+    /**
+     * bitmap保存到本地文件系统中
+     *
+     * @param fileDirPath 保存的文件路径
+     */
+    public static File saveImage(Bitmap bmp, String fileDirPath) {
+        File appDir = new File(fileDirPath);
+        if (!appDir.exists()) {
+            appDir.mkdir();
+        }
+        String fileName = System.currentTimeMillis() + ".png";
+        File file = new File(appDir, fileName);
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return file;
+    }
 
 }
