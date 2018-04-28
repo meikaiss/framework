@@ -24,7 +24,5 @@ public class YouKuLinkActivity extends AppCompatActivity {
 
         webView.loadUrl("file:///android_asset/webview/demo/youku_test.html");
 
-//        webView.loadUrl("http://192.168.0.126/mucang/qichetoutiao-webfront/travel-nav.toutiao.com/testyouku.html");
-
     }
 }
