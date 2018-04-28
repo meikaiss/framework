@@ -15,10 +15,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 多段渐变Drawable
+ * 垂直方向的多段渐变Drawable
  * Created by meikai on 2018/01/11.
  */
 public class MultiGradientDrawable extends Drawable {
+
+    /**
+     * 用法用例
+     *
+     * List<Integer> colorList = new ArrayList<>();
+     * colorList.add(0x00000000);
+     * colorList.add(0x1a000000);
+     * colorList.add(0x33000000);
+     * colorList.add(0x4D000000);
+     *
+     * List<Float> fracList = new ArrayList<>();
+     * fracList.add(0f);
+     * fracList.add(1 / 3f);
+     * fracList.add(2 / 3f);
+     * fracList.add(1f);
+     * MultiGradientDrawable drawable = new MultiGradientDrawable(colorList, fracList);
+     * botLayoutViewMode.setBackground(drawable);
+     */
 
     private List<Integer> colorList;
     private List<Float> fracList;
@@ -89,4 +107,5 @@ public class MultiGradientDrawable extends Drawable {
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
     }
+
 }
