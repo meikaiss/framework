@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.android.framework.demo"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".DebugDemoApplication"
+        tools:replace="android:name"/>
+
+</manifest>
