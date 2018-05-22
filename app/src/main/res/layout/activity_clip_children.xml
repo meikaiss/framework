@@ -27,12 +27,28 @@
 
     </FrameLayout>
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="作用1：clipChildren 作用于爷ViewGroup，用于限制“爷爷ViewGroup的孙子View”是否可以超出“孙子View的父ViewGroup”的范围，默认为true即不可以。
+        android:text="android:clipChildren=false的用法"
+        android:textAllCaps="false"/>
 
-作用2：孙子View虽然能显示超出 其父ViewGroup , 但不会 超出 其爷爷ViewGroup。   这是需要注意的地方."/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="作用1：clipChildren 作用于爷ViewGroup，用于限制“爷爷ViewGroup的孙子View”是否可以超出“孙子View的父ViewGroup”的范围，默认为true即不可以。"
+        android:textAllCaps="false"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="作用2：孙子View虽然能显示超出 其父ViewGroup , 但不会 超出 其爷爷ViewGroup。   这是需要注意的地方."
+        android:textAllCaps="false"/>
 
 </LinearLayout>
