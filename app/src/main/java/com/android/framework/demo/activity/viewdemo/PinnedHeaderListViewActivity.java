@@ -57,11 +57,13 @@ public class PinnedHeaderListViewActivity extends BaseCompactActivity {
 
         @Override
         public Object getItem(int section, int position) {
+            // TODO Auto-generated method stub
             return null;
         }
 
         @Override
         public long getItemId(int section, int position) {
+            // TODO Auto-generated method stub
             return 0;
         }
 

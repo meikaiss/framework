@@ -20,17 +20,17 @@ android {
 }
 
 dependencies {
-    testImplementation rootProject.ext.dependencies["junit"]
+    testCompile rootProject.ext.dependencies["junit"]
 
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    api rootProject.ext.dependencies["appcompat-v7"]
-    api rootProject.ext.dependencies["design"]
-    api rootProject.ext.dependencies["recyclerview-v7"]
-    api rootProject.ext.dependencies["cardview-v7"]
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["recyclerview-v7"]
+    compile rootProject.ext.dependencies["cardview-v7"]
 
-    api rootProject.ext.dependencies["systembartint"]
+    compile rootProject.ext.dependencies["systembartint"]
 
-    api project(':libutil')
+    compile project(':libutil')
 
 }

@@ -51,7 +51,6 @@ public class BitmapUtil {
 
     /**
      * 将给定图片维持宽高比缩放后，截取正中间的正方形部分。
-     * 注意：edgeLength需要小于 bitmap的最小边的边长，待优化
      *
      * @param bitmap 原图
      * @param edgeLength 希望得到的正方形部分的边长

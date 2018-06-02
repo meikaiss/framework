@@ -20,13 +20,13 @@ android {
 }
 
 dependencies {
-    testImplementation rootProject.ext.dependencies["junit"]
+    testCompile rootProject.ext.dependencies["junit"]
 
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':libframework')
+    compile project(':libframework')
 
-    api rootProject.ext.dependencies["appcompat-v7"]
-    api rootProject.ext.dependencies["Java-WebSocket"]
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["Java-WebSocket"]
 
 }
