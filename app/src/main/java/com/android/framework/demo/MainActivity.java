@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
@@ -200,19 +199,6 @@ public class MainActivity extends BaseCompactActivity {
         toolbar = f(R.id.toolbar);
 
         listView = f(R.id.demo_list_view);
-
-        String[] abis;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            abis = Build.SUPPORTED_ABIS;
-        } else {
-            abis = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
-        }
-        StringBuilder abiStr = new StringBuilder();
-        for (String abi : abis) {
-            abiStr.append(abi);
-            abiStr.append(',');
-        }
-        Toast.makeText(this, abiStr, Toast.LENGTH_SHORT).show();
     }
 
     @Override
