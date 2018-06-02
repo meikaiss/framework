@@ -35,7 +35,6 @@ public class MediaPlayManager {
             mediaPlayer.start();
         } catch (IllegalArgumentException | SecurityException
                 | IllegalStateException | IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

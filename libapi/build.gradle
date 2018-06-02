@@ -20,10 +20,10 @@ android {
 }
 
 dependencies {
-    testCompile rootProject.ext.dependencies["junit"]
+    testImplementation rootProject.ext.dependencies["junit"]
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile rootProject.ext.dependencies["okhttp"]
-    compile rootProject.ext.dependencies["fastjson"]
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["fastjson"]
 }
