@@ -21,4 +21,10 @@ public class LogUtil {
         Log.w(TAG, msg);
     }
 
+
+
+    public static void d(String tag, String msg) {
+        Log.d(tag, msg);
+    }
+
 }

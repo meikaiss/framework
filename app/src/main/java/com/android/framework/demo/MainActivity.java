@@ -201,18 +201,6 @@ public class MainActivity extends BaseCompactActivity {
 
         listView = f(R.id.demo_list_view);
 
-        String[] abis;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            abis = Build.SUPPORTED_ABIS;
-        } else {
-            abis = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
-        }
-        StringBuilder abiStr = new StringBuilder();
-        for (String abi : abis) {
-            abiStr.append(abi);
-            abiStr.append(',');
-        }
-        Toast.makeText(this, abiStr, Toast.LENGTH_SHORT).show();
     }
 
     @Override
