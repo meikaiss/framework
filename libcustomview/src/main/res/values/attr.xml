@@ -140,5 +140,9 @@
         <attr name="dpGap" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="SingleSeekBar">
+        <attr name="singleThumbDrawableRes" format="integer"/>
+    </declare-styleable>
+
 
 </resources>
