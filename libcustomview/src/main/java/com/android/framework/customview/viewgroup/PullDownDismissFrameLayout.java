@@ -23,7 +23,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 /**
  * Created by meikai on 16/10/13.
@@ -107,7 +107,7 @@ public class PullDownDismissFrameLayout extends FrameLayout {
 
     private void init(Context context) {
         bgColorInterpolator = new LinearInterpolator();
-        effectivePullDownY = DensityUtil.dp2px(getContext(), 100);
+        effectivePullDownY = DimenUtil.dp2px(getContext(), 100);
 
         scroller = new Scroller(getContext(), sInterpolator);
 

@@ -19,12 +19,12 @@ android {
 }
 
 dependencies {
-    testCompile rootProject.ext.dependencies["junit"]
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation rootProject.ext.dependencies["junit"]
+    api fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile files('libs/pldroid-player-1.2.1.jar')
+    api files('libs/pldroid-player-1.2.1.jar')
 
-    compile rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["appcompat-v7"]
 
-    compile project(':libutil')
+    api project(':libutil')
 }

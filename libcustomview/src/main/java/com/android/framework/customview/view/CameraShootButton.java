@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 import com.android.framework.util.LogUtil;
 
 /**
@@ -98,7 +98,7 @@ public class CameraShootButton extends View {
 
 
     private int dp2px(int dpValue) {
-        return DensityUtil.dp2px(getContext(), dpValue);
+        return DimenUtil.dp2px(getContext(), dpValue);
     }
 
     private void log(String msg) {

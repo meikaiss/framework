@@ -28,11 +28,11 @@ android {
 }
 
 dependencies {
-    testCompile rootProject.ext.dependencies["junit"]
+    testImplementation rootProject.ext.dependencies["junit"]
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["appcompat-v7"]
 }
 
 tasks.withType(JavaCompile) {

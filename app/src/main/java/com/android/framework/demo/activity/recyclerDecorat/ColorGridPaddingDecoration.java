@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 import com.android.framework.util.LogUtil;
 
 /**
@@ -25,7 +25,7 @@ public class ColorGridPaddingDecoration extends RecyclerView.ItemDecoration {
         dividerPaint = new Paint();
         dividerPaint.setColor(Color.BLUE);
 
-        dividerDimen = DensityUtil.dp2px(context, 20)/2;
+        dividerDimen = DimenUtil.dp2px(context, 20)/2;
     }
 
     @Override

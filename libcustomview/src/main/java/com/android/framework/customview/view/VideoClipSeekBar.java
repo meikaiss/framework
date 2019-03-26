@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 import com.android.framework.util.ScreenUtil;
 
 /**
@@ -62,7 +62,7 @@ public class VideoClipSeekBar extends View {
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 
-        thumbWidth = DensityUtil.dp2px(context, 10);
+        thumbWidth = DimenUtil.dp2px(context, 10);
 
         paint = new Paint();
         paint.setColor(0xFFFFC300);

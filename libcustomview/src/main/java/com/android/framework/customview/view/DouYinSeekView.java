@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 import com.android.framework.util.LogUtil;
 
 /**
@@ -68,9 +68,9 @@ public class DouYinSeekView extends View {
         paint.setAntiAlias(true);
         paint.setDither(true);
 
-        thumbWidth = DensityUtil.dp2px(context, THUMB_WIDTH);
-        thumbCorner = DensityUtil.dp2px(context, THUMB_CORNER);
-        dragSlop = DensityUtil.dp2px(context, DRAG_SLOP);
+        thumbWidth = DimenUtil.dp2px(context, THUMB_WIDTH);
+        thumbCorner = DimenUtil.dp2px(context, THUMB_CORNER);
+        dragSlop = DimenUtil.dp2px(context, DRAG_SLOP);
 
         thumbRectF = new RectF();
         thumbRectFDraw = new RectF();

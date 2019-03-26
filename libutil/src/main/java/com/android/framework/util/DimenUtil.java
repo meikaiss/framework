@@ -7,10 +7,10 @@ import android.util.TypedValue;
 /**
  * Created by meikai on 15/10/16.
  */
-public class DensityUtil {
+public class DimenUtil {
 
 
-    private DensityUtil() {
+    private DimenUtil() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }

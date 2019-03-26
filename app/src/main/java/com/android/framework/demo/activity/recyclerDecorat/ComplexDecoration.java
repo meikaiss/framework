@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.android.framework.demo.R;
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 /**
  * Created by meikai on 2017/11/07.
@@ -36,8 +36,8 @@ public class ComplexDecoration extends RecyclerView.ItemDecoration {
         rightPaint = new Paint();
         rightPaint.setColor(Color.MAGENTA);
 
-        dp10 = DensityUtil.dp2px(context, 10);
-        tagWidth = DensityUtil.dp2px(context, 30);
+        dp10 = DimenUtil.dp2px(context, 10);
+        tagWidth = DimenUtil.dp2px(context, 30);
 
         dividerHeight = context.getResources().getDimensionPixelSize(R.dimen.decoration_padding);
     }

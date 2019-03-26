@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewParent;
 
 import com.android.framework.customview.R;
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +33,17 @@ public class PriceRangeView extends View {
 
     private Paint paint;
 
-    private int shadowBubbleHeight = DensityUtil.dp2px(getContext(), 30);
-    private int bubbleHeight = DensityUtil.dp2px(getContext(), 20);
-    private int bubbleMargin = DensityUtil.dp2px(getContext(), 0);
-    private int numberHeight = DensityUtil.dp2px(getContext(), 14);
-    private int scaleAreaHeight = DensityUtil.dp2px(getContext(), 40); //刻度区域高度
-    private int scaleAreaPadding = DensityUtil.dp2px(getContext(), 20);
-    private int scaleAreaOffset = DensityUtil.dp2px(getContext(), 30);
-    private int scaleUnitHeight = DensityUtil.dp2px(getContext(), 10); //刻度高度
-    private int scaleIntegerHeight = DensityUtil.dp2px(getContext(), 20); // 刻度整数高度
-    private int xMainHeight = DensityUtil.dp2px(getContext(), 5);
-    private int scaleWidth = DensityUtil.dp2px(getContext(), 1); //刻度粗细
+    private int shadowBubbleHeight = DimenUtil.dp2px(getContext(), 30);
+    private int bubbleHeight = DimenUtil.dp2px(getContext(), 20);
+    private int bubbleMargin = DimenUtil.dp2px(getContext(), 0);
+    private int numberHeight = DimenUtil.dp2px(getContext(), 14);
+    private int scaleAreaHeight = DimenUtil.dp2px(getContext(), 40); //刻度区域高度
+    private int scaleAreaPadding = DimenUtil.dp2px(getContext(), 20);
+    private int scaleAreaOffset = DimenUtil.dp2px(getContext(), 30);
+    private int scaleUnitHeight = DimenUtil.dp2px(getContext(), 10); //刻度高度
+    private int scaleIntegerHeight = DimenUtil.dp2px(getContext(), 20); // 刻度整数高度
+    private int xMainHeight = DimenUtil.dp2px(getContext(), 5);
+    private int scaleWidth = DimenUtil.dp2px(getContext(), 1); //刻度粗细
     private int scaleUnitCount = 0;
     private int scaleCount = 0;
 
@@ -72,7 +72,7 @@ public class PriceRangeView extends View {
     private volatile  int minValue = 4;
     private volatile int maxValue = 151;
 
-    private int slideRangeAreaOffset = DensityUtil.dp2px(getContext(), 20);//滑块点击区域偏移
+    private int slideRangeAreaOffset = DimenUtil.dp2px(getContext(), 20);//滑块点击区域偏移
 
     private static final int OFFSET_Y = 90;
 

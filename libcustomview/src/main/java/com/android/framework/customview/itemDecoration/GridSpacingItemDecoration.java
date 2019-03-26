@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 /**
  * 自适应任意列的 GridLayoutManager 的分割块 ItemDecoration
@@ -33,7 +33,7 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         this.dividerPaint = new Paint();
         this.dividerPaint.setColor(Color.BLUE);
 
-        this.dividerWidth = DensityUtil.dp2px(context, dividerWidthDp);
+        this.dividerWidth = DimenUtil.dp2px(context, dividerWidthDp);
         this.dividerWidthTop = dividerWidth / 2;
         this.dividerWidthBot = dividerWidth - dividerWidthTop;
     }

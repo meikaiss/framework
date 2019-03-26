@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 /**
  * 垂直方向 的 RecyclerView 分割线
@@ -22,7 +22,7 @@ public class ListDividerDecoration extends RecyclerView.ItemDecoration {
     private Paint dividerPaint;
 
     public ListDividerDecoration(Context context) {
-        marginLeftRight = DensityUtil.dp2px(context, 12);
+        marginLeftRight = DimenUtil.dp2px(context, 12);
         dividerHeight = 1; //  分割线高度 固定为 1px
 
         dividerPaint = new Paint();

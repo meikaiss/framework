@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.android.framework.util.DensityUtil;
+import com.android.framework.util.DimenUtil;
 
 /**
  * Created by meikai on 2017/12/28.
@@ -32,13 +32,13 @@ public class GridSpaceTopItemDecoration extends RecyclerView.ItemDecoration {
         this.dividerPaint = new Paint();
         this.dividerPaint.setColor(Color.BLUE);
 
-        this.dividerWidth = DensityUtil.dp2px(context, dividerWidthDp);
+        this.dividerWidth = DimenUtil.dp2px(context, dividerWidthDp);
         this.dividerWidthTop = dividerWidth / 2;
         this.dividerWidthBot = dividerWidth - dividerWidthTop;
 
         //第一行 距离 顶部 的 padding
         int paddingTopDp = 0;
-        this.dividerWidthTopFirstLine = DensityUtil.dp2px(context, paddingTopDp);
+        this.dividerWidthTopFirstLine = DimenUtil.dp2px(context, paddingTopDp);
 
         this.iDataProvider = iDataProvider;
     }

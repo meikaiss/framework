@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试自适应高度的ViewPager"/>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示"/>
+
+    <Button
+        android:id="@+id/btnStart2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示2"/>
+
+    <com.android.framework.customview.viewgroup.WrapHeightViewPager
+        android:id="@+id/wrap_height_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f00">
+
+    </com.android.framework.customview.viewgroup.WrapHeightViewPager>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#0ff"
+        android:text="用于告诉你ViewPager高度变化了"/>
+
+</LinearLayout>

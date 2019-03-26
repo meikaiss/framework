@@ -20,11 +20,11 @@ android {
 }
 
 dependencies {
-    testCompile rootProject.ext.dependencies["junit"]
+    testImplementation rootProject.ext.dependencies["junit"]
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile rootProject.ext.dependencies["support-annotations"]
-    compile rootProject.ext.dependencies["support-palette"]
-    compile rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["support-annotations"]
+    api rootProject.ext.dependencies["support-palette"]
+    api rootProject.ext.dependencies["support-v4"]
 }
