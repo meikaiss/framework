@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,6 +10,37 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:maxWidth="100dp"
-        android:text="您好，IM SDK会话分为以下几种1、C2C 会话，\n表示单聊情况自己与对方建立的对话，读取消息和发送消息都是通过会话完成。2、群会话，表示群聊情况下，群内成员组成的会话，群会话内发送消息群成员都可接收到。会话分组暂不支持，需要您自行处理UI，同步分组信息。" />
+        android:text="您好，IM SDK会话分为以下几种1、C2C 会话，\n表示单聊情况自己与对方建立的对话，读取消息和发送消息都是通" />
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#f00"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#ff0">
+
+        </LinearLayout>
+
+        <!--weight的父布局若为 wrap，则此weight会让父布局撑到最大-->
+        <com.android.framework.customview.view.WeightMaxHeightSpace
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0ff"
+            app:maxHeight="100dp" />
+
+        <com.android.framework.customview.view.WeightMaxHeightSpace
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ff0" />
+
+
+    </LinearLayout>
 
 </FrameLayout>

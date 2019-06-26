@@ -144,5 +144,9 @@
         <attr name="singleThumbDrawableRes" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="weight_max_height_space">
+        <attr name="maxHeight" format="dimension|reference" />
+    </declare-styleable>
+
 
 </resources>
