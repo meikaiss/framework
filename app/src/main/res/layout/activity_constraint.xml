@@ -1,40 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/constraint_layout_tip"/>
+        android:orientation="vertical">
 
-    <android.support.constraint.Guideline
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="#f00"
-        />
+        <!--chain的用法前提：
+        1、同一条chain上的所有View必须constraint左右相依，不同缺少一个，否则会出现莫名其妙的bug
+        2、链的样式 只能在 第一个 child 上设置，其后的child设置不能生效
+        -->
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="300dp"
-        android:background="#f00"
-        app:layout_constraintDimensionRatio="3:2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <!--chain场景一：直接在chain的第一个child上指定 chainStyle-->
+        <!--chain场景二：不在chain的第一个child上指定 chainStyle，但给chain上的各child指定weight，同时宽指定为0-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="测试123123adfadfdafadfadf"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="spread, 等分间隔，包含两端" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintLeft_toRightOf="@id/img1"
+                app:layout_constraintRight_toRightOf="@id/img3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintLeft_toRightOf="@id/img2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="权重链, 所有child宽或高为0" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--使用weight时，必须将链方向上的宽或高设为0dp-->
+            <!--横向上，指定宽度>0dp时，再指定weight；此时weight会失效，并且weight不参与兄弟view的 weight计算-->
+
+            <ImageView
+                android:id="@+id/img_s2_1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img_s2_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s2_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/img_s2_1"
+                app:layout_constraintRight_toLeftOf="@id/img_s2_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s2_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/img_s2_2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="权重链, 部分child宽或高为0" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_s3_1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img_s3_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s3_2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/img_s3_1"
+                app:layout_constraintRight_toLeftOf="@id/img_s3_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s3_3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintLeft_toRightOf="@id/img_s3_2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="spread_inside, 等分间隔，不包含两端" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_s4_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img_s4_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s4_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintLeft_toRightOf="@id/img_s4_1"
+                app:layout_constraintRight_toLeftOf="@id/img_s4_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s4_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintLeft_toRightOf="@id/img_s4_2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="packed, 内部相邻，整体居中，两端等分剩余空间" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--所有child紧邻 居中对齐-->
+
+            <ImageView
+                android:id="@+id/img_s5_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img_s5_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s5_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintLeft_toRightOf="@id/img_s5_1"
+                app:layout_constraintRight_toLeftOf="@id/img_s5_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s5_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintLeft_toRightOf="@id/img_s5_2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="packed, 内部相邻，整体居中，两端按bias比例分配剩余空间" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--所有child紧邻，但两端设置距离比例，只能在第一个child上设置-->
+
+            <ImageView
+                android:id="@+id/img_s6_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f00"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/img_s6_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s6_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ff0"
+                app:layout_constraintLeft_toRightOf="@id/img_s6_1"
+                app:layout_constraintRight_toLeftOf="@id/img_s6_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_s6_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0"
+                app:layout_constraintLeft_toRightOf="@id/img_s6_2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
