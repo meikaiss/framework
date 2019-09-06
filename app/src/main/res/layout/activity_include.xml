@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- include标签内不能设置RelativeLayout属性，如android:layout_alignParentBottom,因为不起作用 -->
+<!-- include标签内设置id属性后(android:id)，其引用的布局layout内的id属性就不起作用了，怀疑是其引用的layout外层包裹了一层include标签
+     或者是覆盖了其内的属性id-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f00"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/include_test"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#f0f"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/include_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#f0f"/>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <include
+            layout="@layout/include_test"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="#f0f"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
+
+        <include
+            layout="@layout/include_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#f0f"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

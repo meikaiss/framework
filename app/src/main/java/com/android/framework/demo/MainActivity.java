@@ -20,6 +20,7 @@ import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.HuaWeiNavBarActivity;
+import com.android.framework.demo.activity.IncludeActivity;
 import com.android.framework.demo.activity.WrapHeightViewPagerActivity;
 import com.android.framework.demo.activity.YouKuLinkActivity;
 import com.android.framework.demo.activity.viewdemo.DouYinSeekViewActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
     //写个注释
     private Class<?>[] classes = {
+            IncludeActivity.class,
             WrapHeightViewPagerActivity.class,
             ClipChildrenActivity.class,
             HuaWeiNavBarActivity.class,

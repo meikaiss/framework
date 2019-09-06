@@ -13,6 +13,10 @@ public class LogUtil {
         Log.e(TAG, msg);
     }
 
+    public static void e(String tag, String msg) {
+        Log.e(tag, msg);
+    }
+
     public static void d(String msg) {
         Log.d(TAG, msg);
     }

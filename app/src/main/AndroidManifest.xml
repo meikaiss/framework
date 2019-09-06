@@ -252,6 +252,7 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.ClipChildrenActivity"/>
         <activity android:name=".activity.WrapHeightViewPagerActivity"/>
+        <activity android:name=".activity.IncludeActivity"/>
 
 
         <!-- service 注册 -->
