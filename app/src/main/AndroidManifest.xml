@@ -253,6 +253,7 @@
         <activity android:name=".activity.ClipChildrenActivity"/>
         <activity android:name=".activity.WrapHeightViewPagerActivity"/>
         <activity android:name=".activity.IncludeActivity"/>
+        <activity android:name=".activity.customshape.CustomShapeViewGroupActivity"/>
 
 
         <!-- service 注册 -->

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar" />
+
+    <com.android.framework.customview.view.PorterShapeImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:siShape="@drawable/triangle"
+        android:src="@drawable/avatar"
+        app:siSquare="true" />
+
+    <com.android.framework.customview.viewgroup.MaskFrameLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:mask_drawable="@drawable/bubble_chat_msg_left">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f00" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="测试测试" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:text="测试测试" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="10dp"
+            android:text="测试测试" />
+
+    </com.android.framework.customview.viewgroup.MaskFrameLayout>
+
+
+</LinearLayout>

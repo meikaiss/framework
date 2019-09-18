@@ -1,0 +1,23 @@
+package com.android.framework.demo.activity.customshape;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+
+import com.android.framework.demo.R;
+
+/**
+ * Created by meikai on 2019/09/17.
+ */
+public class CustomShapeViewGroupActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_custom_shape_viewgroup);
+
+    }
+
+}
