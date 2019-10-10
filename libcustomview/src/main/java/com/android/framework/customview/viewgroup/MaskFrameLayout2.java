@@ -22,7 +22,7 @@ import com.android.framework.customview.R;
  * 蒙板容器，对容器内的所有子view按蒙板的形状进行裁切
  * Created by meikai on 2019/09/18.
  */
-public class MaskFrameLayout extends FrameLayout {
+public class MaskFrameLayout2 extends FrameLayout {
 
     private Paint paint;
     private PorterDuffXfermode xfermode;
@@ -31,23 +31,23 @@ public class MaskFrameLayout extends FrameLayout {
     private Bitmap maskBmp;
 
 
-    public MaskFrameLayout(@NonNull Context context) {
+    public MaskFrameLayout2(@NonNull Context context) {
         super(context);
         init(context, null, 0, 0);
     }
 
-    public MaskFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public MaskFrameLayout2(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0, 0);
     }
 
-    public MaskFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MaskFrameLayout2(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr, 0);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public MaskFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public MaskFrameLayout2(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -55,8 +55,8 @@ public class MaskFrameLayout extends FrameLayout {
 
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MaskFrameLayout);
-        maskDrawable = typedArray.getDrawable(R.styleable.MaskFrameLayout_mask_drawable);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MaskFrameLayout2);
+        maskDrawable = typedArray.getDrawable(R.styleable.MaskFrameLayout2_mask_drawable2);
         typedArray.recycle();
 
         paint = new Paint();
@@ -64,12 +64,6 @@ public class MaskFrameLayout extends FrameLayout {
         paint.setDither(true);//设定是否使用图像抖动处理，会使绘制出来的图片颜色更加平滑和饱满，图像更加清晰
 
         xfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
-
-        /**
-         * 注：必须开启硬件加速，否则不能正常工作。（在关闭硬件加速的情况下：本应显示透明的部分却显示了黑色）
-         * 虽然可能在某些机型上存在不生效的风险，但尚未找到其它解决方案。目前在小米、vivo上测试没有发现问题
-         */
-        setLayerType(LAYER_TYPE_HARDWARE, paint);
     }
 
     @Override
@@ -81,12 +75,18 @@ public class MaskFrameLayout extends FrameLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
+        /**
+         * 新建立一个layer层，之后所有的绘制都在这个图层上，这样xfermode才能操作合并图形
+         */
+        int saveCount = canvas.saveLayerAlpha(0, 0, getWidth(), getHeight(), 255, Canvas.ALL_SAVE_FLAG);
+
         super.dispatchDraw(canvas);
 
         if (maskBmp != null) {
             paint.setXfermode(xfermode);
             canvas.drawBitmap(maskBmp, 0, 0, paint);
         }
+        canvas.restoreToCount(saveCount);
     }
 
     private void createMaskBmp() {

@@ -172,5 +172,8 @@
         <attr name="mask_drawable" format="integer|reference" />
     </declare-styleable>
 
+    <declare-styleable name="MaskFrameLayout2">
+        <attr name="mask_drawable2" format="integer|reference" />
+    </declare-styleable>
 
 </resources>
