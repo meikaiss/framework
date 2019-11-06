@@ -107,6 +107,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            StatusBarColorActivity.class,
             CustomShapeViewGroupActivity.class,
             IncludeActivity.class,
             WrapHeightViewPagerActivity.class,
@@ -182,7 +183,6 @@ public class MainActivity extends BaseCompactActivity {
             ExplosionActivity.class,
             NumberSeekBarActivity.class,
             AppCompatTestActivity.class,
-            StatusBarColorActivity.class,
             NotificationActivity.class,
             BounceLoadingActivity.class,
             CircleLoadingActivity.class,
