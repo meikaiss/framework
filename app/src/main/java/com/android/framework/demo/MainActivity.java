@@ -19,6 +19,7 @@ import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.HuaWeiNavBarActivity;
 import com.android.framework.demo.activity.IncludeActivity;
+import com.android.framework.demo.activity.canvas.CanvasSaveLayerActivity;
 import com.android.framework.demo.activity.customshape.CustomShapeViewGroupActivity;
 import com.android.framework.demo.activity.WrapHeightViewPagerActivity;
 import com.android.framework.demo.activity.YouKuLinkActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            CanvasSaveLayerActivity.class,
             StatusBarColorActivity.class,
             CustomShapeViewGroupActivity.class,
             IncludeActivity.class,
