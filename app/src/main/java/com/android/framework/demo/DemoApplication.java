@@ -3,6 +3,8 @@ package com.android.framework.demo;
 import android.app.Application;
 import android.util.Log;
 
+import com.didichuxing.doraemonkit.DoraemonKit;
+
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -20,6 +22,8 @@ public class DemoApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        DoraemonKit.install(this);
 
         Log.e("DemoApplication", "DemoApplication_onCreate");
 

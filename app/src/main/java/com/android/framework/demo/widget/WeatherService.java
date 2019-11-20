@@ -14,13 +14,14 @@ import com.android.framework.demo.R;
 import com.android.framework.demo.data.Weather;
 import com.android.framework.api.ApiResponse;
 import com.android.framework.api.OkHttpManager;
-import com.squareup.okhttp.Request;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import okhttp3.Request;
 
 /**
  * Created by meikai on 16/1/12.

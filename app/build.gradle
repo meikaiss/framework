@@ -96,6 +96,9 @@ dependencies {
      */
     annotationProcessor("com.github.bumptech.glide:compiler:4.3.1")
 
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:2.0.1'
+    releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:2.0.1'
+
 }
 
 android.applicationVariants.all { variant ->

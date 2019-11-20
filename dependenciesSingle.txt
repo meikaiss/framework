@@ -1,0 +1,41 @@
+
+> Configure project :app
+**************************************
+variant: debug
+buildType: debug
+flavor: 
+manifest:  /Users/meikai/Documents/AndroidDev/GitHub/framework/app/build/intermediates/manifests/full/debug/AndroidManifest.xml
+rootProject.ext.android.compileSdkVersion:  28
+rootProject.ext.android.buildToolsVersion:  28.0.3
+rootProject.ext.android.applicationId:  com.android.framework.demo
+rootProject.ext.android.minSdkVersion:  21
+rootProject.ext.android.targetSdkVersion:  28
+rootProject.ext.android.versionCode:  12
+rootProject.ext.android.versionName:  1.2
+jdkVersion:  1.8
+**************************************
+**************************************
+variant: release
+buildType: release
+flavor: 
+manifest:  /Users/meikai/Documents/AndroidDev/GitHub/framework/app/build/intermediates/manifests/full/release/AndroidManifest.xml
+rootProject.ext.android.compileSdkVersion:  28
+rootProject.ext.android.buildToolsVersion:  28.0.3
+rootProject.ext.android.applicationId:  com.android.framework.demo
+rootProject.ext.android.minSdkVersion:  21
+rootProject.ext.android.targetSdkVersion:  28
+rootProject.ext.android.versionCode:  12
+rootProject.ext.android.versionName:  1.2
+jdkVersion:  1.8
+**************************************
+
+> Configure project :libndk
+****************************
+ndkdir===: /Users/Shared/Jenkins/Android_NDK/android-ndk-r10e
+****************************
+
+> Task :app:dependencyInsight
+No dependencies matching given input were found in configuration ':app:releaseRuntimeClasspath'
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 executed

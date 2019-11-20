@@ -7,14 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.framework.demo.R;
-import com.android.framework.demo.data.Weather;
 import com.android.framework.api.ApiResponse;
 import com.android.framework.api.OkHttpManager;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import com.android.framework.demo.R;
+import com.android.framework.demo.data.Weather;
 
 import java.io.IOException;
+
+import okhttp3.Response;
 
 /**
  * Created by meikai on 15/12/29.
@@ -55,11 +55,12 @@ public class OkHttpActivity extends AppCompatActivity implements View.OnClickLis
                     }
 
                     @Override
-                    public void onApiFailed(Request request, IOException e) {
+                    public void onApiFailed(okhttp3.Request request, IOException e) {
 
                         tvResult.setText("请求失败=" + request.url() + "\n" + e.getMessage());
 
                     }
+
                 });
                 break;
             case R.id.btn_sync:

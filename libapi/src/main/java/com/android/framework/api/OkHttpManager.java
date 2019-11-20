@@ -4,14 +4,17 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.alibaba.fastjson.JSONObject;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by meikai on 16/1/5.
@@ -30,9 +33,10 @@ public class OkHttpManager {
         if (instance == null) {
             synchronized (OkHttpManager.class) {
                 instance = new OkHttpManager();
-                okHttpClient = new OkHttpClient();
+                OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                builder.connectTimeout(10, TimeUnit.SECONDS);
+                okHttpClient = builder.build();
 
-                okHttpClient.setConnectTimeout(10, TimeUnit.SECONDS);
 
                 handler = new Handler(Looper.getMainLooper());
             }
@@ -59,12 +63,7 @@ public class OkHttpManager {
 
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Request request, IOException e) {
-                sendFailed2UiThread(request, e, apiCallBack);
-            }
-
-            @Override
-            public void onResponse(Response response) throws IOException {
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 final String result = new String(response.body().bytes(), DEFAULT_CODE_FORMAT);
 
                 JSONObject data = JSONObject.parseObject(result);
@@ -79,6 +78,12 @@ public class OkHttpManager {
 
                 sendSuccess2UiThread(apiResponse, apiCallBack);
             }
+
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                sendFailed2UiThread(request, e, apiCallBack);
+            }
+
         });
 
     }

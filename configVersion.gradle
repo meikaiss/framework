@@ -2,16 +2,16 @@ ext {
 
     jdkVersion = JavaVersion.VERSION_1_8
 
-    supportVersion = "27.1.1"
+    supportVersion = "28.0.0"
 
     android = [
-            compileSdkVersion: "27" as int,
-            buildToolsVersion: "27.0.3",
+            compileSdkVersion: "28" as int,
+            buildToolsVersion: "28.0.3",
 
             applicationId    : "com.android.framework.demo",
 
-            minSdkVersion    : 16,
-            targetSdkVersion : 26,
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
 
             versionCode      : "${frameworkVersionCode}" as int,
             versionName      : "${frameworkVersionName}"
@@ -21,7 +21,7 @@ ext {
     dependencies = [
             "junit"              : "junit:junit:4.12",
 
-            "okhttp"             : "com.squareup.okhttp:okhttp:2.7.0",
+            "okhttp"             : "com.squareup.okhttp3:okhttp:4.2.2",
             "fastjson"           : "com.alibaba:fastjson:1.2.8",
             "systembartint"      : "com.readystatesoftware.systembartint:systembartint:1.0.3",
 
@@ -40,5 +40,7 @@ ext {
 
             "constraint-layout"  : "com.android.support.constraint:constraint-layout:1.1.0"
     ]
+
+
 
 }
