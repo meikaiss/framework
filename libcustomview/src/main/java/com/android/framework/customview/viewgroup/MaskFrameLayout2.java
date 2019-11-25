@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Build;
@@ -95,9 +96,13 @@ public class MaskFrameLayout2 extends FrameLayout {
             Canvas canvas = new Canvas(maskBmp);
             maskDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
             maskDrawable.draw(canvas);
-        }else{
+        } else if (maskDrawable instanceof BitmapDrawable) {
+            maskBmp = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(maskBmp);
+            maskDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            maskDrawable.draw(canvas);  //当maskDrawable宽高和canvas宽高不一致时，系统竟然会自动缩放，不过这正是我所需要的；if else暂时保留
+        } else {
             //其它类型的 drawable 尚未支持，有需要时再扩展
-            //注意考虑普通 drawable 生成的 bitmap与 容器宽度不一致的场景
         }
     }
 
