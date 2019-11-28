@@ -39,8 +39,7 @@ public abstract class BaseCompactActivity extends AppCompatActivity implements B
 
         initSystemBarTint(true);
 
-        if (getContentViewLayoutId() > 0)
-            setContentView(getContentViewLayoutId());
+        setContentView(getContentViewLayoutId());
 
         registerThemeChangeBroadCast();
 

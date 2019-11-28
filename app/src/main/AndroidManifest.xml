@@ -255,6 +255,7 @@
         <activity android:name=".activity.IncludeActivity"/>
         <activity android:name=".activity.customshape.CustomShapeViewGroupActivity"/>
         <activity android:name=".activity.canvas.CanvasSaveLayerActivity"/>
+        <activity android:name=".activity.viewdemo.measureExtend.MeasureExtendActivity"/>
 
 
         <!-- service 注册 -->

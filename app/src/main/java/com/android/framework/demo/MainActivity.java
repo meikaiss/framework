@@ -88,6 +88,7 @@ import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
 import com.android.framework.demo.activity.viewdemo.SlideViewPagerActivity;
 import com.android.framework.demo.activity.viewdemo.SmartGridViewActivity;
 import com.android.framework.demo.activity.viewdemo.XFlowLayoutActivity;
+import com.android.framework.demo.activity.viewdemo.measureExtend.MeasureExtendActivity;
 import com.android.framework.demo.activity.webview.MikeWebViewActivity;
 import com.android.framework.demo.media.MediaDemoMainActivity;
 import com.android.framework.demo.requesttest.RequestTestActivity;
@@ -108,6 +109,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            MeasureExtendActivity.class,
             CanvasSaveLayerActivity.class,
             StatusBarColorActivity.class,
             CustomShapeViewGroupActivity.class,

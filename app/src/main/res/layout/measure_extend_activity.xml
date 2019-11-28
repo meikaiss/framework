@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#f00"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="#0f0">
+
+            <com.android.framework.demo.activity.viewdemo.measureExtend.MeasureExtendLayout
+                android:id="@+id/extend_layout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#00f">
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="btn1" />
+
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="btn2" />
+
+            </com.android.framework.demo.activity.viewdemo.measureExtend.MeasureExtendLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="红色为爷，绿色为父，蓝色为孙。正常情况孙是不能超出父的，即使结合clipChildren=false，超出部分也不能点击。
+        \n 爷onTouchListener里调用孙.dispatchTouchEvent来实现点击"/>
+
+</LinearLayout>
