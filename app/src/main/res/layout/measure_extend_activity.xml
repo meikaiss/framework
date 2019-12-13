@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <LinearLayout
         android:id="@+id/parent_layout"
         android:layout_width="match_parent"
@@ -47,6 +46,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="红色为爷，绿色为父，蓝色为孙。正常情况孙是不能超出父的，即使结合clipChildren=false，超出部分也不能点击。
-        \n 爷onTouchListener里调用孙.dispatchTouchEvent来实现点击"/>
+        \n 爷onTouchListener里调用孙.dispatchTouchEvent来实现点击" />
 
 </LinearLayout>

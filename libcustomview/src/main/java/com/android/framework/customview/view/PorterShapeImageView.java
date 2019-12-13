@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import com.android.framework.customview.R;
 
 /**
+ * 按指定的形状裁剪
  * Created by meikai on 2019/09/17.
  */
 public class PorterShapeImageView extends PorterImageView {

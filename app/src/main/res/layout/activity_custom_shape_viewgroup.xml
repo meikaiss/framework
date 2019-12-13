@@ -18,6 +18,12 @@
         android:src="@drawable/avatar"
         app:siSquare="true" />
 
+    <com.android.framework.customview.viewgroup.MaskImageView
+        android:id="@+id/mask_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:mask_image_drawable="@drawable/bj__ic_slide_right" />
+
     <com.android.framework.customview.viewgroup.MaskFrameLayout
         android:layout_width="200dp"
         android:layout_height="200dp"

@@ -23,21 +23,21 @@ public class DemoApplication extends Application {
         super.onCreate();
         instance = this;
 
-        DoraemonKit.install(this);
+//        DoraemonKit.install(this);
 
         Log.e("DemoApplication", "DemoApplication_onCreate");
 
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(Thread t, Throwable e) {
-                if (t.getName().equals("FinalizerWatchdogDaemon")
-                        && e instanceof TimeoutException) {
-                    // 无视此异常
-                } else {
-                    uncaughtExceptionHandler.uncaughtException(t, e);
-                }
-            }
-        });
+//        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+//        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+//            @Override
+//            public void uncaughtException(Thread t, Throwable e) {
+//                if (t.getName().equals("FinalizerWatchdogDaemon")
+//                        && e instanceof TimeoutException) {
+//                    // 无视此异常
+//                } else {
+//                    uncaughtExceptionHandler.uncaughtException(t, e);
+//                }
+//            }
+//        });
     }
 }

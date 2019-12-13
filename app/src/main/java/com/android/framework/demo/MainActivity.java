@@ -17,6 +17,7 @@ import com.android.framework.demo.activity.ClipChildrenActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
 import com.android.framework.demo.activity.DecimalFormatActivity;
+import com.android.framework.demo.activity.FragmentRepeatActivity;
 import com.android.framework.demo.activity.HuaWeiNavBarActivity;
 import com.android.framework.demo.activity.IncludeActivity;
 import com.android.framework.demo.activity.canvas.CanvasSaveLayerActivity;
@@ -109,6 +110,7 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            FragmentRepeatActivity.class,
             MeasureExtendActivity.class,
             CanvasSaveLayerActivity.class,
             StatusBarColorActivity.class,

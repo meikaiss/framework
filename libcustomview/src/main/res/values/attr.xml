@@ -176,4 +176,8 @@
         <attr name="mask_drawable2" format="integer|reference" />
     </declare-styleable>
 
+    <declare-styleable name="MaskImageView">
+        <attr name="mask_image_drawable" format="integer|reference" />
+    </declare-styleable>
+
 </resources>
