@@ -31,7 +31,7 @@
         tools:replace="android:label,android:theme,android:icon">
 
         <activity
-            android:name=".activity.FragmentRepeatActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.app.searchable"
@@ -256,6 +256,7 @@
         <activity android:name=".activity.customshape.CustomShapeViewGroupActivity"/>
         <activity android:name=".activity.canvas.CanvasSaveLayerActivity"/>
         <activity android:name=".activity.viewdemo.measureExtend.MeasureExtendActivity"/>
+        <activity android:name=".activity.FragmentRepeatActivity"/>
 
 
         <!-- service 注册 -->
