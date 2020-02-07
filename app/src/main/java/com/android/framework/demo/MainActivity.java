@@ -20,10 +20,13 @@ import com.android.framework.demo.activity.DecimalFormatActivity;
 import com.android.framework.demo.activity.FragmentRepeatActivity;
 import com.android.framework.demo.activity.HuaWeiNavBarActivity;
 import com.android.framework.demo.activity.IncludeActivity;
+import com.android.framework.demo.activity.LinkColorTextViewActivity;
+import com.android.framework.demo.activity.RadarViewActivity;
 import com.android.framework.demo.activity.canvas.CanvasSaveLayerActivity;
 import com.android.framework.demo.activity.customshape.CustomShapeViewGroupActivity;
 import com.android.framework.demo.activity.WrapHeightViewPagerActivity;
 import com.android.framework.demo.activity.YouKuLinkActivity;
+import com.android.framework.demo.activity.shareelement.Share1Activity;
 import com.android.framework.demo.activity.viewdemo.DouYinSeekViewActivity;
 import com.android.framework.demo.activity.GalleryRecyclerViewActivity;
 import com.android.framework.demo.activity.LayoutAnimationActivity;
@@ -110,6 +113,9 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            Share1Activity.class,
+            LinkColorTextViewActivity.class,
+            RadarViewActivity.class,
             FragmentRepeatActivity.class,
             MeasureExtendActivity.class,
             CanvasSaveLayerActivity.class,

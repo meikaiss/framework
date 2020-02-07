@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/img_targer_1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:transitionName="image"
+        android:src="@drawable/avatar" />
+
+    <FrameLayout
+        android:id="@+id/img_targer_2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:transitionName="image"
+        android:background="@drawable/avatar" />
+
+</LinearLayout>

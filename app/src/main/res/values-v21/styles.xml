@@ -8,6 +8,7 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:fitsSystemWindows">true</item>
         <!--<item name="android:navigationBarColor">@color/colorPrimary</item>-->
+<!--        <item name="android:windowContentTransitions">true</item>-->
     </style>
 
     <style name="ColorStatusBar" parent="@style/BaseColorStatusBar"></style>

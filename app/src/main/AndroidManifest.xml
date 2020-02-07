@@ -257,6 +257,11 @@
         <activity android:name=".activity.canvas.CanvasSaveLayerActivity"/>
         <activity android:name=".activity.viewdemo.measureExtend.MeasureExtendActivity"/>
         <activity android:name=".activity.FragmentRepeatActivity"/>
+        <activity android:name=".activity.RadarViewActivity"/>
+        <activity android:name=".activity.LinkColorTextViewActivity"/>
+        <activity android:name=".activity.shareelement.Share1Activity"
+            android:theme="@style/Theme.AppCompat"/>
+        <activity android:name=".activity.shareelement.Share2Activity"/>
 
 
         <!-- service 注册 -->
