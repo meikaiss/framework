@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk",
+    "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/lib clean"
+  ],
+  "libraries": {
+    "ndk-release-x86": {
+      "artifactName": "ndk",
+      "buildCommand": "/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/lib /Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj/local/x86/libndk.so",
+      "abi": "x86",
+      "output": "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj/local/x86/libndk.so"
+    }
+  }
+}

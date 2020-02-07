@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk",
+    "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/lib clean"
+  ],
+  "libraries": {
+    "ndk-release-arm64-v8a": {
+      "buildCommand": "/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/lib /Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libndk.so",
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "ndk",
+      "files": [
+        {
+          "src": "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/NdkWrap.cpp",
+          "flags": "-fpic -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-exceptions -fno-rtti -O2 -g -DNDEBUG -fomit-frame-pointer -fstrict-aliasing -funswitch-loops -finline-limit\u003d300 -I/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/sources/cxx-stl/system/include -I/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security -I/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/platforms/android-21/arch-arm64/usr/include"
+        },
+        {
+          "src": "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni/encrypt.cpp",
+          "flags": "-fpic -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-exceptions -fno-rtti -O2 -g -DNDEBUG -fomit-frame-pointer -fstrict-aliasing -funswitch-loops -finline-limit\u003d300 -I/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/sources/cxx-stl/system/include -I/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security -I/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/platforms/android-21/arch-arm64/usr/include"
+        }
+      ],
+      "output": "/Users/meikai/Documents/AndroidDev/GitHub/framework/libndk/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libndk.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-arm64-v8a": {
+      "cppCompilerExecutable": "/Users/Shared/Jenkins/Android_NDK/android-ndk-r10e/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin/aarch64-linux-android-g++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
