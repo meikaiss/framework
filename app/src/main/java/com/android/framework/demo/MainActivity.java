@@ -13,6 +13,7 @@ import com.android.framework.AidlMainActivity;
 import com.android.framework.base.BaseCompactActivity;
 import com.android.framework.demo.activity.AnimationListActivity;
 import com.android.framework.demo.activity.BottomBarActivity;
+import com.android.framework.demo.activity.BreatheActivity;
 import com.android.framework.demo.activity.ClipChildrenActivity;
 import com.android.framework.demo.activity.ConstraintLayoutActivity;
 import com.android.framework.demo.activity.CustomDrawableActivity;
@@ -22,6 +23,7 @@ import com.android.framework.demo.activity.HuaWeiNavBarActivity;
 import com.android.framework.demo.activity.IncludeActivity;
 import com.android.framework.demo.activity.LinkColorTextViewActivity;
 import com.android.framework.demo.activity.RadarViewActivity;
+import com.android.framework.demo.activity.span.SpanActivity;
 import com.android.framework.demo.activity.canvas.CanvasSaveLayerActivity;
 import com.android.framework.demo.activity.customshape.CustomShapeViewGroupActivity;
 import com.android.framework.demo.activity.WrapHeightViewPagerActivity;
@@ -86,6 +88,7 @@ import com.android.framework.demo.activity.viewdemo.MarqueeViewActivity;
 import com.android.framework.demo.activity.viewdemo.NumberSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.PinnedHeaderListViewActivity;
 import com.android.framework.demo.activity.viewdemo.PriceRangeActivity;
+import com.android.framework.demo.activity.viewdemo.ProgressImageActivity;
 import com.android.framework.demo.activity.viewdemo.RangeSeekBar2Activity;
 import com.android.framework.demo.activity.viewdemo.RangeSeekBarActivity;
 import com.android.framework.demo.activity.viewdemo.ScrollLayoutActivity;
@@ -113,6 +116,10 @@ public class MainActivity extends BaseCompactActivity {
     private ListView listView;
 
     private Class<?>[] classes = {
+            AppBarLayoutActivity.class,
+            BreatheActivity.class,
+            ProgressImageActivity.class,
+            SpanActivity.class,
             Share1Activity.class,
             LinkColorTextViewActivity.class,
             RadarViewActivity.class,
@@ -174,7 +181,6 @@ public class MainActivity extends BaseCompactActivity {
             AnimatedVectorDrawableActivity.class,
             SwipeDismissBehaviorActivity.class,
             CoordinatorLayoutActivity.class,
-            AppBarLayoutActivity.class,
             InsetClipActivity.class,
             FuseImageActivity.class,
             LevelImageViewActivity.class,

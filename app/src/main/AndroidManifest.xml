@@ -262,6 +262,9 @@
         <activity android:name=".activity.shareelement.Share1Activity"
             android:theme="@style/Theme.AppCompat"/>
         <activity android:name=".activity.shareelement.Share2Activity"/>
+        <activity android:name=".activity.span.SpanActivity"/>
+        <activity android:name=".activity.viewdemo.ProgressImageActivity"/>
+        <activity android:name=".activity.BreatheActivity"/>
 
 
         <!-- service 注册 -->
