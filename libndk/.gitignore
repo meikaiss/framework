@@ -1,4 +1,4 @@
+/.externalNativeBuild
 /build
-/src/androidTest
-/src/test
+/src/main/libs
 /src/main/obj
